@@ -28,6 +28,7 @@ class Session {
     CanonLevel canonLevel = CanonLevel.CANON_ONLY; //regular sessions are canon only, but wastes and eggs can change that.
     num numScenes = 0;
     bool sbahj = false;
+    bool leetHax = false;
     num hardStrength = 1000;
     num minFrogLevel = 13;
     num goodFrogLevel = 20;

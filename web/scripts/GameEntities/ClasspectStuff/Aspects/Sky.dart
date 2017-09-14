@@ -20,4 +20,9 @@ class Sky extends Aspect{
 
 //todo make these fellas do stuff.
   Sky(int id) :super(id, "Sky", isCanon: false);
+
+  @override
+  String activateCataclysm(Session s, Player p) {
+    return s.mutator.sky(s, p);
+  }
 }

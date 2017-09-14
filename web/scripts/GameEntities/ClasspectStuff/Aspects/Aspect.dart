@@ -70,7 +70,7 @@ abstract class Aspects {
         LIFE = new Life(11);
         DREAM = new Dream(12);
 
-        NULL = new Aspect(255, "Null", isInternal:true);
+        NULL = new Aspect(255, "Null", isInternal:false);
 
         MIGHT = new Might(13);
         MIST = new Mist(14);
@@ -399,4 +399,6 @@ class AspectPalette extends Palette {
     Colour get pants_dark => this[_PANTS_DARK];
 
     void set pants_dark(dynamic c) => this.add(_PANTS_DARK, _handleInput(c), true);
+
+
 }

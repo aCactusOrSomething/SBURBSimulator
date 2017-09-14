@@ -73,4 +73,8 @@ class Sand extends Aspect {
 
   Sand(int id) :super(id, "Sand", isCanon: false);
 
+  @override
+  String activateCataclysm(Session s, Player p) {
+    return s.mutator.sand(s, p);
+  }
 }

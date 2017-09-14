@@ -5,7 +5,7 @@ class Rain extends Aspect {
   @override
   AspectPalette palette = new AspectPalette()
     ..accent = '#00FFFF'
-    ..aspect_light = '#00ffff'//
+    ..aspect_light = '#00ffff'
     ..aspect_dark = '#009090'
     ..shoe_light = '#FEFEFE'
     ..shoe_dark = '#707070'
@@ -46,4 +46,9 @@ class Rain extends Aspect {
     ]);
 
   Rain(int id) :super(id, "Rain", isCanon: false);
+
+  @override
+  String activateCataclysm(Session s, Player p) {
+    return s.mutator.rain(s, p);
+  }
 }

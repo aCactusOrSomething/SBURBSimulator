@@ -283,7 +283,9 @@ abstract class SimController {
             pen15Ouija();
         }
 
-
+        if (getParameterByName("leet", null) == "hax"){
+            leetHaxMode();
+        }
 
         if (getParameterByName("faces", null) == "off") {
             faceOffMode();

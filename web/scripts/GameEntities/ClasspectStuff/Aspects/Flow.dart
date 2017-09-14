@@ -5,18 +5,18 @@ class Flow extends Aspect{
 
   @override
   AspectPalette palette = new AspectPalette()
-    ..accent = "#ee0000"//
-    ..aspect_light = '#ff0000'//
-    ..aspect_dark = '#d10000'//
-    ..shoe_light = '#00ffff'//
-    ..shoe_dark = '#00d1d1'//
-    ..cloak_light = '#e68f39'//
-    ..cloak_mid = '#d67e2b'//
-    ..cloak_dark = '#c46b1d'//
-    ..shirt_light = '#e65c00'//
-    ..shirt_dark = '#b82e00'//
-    ..pants_light = '#ffd966'//
-    ..pants_dark = '#d1ab3b';//
+    ..accent = "#ee0000"
+    ..aspect_light = '#ff0000'
+    ..aspect_dark = '#d10000'
+    ..shoe_light = '#00ffff'
+    ..shoe_dark = '#00d1d1'
+    ..cloak_light = '#e68f39'
+    ..cloak_mid = '#d67e2b'
+    ..cloak_dark = '#c46b1d'
+    ..shirt_light = '#e65c00'
+    ..shirt_dark = '#b82e00'
+    ..pants_light = '#ffd966'
+    ..pants_dark = '#d1ab3b';
 
   @override
   List<String> landNames = new List<String>.unmodifiable(<String>["Fire", "Track", "Mercury", "Heat", "Burns", "Mixtapes", "Spaghetti"]);
@@ -46,4 +46,9 @@ class Flow extends Aspect{
   ]);
 
   Flow(int id) :super(id, "Flow", isCanon: false);
+
+  @override
+  String activateCataclysm(Session s, Player p) {
+    return s.mutator.flow(s, p);
+  }
 }
