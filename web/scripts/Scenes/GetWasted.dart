@@ -51,7 +51,7 @@ class GetWasted extends Scene {
         this.playerList = playerList;
         this.player = null;
         List<Player> possibilities = new List<Player>();
-        if(this.session.leetHax != false) {
+        if(this.session.leetHax == false) {
             for (Player p in session
                 .getReadOnlyAvailablePlayers()) { //unlike grim dark, corpses are not allowed to have eureka moments.
                 if (this.loreReachedTippingPoint(p)) {

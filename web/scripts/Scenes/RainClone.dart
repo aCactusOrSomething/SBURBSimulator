@@ -42,6 +42,9 @@ class RainClone extends Scene {
     rainyClone = this.original.clone();
     rainyClone.session = this.original.session;
     rainyClone.denizen = this.original.denizen;//clones don't get their own denizen. hopefully, this wont exile the Original's Denizen...
+    rainyClone.ectoBiologicalSource = -1;//nope, rain clones don't get ecto-clones.
+    rainyClone.canGodTierRevive = false; //please no.
+    rainyClone.dreamSelf = false;
     rainyClone.relationships = this.original.relationships;//todo:
 
 
@@ -54,7 +57,7 @@ class RainClone extends Scene {
 
     rainyClone.guardian = this.original.guardian;
     for (int i = 0; i < this.session.players.length; i++) {
-      GameEntity g = this.session.players[i]; //could be a sprite, and they don't have classpects.
+      GameEntity g = this.session.players[i];  //could be a sprite, and they don't have classpects.
       if (g is Player) {
         Player p = this.session.players[i];
         if (p == this.original) {
