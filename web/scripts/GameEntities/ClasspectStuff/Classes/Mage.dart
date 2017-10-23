@@ -1,4 +1,4 @@
-import "../../GameEntity.dart";
+import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
 
 class Mage extends SBURBClass {
@@ -11,11 +11,24 @@ class Mage extends SBURBClass {
     @override
     List<String> handles = ["magnificent", "managerial", "major", "majestic", "mannerly", "malignant", "morbid"];
 
+    @override
+    bool isProtective = false;
+    @override
+    bool isSmart = true;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = false;
+
     Mage() : super("Mage", 2, true);
 
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("sburbLore", 0.4, false)
+        new AssociatedStat(Stats.SBURB_LORE, 0.4, false)
     ]);
 
     @override
@@ -24,7 +37,7 @@ class Mage extends SBURBClass {
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 

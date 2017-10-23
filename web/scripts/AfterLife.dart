@@ -59,24 +59,25 @@ class AfterLife {
 
 		return lovedOnes;
 	}
-	dynamic findAllDeadHatedOnes(player){
-		List<Player> hatedOnes = [];
-    List<Player> clubs = player.getClubs();
-    List<Player> spades = player.getSpades();
-    List<Player> crushes = player.getBlackCrushes();
-		List<Player> relationships = new List<Player>();
-		relationships.addAll(spades);
-		relationships.addAll(clubs);
-		relationships.addAll(crushes);
 
-		for(num i = 0; i<relationships.length; i++){
-			Player r = relationships[i];
-			hatedOnes.addAll(this.findAllAlternateSelves(r));
-		}
+    List<Player> findAllDeadHatedOnes(Player player){
+	    List<Player> hatedOnes = [];
+	    List<Relationship> clubs = player.getClubs();
+	    List<Relationship> spades = player.getSpades();
+	    List<Relationship> crushes = player.getBlackCrushes();
+	    List<Relationship> relationships = new List<Relationship>();
+	    relationships.addAll(clubs);
+	    relationships.addAll(spades);
+	    relationships.addAll(crushes);
+	    for(num i = 0; i<relationships.length; i++){
+		    var r = relationships[i];
+		    hatedOnes.addAll(this.findAllAlternateSelves(r.target));
+	    }
 
-		return hatedOnes;
-	}
-	dynamic findAllDeadFriends(player){
+	    return hatedOnes;
+    }
+
+	dynamic findAllDeadFriends(Player player){
 		List<dynamic> lovedOnes = [];
 		var relationships = player.getFriends();
 		for(num i = 0; i <relationships.length; i++){
@@ -87,7 +88,7 @@ class AfterLife {
 
 		return lovedOnes;
 	}
-	dynamic findAllDeadEnemies(player){
+	dynamic findAllDeadEnemies(Player player){
 		List<dynamic> hatedOnes = [];
 		var relationships = player.getEnemies();
 		for(num i = 0; i <relationships.length; i++){
@@ -97,16 +98,16 @@ class AfterLife {
 
 		return hatedOnes;
 	}
-	dynamic findAssholeSpirit(player){
+	dynamic findAssholeSpirit(Player player){
 		return player.rand.pickFrom(this.findAllDeadEnemies(player));
 	}
-	dynamic findFriendlySpirit(player){
+	dynamic findFriendlySpirit(Player player){
 		return player.rand.pickFrom(this.findAllDeadFriends(player));
 	}
-	bool areTwoPlayersTheSame(player1, player2){
-		return player2.id == player1.id && player2.class_name == player1.class_name && player2.aspect == player1.aspect && player1.hair == player2.hair;   //if they STILL match, well fuck it. they are the same person just alternate universe versions of each other.;
+	bool areTwoPlayersTheSame(Player player1, Player player2){
+		return player2.id == player1.id ;   //if they STILL match, well fuck it. they are the same person just alternate universe versions of each other.;
 	}
-	dynamic findClosesToRealSelf(player){
+	dynamic findClosesToRealSelf(Player player){
 		var selves = this.findAllAlternateSelves(player);
 		if(selves.length == 0) return null;
 		num bestCanidateValue = 9999999;
@@ -115,7 +116,7 @@ class AfterLife {
 		for(num i = 0; i<selves.length; i++){
 			var ghost = selves[i];
 			if(ghost.isDreamSelf == player.isDreamSelf && ghost.godTier == player.godTier){ //at least LOOK the same. (call this BEFORE reviving)
-				num val = (ghost.getStat("power") - player.getStat("power") ).abs();
+				num val = (ghost.getStat(Stats.POWER) - player.getStat(Stats.POWER) ).abs();
 				if(val < bestCanidateValue){
 					bestCanidateValue = val;
 					bestCanidate = ghost;
@@ -124,7 +125,7 @@ class AfterLife {
 		}
 		return bestCanidate; //no way to know for SURE this is the most recent ghost...but...PRETTY sure???
 	}
-	List<Player> findAllAlternateSelves(player){
+	List<Player> findAllAlternateSelves(Player player){
 		List<Player> selves = [];
 		for(num i = 0; i<this.ghosts.length; i++){
 			var ghost = this.ghosts[i];
@@ -134,7 +135,7 @@ class AfterLife {
 		}
 		return selves;
 	}
-	dynamic findAnyAlternateSelf(player){
+	dynamic findAnyAlternateSelf(Player player){
 		return player.rand.pickFrom(this.findAllAlternateSelves(player));
 	}
 	dynamic findAnyGhost(player){
@@ -153,12 +154,11 @@ class AfterLife {
 }
 
 
-//pastJR was a dunkass and made ghostPacts lists of [Player, enablingAspect] pairs. need to make that an object later.
-List<dynamic> removeDrainedGhostsFromPacts(ghostPacts){
-	List<dynamic> ret = [];
+List<GhostPact> removeDrainedGhostsFromPacts(List<GhostPact> ghostPacts){
+	List<GhostPact> ret = [];
 	if(ghostPacts == null) return [];
 	for(num i = 0; i<ghostPacts.length; i++){
-		if(!ghostPacts[i][0].causeOfDrain.empty){
+		if(ghostPacts[i].ghost.causeOfDrain != null && ghostPacts[i].ghost.causeOfDrain.isNotEmpty){
 			ret.add(ghostPacts[i]);
 		}
 	}

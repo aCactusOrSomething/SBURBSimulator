@@ -13,8 +13,21 @@ class Witch extends SBURBClass {
     List<String> handles = ["wondering", "wonderful", "wacky", "withering", "worldly", "weighty"];
 
     @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = true;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = false;
+
+    @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("sburbLore", 0.1, false)
+        new AssociatedStat(Stats.SBURB_LORE, 0.1, false)
     ]);
 
     Witch() : super("Witch", 11, true);
@@ -25,7 +38,7 @@ class Witch extends SBURBClass {
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 
@@ -47,7 +60,7 @@ class Witch extends SBURBClass {
 
     @override
     void processStatInteractionEffect(Player p, GameEntity target, AssociatedStat stat) {
-        num powerBoost = 2 * p.getStat("power") / 20;
+        num powerBoost = 2 * p.getPowerForEffects() / 20;
         powerBoost = this.modPowerBoostByClass(powerBoost, stat);
         if(p.session.mutator.bloodField) powerBoost = powerBoost * p.session.mutator.bloodBoost;
         //modify self.
@@ -55,7 +68,7 @@ class Witch extends SBURBClass {
     }
 
     @override
-    String interactionFlavorText(GameEntity me, GameEntity target) {
+    String interactionFlavorText(Player me, GameEntity target, Random rand) {
         return " The ${me.htmlTitle()} appears to be feeling more powerful after being around the ${target.htmlTitle()} ";
     }
 

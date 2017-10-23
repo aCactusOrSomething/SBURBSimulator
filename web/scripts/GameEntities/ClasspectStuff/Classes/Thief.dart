@@ -1,6 +1,8 @@
 import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
-
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
 
 class Thief extends SBURBClass {
     @override
@@ -12,6 +14,19 @@ class Thief extends SBURBClass {
     @override
     List<String> handles = ["talented", "terrible", "talkative", "tenacious", "tried", "torrented"];
 
+    @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = true;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = false;
+
     Thief() : super("Thief", 7, true);
 
 
@@ -22,12 +37,12 @@ class Thief extends SBURBClass {
     }
 
     @override
-    String interactionFlavorText(GameEntity me, GameEntity target) {
-        return " The ${me.htmlTitle()} appears to be taking something from the ${target.htmlTitle()} and keeping it for themself. ";
+    String interactionFlavorText(Player me, GameEntity target, Random rand) {
+        return " The ${me.htmlTitle()} appears to be taking ${rand.pickFrom(me.aspect.symbolicMcguffins)}  from the ${target.htmlTitle()} and keeping it for themself. ";
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 
@@ -58,12 +73,31 @@ class Thief extends SBURBClass {
 
     @override
     void processStatInteractionEffect(Player p, GameEntity target, AssociatedStat stat) {
-        num powerBoost = p.getStat("power") / 20;
+        num powerBoost = p.getPowerForEffects() / 20;
         powerBoost = 3 * powerBoost; //make up for how shitty your boost is for increasePower, THIS is how you are supposed to level.
         powerBoost = this.modPowerBoostByClass(powerBoost, stat);
         if(p.session.mutator.bloodField) powerBoost = powerBoost * p.session.mutator.bloodBoost;
         target.modifyAssociatedStat((-1 * powerBoost), stat);
         p.modifyAssociatedStat(powerBoost, stat);
     }
+
+
+    @override
+    void initializeThemes() {
+        addTheme(new Theme(<String>["Police","Law","Jails", "Slammers", "Officers","Cops","Prisons", "Detectives","Crime"])
+            ..addFeature(FeatureFactory.DECEITSMELL, Feature.HIGH)
+            ..addFeature(FeatureFactory.DANGEROUSFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.ENERGIZINGFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CLANKINGSOUND, Feature.MEDIUM)
+            ..addFeature(new PostDenizenQuestChain("Escape the Law", [
+                new Quest("The ${Quest.PLAYER1} is just minding their own business, when they see a huge stack of boonies. Unable to resist, they pilfer just a bit. A nearby ${Quest.CONSORTSOUND} sounds the alarm, shit, the ${Quest.PLAYER1} didn't know anybody was looking!  They flee with as many boonies as they can carry."),
+                new Quest("The ${Quest.PLAYER1} is keeping a low profile. Shit's still too hot to spend their ill gotten boonies, but it'll be worth it, they just know it."),
+                new Quest("Fuck, the ${Quest.PLAYER1} has been spotted. They lead the police ${Quest.CONSORT}s on a wild chase that ends with the ${Quest.PLAYER1} faking their own death and assuming a new identity. They can FINALLY spend those boonies. "),
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ,  Theme.MEDIUM);
+
+
+    }
+
 
 }

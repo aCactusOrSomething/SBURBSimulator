@@ -466,8 +466,8 @@ abstract class Drawing {
 
     */
 
-    static CanvasElement drawReviveDead(Element div, Player player, Player ghost, String enablingAspect) {
-        String canvasId = "${div.id}commune_${player.chatHandle}${ghost.chatHandle}${player.getStat("power")}${ghost.getStat("power")}";
+    static CanvasElement drawReviveDead(Element div, Player player, Player ghost, Aspect enablingAspect) {
+        String canvasId = "${div.id}commune_${player.chatHandle}${ghost.chatHandle}";
         String canvasHTML = "<br><canvas id='$canvasId' width='$canvasWidth' height='$canvasHeight'>  </canvas>";
         appendHtml(div, canvasHTML);
         CanvasElement canvas = querySelector("#$canvasId");
@@ -479,14 +479,14 @@ abstract class Drawing {
         //CanvasElement canvasBuffer = getBufferCanvas(querySelector("#canvas_template"));
 
         //leave room on left for possible 'guide' player.
-        if (enablingAspect == "Life") {
+        if (enablingAspect == Aspects.LIFE) {
             drawWhatever(canvas, "afterlife_life.png");
         } else if (enablingAspect == "Doom") {
             drawWhatever(canvas, "afterlife_doom.png");
         }
         copyTmpCanvasToRealCanvasAtPos(canvas, pSpriteBuffer, 200, 0);
         copyTmpCanvasToRealCanvasAtPos(canvas, gSpriteBuffer, 500, 0);
-        if (enablingAspect == "Life") {
+        if (enablingAspect ==  Aspects.DOOM) {
             drawWhatever(canvas, "life_res.png");
         } else if (enablingAspect == "Doom") {
             drawWhatever(canvas, "doom_res.png");
@@ -607,6 +607,7 @@ abstract class Drawing {
         for (int i = 0; i < dead_players.length; i++) {
             dead_spriteBuffers.add(getBufferCanvas(querySelector("#sprite_template")));
             //drawBG(dead_spriteBuffers[i], "#00ff00", "#ff0000");
+            drawWhatever(dead_spriteBuffers[i], dead_players[i].aspect.bigSymbolImgLocation);
             drawSprite(dead_spriteBuffers[i], dead_players[i]);
         }
 
@@ -674,18 +675,15 @@ abstract class Drawing {
         left_margin = 10;
         current = current + 42 + 42;
         ctx.fillStyle = "#000000";
-        List<String> allStats = player.allStats();
-        for (int i = 0; i < allStats.length; i++) {
-            ctx.fillText("${allStats[i]}: ", left_margin, current + line_height * i);
-            ctx.fillText(player.getStat(allStats[i]).toString(), right_margin, current + line_height * i);
+        Iterable<Stat> allStats = Stats.all.where((Stat stat) => stat.summarise && !stat.transient);
+        int i=0;
+        for (Stat stat in allStats) {
+            ctx.fillText("$stat: ", left_margin, current + line_height * i);
+            ctx.fillText(player.getStat(stat).round().toString(), right_margin, current + line_height * i);
+            i++;
         }
-        int i = allStats.length;
 
-        ctx.fillText("MANGRIT: ", left_margin, current + line_height * i);
-        ctx.fillText((player.permaBuffs["MANGRIT"]).round().toString(), right_margin, current + line_height * i);
-        i++;
-
-        ctx.fillText("Quests Completed: ", left_margin, current + line_height * i);
+        ctx.fillText("Land Rep: ", left_margin, current + line_height * i);
         ctx.fillText(player.landLevel.toString(), right_margin, current + line_height * i);
         i++;
 
@@ -1603,7 +1601,7 @@ abstract class Drawing {
         }
 
         if (!baby && player.aspect == Aspects.VOID) {
-            voidSwap(canvas, 1 - player.getStat("power") / 2000); //a void player at 2000 power is fully invisible.
+            voidSwap(canvas, 1 - player.getStat(Stats.POWER) / (2000 * Stats.POWER.coefficient)); //a void player at 2000 power is fully invisible.
         }else if(player.session.mutator.lightField && !player.session.mutator.hasSpotLight(player)) {
             voidSwap(canvas, 0.2); //compared to the light player, you are irrelevant.
         }
@@ -1953,8 +1951,7 @@ abstract class Drawing {
             ..shoe_light = player.aspect.palette.shirt_light
             ..shoe_dark = player.aspect.palette.shirt_dark;
 
-        Palette dream = player.moon == "Prospit" ? ReferenceColours.PROSPIT_PALETTE : ReferenceColours.DERSE_PALETTE;
-
+        Palette dream = player.moon.palette;
         Palette p = new Palette.combined(<Palette>[dream, shoes]);
 
         swapPalette(canvas, ReferenceColours.SPRITE_PALETTE, p);

@@ -5,11 +5,12 @@ import 'dart:html';
 import 'SBURBSim.dart';
 import "includes/tracer.dart";
 export 'includes/logger.dart';
+export 'includes/math_utils.dart';
 
 export "SessionEngine/SessionMutator.dart";
 export "NPCEngine/NPCHandler.dart";
 export "SessionEngine/SessionStats.dart";
-export "Controllers/SimController.dart";
+export "Controllers/Misc/SimController.dart";
 export "GameEntities/ClasspectStuff/Aspects/Aspect.dart";
 export "GameEntities/ClasspectStuff/Classes/SBURBClass.dart";
 export "GameEntities/ClasspectStuff/Interests/Interest.dart";
@@ -17,8 +18,15 @@ export "GameEntities/Stats/buff.dart";
 export "GameEntities/Stats/stat.dart";
 export "GameEntities/Stats/statholder.dart";
 export "formats/FileFormat.dart";
+export "loader/loader.dart";
 export "fraymotif.dart";
+export "Lands/Theme.dart";
+export "Lands/Feature.dart";
+export "Lands/Land.dart";
+export "Lands/Moon.dart";
+export "Lands/FeatureFactory.dart";
 export "SessionEngine/session.dart";
+export "SessionEngine/DeadSession.dart";
 export "SessionEngine/sessionSummary.dart";
 export "FAQEngine/FAQFile.dart";
 export "FAQEngine/GeneratedFAQ.dart";
@@ -29,6 +37,7 @@ export "random.dart";
 export "weighted_lists.dart";
 export "relationship.dart";
 export "handle_sprites.dart";
+export "Rendering/renderer.dart";
 export "AfterLife.dart";
 export "v2.0/ImportantEvents.dart";
 export "Strife.dart";
@@ -53,12 +62,10 @@ export "Scenes/ConfrontJack.dart";
 export "Scenes/CorpseSmooch.dart";
 export "Scenes/DisengageMurderMode.dart";
 export "Scenes/DoEctobiology.dart";
-export "Scenes/DoLandQuest.dart";
+export "Scenes/QuestsAndStuff.dart";
 export "Scenes/EngageMurderMode.dart";
 export "Scenes/ExileJack.dart";
 export "Scenes/ExileQueen.dart";
-export "Scenes/ExploreMoon.dart";
-export "Scenes/FaceDenizen.dart";
 export "Scenes/FightQueen.dart";
 export "Scenes/FreeWillStuff.dart";
 export "Scenes/GetTiger.dart";
@@ -68,6 +75,7 @@ export "Scenes/GodTierRevival.dart";
 export "Scenes/GoGrimDark.dart";
 export "Scenes/GrimDarkQuests.dart";
 export "Scenes/Intro.dart";
+export "Scenes/IntroNew.dart";
 export "Scenes/JackBeginScheming.dart"; //all the jack stuff will be refactored into npc update
 export "Scenes/JackPromotion.dart";
 export "Scenes/JackRampage.dart";
@@ -86,11 +94,14 @@ export "Scenes/Reckoning.dart";
 export "Scenes/RelationshipDrama.dart";
 export "Scenes/RainClone.dart";
 export "Scenes/SaveDoomedTimeline.dart";
-export "Scenes/SolvePuzzles.dart"; //probably get rid of this after planet update
 export "Scenes/StartDemocracy.dart";
 export "Scenes/UpdateShippingGrid.dart";
 export "Scenes/VoidyStuff.dart";
 export "Scenes/YellowYard.dart";
+export "Scenes/DeadScenes/DeadIntro.dart";
+export "Scenes/DeadScenes/DeadReckoning.dart";
+export "Scenes/DeadScenes/DeadMeta.dart";
+export "Scenes/DeadScenes/DeadQuests.dart";
 
 export "includes/colour.dart";
 export "includes/palette.dart";
@@ -116,9 +127,13 @@ void globalInit() {
     if (doneGlobalInit) { return; }
     doneGlobalInit = true;
 
+    Stats.init();
+    FeatureFactory.init(); //do BEFORE classes or aspects or you're gonna have a bad time (null features) PL figured this out
     SBURBClassManager.init();
     Aspects.init();
     InterestManager.init();
+
+    Loader.init();
 }
 
 Random globalRand = new Random();
@@ -162,33 +177,41 @@ bool printCorruptionMessage(ErrorEvent e) {
     Player time = findAspectPlayer(curSessionGlobalVar.players, Aspects.TIME);
     if (curSessionGlobalVar.stats.crashedFromPlayerActions) {
         appendHtml(story, "<BR>ERROR: SESSION CORRUPTION HAS REACHED UNRECOVERABLE LEVELS. HORRORTERROR INFLUENCE: COMPLETE.");
-        recomendedAction = "OMFG JUST STOP CRASHING MY DAMN SESSIONS. FUCKING GRIMDARK PLAYERS. BREAKING SBURB DOES NOT HELP ANYBODY! ";
+        recomendedAction = "OMFG JUST STOP CRASHING MY DAMN SESSIONS. FUCKING GRIMDARK PLAYERS. BREAKING SBURB DOES NOT HELP ANYBODY! ${mutatorsInPlay(curSessionGlobalVar)}";
     }else if(curSessionGlobalVar.stats.cataclysmCrash) {
         appendHtml(story, "<BR>ERROR: WASTE TIER CATACLYSM ACTIVATED. SESSION HAS CRASHED.");
-        recomendedAction = "OMFG YOU ASSHOLE WASTES. GIT GUD.  THERE IS A FUCKING *REASON* RESTRAINT IS PART OF OUR MATURITY QUESTS. (And if somehow a non Waste/Grace managed to cause this much damage, holy fuck, what were you THINKING you maniac?) ";
+        recomendedAction = "OMFG YOU ASSHOLE WASTES. GIT GUD.  THERE IS A FUCKING *REASON* RESTRAINT IS PART OF OUR MATURITY QUESTS. (And if somehow a non Waste/Grace managed to cause this much damage, holy fuck, what were you THINKING you maniac?) ${mutatorsInPlay(curSessionGlobalVar)}";
+    }else if((curSessionGlobalVar is DeadSession)) {
+        appendHtml(story, "<BR>ERROR: HAHA YOUR DEAD SESSION CRASHED, ASSHOLE.");
+        recomendedAction = "OH WELL, NOT LIKE IT WAS EVER SUPPOSED TO BE BEATABLE ANYWAYS. ${mutatorsInPlay(curSessionGlobalVar)}";
+
     }else if (curSessionGlobalVar.players.isEmpty) {
         appendHtml(story, "<BR>ERROR: USELESS 0 PLAYER SESSION DETECTED.");
-        recomendedAction = ":/ REALLY? WHAT DID YOU THINK WAS GOING TO HAPPEN HERE, THE FREAKING *CONSORTS* WOULD PLAY THE GAME. ACTUALLY, THAT'S NOT HALF BAD AN IDEA. INTO THE PILE.";
-    } else if (curSessionGlobalVar.players.length < 2) {
+        recomendedAction = ":/ REALLY? WHAT DID YOU THINK WAS GOING TO HAPPEN HERE, THE FREAKING *CONSORTS* WOULD PLAY THE GAME. ACTUALLY, THAT'S NOT HALF BAD AN IDEA. INTO THE PILE. ${mutatorsInPlay(curSessionGlobalVar)}";
+    } else if (curSessionGlobalVar.players.length < 2 ) {
         appendHtml(story, "<BR>ERROR: DEAD SESSION DETECTED.");
-        recomendedAction = ":/ YEAH, MAYBE SOME DAY I'LL DO DEAD SESSIONS FOR YOUR SPECIAL SNOWFLAKE SINGLE PLAYER FANTASY, BUT TODAY IS NOT THAT DAY.";
-    } else if (space == null) {
-        appendHtml(story, "<BR>ERROR: SPACE PLAYER NOT FOUND. HORRORTERROR CORRUPTION SUSPECTED.");
-        curSessionGlobalVar.stats.crashedFromSessionBug = true;
-        recomendedAction = "SERIOUSLY? NEXT TIME, TRY HAVING A SPACE PLAYER, DUNKASS. ";
+        String url = "dead_index.html?seed=${curSessionGlobalVar.session_id}&${generateURLParamsForPlayers(<Player>[curSessionGlobalVar.players[0]],true)}";
+        String params = window.location.href.substring(window.location.href.indexOf("?") + 1);
+        if (params == window.location.href) params = "";
+        url = "$url";
+        recomendedAction = "WHOA. IS TODAY THE DAY I LET YOU DO A SPECIAL SNOWFLAKE SINGLE PLAYER SESSION??? <BR><BR><a href = '$url'>PLAY DEAD SESSION?</a><BR><BR>";
     } else if (time == null) {
         curSessionGlobalVar.stats.crashedFromSessionBug = true;
         appendHtml(story, "<BR>ERROR: TIME PLAYER NOT FOUND. HORRORTERROR CORRUPTION SUSPECTED");
-        recomendedAction = "SERIOUSLY? NEXT TIME, TRY HAVING A TIME PLAYER, DUNKASS. ";
+        recomendedAction = "SERIOUSLY? NEXT TIME, TRY HAVING A TIME PLAYER, DUNKASS. ${mutatorsInPlay(curSessionGlobalVar)}";
+    } else if (space == null) {
+        appendHtml(story, "<BR>ERROR: SPACE PLAYER NOT FOUND. HORRORTERROR CORRUPTION SUSPECTED. ${mutatorsInPlay(curSessionGlobalVar)}");
+        curSessionGlobalVar.stats.crashedFromSessionBug = true;
+        recomendedAction = "SERIOUSLY? NEXT TIME, TRY HAVING A SPACE PLAYER, DUNKASS. ${mutatorsInPlay(curSessionGlobalVar)}";
     } else if(curSessionGlobalVar.mutator.effectsInPlay > 0){
         curSessionGlobalVar.stats.cataclysmCrash = true;
         appendHtml(story, "<BR>ERROR: NOW YOU FUCKED UP! YOUR SHITTY HACKED CODE CRASHED.");
-        recomendedAction = "OMFG YOU ASSHOLE WASTES. GIT GUD.  FUCKING TEST YOUR SHIT, SCRUB. ";
+        recomendedAction = "OMFG YOU ASSHOLE WASTES. GIT GUD.  FUCKING TEST YOUR SHIT, SCRUB. ${mutatorsInPlay(curSessionGlobalVar)} ";
 
     }else {
         curSessionGlobalVar.stats.crashedFromSessionBug = true;
         appendHtml(story, "<BR>ERROR: AN ACTUAL BUG IN SBURB HAS CRASHED THE SESSION. THE HORRORTERRORS ARE PLEASED THEY NEEDED TO DO NO WORK. (IF THIS HAPPENS FOR ALL SESSIONS, IT MIGHT BE A BROWSER BUG)");
-        recomendedAction = "TRY HOLDING 'SHIFT' AND CLICKING REFRESH TO CLEAR YOUR CACHE. IF THE BUG PERSISTS, CONTACT JADEDRESEARCHER. CONVINCE THEM TO FIX SESSION: ${scratchedLineageText(curSessionGlobalVar.getLineage())}";
+        recomendedAction = "TRY HOLDING 'SHIFT' AND CLICKING REFRESH TO CLEAR YOUR CACHE. IF THE BUG PERSISTS, CONTACT JADEDRESEARCHER. CONVINCE THEM TO FIX SESSION: ${scratchedLineageText(curSessionGlobalVar.getLineage())}   ${mutatorsInPlay(curSessionGlobalVar)}";
 
     }
     //var message = ['Message: ' + msg, 'URL: ' + url, 'Line: ' + lineNo, 'Column: ' + columnNo, 'Error object: ' + JSON.encode(error)].join(' - ');
@@ -238,6 +261,24 @@ bool printCorruptionMessage(ErrorEvent e) {
     SimController.instance.recoverFromCorruption();
 
     return false; //if i return true here, the real error doesn't show up;
+}
+
+String mutatorsInPlay(Session session) {
+    if(session.mutator.effectsInPlay == 0) return "";
+    List<String> fields = new List<String>();
+    if(session.mutator.lifeField) fields.add("Life");
+    if(session.mutator.hopeField) fields.add("Hope");
+    if(session.mutator.doomField) fields.add("Doom");
+    if(session.mutator.lightField) fields.add("Light");
+    if(session.mutator.breathField) fields.add("Breath");
+    if(session.mutator.spaceField) fields.add("Space");
+    if(session.mutator.timeField) fields.add("Time");
+    if(session.mutator.voidField) fields.add("Void");
+    if(session.mutator.heartField) fields.add("Heart");
+    if(session.mutator.bloodField) fields.add("Blood");
+    if(session.mutator.mindField) fields.add("Mind");
+    if(session.mutator.rageField) fields.add("Rage");
+    return "Mutators in Play: ${fields.join(",")}";
 }
 
 

@@ -108,17 +108,12 @@ class VoidyStuff extends Scene {
 				this.ectoBiologyStarted(normalDiv, newDiv);
 				this.endingPhrase(classDiv, newDiv);
 				return;
-		}else if(this.player.landLevel >= 6 && this.player.land != null && !this.player.denizenDefeated && rand.nextDouble() > .8){
-			this.fightDenizen(normalDiv, newDiv);
-			this.endingPhrase(classDiv, newDiv);
-			return;
-		}else if(this.player.getStat("sanity") < 5 && !this.player.murderMode && rand.nextDouble() > 0.9){
+		}else if(this.player.getStat(Stats.SANITY) < 5 && !this.player.murderMode && rand.nextDouble() > 0.9){
 			//session.logger.info("AB: flipping shit through voidy stuff");
 			this.goMurderMode(normalDiv, newDiv);
 			this.endingPhrase(classDiv, newDiv);
 			return;
 		}else{ //pick from random array.
-				//TODO is there a dart equivalent to bind?
 				//var options = [this.findFraymotif.bind(this,normalDiv,newDiv),this.makeEnemies.bind(this,normalDiv,newDiv), this.makeFriends.bind(this,normalDiv, newDiv),this.dolandQuests.bind(this,normalDiv,newDiv),this.weakenDesites.bind(this,normalDiv,newDiv),this.weakenDesites.bind(this,normalDiv,newDiv),this.weakenDesites.bind(this,normalDiv,newDiv)];
 				var options = [this.findFraymotif, this.makeEnemies, this.makeFriends, this.dolandQuests, this.weakenDesites,this.dolandQuests, this.weakenDesites,this.dolandQuests, this.weakenDesites];
         ShenaniganCallback chosen = rand.pickFrom(options);
@@ -154,7 +149,7 @@ class VoidyStuff extends Scene {
 	}
 	void rageEndingPhrase(Element newDiv){
 		String ret = " The " + this.player.htmlTitle();
-		List<String> phrases = ["is probably actually under the influence of psychoactive drugs.","might actually be sleep walking.", "is all up and laughing the whole time.","can't seem to stop laughing.", "has a look of utmost concentration.", "doesn't even seem to know what's going on themselves.", "is badly cosplaying as a consort.", "somehow got a hold of 413 helium balloon and has had them tied to their neck this whole time.", "is wearing a sombrero. How HIGH do you even have to BE?","is screaming. They are not stopping.","has way to many fucking teeth.","wasn't there a second ago.","can see you.","is wearing the worlds strangest face paint.","is slowly but surely breaking everything.","seems to be ignoring gravity.","is walking on walls, somehow.", "wants you to know that they, like, really love you, man.","is humming the tune from Jaws over and over again.","is just breaking all the laws. All of them.","is failing to blink at all.","laughs and laughs and laughs and laughs and laughs and laughs and laughs and laughs."];
+		List<String> phrases = ["is probably actually under the influence of psychoactive drugs.","might actually be sleep walking.", "is all up and laughing the whole time.","can't seem to stop laughing.", "has a look of utmost concentration.", "doesn't even seem to know what's going on themselves.", "is badly cosplaying as a consort.", "somehow got a hold of 413 helium balloon and has had them tied to their neck this whole time.", "is wearing a sombrero. How HIGH do you even have to BE?","is screaming. They are not stopping.","has way too many fucking teeth.","wasn't there a second ago.","can see you.","is wearing the worlds strangest face paint.","is slowly but surely breaking everything.","seems to be ignoring gravity.","is walking on walls, somehow.", "wants you to know that they, like, really love you, man.","is humming the tune from Jaws over and over again.","is just breaking all the laws. All of them.","is failing to blink at all.","laughs and laughs and laughs and laughs and laughs and laughs and laughs and laughs."];
 		appendHtml(newDiv,  ret + " " + rand.pickFrom(phrases));
 	}
 	void findFraymotif(Element div, Element specialDiv){
@@ -174,7 +169,7 @@ class VoidyStuff extends Scene {
 		//brainstorm what they are doing here, rand array.
 	}
 	void goMurderMode(Element div, Element specialDiv){
-		this.player.addStat("sanity", -30);
+		this.player.addStat(Stats.SANITY, -30);
 		this.player.makeMurderMode();
 		appendHtml(div, " You get a bad feeling about this. ");
 		appendHtml(specialDiv, "The " + this.player.htmlTitle() + " has taken an acrobatic fucking pirouette off the handle and into a giant pile of crazy.  You almost wish you hadn't seen this. This is completely terrifying.");
@@ -182,59 +177,19 @@ class VoidyStuff extends Scene {
 	void dolandQuests(Element div, Element specialDiv){
 		this.player.increaseLandLevel(2.0);
 		appendHtml(div, " Their consorts seem pretty happy, though. ") ;
-		if(rand.nextDouble() > .95){ //small chance of serious.
-			appendHtml(specialDiv, "The " + this.player.htmlTitle() + " is " + rand.pickFrom(this.player.aspect.preDenizenQuests) + ". ");
-		}else{
-			List<String> specialStuff = ["teaching the local consorts all the illest of beats","explaining the finer points of the human game 'hopscotch' to local consorts","passing out banned orange fruits that may or may not exist to hungry local consorts","throwing a birthday party for the local consorts"];
-			specialStuff.addAll(["reenacting tear jerking scenes from classic cinema with local consorts","adopting a local consort as their beloved daughter","explaining that all conflict will be resolved through the medium of rap, going forwards","passing out rumpled headgear like cheap cigars"]);
-			specialStuff.addAll(["completely destabilizing the local consort economy by just handing out fat stacks of boonbucks","showing the local consorts how to draw graffiti all over the Denizen temples","explaining that each local consort is probably the hero of legend or some shit","encouraging local consorts to form secret societies around household items"]);
-
-			appendHtml(specialDiv, "The " + this.player.htmlTitle() + " is " + rand.pickFrom(specialStuff) + ". ");
-		}
-
+		List<String> specialStuff = ["teaching the local consorts all the illest of beats","explaining the finer points of the human game 'hopscotch' to local consorts","passing out banned orange fruits that may or may not exist to hungry local consorts","throwing a birthday party for the local consorts"];
+		specialStuff.addAll(["reenacting tear jerking scenes from classic cinema with local consorts","adopting a local consort as their beloved daughter","explaining that all conflict will be resolved through the medium of rap, going forwards","passing out rumpled headgear like cheap cigars"]);
+		specialStuff.addAll(["completely destabilizing the local consort economy by just handing out fat stacks of boonbucks","showing the local consorts how to draw graffiti all over the Denizen temples","explaining that each local consort is probably the hero of legend or some shit","encouraging local consorts to form secret societies around household items"]);
+		appendHtml(specialDiv, "The " + this.player.htmlTitle() + " is " + rand.pickFrom(specialStuff) + ". ");
 	}
 	void weakenDesites(Element div, Element specialDiv){
-		this.session.npcHandler.queen.addStat("power",-5);
-		this.session.npcHandler.jack.addStat("power",-5);
-		this.session.npcHandler.king.addStat("power",-5);
+		this.session.npcHandler.queen.addStat(Stats.POWER,-5);
+		this.session.npcHandler.jack.addStat(Stats.POWER,-5);
+		this.session.npcHandler.king.addStat(Stats.POWER,-5);
 		appendHtml(div, " The Dersites sure seem to be mad at them, though. ");
 		appendHtml(specialDiv, "The " + this.player.htmlTitle() + " " + rand.pickFrom(lightQueenQuests));
 	}
-	void fightDenizen(Element div, Element specialDiv){
-		this.player.denizenFaced = true;
-		GameEntity denizen = this.player.denizen;
-		appendHtml(div, " Why is the " + denizen.name + " bellowing so loudly on " + this.player.shortLand() + "? ");
-		String ret = "The " + this.player.htmlTitle() + " is fighting " +denizen.name + ".  It is bloody, brutal and short. ";
 
-		if(rand.nextDouble() >.5){
-			this.player.addStat("power",this.player.getStat("power")*2);  //current and future doubling of power.
-			this.player.leveledTheHellUp = true;
-			this.player.denizenDefeated = true;
-			this.player.fraymotifs.addAll(this.player.denizen.fraymotifs);
-			this.player.grist += denizen.grist;
-			ret += denizen.name + " lies dead on the ground. ";
-			appendHtml(specialDiv, ret);
-		}else{ //no CHOICE.  either you are berserking, or the denizen doesn't notice you in time to give you one.
-				this.player.denizenFaced = true;
-				this.player.denizenDefeated = false;
-				appendHtml(div, " That didn't sound good... ");
-				this.player.dead = true;
-				if(this.enablingPlayer.aspect == Aspects.VOID) ret += this.player.makeDead("fighting their Denizen way too early, cloaked in Void");
-				if(this.enablingPlayer.aspect == Aspects.RAGE) ret += this.player.makeDead("fighting their Denizen way too early, lost in Madness");
-				ret += " The " +this.player.htmlTitleBasic() + " lies dead on the ground. ";
-				appendHtml(specialDiv, ret);
-
-				String divID = (specialDiv.id) + "denizenDeath";
-				String canvasHTML = "<br><canvas id='canvas" + divID+"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
-				appendHtml(specialDiv, canvasHTML);
-				CanvasElement canvas = querySelector("#canvas"+ divID);
-
-				CanvasElement pSpriteBuffer = Drawing.getBufferCanvas(querySelector("#sprite_template"));
-				Drawing.drawSprite(pSpriteBuffer,this.player);
-
-				Drawing.copyTmpCanvasToRealCanvasAtPos(canvas, pSpriteBuffer,0,0);
-		}
-	}
 	void ectoBiologyStarted(Element div, Element specialDiv){
 		//session.logger.info("AB: Void/Rage ecto babies:" );
 		List<Player> playersMade = this.player.performEctobiology(this.session);

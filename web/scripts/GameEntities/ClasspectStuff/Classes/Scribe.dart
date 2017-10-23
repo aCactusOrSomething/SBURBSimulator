@@ -1,4 +1,4 @@
-import "../../GameEntity.dart";
+import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
 
 class Scribe extends SBURBClass {
@@ -13,8 +13,21 @@ class Scribe extends SBURBClass {
     List<String> handles = ["serious", "sightly", "sanctimonious", "sarcastic", "sassy", "scintillating", "synergistic", "savant"];
 
     @override
+    bool isProtective = false;
+    @override
+    bool isSmart = true;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = true;
+
+    @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("sburbLore", 0.5, false)
+        new AssociatedStat(Stats.SBURB_LORE, 0.5, false)
     ]);
 
     @override
@@ -23,7 +36,7 @@ class Scribe extends SBURBClass {
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 

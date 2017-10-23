@@ -14,6 +14,9 @@ import "Social.dart";
 import "Technology.dart";
 import "Terrible.dart";
 import "Writing.dart";
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
 
 //because "interests" is too easy to misstype to Interest and i am made of typos
 class InterestManager {
@@ -34,6 +37,7 @@ class InterestManager {
     static InterestCategory TECHNOLOGY;
     static InterestCategory TERRIBLE;
     static InterestCategory WRITING;
+    static InterestCategory NULL;
 
     static void init() {
         //print("initializing interests");
@@ -51,6 +55,7 @@ class InterestManager {
         TERRIBLE = new Terrible();
         WRITING = new Writing();
         TECHNOLOGY = new Technology();
+        NULL = new InterestCategory(-13, "Null", "","",true); //shouldn't ever happen.
     }
 
     static void register(InterestCategory ic) {
@@ -83,10 +88,10 @@ class InterestManager {
 
     static Interest getRandomInterest(Random rand) {
         return new Interest.randomFromCategory(
-            rand, rand.pickFrom(_categories.values));
+            rand, rand.pickFrom(allCategories)); //need to have internal filtering
     }
 
-    static Iterable<InterestCategory> get allCategories => _categories.values;
+    static Iterable<InterestCategory> get allCategories => _categories.values.where((InterestCategory c) => !c.isInternal);
 
     static InterestCategory getCategoryFromString(String s) {
         for (InterestCategory c in _categories.values) {
@@ -97,12 +102,14 @@ class InterestManager {
 }
 
 class InterestCategory {
+    bool isInternal = false;
     List<String> handles1 = <String>["nobody"];
-    List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(
-        <AssociatedStat>[]);
+    List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[]);
     List<String> handles2 = <String>["Nobody"];
     List<String> levels = <String>["Nobody"];
     int id;
+    //based on strength.
+    Map<Theme, double> themes = new Map<Theme, double>();
 
     //this is what char creator should modify. making it private meant that children apparently couldn't override it. i guess i want protected, but does dart even have that?
     List<String> interestStrings = ["NONE"];
@@ -112,10 +119,15 @@ class InterestCategory {
     String name;
 
     //p much no vars to set.
-    InterestCategory(this.id, this.name, this.positive_descriptor,
-        this.negative_descriptor) {
+    InterestCategory(this.id, this.name, this.positive_descriptor, this.negative_descriptor, [this.isInternal = false]) {
+        initializeThemes();
         InterestManager.register(this);
     }
+
+    void addTheme(Theme t, double weight) {
+        themes[t] = weight;
+    }
+
 
     //clunky name to remind me that modding this does nothing
     List<String> get copyOfInterestStrings =>
@@ -136,6 +148,50 @@ class InterestCategory {
 
     bool playerLikes(Player p) {
         return p.interest1.category == this || p.interest2.category == this;
+    }
+
+    void initializeThemes() {
+        addTheme(new Theme(<String>["Decay","Rot","Death"])
+            ..addFeature(FeatureFactory.ROTSMELL, Feature.HIGH)
+            ..addFeature(FeatureFactory.RUSTLINGSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.SKELETONCONSORT, Feature.HIGH)
+            ..addFeature(FeatureFactory.CREEPYFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CROCODILECONSORT, Feature.LOW)
+            ..addFeature(new PreDenizenQuestChain("Revive the Consorts", [
+                new Quest("The ${Quest.PLAYER1} learns that all of the local ${Quest.CONSORT}s are dead. This is....really depressing, actually. "),
+                new Quest("The ${Quest.PLAYER1} has found a series of intriguing block puzzles and symbols. What could it all mean? "),
+                new Quest("With a satisfying CLICK, the ${Quest.PLAYER1} has solved the final block puzzle.  A wave of energy overtakes the land. There is an immediate chorus of ${Quest.CONSORTSOUND}ing.  The ${Quest.CONSORT}s are alive again!  "),
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ,  Theme.LOW);
+        addTheme(new Theme(<String>["Factories", "Manufacture", "Assembly Lines"])
+            ..addFeature(FeatureFactory.ROBOTCONSORT, Feature.HIGH)
+            ..addFeature(FeatureFactory.IGUANACONSORT, Feature.LOW)
+            ..addFeature(FeatureFactory.OILSMELL, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CLANKINGSOUND, Feature.HIGH)
+            ..addFeature(FeatureFactory.FRANTICFEELING, Feature.LOW)
+            ..addFeature(new PreDenizenQuestChain("Produce the Goods", [
+                new Quest("The ${Quest.PLAYER1} learns that all of the local ${Quest.CONSORT}s have a severe shortage of gears and cogs. It is up to the ${Quest.PLAYER1} to get the assembly lines up and running again. "),
+                new Quest("The ${Quest.PLAYER1} is running around and fixing all the broken down equipment. This sure is tiring! "),
+                new Quest("The ${Quest.PLAYER1} is training the local ${Quest.CONSORT}s to operate the manufacturing equipment. There is ${Quest.CONSORTSOUND}ing and chaos everywhere. "),
+                new Quest("The ${Quest.PLAYER1} manages to get the factories working at peak efficiency.  The gear and cog shortage is over! The ${Quest.CONSORT}s name a national holiday after the ${Quest.PLAYER1}. ")
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            , Theme.LOW);
+
+        addTheme(new Theme(<String>["Peace","Tranquility","Rest"])
+            ..addFeature(FeatureFactory.CALMFEELING, Feature.HIGH)
+            ..addFeature(FeatureFactory.RUSTLINGSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.NATURESMELL, Feature.MEDIUM)
+            ..addFeature(new PreDenizenQuestChain("Relax the Consorts", [
+                new Quest("The ${Quest.PLAYER1} learns that all of the local ${Quest.CONSORT}s have been too stressed about an impending famine to relax. They vow to help however they can."),
+                new Quest("The ${Quest.PLAYER1} fluffs more pillows than any other Player ever has before them. "),
+                new Quest("The ${Quest.PLAYER1} teaches the local ${Quest.CONSORT}s to find their chill. ")
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ..addFeature(new PreDenizenQuestChain("Relax the Consorts According to Prophecy", [
+                new Quest("The ${Quest.PLAYER1} learns that all of the local ${Quest.CONSORT}s have been too stressed about an impending famine to relax. They vow to help however they can."),
+                new Quest("The ${Quest.PLAYER1} fluffs more pillows than any other Player ever has before them. Huh, what is this ${Quest.CONSORT} ${Quest.CONSORTSOUND}ing about? A prophecy?  "),
+                new Quest("The ${Quest.PLAYER1} finds the foretold RELAXING MIX TAPE and plays it for all the local ${Quest.CONSORT}s, who become so chill they do not even ${Quest.CONSORTSOUND} once. ")
+            ], new FraymotifReward(), QuestChainFeature.playerIsFateAspect), Feature.LOW)
+            , Theme.LOW); // end theme
     }
 
     @override

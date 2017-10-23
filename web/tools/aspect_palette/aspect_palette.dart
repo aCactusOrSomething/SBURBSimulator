@@ -3,46 +3,94 @@ import 'dart:async';
 import "dart:html";
 import "dart:math" as Math;
 
+import "dart:js" as JS;
+
 import "../../scripts/SBURBSim.dart";
 
 import "../../scripts/includes/colour.dart";
 import "../../scripts/includes/colour_picker.dart";
 
+import "../../scripts/Rendering/3d/three.dart" as THREE;
+
 
 void main() {
     Element stuff = querySelector("#stuff");
 
-    /*Random rand = new Random();
-    for (int i=0; i<100; i++) {
-        Colour test = new Colour.double(rand.nextDouble(), rand.nextDouble(), rand.nextDouble());
-
-        //print(test);
-
-        //print("${test.lab_lightness}, ${test.lab_a}, ${test.lab_b}");
-
-        Colour test2 = new Colour.lab(test.lab_lightness, test.lab_a, test.lab_b);
-
-        //print(test2);
-        //print("-----");
-    }*/
-
-    /*for (int i=0; i<100; i++) {
-        stuff.append(makeGradientSwatch());
-    }*/
-
-    //checkLABRanges();
-
-    //print("event stuff:");
-    //print(querySelector("#testpicker"));
-    new Timer(new Duration(seconds: 1),()
+    /*new Timer(new Duration(seconds: 1),()
     {
         //print("event stuff:");
         //print(querySelector("#testpicker")); //.onChange);
 
         ColourPicker.create(querySelector("#testpicker"));//..onChange.listen((Event e) => //print((e.target as InputElement).value)));
-    });
+    });*/
+
+    testDrawing();
 
 
+}
+
+Future<bool> testDrawing() async {
+    Aspects.init();
+    Element stuff = querySelector("#stuff");
+
+    // preload to be fair
+    await Loader.getResource("images/guide_bot.png");
+    await Renderer.loadThree();
+
+    int startx = -120;
+    int starty = -40;
+    int dim = 5;
+    int dimx = 10;
+    int dimy = 1;
+    int space = 100;
+
+    {
+        DateTime then = new DateTime.now();
+
+        CanvasElement testcanvas = new CanvasElement(width: 640, height: 480);
+        CanvasRenderingContext2D ctx = testcanvas.context2D;
+
+        for (int x = 0; x < dim; x++) {
+            for (int y = 0; y < dim; y++) {
+                ctx.drawImage(await Loader.getResource("images/guide_bot.png"), space * x, space * y);
+            }
+        }
+
+        stuff.append(testcanvas);
+
+        DateTime now = new DateTime.now();
+        int mis = now.microsecondsSinceEpoch - then.microsecondsSinceEpoch;
+
+        print("2d: ${mis / 1000}ms");
+    }
+
+    {
+        Random rand = new Random();
+
+        Palette skin = new Palette()
+            ..add("skin", new Colour.fromHex(0xFFFFFF))
+            ..add("skinline", new Colour.fromHex(0x000000));
+
+        DateTime then = new DateTime.now();
+
+        RenderJob job = await RenderJob.create(640, 480);
+
+        for (int x = 0; x < dimx; x++) {
+            for (int y = 0; y < dimy; y++) {
+                //job.addImage("images/guide_bot.png", x * space, y * space);
+                job.addSprite("images/Bodies/god4.psprite", <Palette>[skin, rand.pickFrom(Aspects.all).palette], x * space + startx, y * space + starty);
+            }
+        }
+
+        stuff.append(job.dispatch());
+
+        DateTime now = new DateTime.now();
+        int mis = now.microsecondsSinceEpoch - then.microsecondsSinceEpoch;
+
+        print("3d: ${mis / 1000}ms");
+    }
+
+    return true;
 }
 
 void checkLABRanges() {

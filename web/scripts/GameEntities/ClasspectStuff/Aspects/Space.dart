@@ -1,5 +1,8 @@
 import '../../../SBURBSim.dart';
 import 'Aspect.dart';
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
 
 class Space extends Aspect {
 
@@ -31,11 +34,6 @@ class Space extends Aspect {
     @override
     List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Canon", "Space", "Frogs", "Location", "Spatial", "Universe", "Infinite", "Spiral", "Physics", "Star", "Galaxy", "Nuclear", "Atomic", "Nucleus", "Horizon", "Event", "CROAK", "Spatium", "Squiddle", "Engine", "Meteor", "Gravity", "Crush"]);
 
-
-    @override
-    double aspectQuestChance = 1.0; // No items. Frogs only. FINAL DESTINATION.
-
-
     @override
     String denizenSongTitle = "Sonata"; //a composition for a soloist.  Space players are stuck doing something different from everyone,;
 
@@ -46,38 +44,19 @@ class Space extends Aspect {
     @override
     List<String> denizenNames = new List<String>.unmodifiable(<String>['Space', 'Gaea', 'Nut', 'Echidna', 'Wadjet', 'Qetesh', 'Ptah', 'Geb', 'Fryja', 'Atlas', 'Hebe', 'Lork', 'Eve', 'Genesis', 'Morpheus', 'Veles ', 'Arche', 'Rekinom', 'Iago', 'Pilera', 'Tiamat', 'Gilgamesh', 'Implexel']);
 
-    @override
-    List<String> preDenizenQuests = new List<String>.unmodifiable(<String>[
-        "seeking out out potential Frog sources",
-        "restoring a half-ruined Frog shrine in the wilds of the Land",
-        "interogating consorts as to what the point of Frogs even is",
-        "navigating one's way through a deudly dungeon in complete darkness, relying only on one's spatial senses"
-    ]);
-    @override
-    List<String> postDenizenQuests = new List<String>.unmodifiable(<String>[
-        "stoking the forge and preparing to create a new universe",
-        "cloning ribbiting assholes till you’re up to your eyeballs in frogs",
-        "cleaning up volcanic debris from the Forge. Man that magma is hot",
-        "alchemizing geothermal power infrastructure for the consort villagers. The local consorts babble excitedly at indoor lightning ",
-        "making sure they don't accidentally clone a toad instead of a frog by mistake",
-        "messing with a variety of frogs that were previously paradox cloned",
-        "paradox cloning a variety of frogs, after making a serious note to mess with them later",
-        "combining paradox slime from multiple frogs together to make paradox offspring",
-        "listening to the ridiculously similar croaks of cloned frogs to figure out where their flaws are"
-    ]);
+
 
     @override
-    List<String> denizenQuests = new List<String>.unmodifiable(<String>[
-        "trying to figure out why the Forge is unlit",
-        "clearing various bullshit obstacles to lighting the Forge",
-        "lighting the Forge" //TODO requires a magic ring.
-    ]);
+    List<String> symbolicMcguffins = ["space","commitment", "creation", "room","stars", "galaxy", "black hole", "super nova"];
+    @override
+    List<String> physicalMcguffins = ["space","frog", "globe", "map","toad", "bass guitar", "nuclear reactor", "paint"];
+
 
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("alchemy", 2, true),
-        new AssociatedStat("hp", 1, true),
-        new AssociatedStat("mobility", -2, true)
+        new AssociatedStat(Stats.ALCHEMY, 2.0, true),
+        new AssociatedStat(Stats.HEALTH, 1.0, true),
+        new AssociatedStat(Stats.MOBILITY, -2.0, true)
     ]);
 
     Space(int id) :super(id, "Space", isCanon: true);
@@ -86,4 +65,36 @@ class Space extends Aspect {
     String activateCataclysm(Session s, Player p) {
         return s.mutator.space(s, p);
     }
+
+    //space quests have only one (FROGS) but it has a shit ton of questchains for every tier at hella high levels
+    //so it overrides any other theme  (yes space players still have frog quests )
+    @override
+    void initializeThemes() {
+        //space player don't get boss fights
+        //TODO have different themes that are all still frogs but have different quests attached and graphical stuff (once PL is there)
+        //like, one where you have the thaw the planet, one where you have to drain it, fix a drought, whatever.
+        addTheme(new Theme(<String>["Frogs"])
+            ..addFeature(FeatureFactory.ZOOSMELL, Feature.LOW)
+            ..addFeature(FeatureFactory.CROAKINGSOUND, Feature.HIGH)
+            ..addFeature(new PreDenizenQuestChain("Learn about Frogs", [
+                new Quest("Wherever the ${Quest.PLAYER1} goes, they find a ${Quest.CONSORT} yammering on and on about FROGS. It only makes a little more sense than when they say nothing but ${Quest.CONSORTSOUND}. "),
+                new Quest("The ${Quest.PLAYER1} has found several frogs in various states of not-usefulness. Apparently ${Quest.DENIZEN} is somehow to blame? "),
+                new Quest("The ${Quest.PLAYER1} discovers some tiny ectobiology lab equipment. Oh! Apparently it's for breeding frogs?  They play around with it a bit with what frogs they've managed to collect. It looks like they can somehow...combine frogs? Aww, look how cute that tadpole is!  "),
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_HIGH)
+
+            ..addFeature(new DenizenQuestChain("Light the Forge", [
+                new Quest("A wise old ${Quest.CONSORT} tells the ${Quest.PLAYER1} that they must negotiate with ${Quest.DENIZEN} to release the vast majority of the frogs. Apparently this is called 'lighting the forge'? "),
+                new Quest("The ${Quest.PLAYER1} begins collecting the information needed to meet with ${Quest.DENIZEN}. So many puzzles and dungeons and ${Quest.CONSORTSOUND}ing consorts to shuffle through. "),
+                new Quest("The ${Quest.PLAYER1} meets with ${Quest.DENIZEN}. They speak in a langauge no one else can understand, and prove their worth. The forge is lit. The frogs are free.  "),
+            ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_HIGH)
+
+            ..addFeature(new PostDenizenQuestChain("Breed the Frogs", [
+                new Quest("The ${Quest.PLAYER1} collects all sorts of frogs. Various ${Quest.CONSORT}s 'help' by ${Quest.CONSORTSOUND}ing up a storm. "),
+                new Quest("The ${Quest.PLAYER1} begins combining frogs into ever cooler frogs. They begin to realize that an important feature is somehow missing from all frogs. Where could the frog with this trait be?  "),
+                new Quest("The ${Quest.PLAYER1} has found the final frog.  They combine it and eventually have the Ultimate Tadpole ready.  All they need to do is keep it in their Sylladex until the battlefield is fertilized.  "),
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_HIGH)
+            ,  Theme.SUPERHIGH);
+
+    }
+
 }

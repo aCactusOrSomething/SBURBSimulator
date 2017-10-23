@@ -1,5 +1,9 @@
 import '../../../SBURBSim.dart';
 import 'Aspect.dart';
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
+
 
 class Mind extends Aspect {
 
@@ -43,39 +47,76 @@ class Mind extends Aspect {
     @override
     List<String> denizenNames = new List<String>.unmodifiable(<String>['Mind', 'Athena', 'Forseti', 'Janus', 'Anubis', 'Maat', 'Seshat', 'Thoth', 'Jyglag', 'Peryite', 'Nomos', 'Lugus', 'Sithus', 'Dike', 'Epimetheus', 'Metis', 'Morpheus', 'Omoikane', 'Argus', 'Hermha', 'Morha', 'Sespille', 'Selcric', 'Tzeench']);
 
-    @override
-    List<String> preDenizenQuests = new List<String>.unmodifiable(<String>[
-        "manipulating the local consorts into providing dungeon clearing services",
-        "presiding over increasingly hard consort court cases, punishing the guilty and pardoning the innocent",
-        "pulling pranks as a minigame, with bonus points awarded for pranks performed on those who 'had it coming'"
-    ]);
-    @override
-    List<String> postDenizenQuests = new List<String>.unmodifiable(<String>[
-        "forcing mini bosses to choose between two equally horrible options ",
-        "binding the minds of ogres and using them as battle mounts",
-        "manipulating underlings into madness and infighting",
-        "navigating the countless possible outcomes of whatever bullhit colour the local consorts want to repaint this temple. Great use of their time!"
-    ]);
 
     @override
-    List<String> denizenQuests = new List<String>.unmodifiable(<String>[
-        "learning of the systemic corruption in the local consort's justice system",
-        "rooting out corrupt consort officials, and exposing their underling backers",
-        "setting up a self-sufficient consort justice system"
-    ]);
+    List<String> symbolicMcguffins = ["mind","decisions", "consequences", "free will", "path", "neurons", "causality"];
+    @override
+    List<String> physicalMcguffins = ["mind","coin", "plans", "mask", "map", "brain", "circuit"];
+
+
 
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("freeWill", 2, true),
-        new AssociatedStat("minLuck", 1, true),
-        new AssociatedStat("RELATIONSHIPS", -1, true),
-        new AssociatedStat("maxLuck", -1, true) //LUCK DO3SN'T M4TT3R!!!
+        new AssociatedStat(Stats.FREE_WILL, 2.0, true),
+        new AssociatedStat(Stats.MIN_LUCK, 1.0, true),
+        new AssociatedStat(Stats.RELATIONSHIPS, -1.0, true),
+        new AssociatedStat(Stats.MAX_LUCK, -1.0, true) //LUCK DO3SN'T M4TT3R!!!
     ]);
 
     Mind(int id) :super(id, "Mind", isCanon: true);
     @override
     String activateCataclysm(Session s, Player p) {
         return s.mutator.mind(s, p);
+    }
+
+
+    @override
+    void initializeThemes() {
+
+        /*
+        new Quest(""),
+                new Quest(""),
+                new Quest(""),
+                new DenizenFightQuest("","","")
+         */
+        addTheme(new Theme(<String>["Decisions","Choices", "Paths", "Passages", "Dead Ends","Trails", "Doors", "Possibilities", "Alternatives","Labrinths","Mazes"])
+            ..addFeature(FeatureFactory.CONTEMPLATATIVEFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CLACKINGSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.STUDIOUSFEELING, Feature.LOW)
+            ..addFeature(new DenizenQuestChain("Pick a Door, any Door", [
+                new Quest("The ${Quest.PLAYER1} boggles vacantly at an entire labrinth of doors. Whole walls are nothing but doors and their frames, with seemingly no rhyme or reason. A nearby ${Quest.PLAYER1} explains that at the end of the Labrinth is the ${Quest.DENIZEN}. If the ${Quest.PLAYER1} wants to beat their land, they will have to figure out this Labrinth.  They are given a ball of yarn so they can easily resume their place in the Labrinth when they need to take breaks."),
+                new Quest("Left. Right. Both choices look just as good as each other. A wrong choice could waste hours.  The ${Quest.PLAYER1} feels the weight on their shoulders, and then picks left.  Hours later, they encounter a brick wall. God DAMN it."),
+                new Quest("Another set of two possible choices which seem to obviously have huge consequences. And yet....this time one of them just seems more....right? Like it's obvious that it's better. Huh.   Hours later, the ${Quest.PLAYER1} encounter another wall of doors, these ones with less feeling of weight. Hell yes! "),
+                new DenizenFightQuest("The final door is passed. The ${Quest.DENIZEN} is revealed.  The choice here is an easy one, it is time to strife!","The bullshit labrinth is finally complete.","Oh GOD DAMN IT. Now the ${Quest.PLAYER1} has to walk all the way back here to restart the fight.")
+            ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ,  Theme.HIGH);
+        addTheme(new Theme(<String>["Consequences", "Results","Karma", "Justice","Responsibility", "Payback", "Vengence"])
+            ..addFeature(FeatureFactory.DRAGONCONSORT, Feature.LOW)
+            ..addFeature(FeatureFactory.DECEITSMELL, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.STUDIOUSFEELING, Feature.LOW)
+            ..addFeature(FeatureFactory.CONTEMPLATATIVEFEELING, Feature.LOW)
+            ..addFeature(new DenizenQuestChain("Face the Music", [
+                new Quest("The ${Quest.DENIZEN} has commited a staggering amount of crimes against the local ${Quest.CONSORT} population. The natural result of this is that karma itself is conspiring for their downfall. The ${Quest.PLAYER1} knows that Justice is on their side."),
+                new Quest("The ${Quest.DENIZEN} may FEEl safe, all sequestered away in their shitty snake lair, but they aren't. The ${Quest.PLAYER1} convinces a group of underlings lead by a ${Quest.DENIZEN} minion that the ${Quest.DENIZEN} is a huge jerk who shouldn't be in charge of them. It's easy, because it's true. That's what happens when you are a huge jerk."),
+                new Quest("Huh.  I WONDER what the consequences are of the ${Quest.DENIZEN} being stuck hiding in their shitty snake lair while the ${Quest.PLAYER1} is running a propoganda campaign against them?  Suddenly the ${Quest.DENIZEN} has run out of allies entirely."),
+                new DenizenFightQuest("Karma is a bitch. The ${Quest.DENIZEN} has nowhere to run when the ${Quest.PLAYER1} comes for them. It's time to strife.","Justice is served.","Has Justice truly been perverted?")
+            ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+
+            , Theme.HIGH);
+
+        addTheme(new Theme(<String>["Thought","Logic","Connections","Neurons","Psychics","Subconsciousness","Intuition","Sparks", "Lightning", "Electricity"])
+            ..addFeature(FeatureFactory.OZONESMELL, Feature.HIGH)
+            ..addFeature(FeatureFactory.RUSTLINGSOUND, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.TURTLECONSORT, Feature.HIGH)
+            ..addFeature(FeatureFactory.CALMFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.STUDIOUSFEELING, Feature.HIGH)
+            ..addFeature(new DenizenQuestChain("Make the Connections", [
+                new Quest("The ${Quest.PLAYER1} stares at the puzzle blocks in a dungeon. One of them doesn't belong. But which? The Dog? The Bull? The Feather? The Cat? The ${Quest.PLAYER1} thinks, then makes the logical selection.  The Dungeon accepts it."),
+                new Quest("Another dungeon. A cat. A swan. A robot. A virus. Huh. This one is harder. The ${Quest.PLAYER1} thinks about it for a while, and then goes with their intuition.  The Dungeon accepts it.  "),
+                new Quest("In the newest dungeon, there are 4 geometric shapes on the puzzle blocks. One of them doesn't belong. The ${Quest.PLAYER1} thinks they understand. Their choice is accepted."),
+                new DenizenFightQuest("It's the final door before facing the ${Quest.DENIZEN}. All four puzzles blocks are simply identical images of ${Quest.PHYSICALMCGUFFIN}. The ${Quest.PLAYER1} closes their eyes. They think about the previous puzzles, and the patterns that came out of their choices. They choose.  The door opens. It is time to strife ${Quest.DENIZEN}.","Finally. The ${Quest.PLAYER1} can stop solving bullshit 'logic' puzzles that keep straying into weird intuition mind reading bullshit.","Looks like the ${Quest.PLAYER1} will have to resolve some of those bullshit puzzles.")
+            ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            , Theme.HIGH); // end theme
     }
 
 }

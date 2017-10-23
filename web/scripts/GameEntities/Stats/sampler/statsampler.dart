@@ -1,3 +1,4 @@
+import "dart:async";
 import 'dart:html';
 
 import "../../../SBURBSim.dart";
@@ -23,20 +24,20 @@ class StatSampler {
         this.turn = 0;
     }
 
-    String save() {
+    Future<String> save() {
         return saveFormat.objectToDataURI(data);
     }
 
     void createSaveButton() {
         Element container = new DivElement();
 
-        ButtonElement savebutton = new ButtonElement()..text="Save Stat Data"..onClick.listen((Event e){
+        ButtonElement savebutton = new ButtonElement()..text="Save Stat Data"..onClick.listen((Event e) async {
             DateTime now = new DateTime.now();
 
             String date = "${now.year.toString().padLeft(4,"0")}${now.month.toString().padLeft(2,"0")}${now.day.toString().padLeft(2,"0")}";
             String time = "${now.hour.toString().padLeft(2,"0")}${now.minute.toString().padLeft(2,"0")}${now.second.toString().padLeft(2,"0")}";
 
-            AnchorElement link = new AnchorElement(href:this.save())..className="loadedimg"
+            AnchorElement link = new AnchorElement(href:await this.save())..className="loadedimg"
                 ..download="snapshot${this.data.length}_v${saveFormat.version}_${date}_$time.statdata";
             container.append(link);
             link..click()..remove();
@@ -65,8 +66,8 @@ class DataPoint {
         this.interest1 = player.interest1.category;
         this.interest2 = player.interest2.category;
 
-        for (String stat in player.stats.keys) {
-            statsold[stat] = player.getStat(stat).toDouble();
+        for (Stat stat in player.stats) {
+            stats[stat] = player.getStat(stat).toDouble();
         }
 
         StatSampler.logger.debug("Data point for $player at time $time");
@@ -93,4 +94,3 @@ class DataPoint {
         return this.stats.isEmpty ? 0.0 : total / this.stats.length;
     }
 }
-

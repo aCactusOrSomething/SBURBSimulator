@@ -246,9 +246,10 @@ class SessionSummary {
         SessionSummary summary = new SessionSummary(session.session_id);
         summary.setMiniPlayers(session.players);
         if(session.mutator.voidField) return session.mutator.makeBullshitSummary(session, summary);
-        summary.setBoolStat("blackKingDead", session.npcHandler.king.dead || session.npcHandler.king.getStat("currentHP") <= 0);
+        summary.setBoolStat("blackKingDead", session.npcHandler.king.dead || session.npcHandler.king.getStat(Stats.CURRENT_HEALTH) <= 0);
         summary.setBoolStat("mayorEnding", session.stats.mayorEnding);
         summary.setBoolStat("gnosisEnding", session.stats.gnosisEnding);
+        summary.setBoolStat("hasGhostEvents", session.stats.hasGhostEvents);
         summary.setBoolStat("loveEnding", session.stats.loveEnding);
         summary.setBoolStat("hateEnding", session.stats.hateEnding);
         summary.setBoolStat("monoTheismEnding", session.stats.monoTheismEnding);
@@ -274,15 +275,15 @@ class SessionSummary {
         summary.setBoolStat("hasTier3GnosisEvents", session.stats.hasTier3Events);
         summary.setBoolStat("hasTier4GnosisEvents", session.stats.hasTier4Events);
         summary.setBoolStat("hasNoTier4Events", !session.stats.hasTier4Events);  //so you can tell ab to ignore tier4 events
-        summary.setNumStat("averageMinLuck", getAverageMinLuck(session.players));
-        summary.setNumStat("averageMaxLuck", getAverageMaxLuck(session.players));
-        summary.setNumStat("averagePower", getAveragePower(session.players));
+        summary.setNumStat("averageMinLuck", Stats.MIN_LUCK.average(session.players));
+        summary.setNumStat("averageMaxLuck", Stats.MAX_LUCK.average(session.players));
+        summary.setNumStat("averagePower", Stats.POWER.average(session.players));
         summary.setNumStat("averageGrist", getAverageGrist(session.players));
-        summary.setNumStat("averageMobility", getAverageMobility(session.players));
-        summary.setNumStat("averageFreeWill", getAverageFreeWill(session.players));
-        summary.setNumStat("averageHP", getAverageHP(session.players));
-        summary.setNumStat("averageRelationshipValue", getAverageRelationshipValue(session.players));
-        summary.setNumStat("averageSanity", getAverageSanity(session.players));
+        summary.setNumStat("averageMobility", Stats.MOBILITY.average(session.players));
+        summary.setNumStat("averageFreeWill", Stats.FREE_WILL.average(session.players));
+        summary.setNumStat("averageHP", Stats.HEALTH.average(session.players));
+        summary.setNumStat("averageRelationshipValue", Stats.RELATIONSHIPS.average(session.players));
+        summary.setNumStat("averageSanity", Stats.SANITY.average(session.players));
         summary.session_id = session.session_id;
         summary.setBoolStat("hasLuckyEvents", session.stats.goodLuckEvent);
         summary.setBoolStat("hasUnluckyEvents", session.stats.badLuckEvent);
@@ -308,10 +309,10 @@ class SessionSummary {
         summary.setBoolStat("jackGotWeapon", session.stats.jackGotWeapon);
         summary.setBoolStat("jackRampage", session.stats.jackRampage);
         summary.setBoolStat("jackScheme", session.stats.jackScheme);
-        summary.setBoolStat("kingTooPowerful", session.npcHandler.king.getStat("power") > session.hardStrength);
+        summary.setBoolStat("kingTooPowerful", session.npcHandler.king.getStat(Stats.POWER) > session.hardStrength);
         summary.setBoolStat("queenRejectRing", session.stats.queenRejectRing);
-        ////print("Debugging: King strength is ${session.king.getStat("power")} and hardStrength is ${session.hardStrength}");
-        summary.setBoolStat("democracyStarted", session.npcHandler.democraticArmy.getStat("power") > GameEntity.minPower);
+        ////print("Debugging: King strength is ${session.king.getStat(Stats.POWER)} and hardStrength is ${session.hardStrength}");
+        summary.setBoolStat("democracyStarted", session.npcHandler.democraticArmy.stats.getBase(Stats.POWER) > 0);
         summary.setBoolStat("murderMode", session.stats.murdersHappened);
         summary.setBoolStat("grimDark", session.stats.grimDarkPlayers);
 
@@ -377,14 +378,14 @@ class SessionSummaryJunior {
     }
 
     void getAverages() {
-        this.averageMinLuck = getAverageMinLuck(this.players);
-        this.averageMaxLuck = getAverageMaxLuck(this.players);
-        this.averagePower = getAveragePower(this.players);
-        this.averageMobility = getAverageMobility(this.players);
-        this.averageFreeWill = getAverageFreeWill(this.players);
-        this.averageHP = getAverageHP(this.players);
-        this.averageRelationshipValue = getAverageRelationshipValue(this.players);
-        this.averageSanity = getAverageSanity(this.players);
+        this.averageMinLuck = Stats.MIN_LUCK.average(this.players);
+        this.averageMaxLuck = Stats.MAX_LUCK.average(this.players);
+        this.averagePower = Stats.POWER.average(this.players);
+        this.averageMobility = Stats.MOBILITY.average(this.players);
+        this.averageFreeWill = Stats.FREE_WILL.average(this.players);
+        this.averageHP = Stats.HEALTH.average(this.players);
+        this.averageRelationshipValue = Stats.RELATIONSHIPS.average(this.players);
+        this.averageSanity = Stats.SANITY.average(this.players);
     }
 
     List<Player> grabPotentialGodTiers() {
@@ -419,7 +420,7 @@ class SessionSummaryJunior {
         List<String> ret = <String>[];
         for (num i = 0; i < this.players.length; i++) {
             Player player = this.players[i];
-            ret.add(player.land);
+            ret.add(player.land.name);
         }
         return ret;
     }
@@ -505,7 +506,11 @@ class MultiSessionSummary {
 
 
     MultiSessionSummary() {
-        //can switch order to change order AB displays in
+        initStats();
+    }
+
+    void initStats() {
+//can switch order to change order AB displays in
         //if i don't initialize stats here, then AB won't bothe rlisting stats this.are zero.
         setStat("total", 0);
         setStat("totalDeadPlayers", 0);
@@ -572,6 +577,7 @@ class MultiSessionSummary {
         setStat("hasTier4GnosisEvents", 0);
         setStat("hasNoTier4Events",0);
         setStat("hasFreeWillEvents", 0);
+        setStat("hasGhostEvents", 0);
         setStat("scratched", 0);
         setStat("rocksFell", 0);
         setStat("opossumVictory", 0);
@@ -822,7 +828,7 @@ class MultiSessionSummary {
         if (propertyName == "kingTooPowerful" || propertyName == "queenRejectRing" || propertyName == "murderMode" || propertyName == "grimDark" || propertyName == "denizenFought") return true;
         if (propertyName == "denizenBeat" || propertyName == "godTier" || propertyName == "questBed" || propertyName == "sacrificialSlab" || propertyName == "heroicDeath") return true;
         if (propertyName == "justDeath" || propertyName == "rapBattle" || propertyName == "sickFires" || propertyName == "hasLuckyEvents" || propertyName == "hasUnluckyEvents") return true;
-        if (propertyName == "hasNoTier4Events" ||propertyName == "hasTier1GnosisEvents" || propertyName == "hasTier2GnosisEvents" || propertyName == "hasTier3GnosisEvents" || propertyName == "hasTier4GnosisEvents" || propertyName == "hasFreeWillEvents" || propertyName == "jackRampage" || propertyName == "democracyStarted") return true;
+        if (propertyName == "hasNoTier4Events" ||propertyName == "hasTier1GnosisEvents" || propertyName == "hasTier2GnosisEvents" || propertyName == "hasTier3GnosisEvents" || propertyName == "hasTier4GnosisEvents" || propertyName == "hasFreeWillEvents" || propertyName == "hasGhostEvents" || propertyName == "jackRampage" || propertyName == "democracyStarted") return true;
         return false;
     }
 
@@ -877,6 +883,8 @@ class MultiSessionSummary {
             } else if (propertyName == "totalDeadPlayers") {
                 html.write("<Br><b>totalDeadPlayers: </b> ${this.num_stats['totalDeadPlayers']} (${this.num_stats['survivalRate']}% survival rate)"); //don't want to EVER ignore this.
             } else if (propertyName == "crashedFromSessionBug") {
+                html.write(this.generateHTMLForProperty(propertyName)); //don't ignore bugs, either.;
+            } else if (propertyName == "hasNoTier4Events") {
                 html.write(this.generateHTMLForProperty(propertyName)); //don't ignore bugs, either.;
             } else if (this.isRomanceProperty(propertyName)) {
                 romanceProperties.add(propertyName);
@@ -1065,6 +1073,7 @@ class MultiSessionSummary {
             if (ss.getBoolStat("hasLuckyEvents")) mss.incNumStat("hasLuckyEvents");
             if (ss.getBoolStat("hasUnluckyEvents")) mss.incNumStat("hasUnluckyEvents");
             if (ss.getBoolStat("hasFreeWillEvents")) mss.incNumStat("hasFreeWillEvents");
+            if (ss.getBoolStat("hasGhostEvents")) mss.incNumStat("hasGhostEvents");
             if (ss.getBoolStat("hasTier1GnosisEvents")) mss.incNumStat("hasTier1GnosisEvents");
             if (ss.getBoolStat("hasTier2GnosisEvents")) mss.incNumStat("hasTier2GnosisEvents");
             if (ss.getBoolStat("hasTier3GnosisEvents")) mss.incNumStat("hasTier3GnosisEvents");

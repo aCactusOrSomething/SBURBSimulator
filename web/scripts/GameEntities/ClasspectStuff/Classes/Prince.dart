@@ -14,12 +14,25 @@ class Prince extends SBURBClass {
     List<String> handles = ["precocious","priceless","proficient","prominent","proper", "perfect", "pantheon"];
 
     @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = true;
+    @override
+    bool isHelpful = false;
+
+    @override
     bool highHinit() {
         return true;
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 
@@ -39,13 +52,13 @@ class Prince extends SBURBClass {
         return true;
     }
     @override
-    String interactionFlavorText(GameEntity me, GameEntity target) {
-        return " The ${me.htmlTitle()} appears to be destroying something in themselves. ";
+    String interactionFlavorText(Player me, GameEntity target, Random rand) {
+        return " The ${me.htmlTitle()} appears to be destroying ${rand.pickFrom(me.aspect.symbolicMcguffins)} in themselves. ";
     }
 
     @override
     void processStatInteractionEffect(Player p, GameEntity target, AssociatedStat stat) {
-        num powerBoost = p.getStat("power") / 20;
+        num powerBoost = p.getPowerForEffects() / 20;
         powerBoost = this.modPowerBoostByClass(powerBoost, stat);
         if(p.session.mutator.bloodField) powerBoost = powerBoost * p.session.mutator.bloodBoost;
         //modify self.

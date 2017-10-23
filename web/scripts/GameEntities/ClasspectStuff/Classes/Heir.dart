@@ -19,6 +19,18 @@ class Heir extends SBURBClass {
     @override
     List<String> handles = ["home", "honorable", "humble", "hot", "horrific", "hardened", "havocs"];
 
+    @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = true;
 
     Heir() : super("Heir", 8, true);
 
@@ -28,7 +40,7 @@ class Heir extends SBURBClass {
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return true;
     }
 

@@ -22,7 +22,7 @@ class SessionMutator {
     static SessionMutator _instance;
     bool rapsAndLuckDisabled = false;
     num timeTillReckoning = 0;
-    num gameEntityMinPower = 1;
+    double gameEntityMinPower = 1.0;
     num reckoningEndsAt = -15;
     bool ectoBiologyStarted = false;
     num hardStrength = 1000;
@@ -30,7 +30,7 @@ class SessionMutator {
     num goodFrogLevel = 20;
     int expectedGristContributionPerPlayer = 400;
     int minimumGristPerPlayer = 100; //less than this, and no frog is possible.
-    num sessionHealth = 500;
+    num sessionHealth = 500 *  Stats.POWER.coefficient;
     Session savedSession; //for heart callback
     Player inSpotLight; //there can be only one.
     Player spacePlayer; //there only needs to be one.
@@ -46,7 +46,7 @@ class SessionMutator {
 
     SessionMutator() {
         _instance = this;
-        GameEntity.minPower = gameEntityMinPower;
+        Stats.POWER.minDerived = gameEntityMinPower;
         for (Aspect a in Aspects.all) {
             a.name = a.savedName; //AB is having none of your shenanigans.
         }
@@ -93,11 +93,11 @@ class SessionMutator {
         //you know, the one about the queen secretly being 3 salamanders in a robe.
         s.npcHandler.queen = new Carapace("Three Salamanders In a Robe", s);
         Fraymotif f = new Fraymotif("Glub Glub Behold our Robes, Y/N?", 1);
-        f.effects.add(new FraymotifEffect("power", 2, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 2, true));
         f.desc = " You wonder what the hell is going on. ";
         f.baseValue = -10; //will this make it heal you?
         s.npcHandler.queensRing.fraymotifs.add(f);
-        s.npcHandler.queen.setStatsHash(<String, num>{"hp": 3, "freeWill": -100, "power": 3});
+        s.npcHandler.queen.stats.setMap(<Stat, num>{Stats.HEALTH: 3, Stats.FREE_WILL: -100, Stats.POWER: 3});
         return true;
     }
 
@@ -107,12 +107,12 @@ class SessionMutator {
         //if the queen is 3, the king is more.
         session.npcHandler.king = new Carapace("13 Salamanders In a Robe", session);
         Fraymotif f = new Fraymotif("Glub Glub Behold our Robes, Y/N?", 1);
-        f.effects.add(new FraymotifEffect("power", 2, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 2, true));
         f.desc = " You wonder what the hell is going on. ";
         f.baseValue = -10; //will this make it heal you?
         session.npcHandler.queensRing.fraymotifs.add(f);
         session.npcHandler.king.grist = 1000;
-        session.npcHandler.king.setStatsHash(<String, num>{"hp": 13, "freeWill": -100, "power": 13});
+        session.npcHandler.king.stats.setMap(<Stat, num>{Stats.HEALTH: 13, Stats.FREE_WILL: -100, Stats.POWER: 13});
         return true;
     }
 
@@ -120,9 +120,9 @@ class SessionMutator {
         if (!hopeField) return false;
         session.npcHandler.jack = new Carapace("Jack In a Clown Outfit", session);
         //minLuck, maxLuck, hp, mobility, sanity, freeWill, power, abscondable, canAbscond, framotifs
-        session.npcHandler.jack.setStatsHash(<String, num>{"minLuck": -500, "maxLuck": -500, "sanity": -10000, "hp": 5, "freeWill": -100, "power": 5});
+        session.npcHandler.jack.stats.setMap(<Stat, num>{Stats.MIN_LUCK: -500, Stats.MAX_LUCK: -500, Stats.SANITY: -10000, Stats.HEALTH: 5, Stats.FREE_WILL: -100, Stats.POWER: 5});
         Fraymotif f = new Fraymotif("Stupid Dance", 1);
-        f.effects.add(new FraymotifEffect("power", 3, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 3, true));
         f.baseValue = -10; //will this make it heal you?
         f.desc = " Jack has never hated you more than he does now.";
         session.npcHandler.jack.fraymotifs.add(f);
@@ -133,11 +133,11 @@ class SessionMutator {
         if (!hopeField) return false;
         session.npcHandler.democraticArmy = new Carapace("Democratic Army", session); //doesn't actually exist till WV does his thing.
         Fraymotif f = new Fraymotif("Democracy Charge MAXIMUM HOPE", 2);
-        f.effects.add(new FraymotifEffect("power", 3, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 3, true));
         f.desc = " The people have chosen to Rise Up against their oppressors, with the players as their symbol of HOPE. ";
         f.baseValue = 9001;
         session.npcHandler.democraticArmy.fraymotifs.add(f);
-        session.npcHandler.democraticArmy.setStatsHash(<String, num>{"minLuck": -500, "maxLuck": 9001, "sanity": 9001, "hp": 5, "freeWill": 9001, "power": 9001});
+        session.npcHandler.democraticArmy.stats.setMap(<Stat, num>{Stats.MIN_LUCK: -500, Stats.MAX_LUCK: 9001, Stats.SANITY: 9001, Stats.HEALTH: 5, Stats.FREE_WILL: 9001, Stats.POWER: 9001});
         return true;
     }
 
@@ -183,9 +183,9 @@ class SessionMutator {
             .length;
         for (Player p in s.players) {
             if (p.aspect != Aspects.NULL) {
-                p.setStat("sanity", p.getStat("sanity").abs() * 612);
+                p.setStat(Stats.SANITY, p.getStat(Stats.SANITY).abs() * 612);
             } else {
-                p.setStat("sanity", p.getStat("sanity").abs() * 612 * -1); //they aren't supposed to be here. they don't get the sanity protections skaia normally distributes.
+                p.setStat(Stats.SANITY, p.getStat(Stats.SANITY).abs() * 612 * -1); //they aren't supposed to be here. they don't get the sanity protections skaia normally distributes.
             }
             Fraymotif f = new Fraymotif(s.rand.pickFrom(fraymotifNames), 99);
             f.baseValue = fraymotifValue;
@@ -194,8 +194,8 @@ class SessionMutator {
             p.relationships = <Relationship>[];
             p.generateRelationships(s.players);
 
-            for (String str in Player.playerStats) {
-                if (str != "sanity" && str != "RELATIONSHIPS") p.setStat(str, getStatAverage(str, s.players)); //we all work together.
+            for (Stat str in Stats.pickable) {
+                if (str != Stats.SANITY && str != Stats.RELATIONSHIPS) p.setStat(str, str.average(s.players)); //we all work together.
             }
         }
 
@@ -245,7 +245,7 @@ class SessionMutator {
 
         for (Player p in s.players) {
             p.makeMurderMode(); //you're all murder mode, but can you get teh meta players in time?
-            p.setStat("sanity", -1313); //STAY in murder mode, damn it
+            p.setStat(Stats.SANITY, -1313); //STAY in murder mode, damn it
             p.godTier = true;
         }
         //not waiting on this so can do shit after it fires off async style. it will handle relationships.
@@ -279,10 +279,10 @@ class SessionMutator {
             p.grist += s.rand.nextInt(s.expectedGristContributionPerPlayer);
             p.landLevel += s.rand.nextInt(s.goodFrogLevel);
             p.corruptionLevelOther += s.rand.nextIntRange(-100, 100);
-            for (String str in Player.playerStats) {
+            for (Stat str in Stats.pickable) {
                 //can lower it but way more likely to raise it
-                if (str != "RELATIONSHIPS") {
-                    p.addStat(str, s.rand.nextIntRange((-1 * s.hardStrength / 10).round(), s.hardStrength));
+                if (str != Stats.RELATIONSHIPS) {
+                    p.addStat(str, s.rand.nextIntRange((-1 * s.hardStrength / 10).round(), s.hardStrength.round()));
                 }
             }
         }
@@ -327,6 +327,7 @@ class SessionMutator {
                 independantDreamSelf.aspect = a;
                 independantDreamSelf.chatHandle = "Dream${independantDreamSelf.chatHandle}";
                 independantDreamSelf.isDreamSelf = true;
+                independantDreamSelf.dreamSelf = false; //does not have a dream self
                 independantDreamSelf.session = s;
                 independantDreamSelf.id = independantDreamSelf.id + 3333;
                 independantDreamSelf.spriteCanvasID = null; //rendering yourself will reinit it
@@ -395,7 +396,7 @@ class SessionMutator {
         //TODO once npcs quests are a thing, need to have all active at once.
         ret += "All players can now do all activities every turn.  And... you suddenly get the strange feeling that this session has become a LOT less shareable.";
         for (Player p in s.players) {
-            p.addStat("mobility", 413); //not a hope level of boost, but enough to probably fight most things
+            p.addStat(Stats.MOBILITY, 413); //not a hope level of boost, but enough to probably fight most things
         }
         return ret;
     }
@@ -421,7 +422,7 @@ class SessionMutator {
         ret += "trick is how they hog all the relevancy no matter how little sense it makes. Oh, huh, looks like they shook loose some extra information, as well.";
         for (Player p in s.players) {
             p.renderSelf(); //to pick up lack of relevancy or whatever
-            p.setStat("maxLuck", 88888888);
+            p.setStat(Stats.MAX_LUCK, 88888888);
             p.gnosis += 1; //yes it means they skip whatever effect was supposed to be paired with this, but should increase gnosis ending rate regardless.
         }
         return ret;
@@ -454,11 +455,11 @@ class SessionMutator {
         String scream = hopePlayer.aspect.fontTag() + hopePlayer.rand.pickFrom(jakeisms) + "</font>";
         String ret = "The ${hopePlayer.htmlTitle()} begins glowing and screaming dramatically. Lines of SBURBs code light up around them. <div class = 'jake'>$scream</div>";
         ret += "Every aspect of SBURB appears to be aligning itself with their beliefs. ";
-
-        hopePlayer.setStat("power", 9001); //i know i can save everyone.
-        GameEntity.minPower = 9000; //you have to be be OVER 9000!!!
-        gameEntityMinPower = 9000;
-        s.sessionHealth = 9001;
+        Stats.POWER.coefficient = 9001.0;
+        hopePlayer.setStat(Stats.POWER, 9001); //i know i can save everyone.
+        Stats.POWER.minDerived = 9000.0; //you have to be be OVER 9000!!!
+        gameEntityMinPower = 9000.0;
+        s.sessionHealth = 9001* Stats.POWER.coefficient;
         s.stats.ectoBiologyStarted = true; //of COURSE we're not paradox doomed. You'd be crazy to say otherwise.
         s.minimumGristPerPlayer = 1;
         s.expectedGristContributionPerPlayer = 10;
@@ -471,8 +472,8 @@ class SessionMutator {
         spawnKing(s);
         spawnJack(s);
         hopePlayer.denizen.name = "A small toy snake";
-        hopePlayer.denizen.setStat("power", 1);
-        hopePlayer.denizen.setStat("currentHP", 1);
+        hopePlayer.denizen.setStat(Stats.POWER, 1);
+        hopePlayer.denizen.setStat(Stats.CURRENT_HEALTH, 1);
         ret += "Their enemies are made into ridiculous non-threats. ";
         spawnDemocraticArmy(s);
         ret += "The democratic army rallies around this beacon of hope. ";
@@ -484,8 +485,9 @@ class SessionMutator {
             p.dead = false; //NOT .makeAlive  this is denying a fact, not resurrecting.
             p.murderMode = false;
             p.leftMurderMode = false; //never even happened.
-            p.setStat("currentHP", 9001);
-            p.setStat("sanity", 9001);
+            p.setStat(Stats.CURRENT_HEALTH, 9001);
+            p.setStat(Stats.SANITY, 9001);
+            p.unconditionallyImmortal = true; //i BELIEVE no one will die.  (of course, this does nothing if they are'nt god tier)
             p.renderSelf();
             Relationship r = hopePlayer.getRelationshipWith(p);
             if (r != null && (r.saved_type == r.badBig || r.saved_type == r.spades || r.saved_type == r.clubs)) {
@@ -495,7 +497,8 @@ class SessionMutator {
                 r.target.aspect.name = s.rand.pickFrom(insults);
                 r.target.class_name.name = s.rand.pickFrom(insults);
                 s.logger.info("AB: Now they are ${r.target.aspect.name} and ${r.target.class_name.name}");
-
+                r.target.canGodTierRevive = false; //you're secretly mortal now, asshole.
+                r.target.unconditionallyImmortal = false;
                 modEnemies = true;
             } else if (r != null && (r.saved_type == r.goodBig || r.saved_type == r.heart || r.saved_type == r.diamond)) {
                 Relationship r2 = p.getRelationshipWith(hopePlayer);
@@ -644,7 +647,7 @@ class SessionMutator {
         Player time = Player.makeRenderingSnapshot(findAspectPlayer(session.players, Aspects.TIME));
         time.dead = false;
         time.doomed = true;
-        time.setStat("currentHP", time.getStat("hp"));
+        time.setStat(Stats.CURRENT_HEALTH, time.getStat(Stats.HEALTH));
 
         time.influenceSymbol = "mind_forehead.png";
         //String html = "<img src = 'images/yellow_yard.png'>";
@@ -767,7 +770,7 @@ class SessionMutator {
                 target.corruptionLevelOther = timePlayer.corruptionLevelOther; //every 100 points, sends you to next grimDarkLevel.
                 target.gnosis = timePlayer.gnosis;
                 target.grimDark = timePlayer.grimDark;
-                target.addStat("sanity", -10); //this is not what sane ppl do, at least not many times in a row.
+                target.addStat(Stats.SANITY, -10); //this is not what sane ppl do, at least not many times in a row.
                 replaced = true;
 
                 for(Relationship r in target.relationships) {
@@ -781,7 +784,7 @@ class SessionMutator {
             target.victimBlood = deadPlayer.bloodColor;
 
 
-            var divID = (div.id) + "_alt_" + target.chatHandle;
+            var divID = (div.id) + "_alt_${target.id}";
             String canvasHTML = "<br><canvas id='canvas" + divID + "' width='$canvasWidth' height='$canvasHeight'>  </canvas>";
             appendHtml(div, "$ret $canvasHTML");
             var canvasDiv = querySelector("#canvas" + divID);
@@ -887,18 +890,27 @@ class MetaPlayerHandler {
     }
 
     Player makeAW(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.SCRIBE, Aspects.LIFE);
-        player.hair = 56;
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCRIBE, Aspects.LIFE);
+        player.quirk = randomHumanQuirk(s.rand);
+        player.hair = 30;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#000000";
         player.bloodColor = "#ff0000";
         player.isTroll = false;
+
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
+
+
         player.deriveSprite = false;
         player.chatHandle = "aspiringWatcher";
         player.interest1 = new Interest("Mathematics", InterestManager.ACADEMIC);
         player.interest2 = new Interest("Tabletop Roleplaying", InterestManager.SOCIAL);
-        player.moon = "Prospit";
-        player.land = "Land of Spires and Nature";
+        player.moon = s.derse;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Spires and Nature";
         player.deriveChatHandle = false;
         player.godTier = true;
         player.deriveLand = false;
@@ -913,10 +925,10 @@ class MetaPlayerHandler {
 
         Fraymotif f = new Fraymotif("Staff of Life", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("power", 1, true));
-        f.effects.add(new FraymotifEffect("freeWill", 1, true));
-        f.effects.add(new FraymotifEffect("power", 1, false));
-        f.effects.add(new FraymotifEffect("freeWill", 1, false));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 1, true));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 1, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 1, false));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 1, false));
         f.desc = "Death has no hold in the realm of Growth. ";
         player.fraymotifs.add(f);
 
@@ -925,7 +937,9 @@ class MetaPlayerHandler {
 
     //DM agreed to be our time player
     Player makeDM(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.PRINCE, Aspects.TIME);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.PRINCE, Aspects.TIME);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 29;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#503A21";
@@ -935,10 +949,17 @@ class MetaPlayerHandler {
         player.chatHandle = "dilletantMathematician";
         player.interest1 = new Interest("Math", InterestManager.ACADEMIC);
         player.interest2 = new Interest("Cartoons", InterestManager.POPCULTURE);
-        player.moon = "Prospit";
-        player.land = "Land of Cardboard and Grass";
+        player.moon = s.prospit;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Cardboard and Grass";
         player.godTier = true;
         player.deriveChatHandle = false;
+
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
+
         player.deriveLand = false;
         player.initialize();
         player.makeGuardian();
@@ -950,15 +971,18 @@ class MetaPlayerHandler {
 
         Fraymotif f = new Fraymotif(" Brute Force Reimann Apotheosis", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("mobility", 3, true));
-        f.effects.add(new FraymotifEffect("mobility", 3, false));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 3, false));
         f.desc = "Sometimes you are in too much of a hurry to come up with an elegant and performant solution so you brute force it and let others suffer the consequences. ";
         player.fraymotifs.add(f);
         return player;
     }
 
+    //myseriously absent. why would SBURB assign a troll to be the space player for a human session?
     Player makeIO(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.MAGE, Aspects.SPACE);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.MAGE, Aspects.SPACE);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 68;
         player.hairColor = "#000000";
         player.bloodColor = "#0021cb";
@@ -968,11 +992,18 @@ class MetaPlayerHandler {
         player.deriveSprite = false;
         player.rightHorn = 71;
         player.godTier = true;
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
+
         player.chatHandle = "InsufferableOracle";
         player.interest1 = new Interest("Drawing", InterestManager.CULTURE);
         player.interest2 = new Interest("Character Creation", InterestManager.WRITING);
-        player.moon = "Prospit";
-        player.land = "Land of Doors and Frogs";
+
+        player.moon = s.prospit;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Doors and Frogs";
         player.deriveChatHandle = false;
         player.deriveLand = false;
         player.initialize();
@@ -983,9 +1014,11 @@ class MetaPlayerHandler {
         return player;
     }
 
-
+    //made a legit prophecy that could be subverted by stripping.
     Player makeMI(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.BARD, Aspects.DOOM);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.BARD, Aspects.DOOM);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 1;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#503A21";
@@ -994,8 +1027,9 @@ class MetaPlayerHandler {
         player.chatHandle = "manicInsomniac";
         player.interest1 = new Interest("Data Entry", InterestManager.WRITING);
         player.interest2 = new Interest("Song Writing", InterestManager.MUSIC);
-        player.moon = "Prospit";
-        player.land = "Land of Sound and Fury";
+        player.moon = s.prospit;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Sound and Fury";
         player.deriveChatHandle = false;
         player.godTier = true;
         player.deriveLand = false;
@@ -1007,20 +1041,26 @@ class MetaPlayerHandler {
         player.makeDenizenWithStrength('<span class = "void">Maniomnia, the </span>Dreamwaker', 13); //hope we span strong enough to fight them.
         player.object_to_prototype = new PotentialSprite("Caliban", s);
         player.sprite.addPrototyping(player.object_to_prototype);
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 1;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
 
         Fraymotif f = new Fraymotif("Fraymixing", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("freeWill", 3, true));
-        f.effects.add(new FraymotifEffect("sanity", 3, true));
-        f.effects.add(new FraymotifEffect("freeWill", 0, false));
-        f.effects.add(new FraymotifEffect("sanity", 0, false));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.SANITY, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 0, false));
+        f.effects.add(new FraymotifEffect(Stats.SANITY, 0, false));
         f.desc = "Whats that music? The ENEMY's fraymotifs are absorbed into its maddening and ever-shiffting harmonies. ";
         player.fraymotifs.add(f);
         return player;
     }
 
     Player makeNB(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.PAGE, Aspects.BLOOD);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.PAGE, Aspects.BLOOD);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 67;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#382207";
@@ -1029,8 +1069,9 @@ class MetaPlayerHandler {
         player.chatHandle = "noBody";
         player.interest1 = new Interest("Charles Dutton", InterestManager.POPCULTURE);
         player.interest2 = new Interest("Online Roleplaying", InterestManager.SOCIAL);
-        player.moon = "Derse";
-        player.land = "Land of Storms and Idols";
+        player.moon = s.derse;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Storms and Idols";
         player.deriveChatHandle = false;
         player.godTier = true;
         player.deriveSprite = false;
@@ -1045,8 +1086,12 @@ class MetaPlayerHandler {
 
         Fraymotif f = new Fraymotif("A concentric circle", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("sanity", 0, true));
-        f.effects.add(new FraymotifEffect("sanity", 3, true));
+        f.effects.add(new FraymotifEffect(Stats.SANITY, 0, true));
+        f.effects.add(new FraymotifEffect(Stats.SANITY, 3, true));
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
 
         f.desc = "A circle within itself. Because fuck reality. ";
         player.fraymotifs.add(f);
@@ -1054,7 +1099,9 @@ class MetaPlayerHandler {
     }
 
     Player makeWM(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.SYLPH, Aspects.BREATH);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.MUSE, Aspects.BREATH);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 17;
         player.hairColor = "#800000";
         player.ectoBiologicalSource = 13;
@@ -1063,9 +1110,10 @@ class MetaPlayerHandler {
         player.chatHandle = "wooMod";
         player.interest1 = new Interest("Cooking", InterestManager.DOMESTIC);
         player.interest2 = new Interest("Tabletop Roleplaying", InterestManager.SOCIAL);
-        player.moon = "Prospit";
+        player.moon = s.prospit;
         player.deriveSprite = false;
-        player.land = "Land of Lakes and Lotuses";
+        player.land = player.spawnLand();
+        player.land.name = "Land of Lakes and Lotuses";
         player.godTier = true;
         player.deriveChatHandle = false;
         player.deriveLand = false;
@@ -1076,32 +1124,43 @@ class MetaPlayerHandler {
         player.guardian.guardian = player;
         player.makeDenizenWithStrength('<span class = "void">Doomod, The </span>Wanderer', 13); //hope we span strong enough to fight them.
 
+        player.object_to_prototype = new PotentialSprite("Magical Princess Pony", s);
+        player.object_to_prototype.helpPhrase = " is helpful, but keeps pushing you to make friends";
+
+        player.sprite.addPrototyping(player.object_to_prototype);
+
         Fraymotif f = new Fraymotif("Song of Skaia", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("hp", 3, true));
-        f.effects.add(new FraymotifEffect("hp", 1, false));
+        f.effects.add(new FraymotifEffect(Stats.HEALTH, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.HEALTH, 1, false));
         //let's find out together if this crashes.
-        f.effects.add(new FraymotifEffect("sburbLore", 3, true));
-        f.effects.add(new FraymotifEffect("sburbLore", 1, false));
+        f.effects.add(new FraymotifEffect(Stats.SBURB_LORE, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.SBURB_LORE, 1, false));
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
 
         f.desc = "Begins spouting hippie gnostic crap. You think it's supposed to be enlightening, but mostly you are just confused. ";
         player.fraymotifs.add(f);
-
         return player;
     }
 
     Player makeRS(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.SEER, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SEER, Aspects.VOID);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 60;
         player.ectoBiologicalSource = 13;
-        player.hairColor = "#382207";
+        player.hairColor = "#000000";
         player.bloodColor = "#ff0000";
         player.isTroll = false;
         player.chatHandle = "recursiveSlacker";
         player.interest1 = new Interest("Theorycrafting", InterestManager.ACADEMIC);
         player.interest2 = new Interest("Storytelling", InterestManager.WRITING);
-        player.moon = "Derse";
-        player.land = "Land of Obsidian and Shadows";
+        player.moon = s.derse;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Obsidian and Shadows";
         player.godTier = true;
         player.deriveSprite = false;
         player.deriveChatHandle = false;
@@ -1115,13 +1174,17 @@ class MetaPlayerHandler {
         player.object_to_prototype.helpPhrase = "was a clever choice for a sprite. He showers enemies in currency. Damn balance-breaking void players.";
 
         player.sprite.addPrototyping(player.object_to_prototype);
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
 
-        Fraymotif f = new Fraymotif("Song of Skaia", 13);
+        Fraymotif f = new Fraymotif("Maw of the Void", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("freeWill", 3, true));
-        f.effects.add(new FraymotifEffect("power", 3, true));
-        f.effects.add(new FraymotifEffect("freeWill", 1, false));
-        f.effects.add(new FraymotifEffect("power", 1, false));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 3, true));
+        f.effects.add(new FraymotifEffect(Stats.FREE_WILL, 1, false));
+        f.effects.add(new FraymotifEffect(Stats.POWER, 1, false));
 
         f.desc = "A ring of emptiness tears through reality around recursiveSlacker, empowering and freeing him, and damaging all of his ENEMIES. ";
         player.fraymotifs.add(f);
@@ -1129,7 +1192,9 @@ class MetaPlayerHandler {
     }
 
     Player makeKR(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.ROGUE, Aspects.DREAM);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.ROGUE, Aspects.DREAM);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 46;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#E8D099";
@@ -1138,9 +1203,10 @@ class MetaPlayerHandler {
         player.chatHandle = "karmicRetribution";
         player.interest1 = new Interest("100 Art Projects At Once", InterestManager.CULTURE);
         player.interest2 = new Interest("Memes", InterestManager.POPCULTURE);
-        player.moon = "Derse";
+        player.moon = s.derse;
         player.deriveSprite = false;
-        player.land = "Land of Memories and Misdirection";
+        player.land = player.spawnLand();
+        player.land.name = "Land of Memories and Misdirection";
         player.godTier = true;
         player.deriveChatHandle = false;
         player.deriveLand = false;
@@ -1155,16 +1221,22 @@ class MetaPlayerHandler {
 
         Fraymotif f = new Fraymotif("Ban Hammer", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("mobility", 2, false));
-        f.effects.add(new FraymotifEffect("RELATIONSHIPS", 2, false));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 2, false));
+        f.effects.add(new FraymotifEffect(Stats.RELATIONSHIPS, 2, false));
 
         f.desc = "ENEMY is banned. ";
         player.fraymotifs.add(f);
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
         return player;
     }
 
     Player makePL(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.WITCH, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.WITCH, Aspects.VOID);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 47;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#453012";
@@ -1173,9 +1245,10 @@ class MetaPlayerHandler {
         player.chatHandle = "paradoxLands";
         player.interest1 = new Interest("Drawing distant Lands", InterestManager.CULTURE);
         player.interest2 = new Interest("Procedural Generation", InterestManager.TECHNOLOGY);
-        player.moon = "Derse";
+        player.moon = s.derse;
         player.deriveSprite = false;
-        player.land = "Land of Cults and Chandeliers";
+        player.land = player.spawnLand();
+        player.land.name = "Land of Cults and Chandeliers";
         player.godTier = true;
         player.deriveChatHandle = false;
         player.deriveLand = false;
@@ -1189,22 +1262,30 @@ class MetaPlayerHandler {
         player.object_to_prototype.illegal = true;
         player.object_to_prototype.helpPhrase = "potters around being adorable, yet shockingly deadly";
         player.object_to_prototype.disaster = true;
-        player.object_to_prototype.setStatsHash(<String, num>{"hp": 500, "currentHP": 500, "sanity": -250, "power": 100});
+        player.object_to_prototype.stats.setMap(<Stat, num>{Stats.HEALTH: 500, Stats.CURRENT_HEALTH: 500, Stats.SANITY: -250, Stats.POWER: 100});
 
         Fraymotif f = new Fraymotif("[this space left intentionally blank]", 13);
         f.baseValue = 1300;
-        f.effects.add(new FraymotifEffect("mobility", 1, true));
-        f.effects.add(new FraymotifEffect("mobility", 1, false));
-        f.effects.add(new FraymotifEffect("mobility", 3, false));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 1, true));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 1, false));
+        f.effects.add(new FraymotifEffect(Stats.MOBILITY, 3, false));
 
         f.desc = "OWNER and their allies vanish into the void. ENEMY is confused. Where did they go? This is such bullshit. ";
         player.fraymotifs.add(f);
+
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 2;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [];
+
 
         return player;
     }
 
     Player makeJR(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.WASTE, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.WASTE, Aspects.MIND);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 13;
         player.ectoBiologicalSource = 13;
         player.hairColor = "#3C1E07";
@@ -1214,8 +1295,9 @@ class MetaPlayerHandler {
         player.chatHandle = "jadedResearcher";
         player.interest1 = new Interest("The AuthorBot", InterestManager.TECHNOLOGY);
         player.interest2 = new Interest("GiggleSnort", InterestManager.POPCULTURE);
-        player.moon = "Derse";
-        player.land = "Land of Rods and Screens";
+        player.moon = s.derse;
+        player.land = player.land = player.spawnLand();
+        player.land.name = "Land of Rods and Screens";
         player.godTier = true;
         player.deriveChatHandle = false;
         player.deriveLand = false;
@@ -1226,13 +1308,22 @@ class MetaPlayerHandler {
         player.makeDenizenWithStrength('<span class = "void">Jadeacher the,</span>Researcher', 13); //hope we span strong enough to fight them.
         player.object_to_prototype = new PotentialSprite("JR", s);
         player.sprite.addPrototyping(player.object_to_prototype);
+
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 3;
+        player.quirk.favoriteNumber = 3;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [["typoes","typoes"],["maid","miad"],["like","liek"],["\\bfucking\\b", "fucknig"],["the","teh"],["\\bvery\\b", "hella"],["\\bgood\\b", "sweet"],["\\byes\\b", "yup"],["\\bnope\\b", "nope"]];
         return player;
     }
 
     Player makeAB(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.GUIDE, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.GUIDE, Aspects.MIND);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 13;
         player.ectoBiologicalSource = 13;
+        player.quirk.favoriteNumber = 3;
         player.robot = true;
         player.hairColor = "#2B2A2D";
         player.bloodColor = "#0021cb";
@@ -1240,8 +1331,9 @@ class MetaPlayerHandler {
         player.chatHandle = "authorBot";
         player.interest1 = new Interest("Authoring", InterestManager.TECHNOLOGY);
         player.interest2 = new Interest("Robots", InterestManager.TECHNOLOGY);
-        player.moon = "Derse";
-        player.land = "Land of Bugs and Javascript";
+        player.moon = s.derse;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Bugs and Javascript";
         player.godTier = true;
         player.deriveChatHandle = false;
         player.deriveLand = false;
@@ -1253,12 +1345,20 @@ class MetaPlayerHandler {
         player.makeDenizenWithStrength('<span class = "void">Authorot, the</span> Robot', 13); //hope we span strong enough to fight them.
         player.object_to_prototype = new PotentialSprite("Compass", s);
         player.sprite.addPrototyping(player.object_to_prototype);
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 3;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [["\\bvery\\b", "hella"],["\\bgood\\b", "98.231423134% sweet"],["\\byes\\b", "yup"],["\\bnope\\b", "nope"]];
+
         return player;
     }
 
     Player makeABJ(Session s) {
-        Player player = randomPlayerNoDerived(curSessionGlobalVar, SBURBClassManager.SCOUT, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCOUT, Aspects.MIND);
+        player.quirk = randomHumanQuirk(s.rand);
+
         player.hair = 13;
+        player.quirk.favoriteNumber = 3;
         player.ectoBiologicalSource = 13;
         player.robot = true;
         player.hairColor = "#2B2A2D";
@@ -1267,8 +1367,9 @@ class MetaPlayerHandler {
         player.chatHandle = "authorBotJunior";
         player.interest1 = new Interest("Arson", InterestManager.TERRIBLE);
         player.interest2 = new Interest("Shipping", InterestManager.ROMANTIC);
-        player.moon = "Derse";
-        player.land = "Land of Hrmmm... and Interesting!!!";
+        player.moon = s.derse;
+        player.land = player.spawnLand();
+        player.land.name = "Land of Hrmmm... and Interesting!!!";
         player.deriveChatHandle = false;
         player.deriveLand = false;
         player.deriveSprite = false;
@@ -1279,6 +1380,11 @@ class MetaPlayerHandler {
         player.makeDenizenWithStrength('<span class = "void">Abbiejean, the </span>Scout', 13); //hope we span strong enough to fight them.
         player.object_to_prototype = new PotentialSprite("Fire", s);
         player.sprite.addPrototyping(player.object_to_prototype);
+        player.quirk.capitalization = 1;
+        player.quirk.punctuation = 3;
+        player.quirk.lettersToReplace = [];
+        player.quirk.lettersToReplaceIgnoreCase = [["^.*\$", "Hrmmm...."],["[.]\$", " Yes.."],["[.]\$", " Interesting!!!"],];
+
         return player;
     }
 
@@ -1289,7 +1395,7 @@ class MetaPlayerHandler {
         if (p == authorBotJunior) {
             for (Player pl in p.session.players) {
                 if (pl != p) pl.makeAlive();
-                pl.setStat("currentHP", 1313);
+                pl.setStat(Stats.CURRENT_HEALTH, 1313);
             }
             return "With a final 'Interesting!!!', AuthorBotJunior is defeated. It feels like a great curse has been lifted. The Players are revived and healed. ";
         }

@@ -9,7 +9,7 @@ why the fuck does trying to decode a URI that is null, return the string "null";
 why would ANYONE EVER WANT THAT!?????????
 javascript is "WAT"ing me
 because of COURSE "null" == null is fucking false, so my code is like "oh, i must have some players" and then try to fucking parse!!!!!!!!!!!!!!*/
-List<Player> getReplayers() {
+List<Player> getReplayers(Session session) {
 //	var b = LZString.decompressFromEncodedURIComponent(getRawParameterByName("b"));
     //var available_classes_guardians = classes.sublist(0); //if there are replayers, then i need to reset guardian classes
     String raw = getRawParameterByName("b", null);
@@ -24,7 +24,13 @@ List<Player> getReplayers() {
     ////print(b);
     ////print("s is ");
     ////print(s);
-    return dataBytesAndStringsToPlayers(b, s, x);
+    List<Player> ret =  dataBytesAndStringsToPlayers(b, s, x);
+    //can't let them keep their null session reference.
+    for(Player p in ret) {
+        p.session = session;
+        p.syncToSessionMoon();
+    }
+    return ret;
 }
 
 
@@ -68,11 +74,25 @@ void redoRelationships(List<Player> players) {
     }
 }
 
+void initializePlayersNoReplayers(List<Player> players, Session session) {
+    for (num i = 0; i < players.length; i++) {
+        if (players[i].land != null) { //don't reinit aliens, their stats stay how they were cloned.
+            players[i].initialize();
+            players[i].guardian.initialize();
+
+        }
+    }
+    players[0].leader == true; //TODO why does this need to happen, why isn't it already true?
+
+}
 
 void initializePlayers(List<Player> players, Session session) {
-    List<Player> replayPlayers = getReplayers();
+    print("initializing players");
+    List<Player> replayPlayers = getReplayers(session);
+    print("replayers");
     if (replayPlayers.isEmpty && session != null) replayPlayers = session.replayers; //<-- probably blank too, but won't be for fan oc easter eggs.
     syncReplayNumberToPlayerNumber(replayPlayers);
+    print("synced");
     for (num i = 0; i < players.length; i++) {
         if (replayPlayers.length > i) players[i].copyFromPlayer(replayPlayers[i]); //DOES NOT use MORE PLAYERS THAN SESSION HAS ROOM FOR, BUT AT LEAST WON'T CRASH ON LESS.
         if (players[i].land != null) { //don't reinit aliens, their stats stay how they were cloned.
@@ -93,11 +113,12 @@ void initializePlayers(List<Player> players, Session session) {
         redoRelationships(players); //why was i doing this, this overrides robot and gim dark and initial relationships
         //oh because it makes replayed sessions with scratches crash.
     }
+    print("initialize players done");
 }
 
 
 void initializePlayersNoDerived(List<Player> players, Session session) {
-    List<Player> replayPlayers = getReplayers();
+    List<Player> replayPlayers = getReplayers(session);
     for (num i = 0; i < players.length; i++) {
         if (replayPlayers[i] != null) players[i].copyFromPlayer(replayPlayers[i]); //DOES NOT use MORE PLAYERS THAN SESSION HAS ROOM FOR, BUT AT LEAST WON'T CRASH ON LESS.
         players[i].initializeStats();
@@ -115,7 +136,7 @@ void initializePlayersNoDerived(List<Player> players, Session session) {
 Player blankPlayerNoDerived(Session session) {
     GameEntity k = PotentialSprite.prototyping_objects[0];
     bool gd = true;
-    String m = "Prospit";
+    Moon m = session.prospit;
     //	Player([String name, Session session, this.class_name, this.aspect, this.object_to_prototype, this.moon, this.godDestiny, num id]): super(name, id, session);
 
     Player p = new Player(session, SBURBClassManager.PAGE, Aspects.VOID, k, m, gd);
@@ -141,7 +162,7 @@ Player randomPlayerNoDerived(Session session, SBURBClass c, Aspect a) {
 
     bool gd = false;
 
-    String m = session.rand.pickFrom(moons);
+    Moon m = session.rand.pickFrom(session.moons);
     Player p = new Player(session, c, a, k, m, gd);
     p.decideTroll();
     p.interest1 = InterestManager.getRandomInterest(session.rand);
@@ -164,7 +185,7 @@ Player randomPlayerNoDerived(Session session, SBURBClass c, Aspect a) {
 }
 
 
-Player randomPlayerWithClaspect(Session session, SBURBClass c, Aspect a) {
+Player randomPlayerWithClaspect(Session session, SBURBClass c, Aspect a, [Moon m = null]) {
     ////print("random player");
    // //print("class: $c, aspect: $a, session: $session");
     GameEntity k = session.rand.pickFrom(PotentialSprite.prototyping_objects);
@@ -172,7 +193,12 @@ Player randomPlayerWithClaspect(Session session, SBURBClass c, Aspect a) {
 
     bool gd = false;
 
-    String m = session.rand.pickFrom(moons);
+    if(m == null) {
+        m = session.rand.pickFrom(session.moons);
+        //print("setting random moon to $m");
+    }else {
+       // print("making player with set moon of $m");
+    }
     Player p = new Player(session, c, a, k, m, gd);
     p.decideTroll();
     p.interest1 = InterestManager.getRandomInterest(session.rand);
@@ -219,7 +245,7 @@ Player randomSpacePlayer(Session session) {
     removeFromArray(c, session.available_classes_players);
     Aspect a = Aspects.SPACE;
     removeFromArray(a, session.available_aspects);
-    return randomPlayerWithClaspect(session, c, a);
+    return randomPlayerWithClaspect(session, c, a,session.prospit);
 }
 
 
@@ -229,7 +255,7 @@ Player randomTimePlayer(Session session) {
     removeFromArray(c, session.available_classes_players);
     Aspect a = Aspects.TIME;
     removeFromArray(a, session.available_aspects);
-    return randomPlayerWithClaspect(session, c, a);
+    return randomPlayerWithClaspect(session, c, a, session.derse);
 }
 
 
@@ -338,7 +364,7 @@ Player findStrongestPlayer(List<Player> playerList) {
 
     for (int i = 0; i < playerList.length; i++) {
         GameEntity p = playerList[i];
-        if (p.getStat("power") > strongest.getStat("power")) {
+        if (p.getStat(Stats.POWER) > strongest.getStat(Stats.POWER)) {
             strongest = p;
         }
 
@@ -358,7 +384,6 @@ List<T> findDeadPlayers<T extends GameEntity>(List<T> playerList) {
     return ret;
 }
 
-
 List<Player> findDoomedPlayers(List<Player> playerList) {
     List<Player> ret = <Player>[];
     for (int i = 0; i < playerList.length; i++) {
@@ -369,7 +394,6 @@ List<Player> findDoomedPlayers(List<Player> playerList) {
     }
     return ret;
 }
-
 
 //TODO shove this somewhere mroe useful, rename so not just players
 //take in a generic type as long as it extends generic and return a generic type, you get mix of sprites and players, returns that way.i hope
@@ -383,11 +407,10 @@ List<T> findLivingPlayers<T extends GameEntity> (List<T> playerList){
     return ret;
 }
 
-
 num getPartyPower(List<GameEntity> party) {
     num ret = 0;
     for (int i = 0; i < party.length; i++) {
-        ret += party[i].getStat("power");
+        ret += party[i].getStat(Stats.POWER);
     }
     return ret;
 }
@@ -538,56 +561,12 @@ List<Player> findPlayersFromSessionWithId(List<Player> playerList, num source) {
 
 String findBadPrototyping(List<Player> playerList) {
     for (int i = 0; i < playerList.length; i++) {
-        if ((playerList[i].object_to_prototype != null) && playerList[i].object_to_prototype.getStat("power") >= 200) {
+        if ((playerList[i].object_to_prototype != null) && playerList[i].object_to_prototype.getStat(Stats.POWER)  >= 200 * Stats.POWER.coefficient) {
             return (playerList[i].object_to_prototype.htmlTitle());
         }
     }
     return null;
 }
-
-num getStatAverage(String statName, List<GameEntity> players) {
-    num ret = 0;
-    if(players.isEmpty) return ret;
-    for(GameEntity ge in players) {
-        ret += ge.getStat(statName);
-    }
-    return ret/players.length;
-}
-
-
-Player findHighestStatPlayer(String statName, List<Player> playerList) {
-    if (playerList.isEmpty) return null; //it's empty you dunkass
-    Player ret = playerList[0];
-    for (int i = 0; i < playerList.length; i++) {
-        Player p = playerList[i];
-        if (p.getStat(statName) > ret.getStat(statName)) {
-            ret = p;
-        }
-    }
-    return ret;
-}
-
-Player findLowestStatPlayer(String statName, List<Player> playerList) {
-    if (playerList.isEmpty) return null; //it's empty you dunkass
-    Player ret = playerList[0];
-    for (int i = 0; i < playerList.length; i++) {
-        Player p = playerList[i];
-        if (p.getStat(statName) < ret.getStat(statName)) {
-            ret = p;
-        }
-    }
-    return ret;
-}
-
-Player findHighestMobilityPlayer(List<Player> playerList) {
-    findHighestStatPlayer("mobility", playerList);
-}
-
-
-Player findLowestMobilityPlayer(List<Player> playerList) {
-    findLowestStatPlayer("mobility", playerList);
-}
-
 
 String findGoodPrototyping(List<Player> playerList) {
     for (int i = 0; i < playerList.length; i++) {
@@ -608,79 +587,6 @@ List<Player> getGuardiansForPlayers(List<Player> playerList) {
     return tmp;
 }
 
-
-//mobility is "natural" way to sort players but this works, too.
-List<Player> sortPlayersByFreeWill(List<Player> players) {
-    return new List<Player>.from(players)
-        ..sort((Player a, Player b) {
-            return a.getStat("freeWill") - b.getStat("freeWill");
-        });
-}
-
-
-num compareFreeWill(Player a, Player b) {
-    return b.getStat("freeWill") - a.getStat("freeWill");
-}
-
-num getAverageMinLuck(List<Player> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (num i = 0; i < players.length; i++) {
-        ret += players[i].getStat("minLuck");
-    }
-    return (ret / players.length).round();
-}
-
-
-num getAverageMaxLuck(List<Player> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("maxLuck");
-    }
-    return (ret / players.length).round();
-}
-
-
-num getAverageSanity(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("sanity");
-    }
-    return (ret / players.length).round();
-}
-
-
-num getAverageHP(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("hp");
-    }
-    return (ret / players.length).round();
-}
-
-
-dynamic getAverageMobility(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("mobility");
-    }
-    return (ret / players.length).round();
-}
-
-
-dynamic getAverageRelationshipValue(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("RELATIONSHIPS");
-    }
-    return (ret / players.length).round();
-}
-
 num getTotalGrist(List<GameEntity> players) {
     if (players.isEmpty) return 0;
     num ret = 0;
@@ -688,15 +594,6 @@ num getTotalGrist(List<GameEntity> players) {
         ret += players[i].grist;
     }
     return ret;
-}
-
-num getAveragePower(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("power");
-    }
-    return (ret / players.length).round();
 }
 
 num getAverageGrist(List<GameEntity> players) {
@@ -708,7 +605,6 @@ num getAverageGrist(List<GameEntity> players) {
     return (ret / players.length).round();
 }
 
-
 String getPVPQuip(Player deadPlayer, Player victor, String deadRole, String victorRole) {
     if(deadPlayer.class_name == victor.class_name) return "Anything goes when you fight your own class, I guess.";
 
@@ -718,17 +614,6 @@ String getPVPQuip(Player deadPlayer, Player victor, String deadRole, String vict
         return "Which is weird because you would expect the ${deadPlayer.class_name} to have a clear advantage. Guess echeladder rank really does matter?";
     }
 }
-
-
-num getAverageFreeWill(List<GameEntity> players) {
-    if (players.isEmpty) return 0;
-    num ret = 0;
-    for (int i = 0; i < players.length; i++) {
-        ret += players[i].getStat("freeWill");
-    }
-    return (ret / players.length).round();
-}
-
 
 //used to recover form mind control, with a few extra things for planned shit.
 class MiniSnapShot {

@@ -1,6 +1,6 @@
 import "dart:html";
-import '../Rendering/sbahj.dart';
-import '../Rendering/wordgif.dart';
+import '../Rendering/effects/sbahj.dart';
+import '../Rendering/text/wordgif.dart';
 import "../SBURBSim.dart";
 
 
@@ -117,12 +117,12 @@ class CorpseSmooch extends Scene {
 		}
 		return royalty;
 	}
-	void renderForPlayer(Element div, Player deadPlayer){
+	void renderForPlayer(Element div, Player deadPlayer, Player royalty){
 		String ret = "";
-		Player royalty = this.getRoyalty(deadPlayer);
+		//Player royalty = this.getRoyalty(deadPlayer); //don't reget royalty not garanteed to be samebecause interaction effects
 		if(royalty != null){
 
-			String divID = (div.id) + "_" + deadPlayer.chatHandle;
+			String divID = (div.id) + "_${deadPlayer.id}";
 			String canvasHTML = "<br><canvas id='canvas" + divID+"' width='$canvasWidth' height='$canvasHeight'>  </canvas>";
 			ret += deadPlayer.interactionEffect(royalty);
 			ret += royalty.interactionEffect(deadPlayer);
@@ -146,11 +146,11 @@ class CorpseSmooch extends Scene {
 			if(d.dreamSelf == true){
 				Player royalty = this.getRoyalty(d);
 				if(royalty != null){
-					royalty.addStat("sanity", -10);
-					ret += " The " + royalty.htmlTitle() + ", as a member of the royalty of " + royalty.moon + ", administers the universal remedy for the unawakened ";
-					ret += " to the " + d.htmlTitle() + ". Their dream self takes over on " + d.moon + ". ";
+					royalty.addStat(Stats.SANITY, -10);
+					ret += " The " + royalty.htmlTitle() + ", as a member of the royalty of ${royalty.moon}, administers the universal remedy for the unawakened ";
+					ret += " to the " + d.htmlTitle() + ". Their dream self takes over on ${d.moon}. ";
 					if(d.aspect == Aspects.DOOM) ret += "The prophecy is fulfilled. ";
-					this.renderForPlayer(div, this.dreamersToRevive[i]);
+					this.renderForPlayer(div, this.dreamersToRevive[i], royalty);
 					session.removeAvailablePlayer(royalty);
 					//this.makeAlive(d);
 					this.combo ++;
@@ -186,9 +186,9 @@ class CorpseSmooch extends Scene {
 		//only one alternate event can happen at a time. if one gets replaced, return
 
 		if(player.godDestiny == false && player.godTier == false){//could god tier, but fate wn't let them
-			return this.session.addImportantEvent(new PlayerDiedButCouldGodTier(this.session, current_mvp.getStat("power"),player) );
+			return this.session.addImportantEvent(new PlayerDiedButCouldGodTier(this.session, current_mvp.getStat(Stats.POWER),player) );
 		}else if(this.session.reckoningStarted == true && player.godTier == false) { //if the reckoning started, they couldn't god tier.
-			return this.session.addImportantEvent(new PlayerDiedButCouldGodTier(this.session, current_mvp.getStat("power"),player) );
+			return this.session.addImportantEvent(new PlayerDiedButCouldGodTier(this.session, current_mvp.getStat(Stats.POWER),player) );
 		}
 		return null;
 	}

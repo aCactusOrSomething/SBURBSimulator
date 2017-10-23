@@ -26,8 +26,8 @@ class LuckStuff extends Scene{
 		}
 		//what the hell roue of doom's corpse. corpses aren't part of the player list!
 		for(Player player in session.getReadOnlyAvailablePlayers()){
-			int rollValueLow = player.rollForLuck("minLuck");  //separate it out so that EITHER you are good at avoiding bad shit OR you are good at getting good shit.
-			int rollValueHigh = player.rollForLuck("maxLuck");
+			double rollValueLow = player.rollForLuck(Stats.MIN_LUCK);  //separate it out so that EITHER you are good at avoiding bad shit OR you are good at getting good shit.
+			double rollValueHigh = player.rollForLuck(Stats.MAX_LUCK);
 			//can have two luck events in same turn, whatever. fuck this complicated code, what was i even thinking???
 			if(rollValueHigh > this.minHighValue){
 				//alert("High  roll of: " + rollValueHigh);
@@ -61,7 +61,7 @@ class LuckStuff extends Scene{
 		if(roll.player.land == null || (roll.player.aspect != Aspects.SPACE && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
 			return this.roll65(roll);
 		}
-		String ret = "The " + roll.player.htmlTitle() + " was just wandering around on " + roll.player.shortLand()+ " when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest hoarde of grist. It will be easier to complete their land quests now.";
+		String ret = "The " + roll.player.htmlTitle() + " was just wandering around on " + roll.player.shortLand()+ " when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest hoard of grist. It will be easier to complete their land quests now.";
 		roll.player.increaseLandLevel();
 		this.session.stats.goodLuckEvent = true;
 		return ret;
@@ -92,7 +92,7 @@ class LuckStuff extends Scene{
 		//session.logger.info("unlucky trigger event: " + this.session.session_id.toString());
 		List<String> items = ["sopor slime", "candy", "apple juice", "alcohol", "cat nip","chocolate", "orange soda", "blanket","hat","lucky coin", "magic 8 ball"];
 		String ret = "The " + roll.player.htmlTitle() + " has lost their " + rand.pickFrom(items) + ". Sure, it seems stupid to you or me but... it was one of the few things left holding their sanity together. They are enraged.";
-		roll.player.addStat("sanity", -1000);
+		roll.player.addStat(Stats.SANITY, -1000);
 		this.session.stats.badLuckEvent = true;
 		return ret;
 	}
@@ -127,7 +127,7 @@ class LuckStuff extends Scene{
 		List<String> items = ["magic cue ball", "grimoire", "original VHS tape of Mac and Me", "fluthlu doll", "dream catcher","squiddles plush", "Dr Seuss Book", "commemorative Plaque from a World Event That Never Happened","SCP-093"];
 		String ret = "The " + roll.player.htmlTitle() + " has had a momentary lapse of judgement and alchemized a weapon with the " + rand.pickFrom(items) + " they just found. Any sane adventurer would cast these instruments of the occult into the FURTHEST RING and forget they ever existed. Instead, the " + roll.player.htmlTitleBasic() + " equips them. This is a phenomenally bad idea. ";
 		roll.player.corruptionLevelOther += 666; //will only increase corruption by one level, but in style
-		roll.player.addStat("power", 50);  //it IS a weapon, points out aspiringWatcher
+		roll.player.addStat(Stats.POWER, 50);  //it IS a weapon, points out aspiringWatcher
 		this.session.stats.badLuckEvent = true;
 		return ret;
 	}
@@ -195,7 +195,7 @@ class LuckStuff extends Scene{
 		if(roll.player.land == null){
 			return "The " + roll.player.htmlTitle() + " gets a bad feeling, like maybe their land back in their home session just got damaged. But...it's not like they can ever go back, right? Who cares."; //you've had enough bad luck. just...go rest or something.
 		}
-		String ret = "Through a frankly preposterous level of Scooby-Doo shenanigans, the  " + roll.player.htmlTitle() + " trips into a wall, which depresses a panel, which launches a flaming rock via catapult, which crashes into a local consort village. Which immediately catches on fire, which makes them be refugees, which makes them immegrate to a new area, which disrupts the stability of the entire goddamned planet.  All of which causes, like, a third of the main quest of "  + roll.player.shortLand() + " to be fucked up. ";
+		String ret = "Through a frankly preposterous level of Scooby-Doo shenanigans, the  " + roll.player.htmlTitle() + " trips into a wall, which depresses a panel, which launches a flaming rock via catapult, which crashes into a local consort village. Which immediately catches on fire, which makes them be refugees, which makes them immigrate to a new area, which disrupts the stability of the entire goddamned planet.  All of which causes, like, a third of the main quest of "  + roll.player.shortLand() + " to be fucked up. ";
 		roll.player.increaseLandLevel(-4.0);
 		this.session.stats.badLuckEvent = true;
 		return ret;
@@ -208,7 +208,7 @@ class LuckStuff extends Scene{
 		if(roll.player.godDestiny && !roll.player.godTier && (roll.player.dreamSelf || roll.player.isDreamSelf)){
 			String ret = " What the HELL!? The " + roll.player.htmlTitle() + " managed to somehow lose to REGULAR FUCKING ENEMIES!? Is that even POSSIBLE!? This is BULLSHIT. Wait. What's going on? How did they end up on their " ;
 			if(!roll.player.isDreamSelf){
-				ret += "QUEST BED!? Their body glows, and rises Skaiaward. "+"On " + roll.player.moon + ", their dream self takes over and gets a sweet new outfit to boot.  ";
+				ret += "QUEST BED!? Their body glows, and rises Skaiaward. "+"On ${roll.player.moon}, their dream self takes over and gets a sweet new outfit to boot.  ";
 				this.session.stats.questBed = true;
 				ret += roll.player.makeDead("luckily on their Quest Bed");
 			}else{
@@ -223,7 +223,7 @@ class LuckStuff extends Scene{
 
 			this.session.stats.luckyGodTier = true;
 			this.session.stats.godTier = true;
-			String divID = (div.id) + "_luckGodBS" + roll.player.chatHandle;
+			String divID = (div.id) + "_luckGodBS${roll.player.id}";
 			String canvasHTML = "<br><canvas id='canvas" + divID+"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
 			appendHtml(div, ret);
 			appendHtml(div, canvasHTML);
@@ -253,7 +253,7 @@ class LuckStuff extends Scene{
 		ret += roll.player.makeDead("from a Bad Break.");
 		appendHtml(div, ret);
 
-		String divID = (div.id) + "_badLuckDeath" + roll.player.chatHandle;
+		String divID = (div.id) + "_badLuckDeath${roll.player.id}";
 		String canvasHTML = "<br><canvas id='canvas" + divID+"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
 		appendHtml(div, canvasHTML);
 		CanvasElement canvas = querySelector("#canvas"+ divID);

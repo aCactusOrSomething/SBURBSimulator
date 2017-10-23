@@ -1,5 +1,8 @@
 import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
 
 
 class Rogue extends SBURBClass {
@@ -14,17 +17,30 @@ class Rogue extends SBURBClass {
     List<String> handles = ["rouge", "radical", "retrobate", "roguish", "retroactive", "robins", "red"];
 
     @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = true;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = false;
+    @override
+    bool isHelpful = false;
+
+    @override
     bool highHinit() {
         return true;
     }
 
     @override
-    String interactionFlavorText(GameEntity me, GameEntity target) {
-        return " The ${me.htmlTitle()} appears to be taking something from the ${target.htmlTitle()} and distributing it to everyone. ";
+    String interactionFlavorText(Player me, GameEntity target, Random rand) {
+        return " The ${me.htmlTitle()} appears to be taking ${rand.pickFrom(me.aspect.symbolicMcguffins)} from the ${target.htmlTitle()} and distributing it to everyone. ";
     }
 
     @override
-    bool isActive() {
+    bool isActive([double multiplier = 0.0]) {
         return false;
     }
 
@@ -55,7 +71,7 @@ class Rogue extends SBURBClass {
 
     @override
     void processStatInteractionEffect(Player p, GameEntity target, AssociatedStat stat) {
-        num powerBoost = p.getStat("power") / 20;
+        num powerBoost = p.getPowerForEffects() / 20;
         //modify others.
         powerBoost = 3 * powerBoost; //make up for how shitty your boost is for increasePower, THIS is how you are supposed to level.
         powerBoost = this.modPowerBoostByClass(powerBoost, stat);
@@ -65,5 +81,23 @@ class Rogue extends SBURBClass {
             p.session.players[i].modifyAssociatedStat(powerBoost / p.session.players.length, stat);
         }
     }
+
+
+    @override
+    void initializeThemes() {
+
+        //the sock ruse was a distaction
+        addTheme(new Theme(<String>["Classism","Struggle","Apathy", "Revolution", "Rebellion"])
+            ..addFeature(FeatureFactory.DECEITSMELL, Feature.HIGH)
+            ..addFeature(FeatureFactory.FRANTICFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.HEROICFEELING, Feature.MEDIUM)
+            ..addFeature(new PostDenizenQuestChain("Lead a Rebellion", [
+                new Quest("The ${Quest.PLAYER1} learns of the extreme injustices of the ${Quest.CONSORT}s who rose to power during the tyranny of ${Quest.DENIZEN}. This cannot stand!"),
+                new Quest("The ${Quest.PLAYER1} forms a small band of merry ${Quest.CONSORT}s to run raids on the ${Quest.CONSORT}s in power.  All proceeds are given to hungry ${Quest.CONSORT}s in need. "),
+                new Quest("The ${Quest.CONSORT}s who profiteered on the tyranny of the ${Quest.DENIZEN} have finally been brought to justice. Their mansions are torn down. Their wealth is given to the poor.  The ${Quest.PLAYER1} is hailed as a hero. ")
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ,  Theme.MEDIUM);
+    }
+
 
 }

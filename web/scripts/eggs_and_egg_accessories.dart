@@ -89,6 +89,8 @@ void sbahjMode(){
 void checkEasterEgg(callBack, that){  //only yellow yard session uses 'that' because it needs to get back to the session context after doing easter egg.
 	//authorMessage();
 	//i cannot resist
+	print("checking eggs, first player is ${curSessionGlobalVar.players.first.title()} with moon ${curSessionGlobalVar.players.first.moon}");
+
 	if(curSessionGlobalVar.session_id == 413){
 		session413();
 	}else if(curSessionGlobalVar.session_id == 612){
@@ -166,7 +168,8 @@ void checkEasterEgg(callBack, that){  //only yellow yard session uses 'that' bec
 	}
 
 	processXStuck(); //might not do anything.
-  if(that != null) {
+
+	if(that != null) {
     callBack(that); //TODO might never need to do this again in Dart.
   }else {
     callBack();
@@ -272,7 +275,7 @@ void roboMode(){
 		p.hairColor = getRandomGreyColor();
 		p.bloodColor = getRandomGreyColor();
 		p.robot  = true;
-		p.addStat("power",20); //Robots are superior.
+		p.addStat(Stats.POWER,20); //Robots are superior.
 		p.quirk.capitalization = 2; //OBVIOUSLY robots all speak in all caps.
 		p.quirk.punctuation = 0; //robots speak in monotone, DUH.
 		p.quirk.lettersToReplaceIgnoreCase.add(["\\bhuh\\b","BEEP"]);
@@ -318,7 +321,7 @@ void tricksterMode(){
 			}
 		}
 		if(p.aspect != Aspects.DOOM){
-			p.setStat("power",  111111);
+			p.setStat(Stats.POWER,  111111);
 			p.landLevel = 111111.0;
 			p.grist = 11111111111;
 			p.level_index = 111111;
@@ -336,7 +339,7 @@ void debugRoyalRumble(){
 		var p = curSessionGlobalVar.players[j];
 		p.isTroll = true; //only .evel 2 players up
 		p.bloodColor = "#99004d";
-		p.addStat("sanity",-10);
+		p.addStat(Stats.SANITY,-10);
 		p.decideLusus();
 		p.hairColor = "#000000";
 		p.object_to_prototype = p.myLusus;
@@ -437,14 +440,16 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.punctuation = 1;
 		player.quirk.lettersToReplace = [];
 		player.quirk.lettersToReplaceIgnoreCase = [["lol","hehehe"]];
-		player.land = "Land of Wind and Shade";
-		player.moon = "Prospit";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Wind and Shade";
+		player.moon = curSessionGlobalVar.prospit;
 	}else if(index == 1){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.bloodColor = "#ff0000";
 		player.godDestiny = true;
 		player.class_name = SBURBClassManager.SEER;
-		player.land = "Land of Light and Rain";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Light and Rain";
 		player.aspect = Aspects.LIGHT;
 		player.chatHandle = "tentacleTherapist";
 		player.interest1 = new Interest("Writing", InterestManager.WRITING);
@@ -458,10 +463,11 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 2){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.KNIGHT;
-		player.land = "Land of Heat and Clockwork";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Heat and Clockwork";
 		player.aspect = Aspects.TIME;
 		player.hairColor = "#feffd7";
 		player.hair  =1;
@@ -476,10 +482,11 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 3){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.WITCH;
-		player.land = "Land of Frost and Frogs";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Frost and Frogs";
 		player.aspect = Aspects.SPACE;
 		player.hair  =9;
 		player.hairColor = "#3f1904";
@@ -495,12 +502,14 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 4){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.MAID;
 		player.godDestiny = true;
 		player.aspect = Aspects.LIFE;
-		player.land = "Land of Crypts and Helium";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Crypts and Helium";
+
 		player.hair  =38;
 		player.hairColor = "#000000";
 		player.chatHandle = "gutsyGumshoe";
@@ -513,10 +522,11 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 5){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.ROGUE;
-		player.land = "Land of Pyramids and Neon";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Pyramids and Neon";
 		player.aspect = Aspects.VOID;
 		player.hair  =24;
 		player.hairColor = "#fff3bd";
@@ -532,10 +542,11 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 6){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.PRINCE;
-		player.land = "Land of Tombs and Krypton";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Tombs and Krypton";
 		player.aspect = Aspects.HEART;
 		player.hair  =36;
 		player.hairColor = "#feffd7";
@@ -551,10 +562,11 @@ void session413IndexToHuman(Player player, int index){
 		player.quirk.prefix = "";
 
 	}else if(index == 7){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.bloodColor = "#ff0000";
 		player.class_name = SBURBClassManager.PAGE;
-		player.land = "Land of Mounds and Xenon";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Mounds and Xenon";
 		player.aspect = Aspects.HOPE;
 		player.hair  =37;
 		player.hairColor = "#3f1904";
@@ -1072,9 +1084,10 @@ void session612IndexToTroll(Player player, int index){
 	player.deriveLand = false;
 	if(index == 0){
 		player.aspect = Aspects.BLOOD;
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.bloodColor = "#ff0000";
-		player.land = "Land of Pulse and Haze";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Pulse and Haze";
 		player.class_name = SBURBClassManager.KNIGHT;
 		player.hair = 29;
 		player.leftHorn = 21;
@@ -1089,14 +1102,15 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Limeade Refreshment", 1);
-		f.effects.add(new FraymotifEffect("sanity",1,false));
-		f.effects.add(new FraymotifEffect("sanity",1,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,1,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,1,true));
 		f.desc = " All allies just settle their shit for a little while. Cool it. ";
 		player.fraymotifs.add(f);
 	}else if(index == 1){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.aspect = Aspects.MIND;
-		player.land = "Land of Thought and Flow";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Thought and Flow";
 		player.class_name = SBURBClassManager.SEER;
 		player.hair = 10;
 		player.leftHorn = 46;
@@ -1113,9 +1127,10 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 2){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.aspect = Aspects.RAGE;
-		player.land = "Land of Mirth and Tents";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Mirth and Tents";
 		player.class_name = SBURBClassManager.BARD;
 		player.hair = 41;
 		player.leftHorn = 29;
@@ -1132,13 +1147,14 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Chucklevoodoos", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,false));
-		f.effects.add(new FraymotifEffect("sanity",3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
 		f.desc = " Oh god oh no no no no no no no no. The enemies are no longer doing okay, psychologically speaking. ";
 		player.fraymotifs.add(f);
 	}else if(index == 3){
-		player.moon = "Derse";
-		player.land = "Land of Caves and Silence";
+		player.moon = curSessionGlobalVar.derse;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Caves and Silence";
 		player.aspect = Aspects.VOID;
 		player.class_name = SBURBClassManager.HEIR;
 		player.hair = 8;
@@ -1157,10 +1173,11 @@ void session612IndexToTroll(Player player, int index){
 		player.chatHandle = "centaursTesticle";
 
 	}else if(index == 4){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.aspect = Aspects.TIME;
 		player.class_name = SBURBClassManager.MAID;
-		player.land = "Land of Quartz and Melody";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Quartz and Melody";
 		player.hair = 40;
 		player.leftHorn = 36;
 		player.rightHorn = 36;
@@ -1185,20 +1202,21 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Telekinisis", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Large objects begin pelting the ENEMY. ";
 		player.fraymotifs.add(f);
 
 		f = new Fraymotif( "Ghost Communing", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,true));
-		f.effects.add(new FraymotifEffect("sanity",3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
 		f.desc = " The souls of the dead start hassling all enemies. ";
 		player.fraymotifs.add(f);
 
 	}else if(index == 5){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.aspect = Aspects.HEART;
-		player.land = "Land of Little Cubes and Tea";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Little Cubes and Tea";
 		player.class_name = SBURBClassManager.ROGUE;
 		player.hair = 7;
 		player.leftHorn = 22;
@@ -1215,9 +1233,10 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 6){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.aspect = Aspects.BREATH;
-		player.land = "Land of Sand and Zephyr";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Sand and Zephyr";
 		player.class_name = SBURBClassManager.PAGE;
 		player.hair = 42;
 		player.leftHorn = 28;
@@ -1234,13 +1253,14 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Animal Communing", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,true));
-		f.effects.add(new FraymotifEffect("sanity",3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
 		f.desc = " Local animal equivalents start hassling all enemies. ";
 		player.fraymotifs.add(f);
 	}else if(index == 7){
-		player.moon = "Prospit";
-		player.land = "Land of Maps and Treasure";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Maps and Treasure";
 		player.aspect = Aspects.LIGHT;
 		player.class_name = SBURBClassManager.THIEF;
 		player.hair = 14;
@@ -1259,14 +1279,15 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.prefix = "";
 		player.godDestiny = true;
 		var f = new Fraymotif( "Mind Control", 1);
-		f.effects.add(new FraymotifEffect("freeWill",3,true));
-		f.effects.add(new FraymotifEffect("freeWill",3,false));
+		f.effects.add(new FraymotifEffect(Stats.FREE_WILL,3,true));
+		f.effects.add(new FraymotifEffect(Stats.FREE_WILL,3,false));
 		f.desc = " All enemies start damaging themselves. It's kind of embarassing how easy this is.  ";
 		player.fraymotifs.add(f);
 
 	}else if(index == 8){
-		player.moon = "Prospit";
-		player.land = "Land of Rays and Frogs";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Rays and Frogs";
 		player.aspect = Aspects.SPACE;
 		player.class_name = SBURBClassManager.SYLPH;
 		player.hair = 39;
@@ -1284,8 +1305,9 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 9){
-		player.moon = "Derse";
-		player.land = "Land of Wrath and Angels";
+		player.moon = curSessionGlobalVar.derse;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Wrath and Angels";
 		player.aspect = Aspects.HOPE;
 		player.class_name = SBURBClassManager.PRINCE;
 		player.hair = 6;
@@ -1303,8 +1325,9 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 10){
-		player.moon = "Derse";
-		player.land = "Land of Dew and Glass";
+		player.moon = curSessionGlobalVar.derse;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Dew and Glass";
 		player.aspect = Aspects.LIFE;
 		player.class_name = SBURBClassManager.WITCH;
 		player.hair = 19;
@@ -1322,8 +1345,9 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 11){
-		player.moon = "Derse";//no way to have two dream selves righ tnow.;
-		player.land = "Land of Brains and Fire";
+		player.moon = curSessionGlobalVar.derse;//no way to have two dream selves righ tnow.;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Brains and Fire";
 		player.aspect = Aspects.DOOM;
 		player.class_name = SBURBClassManager.MAGE;
 		player.hair = 2;
@@ -1341,12 +1365,12 @@ void session612IndexToTroll(Player player, int index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		Fraymotif f = new Fraymotif( "Telekinisis", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Large objects begin pelting the ENEMY. ";
 		player.fraymotifs.add(f);
 
 		f = new Fraymotif( "Optic Blast", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Red and blue eye beams pierce the ENEMY. ";
 		player.fraymotifs.add(f);
 	}
@@ -1360,10 +1384,11 @@ void session612IndexToTrollAncestor(Player player, index){
 	player.deriveChatHandle = false;
     player.deriveLand = false;
 	if(index == 0){
-		player.moon = "Prospit";
+		player.moon = curSessionGlobalVar.prospit;
 		player.aspect = Aspects.BLOOD;
 		player.bloodColor = "#ff0000";
-		player.land = "Land of Pulse and Haze";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Pulse and Haze";
 		player.class_name = SBURBClassManager.SEER;
 		player.hair = 44;
 		player.leftHorn = 21;
@@ -1378,13 +1403,14 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Limeade Refreshment", 1);
-		f.effects.add(new FraymotifEffect("sanity",1,false));
-		f.effects.add(new FraymotifEffect("sanity",1,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,1,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,1,true));
 		f.desc = " All allies just settle their shit for a little while. Cool it. ";
 		player.fraymotifs.add(f);
 	}else if(index == 1){
-		player.moon = "Prospit";
-		player.land = "Land of Thought and Flow";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Thought and Flow";
 		player.aspect = Aspects.MIND;
 		player.class_name = SBURBClassManager.KNIGHT;
 		player.hair = 47;
@@ -1401,8 +1427,9 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 2){
-		player.moon = "Prospit";
-		player.land = "Land of Mirth and Tents";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Mirth and Tents";
 		player.aspect = Aspects.RAGE;
 		player.class_name = SBURBClassManager.PRINCE;
 		player.hair = 45;
@@ -1420,14 +1447,15 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Chucklevoodoos", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,false));
-		f.effects.add(new FraymotifEffect("sanity",3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
 		f.desc = " Oh god oh no no no no no no no no. The enemies are no longer doing okay, psychologically speaking. ";
 		player.fraymotifs.add(f);
 	}else if(index == 3){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.aspect = Aspects.VOID;
-		player.land = "Land of Caves and Silence";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Caves and Silence";
 		player.class_name = SBURBClassManager.PAGE;
 		player.hair = 53;
 		player.leftHorn = 43;
@@ -1444,10 +1472,11 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.interest2 = new Interest("Weight Lifting", InterestManager.ATHLETIC);
 		player.chatHandle = "centaursTesticle";
 	}else if(index == 4){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.aspect = Aspects.TIME;
 		player.class_name = SBURBClassManager.WITCH;
-		player.land = "Land of Quartz and Melody";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Quartz and Melody";
 		player.hair = 50;
 		player.leftHorn = 36;
 		player.rightHorn = 36;
@@ -1463,20 +1492,21 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Telekinisis", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Large objects begin pelting the ENEMY. ";
 		player.fraymotifs.add(f);
 
 		f = new Fraymotif( "Ghost Communing", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,true));
-		f.effects.add(new FraymotifEffect("sanity",3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
 		f.desc = " The souls of the dead start hassling all enemies. ";
 		player.fraymotifs.add(f);
 	}else if(index == 5){
 		player.aspect = Aspects.HEART;
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.class_name = SBURBClassManager.MAGE;
-		player.land = "Land of Little Cubes and Tea";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Little Cubes and Tea";
 		player.hair = 51;
 		player.leftHorn = 22;
 		player.rightHorn = 22;
@@ -1493,8 +1523,9 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.prefix = "";
 	}else if(index == 6){
 		player.aspect = Aspects.BREATH;
-		player.moon = "Prospit";
-		player.land = "Land of Sand and Zephyr";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Sand and Zephyr";
 		player.class_name = SBURBClassManager.ROGUE;
 		player.hair = 254;
 		player.leftHorn = 28;
@@ -1512,14 +1543,15 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Animal Communing", 1);
-		f.effects.add(new FraymotifEffect("sanity",3,true));
-		f.effects.add(new FraymotifEffect("sanity",3,false));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,true));
+		f.effects.add(new FraymotifEffect(Stats.SANITY,3,false));
 		f.desc = " Local animal equivalents start hassling all enemies. ";
 		player.fraymotifs.add(f);
 	}else if(index == 7){
 		player.aspect = Aspects.LIGHT;
-		player.moon = "Prospit";
-		player.land = "Land of Maps and Treasure";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Maps and Treasure";
 		player.class_name = SBURBClassManager.SYLPH;
 		player.hair = 52;
 		player.leftHorn = 27;
@@ -1537,15 +1569,16 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Mind Control", 1);
-		f.effects.add(new FraymotifEffect("freeWill",3,true));
-		f.effects.add(new FraymotifEffect("freeWill",3,false));
+		f.effects.add(new FraymotifEffect(Stats.FREE_WILL,3,true));
+		f.effects.add(new FraymotifEffect(Stats.FREE_WILL,3,false));
 		f.desc = " All enemies start damaging themselves. It's kind of embarassing how easy this is.  ";
 		player.fraymotifs.add(f);
 
 	}else if(index == 8){
 		player.aspect = Aspects.SPACE;
-		player.moon = "Prospit";
-		player.land = "Land of Frost and Frogs";
+		player.moon = curSessionGlobalVar.prospit;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Rays and Frogs";
 		player.class_name = SBURBClassManager.MAID;
 		player.hair = 55;
 		player.leftHorn = 26;
@@ -1563,8 +1596,9 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.prefix = "";
 	}else if(index == 9){
 		player.aspect = Aspects.HOPE;
-		player.moon = "Derse";
-		player.land = "Land of Wrath and Angels";
+		player.moon = curSessionGlobalVar.derse;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Wrath and Angels";
 		player.class_name = SBURBClassManager.BARD;
 		player.hair = 56;
 		player.leftHorn = 19;
@@ -1581,9 +1615,10 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 	}else if(index == 10){
-		player.moon = "Derse";
+		player.moon = curSessionGlobalVar.derse;
 		player.aspect = Aspects.LIFE;
-		player.land = "Land of Dew and Glass";
+		player.land = player.spawnLand();
+		player.land.name = "Land of Dew and Glass";
 		player.class_name = SBURBClassManager.THIEF;
 		player.hair = 57;
 		player.leftHorn = 35;
@@ -1602,8 +1637,9 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.prefix = "";
 	}else if(index == 11){
 		player.aspect = Aspects.DOOM;
-		player.moon = "Derse";
-		player.land = "Land of Brains and Fire";
+		player.moon = curSessionGlobalVar.derse;
+		player.land = player.spawnLand();
+		player.land.name = "Land of Brains and Fire";
 		player.class_name = SBURBClassManager.HEIR;
 		player.hair = 48;
 		player.leftHorn = 33;
@@ -1620,12 +1656,12 @@ void session612IndexToTrollAncestor(Player player, index){
 		player.quirk.suffix = "";
 		player.quirk.prefix = "";
 		var f = new Fraymotif( "Telekinisis", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Large objects begin pelting the ENEMY. ";
 		player.fraymotifs.add(f);
 
 		f = new Fraymotif( "Optic Blast", 1);
-		f.effects.add(new FraymotifEffect("power",2,true));
+		f.effects.add(new FraymotifEffect(Stats.POWER,2,true));
 		f.desc = " Red and blue eye beams pierce the ENEMY. ";
 		player.fraymotifs.add(f);
 	}

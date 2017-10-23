@@ -73,13 +73,13 @@ class GetWasted extends Scene {
         if(p.gnosis ==3) tippingPoint = tippingPoint *2; //very last tier should be extra hard.
         if(p.gnosis >=4 || p.gnosis <0) return false; //you are done yo, or you are doing something weird (WM probably caused it)
         //linear works well for these
-        return (p.getStat("sburbLore") >= tippingPoint * (p.gnosis + 1)) || this.session.leetHax == true;
+        return (p.getStat(Stats.SBURB_LORE) >= tippingPoint * (p.gnosis + 1)) || this.session.leetHax == true;
     }
 
     @override
     void renderContent(Element div) {
         session.logger.verbose("Getting Wasted in session ${session.session_id}");
-        this.player.setStat("sburbLore", 0);
+        this.player.setStat(Stats.SBURB_LORE, 0);
         this.player.gnosis ++;
         session.removeAvailablePlayer(this.player);
         processTier(div);
@@ -202,9 +202,9 @@ class GetWasted extends Scene {
        // //session.logger.info("gonna display generated faq in div ${div.id} with ${faq.sections.length} sections ${faq.sections}");
         //TODO take one of the headers from sections and pass it here.
         if(faq.reader == faq.author) {
-            text = "The ${faq.author.htmlTitle()}has been trying to explain to anyone who will listen how this bullshit game works. They finally just write a goddamned FAQ so they don't have to keep repeating themselves. I wonder what it says?";
+            text = "The ${faq.author.htmlTitleBasicNoTip()}has been trying to explain to anyone who will listen how this bullshit game works. They finally just write a goddamned FAQ so they don't have to keep repeating themselves. I wonder what it says?";
         }else {
-            text = "The ${faq.reader.htmlTitle()} seems to understand how this bullshit game works. They are reading a FAQ? Huh, I wonder where they found that?";
+            text = "The ${faq.reader.htmlTitleBasicNoTip()} seems to understand how this bullshit game works. They are reading a FAQ? Huh, I wonder where they found that?";
         }
         String id = "faq${div.id}${faq.author.id}";
         //alright, i've got the intro, and i've got the quirk. what now? well, need to session.logger.info out the phrase and then a link to pop up the faq
@@ -255,7 +255,7 @@ class GetWasted extends Scene {
                 if(p.land != null && p.grimDark <2) {
                     //session.logger.info out random quest
                     if(!p.dead) {
-                        ret += "<Br>The ${p.htmlTitle()} does quests at ${p.shortLand()}, ${p.getRandomQuest()}. ";
+                        ret += "<Br>The ${p.htmlTitle()} does quests at ${p.shortLand()}. ";
                     }
                     p.increaseLandLevel();
                 }else if(!p.dead) {
@@ -346,13 +346,13 @@ class GetWasted extends Scene {
             Iterable<AssociatedStat> plus = p.associatedStatsFromAspect; //buff self and heal. used to be only positive, but that gave witches/sylphs/princes/bards the shaft;
             //just like real denizen songs, but way stronger
             for (AssociatedStat pl in plus) {
-                f.effects.add(new FraymotifEffect(pl.name, 0, true));
-                f.effects.add(new FraymotifEffect(pl.name, 0, false));
+                f.effects.add(new FraymotifEffect(pl.stat, 0, true));
+                f.effects.add(new FraymotifEffect(pl.stat, 0, false));
             }
             Iterable<AssociatedStat> minus = p.associatedStatsFromAspect; //debuff enemy, and damage. used to be only negative, but that gave witches/sylphs/princes/bards the shaft;
             for (AssociatedStat m in minus) {
-                f.effects.add(new FraymotifEffect(m.name, 2, true));
-                f.effects.add(new FraymotifEffect(m.name, 2, false));
+                f.effects.add(new FraymotifEffect(m.stat, 2, true));
+                f.effects.add(new FraymotifEffect(m.stat, 2, false));
             }
             f.desc = "An unfinished secret track begins to play.  You don't think anybody meant for this to be unlockable. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter.  ";
             p.fraymotifs.add(f);
@@ -459,7 +459,7 @@ class GetWasted extends Scene {
 
     ///first player is corpse, second is ghost wrangler
     void drawGhostRevive(String canvasID, List<Player> players) {
-        CanvasElement canvas = Drawing.drawReviveDead(querySelector("#${canvasID}"), players[0], players[1], players[2].name);
+        CanvasElement canvas = Drawing.drawReviveDead(querySelector("#${canvasID}"), players[0], players[1], players[2].aspect);
 
         CanvasElement pSpriteBuffer = Drawing.getBufferCanvas(querySelector("#sprite_template"));
         Drawing.drawSprite(pSpriteBuffer, players[2]);

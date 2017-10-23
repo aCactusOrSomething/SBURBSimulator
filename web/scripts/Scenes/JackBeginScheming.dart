@@ -37,11 +37,11 @@ class JackBeginScheming extends Scene {
 	@override
 	bool trigger(playerList){
 		this.playerList = playerList;
-		if(this.session.npcHandler.jack.getStat("currentHP") <= 0 && !this.session.npcHandler.jack.dead|| this.session.npcHandler.queen.getStat("currentHP") <= 0 && !this.session.npcHandler.queen.dead){  //the dead can't scheme or be schemed against
+		if(this.session.npcHandler.jack.getStat(Stats.CURRENT_HEALTH) <= 0 && !this.session.npcHandler.jack.dead|| this.session.npcHandler.queen.getStat(Stats.CURRENT_HEALTH) <= 0 && !this.session.npcHandler.queen.dead){  //the dead can't scheme or be schemed against
 			return false;
 		}
 		this.findSympatheticPlayer();
-		return (this.session.npcHandler.jack.getStat("power") >= this.session.npcHandler.queen.getStat("power")) && (this.friend != null);
+		return (this.session.npcHandler.jack.getStat(Stats.POWER) >= this.session.npcHandler.queen.getStat(Stats.POWER)) && (this.friend != null);
 	}
 	bool smart(player){
 		return ((player.aspect == Aspects.LIGHT || player.class_name == SBURBClassManager.SEER) ||(player.aspect == Aspects.DOOM || player.aspect == Aspects.MIND));
@@ -184,7 +184,7 @@ class JackBeginScheming extends Scene {
 	}
 	void chatWithFriend(Element div, Player player1, Player player2){
 		num repeatTime = 1000;
-		var divID = (div.id) + "_" + player1.chatHandle;
+		var divID = (div.id) + "_${player1.id}";
 		String canvasHTML = "<br><canvas id='canvas" + divID+"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
 		appendHtml(div,canvasHTML);
 		//different format for canvas code

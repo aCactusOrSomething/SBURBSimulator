@@ -1,4 +1,7 @@
 import "dart:html";
+import "../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../Lands/Quest.dart";
+import "../Lands/Reward.dart";
 
 import "../SBURBSim.dart";
 enum CanonLevel {
@@ -11,13 +14,16 @@ enum CanonLevel {
 class Session {
     //TODO some of these should just live in session mutator
     Logger logger = null;
+    List<Moon> moons = new List<Moon>();
+    Moon prospit;
+    Moon derse;
     int session_id; //initial seed
     //var sceneRenderingEngine = new SceneRenderingEngine(false); //default is homestuck  //comment this line out if need to run sim without it crashing
     List<Player> players = <Player>[];
     FraymotifCreator fraymotifCreator = new FraymotifCreator(); //as long as FraymotifCreator has no state data, this is fine.
     //TODO all these "session summary stats" things should just be a SessionSummary object I own.
 
-    num sessionHealth = 500; //grimDark players work to lower it. at 0, it crashes.  maybe have it do other things at other levels, or effect other things.
+    num sessionHealth = 500 * Stats.POWER.coefficient; //grimDark players work to lower it. at 0, it crashes.  maybe have it do other things at other levels, or effect other things.
     List<Player> replayers = <Player>[]; //used for fan oc easter eggs.
     AfterLife afterLife = new AfterLife();
 
@@ -29,7 +35,9 @@ class Session {
     num numScenes = 0;
     bool sbahj = false;
     bool leetHax = false;
-    num hardStrength = 1000;
+    num minTimeTillReckoning = 10;
+    num maxTimeTillReckoning = 30;
+    num hardStrength = 2000 * Stats.POWER.coefficient;
     num minFrogLevel = 13;
     num goodFrogLevel = 20;
     bool reckoningStarted = false;
@@ -59,10 +67,12 @@ class Session {
     SessionMutator mutator;
 
     Session(int this.session_id) {
+        this.rand = new Random(session_id);
         PotentialSprite.initializeAShitTonOfPotentialSprites(this);
         npcHandler = new NPCHandler(this);
         mutator = SessionMutator.getInstance();
         this.setUpBosses();
+        this.setupMoons(); //happens only in reinit
         stats.initialGameEntityId = GameEntity.getIDCopy();
         print("Making sesssion $this with initialGameEntity id of ${stats.initialGameEntityId}");
         ////print("Made a new session with an id of $session_id");
@@ -70,12 +80,165 @@ class Session {
         logger = Logger.get("Session: $session_id", false);
 
         mutator.syncToSession(this);
-        this.rand = new Random(session_id);
        resetAvailableClasspects();
     }
 
+    Moon stringToMoon(String string) {
+        print("string to moon");
+        if(string == prospit.name) return prospit;
+        if(string == derse.name) return derse;
+        return null;
+    }
+
+    MoonQuestChainFeature randomProspitQuestChain() {
+        List<Quest> possibleActivities = new List<Quest>()
+            ..add(new Quest("The ${Quest.PLAYER1} bets 50 boonies on the red frog.   After a nerve wracking set of hops, it comes in first!  "))
+            ..add(new Quest("The VAST CROAK will redeem us all.  The VAST CROAK is the purity of creation, untainted by the old universe.  The ${Quest.PLAYER1} isn’t sure they believe in the Church of the Frog’s message, but the sermon itself is very soothing."))
+            ..add(new Quest("Two parts flour. One part good sweet butter.  A bowl egg whites to brush onto the surface.  Sugar to taste. Plenty of elbow grease. The ${Quest.PLAYER1} is learning to master the secret art of the HOLY PASTRIES."))
+            ..add(new Quest("The ${Quest.PLAYER1} talks to several Prospitians, learning about their daily lives and how happy they are under the WHITE QUEEN’s rule."))
+            ..add(new Quest("The ${Quest.PLAYER1} flutters about aimlessly, simply enjoying the feeling of flying."))
+            ..add(new Quest("The ${Quest.PLAYER1} attends a glorious dance party, complete with masquerades, tea parties and friendship.  The Prospitians admire the ${Quest.PLAYER1}’s cheerful demeanor and willingness to invent new dance steps."))
+            ..add(new Quest("The ${Quest.PLAYER1} stares into the clouds on Skaia. Visions swim in their head. Is this game….more terrible than they thought?"));
+        List<Quest> chosen = new List<Quest>();
+        int times = rand.nextInt(2) + 3;
+        for(int i = 0; i<times; i++) {
+            chosen.add(rand.pickFrom(possibleActivities));
+        }
+        return new MoonQuestChainFeature(true, "Do Prospit Bullshit", chosen, new DreamReward(), QuestChainFeature.hasDreamSelf);
+    }
+
+    MoonQuestChainFeature randomDerseQuestChain() {
+        List<Quest> possibleActivities = new List<Quest>()
+            ..add(new Quest("The ${Quest.PLAYER1} attends a glorious dance party, complete with masquerades, backstabbing and intrigue.  The Dersites admire the ${Quest.PLAYER1}’s deftness at avoiding stabs in time to music. "))
+            ..add(new Quest("The ${Quest.PLAYER1} is taking part in a high stakes poker game. Everybody is cheating, and that’s what makes it interesting.  The ${Quest.PLAYER1}  thinks they can convince everyone that all decks of cards come with five aces."))
+            ..add(new Quest("The ${Quest.PLAYER1} is keeping tabs on the lifeblood of Derse. The Inquiring Carapacian is a VERY disreputable newspaper, which is what makes it so great for hearing the juicy gossip the Queen doesn’t WANT you to hear."))
+            ..add(new Quest("The BLACK QUEEN is just three Salamanders in a robe.  The BLACK KING likes reading fanfiction. The ${Quest.PLAYER1} is keeping their LYING ATTRIBUTE sharp."))
+            ..add(new Quest("The ${Quest.PLAYER1} does their best to ignore the unsettling...whispering that seems to be omnipresent on Derse. "))
+            ..add(new Quest("The ${Quest.PLAYER1} is learning the steps to the Derse Waltz. There is no reason one can’t look classy as fuck while also being a lying, cheating, manipulative bastard, that’s what their dance teacher always says."))
+            ..add(new Quest("SLICE!  The ${Quest.PLAYER1} slices open a watermelon while a local Dersite looks on in disgust.  ANYBODY can slice with a knife, it takes real commitment to stab.  The ${Quest.PLAYER1} has a lot to learn."))
+            ..add(new Quest("The ${Quest.PLAYER1} is relaxing in a dimly lit jazz club.  The band is pretty good, but a nearby Dersite assures the ${Quest.PLAYER1}  that they got nothing on some outfit called ‘The Midnight Crew’. Shame they aren’t around right now."));
+            List<Quest> chosen = new List<Quest>();
+            int times = rand.nextInt(2) + 3;
+            for(int i = 0; i<times; i++) {
+                chosen.add(rand.pickFrom(possibleActivities));
+            }
+        return new MoonQuestChainFeature(true, "Do Derse Bullshit", chosen, new DreamReward(), QuestChainFeature.hasDreamSelf);
+    }
+
+    MoonQuestChainFeature randomHorrorTerrorQuestChain() {
+        List<Quest> possibleActivities = new List<Quest>()
+            ..add(new Quest("The ${Quest.PLAYER1} writhes in terror and pain. Why do players without dreamselves dream in the Furthest Ring with the Horror Terrors? "))
+            ..add(new Quest("The ${Quest.PLAYER1} vows to never sleep again.  Why do players without dreamselves dream in the Furthest Ring with the Horror Terrors? "))
+            ..add(new Quest("The ${Quest.PLAYER1} is reliving embarassing childhood memories for the amusement of the Horror Terrors.  Why do players without dreamselves dream in the Furthest Ring with the Horror Terrors?"));
+        List<Quest> chosen = new List<Quest>();
+        int times = rand.nextInt(2) + 3;
+        for(int i = 0; i<times; i++) {
+            chosen.add(rand.pickFrom(possibleActivities));
+        }
+        return new MoonQuestChainFeature(true, "Writhe In Pain", chosen, new DreamReward(), QuestChainFeature.hasNoDreamSelfNoBubbles);
+    }
+
+    MoonQuestChainFeature randomBubbleQuestChain() {
+        List<Quest> possibleActivities = new List<Quest>()
+            ..add(new Quest("The ${Quest.PLAYER1} has a relatively sedate time of reliving past memories and chatting up inconsequential ghosts. Good thing the dream bubbles were set up, huh?"))
+            ..add(new Quest("The ${Quest.PLAYER1} enjoys a relaxing memory of their home planet while dreaming in the bubbles. "))
+            ..add(new Quest("The ${Quest.PLAYER1}  tries not to give into existential horror as they realize just how MANY versions of their dead friends exist."));
+        List<Quest> chosen = new List<Quest>();
+        int times = rand.nextInt(2) + 3;
+        for(int i = 0; i<times; i++) {
+            chosen.add(rand.pickFrom(possibleActivities));
+        }
+        return new MoonQuestChainFeature(true, "Do Dream Bubble Bullshit", chosen, new DreamReward(), QuestChainFeature.hasNoDreamSelfBubbles);
+    }
+
+
+    void setupMoons() {
+         print("moons set up $session_id");
+        //no more than one of each.
+        moons.clear();
+        Map<Theme,double> prospitThemes = new Map<Theme, double>();
+        Theme prospitTheme = new Theme(<String>["Prospit"])
+            ..addFeature(FeatureFactory.DISCOSOUND, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.MUSICSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.STUDIOUSFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CALMFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.SWEETSMELL, Feature.LOW)
+            ..addFeature(FeatureFactory.PROSPITIANCARAPACE, Feature.HIGH)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomProspitQuestChain(), Feature.WAY_LOW)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH);
+
+
+
+        Map<Theme,double> derseThemes = new Map<Theme, double>();
+        Theme derseTheme = new Theme(<String>["Prospit"])
+            ..addFeature(FeatureFactory.JAZZSOUND, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.WHISPERSOUND, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.MUSICSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.DANGEROUSFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CREEPYFEELING, Feature.LOW)
+            ..addFeature(FeatureFactory.DECEITSMELL, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.DERSECARAPACE, Feature.HIGH)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomDerseQuestChain(), Feature.LOW)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomHorrorTerrorQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(randomBubbleQuestChain(), Feature.WAY_HIGH)
+            ..addFeature(new MoonQuestChainFeature(true, "Be a Legitimate Business Player", [
+                new Quest("The ${Quest.PLAYER1} learns of a lucrative business opportunity. The BLACK QUEEN has all sorts of contraband laws. Everything from frogs to ice cream is so totally illegal. But that doesn't stop the right sort of Dersite from getting cravings, if you understand me. The ${Quest.PLAYER1} looks like they can be discreet. "),
+                new Quest("The ${Quest.PLAYER1} runs afoul of the Authority Regulators. Through a frankly preposterous amount of running, parkour and misdirection, they finally escape, only to remember that they could have just flown away.  Dream selves sure are dumb!  "),
+                new Quest("The ${Quest.PLAYER1} has decided to retire from a life of...legitimate business, highly lucrative though it was.  They use their earnings to set up a simple and refined Suit shot, catering to only the most exclusive clientel. "),
+            ], new DreamReward(), QuestChainFeature.hasDreamSelf), Feature.LOW);
+
+
+        prospitThemes[prospitTheme] = Theme.HIGH;
+        derseThemes[derseTheme] = Theme.HIGH;
+
+        prospit = new Moon.fromWeightedThemes("Prospit", prospitThemes, this, Aspects.LIGHT, session_id, ReferenceColours.PROSPIT_PALETTE);
+        derse = new Moon.fromWeightedThemes("Derse", derseThemes, this, Aspects.VOID, session_id +1, ReferenceColours.DERSE_PALETTE);
+        moons.add(prospit);
+        moons.add(derse);
+         for(Player p in players) {
+             p.syncToSessionMoon();
+         }
+    }
+
+    //yes this should have been a get, but it's too annoying to fix now, used in too many places and refactoring menu doesn't know how to convert from method to get.
     List<Player> getReadOnlyAvailablePlayers() {
         return new List<Player>.from(_availablePlayers);
+    }
+
+    bool isPlayerAvailable(Player p) {
+        return (_availablePlayers.contains(p));
     }
 
     void addAvailablePlayer(Player p) {
@@ -237,7 +400,7 @@ class Session {
     }
 
     int gristPercent() {
-        return (100*(getTotalGrist(players)/(minimumGristPerPlayer * players.length))).round();
+        return (100*(getTotalGrist(players)/(minimumGristPerPlayer * players.length))).floor();
     }
 
 
@@ -395,7 +558,7 @@ class Session {
         //Math.seed = this.session_id; //if session is reset,
         this.rand.setSeed(this.session_id);
         ////print("reinit with seed: "  + Math.seed);
-        this.timeTillReckoning = this.rand.nextIntRange(10, 30); //rand.nextIntRange(10,30);
+        this.timeTillReckoning = this.rand.nextIntRange(minTimeTillReckoning, maxTimeTillReckoning); //rand.nextIntRange(10,30);
         this.sessionType = this.rand.nextDouble(); //rand.nextDouble();
         this.available_scenes = <Scene>[]; //need a fresh slate because UpdateShippingGrid has MEMORY unlike all other scenes.
         Scene.createScenesForSession(this);
@@ -403,6 +566,9 @@ class Session {
         //curSessionGlobalVar.doomedTimeline = false;
         this.stats.doomedTimeline = false;
         this.setUpBosses();
+        this.setupMoons();
+        //fix refereances
+
         this.reckoningStarted = false;
         this.importantEvents = <ImportantEvent>[];
         this.stats.rocksFell = false; //sessions where rocks fell screw over their scratched and yarded iterations, dunkass
@@ -416,8 +582,14 @@ class Session {
         this.players = <Player>[];
         resetAvailableClasspects();
         int numPlayers = this.rand.nextIntRange(2, 12); //rand.nextIntRange(2,12);
+        double special = rand.nextDouble();
+
         this.players.add(randomSpacePlayer(this));
+        print("after make space player, first player is ${curSessionGlobalVar.players.first.title()} with moon ${curSessionGlobalVar.players.first.moon}");
+
         this.players.add(randomTimePlayer(this));
+
+
 
         for (int i = 2; i < numPlayers; i++) {
             this.players.add(randomPlayer(this));
@@ -427,10 +599,24 @@ class Session {
             Player p = this.players[j];
             p.generateRelationships(this.players);
         }
-
+        //random chance of Lord/Muse for two player sessions
+        if(numPlayers <= 2) {
+            print("less than 2 players");
+            if(special > .6) {
+                players[0].class_name = SBURBClassManager.LORD;
+                players[1].class_name = SBURBClassManager.MUSE;
+            }else if(special < .3) {
+                players[0].class_name = SBURBClassManager.MUSE;
+                players[1].class_name = SBURBClassManager.LORD;
+            }
+        }
         Relationship.decideInitialQuadrants(rand, this.players);
 
-        this.hardStrength = 500 + 20 * this.players.length;
+        //this.hardStrength = 500 + 20 * this.players.length;
+
+        Sprite weakest = Stats.POWER.min(this.players.map((Player p) => p.sprite));
+        double weakpower = weakest.getStat(Stats.POWER) / Stats.POWER.coefficient;
+        this.hardStrength = (100 + this.players.length * (85 + weakpower)) * Stats.POWER.coefficient;
     }
 
     String convertPlayerNumberToWords() {
@@ -598,6 +784,7 @@ void addAliensToSession(Session newSession, List<Player> aliens) {
     for (num i = 0; i < aliens.length; i++) {
         Player survivor = aliens[i];
         survivor.land = null;
+        //note to future JR: you're gonna see this and think that they should lose their moons, too, but that just means they can't have horrorterror dreams. don't do it.
         survivor.dreamSelf = false;
         survivor.godDestiny = false;
         survivor.leader = false;

@@ -201,7 +201,7 @@ class QuadrantDialogue extends Scene {
 		chats.add(new InterestConversationalPair(interest, "Your land is beautiful, by the way. I really should paint it sometime.", ["Maybe we can make a day of it!","You're welcome to come over anytime.","I'm glad you think so, but I'm pretty sure my land is creepy as hell."], ["Ugh, nope, no way.", "Go for it, I really want to see how much you screw this up.", "You have a twisted sense of aesthetics, did you know that?"]));
 
 		//MI: The line below wasn’t working for me, but you said worked on your end? (JR: Yup, and i turned it back on. shenaigans, i guess.)
-		if(p1.land != null) chats.add(new InterestConversationalPair(interest, p1.land + " is like something out of a surreal painting.", ["I know, right? I keep expecting to see melting clocks everywhere.","You really have a way with words.","You should paint it!"], ["You clearly lack imagination if you think that.", "I could not disagree more.", "Learn the definition of the word 'surreal', asshole."]));
+		if(p1.land != null) chats.add(new InterestConversationalPair(interest, p1.land.name + " is like something out of a surreal painting.", ["I know, right? I keep expecting to see melting clocks everywhere.","You really have a way with words.","You should paint it!"], ["You clearly lack imagination if you think that.", "I could not disagree more.", "Learn the definition of the word 'surreal', asshole."]));
 		return this.processChatAboutInterests(chats, interest, p1,p2,p1Start, p2Start, relationship, relationship2);
 	}
 	String chatAboutComedy(Player p1, Player p2, String p1Start, String p2Start, Relationship relationship, Relationship relationship2){
@@ -375,10 +375,10 @@ class QuadrantDialogue extends Scene {
 		var chosen = rand.pickFrom(chats);
 		if(rand.nextDouble() > 0.5){
 			chat +=  Scene.chatLine(this.player1Start, this.player1, chosen.line1);
-			chat += chosen.p2GetResponseBasedOnRelationship(this.player2, this.player2Start, relationship2);
+			chat += chosen.getResponseRelationship(this.player2, this.player2Start, relationship2);
 		}else{
 			chat +=  Scene.chatLine(this.player2Start, this.player2, chosen.line1);
-			chat += chosen.p2GetResponseBasedOnRelationship(this.player1, this.player1Start, relationship1);
+			chat += chosen.getResponseRelationship(this.player1, this.player1Start, relationship1);
 		}
 		return chat;
 	}
@@ -404,7 +404,7 @@ class QuadrantDialogue extends Scene {
 
 		return  this.processChatPair(chats, relationship1, relationship2);
 	}
-	dynamic heartChat(relationship1, relationship2){
+	dynamic heartChat(Relationship relationship1, Relationship relationship2){
 		////session.logger.info("Heart Chat  in: " + this.session.session_id);
 		List<dynamic> chats = [];
 		chats.add( new ConversationalPair("You're so good at this game!",["No, way, you're tons better than me.","Heh, about time I'm good at something, huh?","Only because I get to play it with you :)"]));
@@ -433,8 +433,8 @@ class QuadrantDialogue extends Scene {
 	dynamic diamondsChat(relationship1, relationship2){
 		////session.logger.info("Diamonds Chat  in: " + this.session.session_id);
 		List<dynamic> chats = [];
-		this.player1.addStat("sanity", 1);
-		this.player2.addStat("sanity", 1);
+		this.player1.addStat(Stats.SANITY, 1);
+		this.player2.addStat(Stats.SANITY, 1);
 		chats.add( new ConversationalPair("How have you been?",["Okay.","Good.","Alright.","As well as can be expected.","Better than I thought I'd be.", "Functioning."]));
 		chats.add( new ConversationalPair("You doing okay?",["Yes.","As well as can be expected.","Better than I thought I'd be.", "I'm fine. I think."]));
 		chats.add( new ConversationalPair("This game really sucks.",["Yes, you aren't kidding.","I know, right?","Represent", "I'm glad I got you to help me through it."]));
@@ -446,8 +446,8 @@ class QuadrantDialogue extends Scene {
 	}
 	dynamic feelingsJam(relationship, relationship2){
 		////session.logger.info("Feelings Jam in: " + this.session.session_id);
-		this.player1.addStat("sanity", 2);
-		this.player2.addStat("sanity", 2);
+		this.player1.addStat(Stats.SANITY, 2);
+		this.player2.addStat(Stats.SANITY, 2);
 		//figure out which player is flipping out, make them "flippingOut", make other player "shoosher"
 		String chat = "";
 		var freakOutWeasel = this.player1;
@@ -616,43 +616,103 @@ class QuadrantDialogue extends Scene {
 
 }
 
+//conversational pairs in order
+class Conversation {
+	List<PlusMinusConversationalPair> pairs;
+	Conversation([this.pairs]) {
+		if (this.pairs == null) {
+			this.pairs = <PlusMinusConversationalPair>[];
+		}
+	}
 
+	void haveHTMLConversation(Element div, Player p1, Player p2, String player1Start, String player2Start) {
+		bool first = true;
+		String ret = "";
+		for(PlusMinusConversationalPair convo in pairs) {
+			String metaLine = convo.getOpeningLine(p1, player1Start);
+			String playerLine = convo.getResponseBool(p2, player2Start, p2.getRelationshipWith(p1).value > 0);
+			if (first) { first = false; } else { ret += "<br>"; }
+			ret += "<font color = '${p1.getChatFontColor()}'>$metaLine</font><br><font color = '${p2.getChatFontColor()}'>$playerLine</font>";
+		}
+		appendText(div, ret);
+	}
+
+	String returnStringConversation(Player p1, Player p2, String player1Start, String player2Start, bool b) {
+		String ret = "";
+		for(PlusMinusConversationalPair convo in pairs) {
+			ret += convo.getOpeningLine(p1, player1Start);
+			String response = convo.getResponseBool(p2, player2Start, b);
+			//might not have anything to say.
+			if(response != null) ret += response;
+		}
+		return ret;
+	}
+
+	void appendText(Element div, String text) {
+		appendHtml(div, text);
+	}
+
+	void line(dynamic opener, dynamic positive, dynamic negative, [Mapping<String,String> formatting]) {
+		Iterable<String> openers = (opener is Iterable<String>) ? opener : (opener is String) ? <String>[opener] : throw "Opener must be a string or Iteralbe<String>";
+		Iterable<String> positives = (positive is Iterable<String>) ? positive : (positive is String) ? <String>[positive] : throw "positive must be a string or Iteralbe<String>";
+		Iterable<String> negatives = (negative is Iterable<String>) ? negative : (negative is String) ? <String>[negative] : throw "negative must be a string or Iteralbe<String>";
+		this.pairs.add(new PlusMinusConversationalPair(openers, positives, negatives)..formatting = formatting);
+	}
+}
+
+class ConversationProcessed extends Conversation {
+	Mapping<String,String> processing;
+
+	ConversationProcessed(Mapping<String,String> this.processing, [List<PlusMinusConversationalPair> pairs]) : super(pairs);
+
+	@override
+	void appendText(Element div, String text) {
+		text = processing(text);
+		super.appendText(div,text);
+	}
+}
+
+abstract class ConversationalPairBase {
+	Mapping<String,String> formatting = null;
+
+	String formatText(String input) => formatting == null ? input : formatting(input);
+}
 
 //set of possible responses if i like you, set of possible respones if i don't.  (nothing generic)
-class PlusMinusConversationalPair {
-	var openingLines;
-	var positiveRespones;
-	var negativeResponses;	//have a variety of ways you can start.
+class PlusMinusConversationalPair extends ConversationalPairBase {
+	Iterable<String> openingLines;
+	Iterable<String> positiveRespones;
+	Iterable<String> negativeResponses;	//have a variety of ways you can start.
 	
 
 
 	PlusMinusConversationalPair(this.openingLines, this.positiveRespones, this.negativeResponses) {}
 
 
-	dynamic getOpeningLine(player, playerStart){
-		return Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.openingLines));
+	String getOpeningLine(Player player, String playerStart){
+		return Scene.chatLine(playerStart, player, formatText(player.session.rand.pickFrom(this.openingLines)));
 	}
-	dynamic getP2ResponseBasedOnBool(player, playerStart, calculatedBool){
-		if(calculatedBool){
-			return Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.positiveRespones));
+	String getResponseBool(Player player, String handle, bool condition){
+		String line;
+		if(condition){
+			line = player.session.rand.pickFrom(this.positiveRespones);
 		}else{ //negative response.
-			return Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.negativeResponses));
+			line = player.session.rand.pickFrom(this.negativeResponses);
 		}
-	}
-	dynamic p2GetResponseBasedOnRelationship(player, playerStart, relationship){
-		if(relationship != null && relationship.value > 0){
-			return Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.positiveRespones));
-		}else{ //negative response.
-			return Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.negativeResponses));
-		}
+		if (line != null) return Scene.chatLine(handle, player, formatText(line));
+		//lines can be null, if, for example, other player has nothing to say.
+		return null;
 	}
 
+	String getResponseRelationship(Player player, String handle, Relationship relationship){
+		return getResponseBool(player, handle, relationship != null && relationship.value > 0);
+	}
 }
 
 
 
 //can't have engine create these things 'cause needs to be dynamic, not made ahead of time
-class ConversationalPair {
+class ConversationalPair extends ConversationalPairBase {
 	var line1;
 	var responseLines;  //responses are just reactions
 	var genericResponses = ["Yeah.", ":)", "Tell me more", "You don't say.",  "Wow", "Cool", "Fascinating", "Uh-huh.", "Sure.", "I've heard others say the same.", "... ", "Whatever.", "Yes.", "Interesting...", "Hrmmm...", "lol", "Interesting!!!", "Umm. Okay?", "Really?", "Whatever floats your boat.","Why not", "K."];
@@ -664,19 +724,19 @@ class ConversationalPair {
 	ConversationalPair(this.line1, this.responseLines) {}
 
 
-	dynamic p2GetResponseBasedOnRelationship(player, playerStart, relationship){
+	String getResponseRelationship(player, playerStart, relationship){
 		String chat = "";
 		if(relationship.saved_type == relationship.heart || relationship.saved_type == relationship.diamond){
 			if(relationship != null && relationship.value > 0){
-				chat += Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.responseLines));
+				chat += Scene.chatLine(playerStart, player, formatText(player.session.rand.pickFrom(this.responseLines)));
 			}else{ //i don't love you like i should.
-				chat += Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.genericResponses));
+				chat += Scene.chatLine(playerStart, player, formatText(player.session.rand.pickFrom(this.genericResponses)));
 			}
 		}else{
 			if(relationship != null && relationship.value < 0){
-				chat += Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.responseLines));
+				chat += Scene.chatLine(playerStart, player, formatText(player.session.rand.pickFrom(this.responseLines)));
 			}else{  //i don't hate you like i should.
-				chat += Scene.chatLine(playerStart, player, player.session.rand.pickFrom(this.genericResponses));
+				chat += Scene.chatLine(playerStart, player, formatText(player.session.rand.pickFrom(this.genericResponses)));
 			}
 		}
 		return chat;
@@ -686,7 +746,7 @@ class ConversationalPair {
 
 
 
-class InterestConversationalPair {
+class InterestConversationalPair extends ConversationalPairBase {
 
 	InterestConversationalPair(this.interest, this.line1, this.responseLinesSharedInterestPositive, this.responseLinesSharedInterestNegative) {}
 

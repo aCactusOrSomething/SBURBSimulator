@@ -13,6 +13,20 @@ class Bard extends SBURBClass {
     @override
     List<String> handles = ["bat","benign", "blissful", "boisterous", "bonkers", "broken", "bizarre", "barking"];
 
+    //for quests and shit
+    @override
+    bool isProtective = false;
+    @override
+    bool isSmart = false;
+    @override
+    bool isSneaky = false;
+    @override
+    bool isMagical = false;
+    @override
+    bool isDestructive = true;
+    @override
+    bool isHelpful = false;
+
     Bard() : super("Bard", 9, true);
 
     @override
@@ -31,13 +45,13 @@ class Bard extends SBURBClass {
     }
 
     @override
-    String interactionFlavorText(GameEntity me, GameEntity target) {
-        return " The ${me.htmlTitle()} appears to be destroying something in everyone. ";
+    String interactionFlavorText(Player me, GameEntity target, Random rand) {
+        return " The ${me.htmlTitle()} appears to be destroying ${rand.pickFrom(me.aspect.symbolicMcguffins)} in everyone. ";
     }
 
     @override
     void processStatInteractionEffect(Player p, GameEntity target, AssociatedStat stat) {
-        num powerBoost = p.getStat("power") / 20;
+        num powerBoost = p.getPowerForEffects() / 20;
         powerBoost = this.modPowerBoostByClass(powerBoost, stat);
         //modify others
         if(p.session.mutator.bloodField) powerBoost = powerBoost * p.session.mutator.bloodBoost;

@@ -21,11 +21,14 @@ abstract class Scene {
   //  like ocdatastring shit.
 
   static void createScenesForSession(Session session){
+    if(session is DeadSession) {
+      createScenesForDeadSession(session);
+      return;
+    }
     session.scenes = [new GetWasted(session),new StartDemocracy(session), new JackBeginScheming(session), new KingPowerful(session), new QueenRejectRing(session), new GiveJackBullshitWeapon(session), new JackPromotion(session), new JackRampage(session)];
     //relationship drama has a high priority because it can distract a session from actually making progress. happened to universe a trolls.
     session.scenes.addAll([new QuadrantDialogue(session),new FreeWillStuff(session),new GrimDarkQuests(session),new Breakup(session), new RelationshipDrama(session), new UpdateShippingGrid(session),  new EngageMurderMode(session), new GoGrimDark(session),  new DisengageMurderMode(session),new MurderPlayers(session),new BeTriggered(session),]);
     session.scenes.addAll([new VoidyStuff(session), new FaceDenizen(session), new DoEctobiology(session), new LuckStuff(session), new RainClone(session), new DoLandQuest(session)]);
-    session.scenes.addAll([new SolvePuzzles(session), new ExploreMoon(session)]);
     session.scenes.addAll([new LevelTheHellUp(session)]);
 
     //make sure kiss, then godtier, then godtierrevival, then any other form of revival.
@@ -41,16 +44,33 @@ abstract class Scene {
     }
   }
 
-  //dead sessions are exactly like regular sessions but only 1 player in array and less scenes.
+  //dead sessions are exactly like regular sessions but only 1 player in array and less scenes. no romance, etc.
   static void createScenesForDeadSession(Session session) {
-      throw("todo");
+    session.scenes = [new DeadQuests(session),new DeadMeta(session), new JackBeginScheming(session), new GiveJackBullshitWeapon(session), new JackPromotion(session), new JackRampage(session)];
+    //relationship drama has a high priority because it can distract a session from actually making progress. happened to universe a trolls.
+    session.scenes.addAll([new FreeWillStuff(session),new GrimDarkQuests(session),  new EngageMurderMode(session), new GoGrimDark(session),  new DisengageMurderMode(session),new BeTriggered(session),]);
+    session.scenes.addAll([new VoidyStuff(session), new LuckStuff(session)]);
+
+    session.scenes.addAll([new LevelTheHellUp(session)]);
+
+    //make sure kiss, then godtier, then godtierrevival, then any other form of revival.
+    //make sure life stuff happens AFTER a chance at god tier, or life players PREVENT god tiering.
+    session.deathScenes = [ new SaveDoomedTimeLine(session), new GodTierRevival(session), new LifeStuff(session)];  //are always available.
+    session.reckoningScenes = [new FightQueen(session), new FightKing(session)];
+
+    //scenes can add other scenes to available scene list. (for example, spy missions being added if Jack began scheming)
+    session.available_scenes = []; //remove scenes from this if they get used up.
+    //make non shallow copy.
+    for(num i = 0; i<session.scenes.length; i++){
+      session.available_scenes.add(session.scenes[i]);
+    }
   }
 
 
 
 
   //scenes call this to know how to put together pesterlogs
-  static String chatLine(start, player, line){
+  static String chatLine(String start, Player player, String line){
     if(player.grimDark  > 3){
       line = Zalgo.generate(line);
       return start + line.trim()+"\n"; //no whimsy for grim dark players
@@ -76,7 +96,7 @@ abstract class IntroScene {
   bool trigger(List<Player> playerList, Player player);
 
   //each scene should handle rendering itself, whether via text or canvas
-  void renderContent(Element div, num i);
+  void renderContent(Element div, int i);
 
   Random get rand => this.session.rand;
 }
