@@ -69,7 +69,7 @@ class BeTriggered extends Scene{
 				p.flipOutReason = null;
 				p.flippingOutOverDeadPlayer = null;
 
-			}else if(rhyme!=null && rhyme.getStat("power") > 150) { //ability to chill is not as strong as hope.
+			}else if(rhyme!=null && rhyme.getStat(Stats.POWER) > 150.0) { //ability to chill is not as strong as hope.
 				//////session.logger.info("Hope Survives: " + this.session.session_id);
 				ret += " The " + p.htmlTitle() +
 						" should probably be flipping the fuck out about  " +

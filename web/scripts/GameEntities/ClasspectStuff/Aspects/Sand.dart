@@ -66,8 +66,8 @@ class Sand extends Aspect {
 */
   @override
   List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-    new AssociatedStat("RELATIONSHIPS", 3, true), //Never truthful. but nobody knows that, do they?
-    new AssociatedStat("sanity", -2, true) //no, you are not sane for cheating your way out of everything.
+    new AssociatedStat(Stats.RELATIONSHIPS, 3.0, true), //Never truthful. but nobody knows that, do they?
+    new AssociatedStat(Stats.SANITY, -2.0, true) //no, you are not sane for cheating your way out of everything.
 
   ]);
 

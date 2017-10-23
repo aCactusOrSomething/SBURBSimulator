@@ -66,10 +66,10 @@ class Might extends Aspect {
 
   @override
   List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-    new AssociatedStat("MANGRIT", 2, true),
-    new AssociatedStat("freeWill", -1, true),
-    new AssociatedStat("mobility", -1, true),
-    new AssociatedStat("sanity", 1, true),
+    new AssociatedStat(Stats.POWER, 2.0, true),
+    new AssociatedStat(Stats.FREE_WILL, -1.0, true),
+    new AssociatedStat(Stats.MOBILITY, -1.0, true),
+    new AssociatedStat(Stats.SANITY, 1.0, true),
   ]);
 
   Might(int id) :super(id, "Might", isCanon: false);

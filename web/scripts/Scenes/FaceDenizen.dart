@@ -17,12 +17,12 @@ class FaceDenizen extends Scene{
 			if(p.denizen == null && p.aspect != Aspects.NULL) session.logger.warn("A player has no denizen, but is not a Null player. Player is $p");
 			if (p.denizen_index >= 3 && !p.denizenDefeated && p.land != null && p.denizen != null) {
 				var d = p.denizen;
-				if (p.getStat("power") > d.getStat("currentHP") || rand.nextDouble() > .5) { //you're allowed to do other things between failed boss fights, you know.
+				if (p.getStat(Stats.POWER) > d.getStat(Stats.CURRENT_HEALTH) || rand.nextDouble() > .5) { //you're allowed to do other things between failed boss fights, you know.
 					this.denizenFighters.add(p);
 				}
 			} else if (p.landLevel >= 6 && !p.denizenMinionDefeated && p.land != null && p.denizen != null) {
 				var d = p.denizenMinion;
-				if (p.getStat("power") > d.getStat("currentHP") || rand.nextDouble() > .5) { //you're allowed to do other things between failed boss fights, you know.
+				if (p.getStat(Stats.POWER) > d.getStat(Stats.CURRENT_HEALTH) || rand.nextDouble() > .5) { //you're allowed to do other things between failed boss fights, you know.
 					this.denizenFighters.add(p);
 				}
 			}
@@ -67,14 +67,14 @@ class FaceDenizen extends Scene{
 	void faceDenizenMinion(Player p, Element div){
 		GameEntity denizenMinion = p.denizenMinion;
 		String ret = "<br>The " + p.htmlTitleHP() + " initiates a strife with the " + denizenMinion.name + ". ";
-		if(p.sprite != null && p.sprite.getStat("currentHP") > 0 ) ret += " " + p.sprite.htmlTitleHP() + " joins them! ";
+		if(p.sprite != null && p.sprite.getStat(Stats.CURRENT_HEALTH) > 0 ) ret += " " + p.sprite.htmlTitleHP() + " joins them! ";
     appendHtml(div,ret);
 		Team pTeam = new Team.withName("The ${p.htmlTitle()}",this.session, [p]);
 		Team dTeam = new Team(this.session, [denizenMinion]);
     dTeam.canAbscond = false;
 		Strife strife = new Strife(this.session, [pTeam, dTeam]);
 		strife.startTurn(div);
-		if(denizenMinion.getStat("currentHP") <= 0 || denizenMinion.dead){
+		if(denizenMinion.getStat(Stats.CURRENT_HEALTH) <= 0 || denizenMinion.dead){
 			p.denizenMinionDefeated = true;
 		}
 	}

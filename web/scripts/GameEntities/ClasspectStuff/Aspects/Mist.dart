@@ -37,14 +37,11 @@ class Mist extends Aspect{
 
   //todo: actually add denizens and land quests for mist players
 
-  static List<String> _randomStats = Player.playerStats.toList()
-    ..remove("power")
-    ..add("MANGRIT");
 
   @override
   List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-    new AssociatedStat("mobility", 2.0, true),
-    new AssociatedStat("MANGRIT", -1.0, true),
+    new AssociatedStat(Stats.MOBILITY, 2.0, true),
+    new AssociatedStat(Stats.POWER, -1.0, true),
   ]);
 
 

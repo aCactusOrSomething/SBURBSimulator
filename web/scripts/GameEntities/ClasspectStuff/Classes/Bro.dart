@@ -1,11 +1,11 @@
-import "../../GameEntity.dart";
+import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
 
 class Bro extends SBURBClass {
-  Bro() : super("Bro", 18, false);
+  Bro() : super("Bro", 20, false);
   @override
   List<String> levels = ["BROBLERONE", "BROTEL RWANDA", "BRO-YO MA"];
-  @override
+  /*@override
   List<String> quests = [
     "busting out, and I quote, 'the mad stunts all wicked up-ins'",
     "trying to get hella pumped about houses or some noise",
@@ -17,7 +17,19 @@ class Bro extends SBURBClass {
     "giving a shout out to their boy Dennis who was over the other day",
     "helping their consorts live off the land, for big ups to Mother Earth, yo",
     "getting so wasted. haha, I mean DAMN"
-  ];
+  ];*/
+  @override
+  bool isProtective = false;
+  @override
+  bool isSmart = false;
+  @override
+  bool isSneaky = false;
+  @override
+  bool isMagical = true;
+  @override
+  bool isDestructive = true;
+  @override
+  bool isHelpful = false;
   @override
   List<String> handles = ["Brother", "Bored", "Bugger", "Badass", "Bothersome"];
 
@@ -27,16 +39,15 @@ class Bro extends SBURBClass {
   }
 
   @override
-  bool isActive() {
+  bool isActive([double multiplier = 0.0]) {
     return true;
   }
 
   @override
-  List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(
-      <AssociatedStat>[
-        new AssociatedStat("sburbLore", 1.5, false),//dennis was so wasted. ha ha, i mean damn.
-        new AssociatedStat("MANGRIT", 3.0, false), //"But all im saying is, when do you get to THRASH something?"
-        new AssociatedStat("RELATIONSHIPS", -0.5, false)//It wasn't a long fall, but hey I guess a thumb bone wasn't made for supporting the brunt of a huge useless tool against wet grass.
+  List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
+        new AssociatedStat(Stats.SBURB_LORE, 1.5, false),//dennis was so wasted. ha ha, i mean damn.
+        new AssociatedStat(Stats.POWER, 3.0, false), //"But all im saying is, when do you get to THRASH something?"
+        new AssociatedStat(Stats.RELATIONSHIPS, -0.5, false)//It wasn't a long fall, but hey I guess a thumb bone wasn't made for supporting the brunt of a huge useless tool against wet grass.
       ]);
 
   @override

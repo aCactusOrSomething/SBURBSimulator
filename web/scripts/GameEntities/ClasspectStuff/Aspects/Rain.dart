@@ -40,9 +40,9 @@ class Rain extends Aspect {
   @override
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-        new AssociatedStat("RELATIONSHIPS", -2, true),
-        new AssociatedStat("sanity", -1, true),
-        new AssociatedStat("maxLuck", 3, true)
+        new AssociatedStat(Stats.RELATIONSHIPS, -2.0, true),
+        new AssociatedStat(Stats.SANITY, -1.0, true),
+        new AssociatedStat(Stats.MAX_LUCK, 3.0, true)
     ]);
 
   Rain(int id) :super(id, "Rain", isCanon: false);

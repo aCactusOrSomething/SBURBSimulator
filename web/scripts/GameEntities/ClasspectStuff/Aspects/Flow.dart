@@ -40,9 +40,9 @@ class Flow extends Aspect{
 
   @override
   List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
-    new AssociatedStat("mobility", 2, true),
-    new AssociatedStat("MANGRIT", 1, true),
-    new AssociatedStat("RELATIONSHIPS", -2, true)
+    new AssociatedStat(Stats.MOBILITY, 2.0, true),
+    new AssociatedStat(Stats.POWER, 1.0, true),
+    new AssociatedStat(Stats.RELATIONSHIPS, -2.0, true)
   ]);
 
   Flow(int id) :super(id, "Flow", isCanon: false);
