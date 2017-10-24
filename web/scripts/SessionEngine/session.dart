@@ -649,7 +649,7 @@ class Session {
         } else if (length == 12) {
             return "TWELVE";
         } else {
-            return "???";
+            return length.toString();
         }
     }
 
@@ -775,6 +775,7 @@ class Session {
     SessionSummary generateSummary() {
         return SessionSummary.makeSummaryForSession(this);
     }
+
 
 }
 

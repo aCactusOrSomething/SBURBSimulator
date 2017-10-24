@@ -2480,4 +2480,10 @@ abstract class Drawing {
         //need to return how many lines i created so that whatever called me knows where to put ITS next line.;
         return lines.length;
     }
+
+    //draws a 'lil sburb house for the session, using the favorite color of the MVP and the number of players in session.
+    //todo implement this fully. should be able to draw the squares, make one square into the arrow icon, draw a roof over the topmost squares, and
+    static void drawSburbHouse(){
+
+    }
 }
