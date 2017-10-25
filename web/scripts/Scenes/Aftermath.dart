@@ -299,6 +299,8 @@ class Aftermath extends Scene {
         Player strongest = findMVP(this.session.players);
         end += "<br> The MVP of the session was: " + strongest.htmlTitle() + " with a grist level  of: ${strongest.grist}";
         end += "<br>Thanks for Playing!<br>";
+        HouseLogo myTeam = new HouseLogo(this.session.players.indexOf(this.session.players.last), this.session.rand);
+        end += myTeam.display();
         appendHtml(div, end);
         //String divID = (div.id) + "_aftermath" ;
 

@@ -103,6 +103,8 @@ export "Scenes/DeadScenes/DeadReckoning.dart";
 export "Scenes/DeadScenes/DeadMeta.dart";
 export "Scenes/DeadScenes/DeadQuests.dart";
 
+export "Scenes/HouseLogo.dart";
+
 export "includes/colour.dart";
 export "includes/palette.dart";
 export "includes/predicates.dart";

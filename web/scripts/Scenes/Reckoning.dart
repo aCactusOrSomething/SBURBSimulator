@@ -85,6 +85,7 @@ class Reckoning extends Scene {
 		}
 		intro += "<br><br>";
 
+
 		appendHtml(div, intro);
 		return null;
 	}

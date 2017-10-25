@@ -39,7 +39,7 @@ class Bro extends SBURBClass {
       new Quest("At this point, the ${Quest.PLAYER1} would like to give a shout out to their boy ${Quest.PLAYER2}. the two are about to go chill in front of The Dark ${Quest.CONSORTSOUND}, and are so psyched of it."),
       new Quest("The ${Quest.PLAYER2} was leaning against the screen door when the shit popped open. they slip down the steps and break their thumb on the lawn. It wasn't a long fall, but hey I guess a thumb bone wasn't made for supporting the brunt of a huge useless tool against wet grass."),
       new Quest("The ${Quest.PLAYER1} and the ${Quest.PLAYER2} didn't actually go see the movie on account of a ${Quest.CONSORT} trucking his bawling ${Quest.PHYSICALMCGUFFIN}-ass girth into the hospital. the ${Quest.PLAYER1} give it 1.5 ${Quest.MCGUFFIN}s out of 5 ${Quest.MCGUFFIN}s anyways, to keep it real. <br></br>It's OK though, The ${Quest.PLAYER2} still has another watch in them, Brotel Rwanda."),
-    ], new FraymotifReward(), QuestChainFeature.twoPlayers), Feature.LOW),  Theme.HIGH);
+    ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.LOW),  Theme.HIGH);
   }
 
   @override
