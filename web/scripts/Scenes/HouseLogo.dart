@@ -5,10 +5,12 @@ class HouseLogo {
   //List<List<List<bool>>> housePanels;
   int dimensions;
   int _SIDES = 4;
-  var myHouse;
+  List myHouse;
+  String color;
 
-  HouseLogo(num players,/* Colour houseColor,*/ Random rand) {
+  HouseLogo(num players, String color, Random rand) {
     _SIDES = 4;
+    this.color  = color;
     dimensions = (players / _SIDES).ceil();
     int spotsTaken = 0;
     print("building house with " + players.toString() + "players.");
@@ -29,7 +31,7 @@ class HouseLogo {
       }
 
 
-    for(int i = 0; i < dimensions-1; i=i) {
+    for(int i = 0; i < dimensions; i=i) {
       int x = 0;
       int y = 0;
       bool occupied = false;
@@ -105,7 +107,7 @@ class HouseLogo {
         if (middle == true) {
           ret = ret + "[]";
         }else {
-          ret = ret + "  ";
+          ret = ret + "--";
         }
       }
       for (int j = 0; j < relSize; j++) {
@@ -113,10 +115,10 @@ class HouseLogo {
         if (middle == true) {
           ret = ret + "[]";
         }else {
-          ret = ret + "  ";
+          ret = ret + "--";
         }
       }
-      ret = ret + "<br></br>";
+      ret = ret + "<br>";
     }
     for (int i = 0; i < relSize; i++) {
       for (int j = 0; j < relSize; j++) {
@@ -124,7 +126,7 @@ class HouseLogo {
         if (middle == true) {
           ret = ret + "[]";
         }else {
-          ret = ret + "  ";
+          ret = ret + "--";
         }
       }
       for (int j = 0; j < relSize; j++) {
@@ -132,10 +134,10 @@ class HouseLogo {
         if (middle == true) {
           ret = ret + "[]";
         }else {
-          ret = ret + "  ";
+          ret = ret + "--";
         }
       }
-      ret = ret + "<br></br>";
+      ret = ret + "<br>";
     }
     return ret;
   }

@@ -299,9 +299,13 @@ class Aftermath extends Scene {
         Player strongest = findMVP(this.session.players);
         end += "<br> The MVP of the session was: " + strongest.htmlTitle() + " with a grist level  of: ${strongest.grist}";
         end += "<br>Thanks for Playing!<br>";
-        HouseLogo myTeam = new HouseLogo(this.session.players.indexOf(this.session.players.last), this.session.rand);
+        HouseLogo myTeam = new HouseLogo(this.session.players.length, strongest.getChatFontColor(), this.session.rand);
         end += myTeam.display();
+        String canvasHTML = "<br><canvas id='canvas" + div.id +"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
         appendHtml(div, end);
+        appendHtml(div,canvasHTML);
+        var canvas = querySelector("#canvas"+ div.id);
+        Drawing.drawSburbHouse(canvas, myTeam);
         //String divID = (div.id) + "_aftermath" ;
 
 
