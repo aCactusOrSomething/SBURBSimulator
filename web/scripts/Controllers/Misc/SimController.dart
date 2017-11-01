@@ -15,6 +15,9 @@ import "../../navbar.dart";
 //ABController inherits from Story Controller and only changes what she must.
 //care about other controllers later.
 abstract class SimController {
+
+    Element storyElement;
+    Element voidStory;
     static SimController instance;
     num initial_seed = 0;
 
@@ -29,6 +32,7 @@ abstract class SimController {
             statData = new StatSampler();
             statData.createSaveButton();
         }
+        storyElement = querySelector("#story");
     }
 
     void callNextIntro(int player_index) {
@@ -66,31 +70,31 @@ abstract class SimController {
         }
         if (curSessionGlobalVar.session_id == 33) {
             document.title = "NepetaQuest by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&nepeta=:33'>The furryocious huntress makes sure to bat at this link to learn a secret!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&nepeta=:33'>The furryocious huntress makes sure to bat at this link to learn a secret!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
         } else if (curSessionGlobalVar.session_id == 420) {
             document.title = "FridgeQuest by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&honk=:o)'>wHoA. lIkE. wHaT If yOu jUsT...ReAcHeD OuT AnD ToUcHeD ThIs? HoNk!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&honk=:o)'>wHoA. lIkE. wHaT If yOu jUsT...ReAcHeD OuT AnD ToUcHeD ThIs? HoNk!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
         } else if (curSessionGlobalVar.session_id == 88888888) {
             document.title = "SpiderQuuuuuuuuest!!!!!!!! by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&luck=AAAAAAAALL'>Only the BEST Observers click here!!!!!!!!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&luck=AAAAAAAALL'>Only the BEST Observers click here!!!!!!!!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
         } else if (curSessionGlobalVar.session_id == 0) {
             document.title = "0_0 by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&temporal=shenanigans'>Y0ur inevitabile clicking here will briefly masquerade as free will, and I'm 0kay with it.</a>");
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&temporal=shenanigans'>Y0ur inevitabile clicking here will briefly masquerade as free will, and I'm 0kay with it.</a>");
         } else if (curSessionGlobalVar.session_id == 413) { //why the hell is this one not triggering?
             "Homestuck Simulator by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&home=stuck'>A young man stands next to a link. Though it was 13 years ago he was given life, it is only today he will click it.</a>");
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&home=stuck'>A young man stands next to a link. Though it was 13 years ago he was given life, it is only today he will click it.</a>");
         } else if (curSessionGlobalVar.session_id == 111111) { //why the hell is this one not triggering?
             document.title = "Homestuck Simulator by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&home=stuck'>A young lady stands next to a link. Though it was 16 years ago she was given life, it is only today she will click it.</a>");
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&home=stuck'>A young lady stands next to a link. Though it was 16 years ago she was given life, it is only today she will click it.</a>");
         } else if (curSessionGlobalVar.session_id == 613) {
             document.title = "OpenBound Simulator by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&open=bound'>Rebubble this link?.</a>", treeSanitizer: NodeTreeSanitizer.trusted);
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&open=bound'>Rebubble this link?.</a>", treeSanitizer: NodeTreeSanitizer.trusted);
         } else if (curSessionGlobalVar.session_id == 612) {
             document.title = "HiveBent Simulator by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&hive=bent'>A young troll stands next to a click horizon. Though it was six solar sweeps ago that he was given life, it is only today that he will click it.</a>");
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&hive=bent'>A young troll stands next to a click horizon. Though it was six solar sweeps ago that he was given life, it is only today that he will click it.</a>");
         } else if (curSessionGlobalVar.session_id == 1025) {
             document.title = "Fruity Rumpus Asshole Simulator by jadedResearcher";
-            querySelector("#story").appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&rumpus=fruity'>I will have order in this RumpusBlock!!!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
+            SimController.instance.storyElement.appendHtml(" <a href = 'index2.html?seed=${getRandomSeed()}&rumpus=fruity'>I will have order in this RumpusBlock!!!</a>", treeSanitizer: NodeTreeSanitizer.trusted);
         }
     }
 
@@ -112,12 +116,16 @@ abstract class SimController {
 
     }
 
+    void easterEggCallBackRestartScratch() {
+        scratchEasterEggCallBack();
+    }
+
     void intro() {
         print("gonna init stats");
         initGatherStats();
         print("gonna initialize sprites");
         createInitialSprites();
-        //advertisePatreon(querySelector("#story"));
+        //advertisePatreon(SimController.instance.storyElement);
         print("gonna call next intro");
         callNextIntro(0);
     }
@@ -151,15 +159,15 @@ abstract class SimController {
         //maybe ther ARE no corpses...but they are sure as shit bringing the dead dream selves.
         List<Player> living = findLivingPlayers(curSessionGlobalVar.aliensClonedOnArrival);
         if(living.isEmpty) {
-            appendHtml(querySelector("#story"), "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. Fuck. That's right. The Space Player made it so that they could enter their own child Session. But. Fuck. Everybody is dead. This...god. Maybe...maybe the other Players can revive them? ");
+            appendHtml(SimController.instance.storyElement, "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. Fuck. That's right. The Space Player made it so that they could enter their own child Session. But. Fuck. Everybody is dead. This...god. Maybe...maybe the other Players can revive them? ");
         }else {
-            appendHtml(querySelector("#story"), "<br><Br> But things aren't over, yet. The survivors manage to contact the players in the universe they created. Their sick frog may have screwed them over, but the connection it provides to their child universe will equally prove to be their salvation. Time has no meaning between universes, and they are given ample time to plan an escape from their own Game Over. They will travel to the new universe, and register as players there for session <a href = 'index2.html?seed=${curSessionGlobalVar.session_id}'>${curSessionGlobalVar.session_id}</a>. You are a little scared to ask them why they are bringing the corpses with them. Something about...shipping??? That can't be right.");
+            appendHtml(SimController.instance.storyElement, "<br><Br> But things aren't over, yet. The survivors manage to contact the players in the universe they created. Their sick frog may have screwed them over, but the connection it provides to their child universe will equally prove to be their salvation. Time has no meaning between universes, and they are given ample time to plan an escape from their own Game Over. They will travel to the new universe, and register as players there for session <a href = 'index2.html?seed=${curSessionGlobalVar.session_id}'>${curSessionGlobalVar.session_id}</a>. You are a little scared to ask them why they are bringing the corpses with them. Something about...shipping??? That can't be right.");
         }
         checkSGRUB();
         if(curSessionGlobalVar.mutator.spaceField) {
             window.scrollTo(0, 0);
             querySelector("#charSheets").setInnerHtml("");
-            querySelector("#story").setInnerHtml("You feel a nauseating wave of space go over you. What happened? Huh. Is that.... a new session? How did the Players get here? Are they joining it? Will...it...even FIT having ${curSessionGlobalVar.players.length} fucking players inside it? ");
+            SimController.instance.storyElement.setInnerHtml("You feel a nauseating wave of space go over you. What happened? Huh. Is that.... a new session? How did the Players get here? Are they joining it? Will...it...even FIT having ${curSessionGlobalVar.players.length} fucking players inside it? ");
         }
         load(curSessionGlobalVar.players, <Player>[], ""); //in loading.js
     }
@@ -198,7 +206,7 @@ abstract class SimController {
     }
 
     void recoverFromCorruption() {
-        if(curSessionGlobalVar != null) curSessionGlobalVar.mutator.renderEndButtons(querySelector("#story"));
+        if(curSessionGlobalVar != null) curSessionGlobalVar.mutator.renderEndButtons(SimController.instance.storyElement);
         if(curSessionGlobalVar != null) curSessionGlobalVar.stats.doomedTimeline = true; //TODO do i really need this, but the sim sometimes tries to keep running after grim crashes
         //print("Other controllers will do something after corruption, but the sim just ends.");
     }
@@ -222,13 +230,13 @@ abstract class SimController {
                 //alert(living.length  + " living players and the " + timePlayer.land + " makes a scratch available!");
                 if (session.stats.scratchAvailable) {
                     String html = '<img src="images/Scratch.png" id="scratchButton"><br>Click To Scratch Session?';
-                    appendHtml(querySelector("#story"), html);
+                    appendHtml(SimController.instance.storyElement, html);
                     querySelector("#scratchButton").onClick.listen((Event e) => scratchConfirm());
                     renderAfterlifeURL();
                 }
             } else {
                 //print("no more scratches");
-                appendHtml(querySelector("#story"), "<br>This session is already scratched. No further scratches available.");
+                appendHtml(SimController.instance.storyElement, "<br>This session is already scratched. No further scratches available.");
                 renderAfterlifeURL();
             }
         } else {
@@ -244,9 +252,15 @@ abstract class SimController {
     }
 
     void restartSession() {
-        setHtml(querySelector("#story"), '<canvas id="loading" width="1000" height="354"> ');
+        setHtml(SimController.instance.storyElement, '<canvas id="loading" width="1000" height="354"> ');
         window.scrollTo(0, 0);
         checkEasterEgg(easterEggCallBackRestart, null);
+    }
+
+    void restartSessionScratch() {
+        setHtml(SimController.instance.storyElement, '<canvas id="loading" width="1000" height="354"> ');
+        window.scrollTo(0, 0);
+        checkEasterEgg(easterEggCallBackRestartScratch, null);
     }
 
     void shareableURL() {
@@ -254,7 +268,8 @@ abstract class SimController {
         if (params == window.location.href) params = "";
         String str = '<div class = "links"><a href = "index2.html?seed=$initial_seed&$params">Shareable URL </a> &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp <a href = "character_creator.html?seed$initial_seed&$params" target="_blank">Replay Session  </a> &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp<a href = "index2.html">Random Session URL </a> </div>';
         setHtml(querySelector("#seedText"), str);
-        querySelector("#story").appendHtml("Session: $initial_seed", treeSanitizer: NodeTreeSanitizer.trusted);
+
+        SimController.instance.storyElement.appendHtml("Session: $initial_seed", treeSanitizer: NodeTreeSanitizer.trusted);
     }
 
     void startSession() {
@@ -325,18 +340,20 @@ abstract class SimController {
     void tick([num time]) {
         ////print("Debugging AB: tick");
         ////print("Tick: " + curSessionGlobalVar.timeTillReckoning);
-        if (curSessionGlobalVar.timeTillReckoning > 0 && !curSessionGlobalVar.stats.doomedTimeline) {
+        //don't start  a reckoning until at least one person has been to the battlefield.
+        if(curSessionGlobalVar.canReckoning && curSessionGlobalVar.timeTillReckoning <= 0) {
+           curSessionGlobalVar.logger.info("reckoning at ${curSessionGlobalVar.timeTillReckoning} and can reckoning is ${curSessionGlobalVar.canReckoning}");
+            curSessionGlobalVar.timeTillReckoning = 0; //might have gotten negative while we wait.
+            reckoning();
+        }else if (!curSessionGlobalVar.stats.doomedTimeline) {
             curSessionGlobalVar.timeTillReckoning += -1;
             curSessionGlobalVar.processScenes(curSessionGlobalVar.players);
             this.gatherStats();
             window.requestAnimationFrame(tick);
-            ////print("pastJR: I am going to annoy you until you make this animation frames instead of timers");
-            //new Timer(new Duration(milliseconds: 10), tick); //timer is to get that sweet sweet asynconinity back, so i don't have to wait for EVERYTHING to be done to see anything.
-        } else {
-            ////print("Debugging AB: reckoning time.");
-            reckoning();
         }
+        //if we are doomed, we crashed, so don't do anything.
     }
+
 
     void gatherStats() {
         if (gatherStatData) {

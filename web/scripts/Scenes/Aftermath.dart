@@ -27,15 +27,15 @@ class Aftermath extends Scene {
         for (Player p in living) {
             if (p.gnosis < 3) {
                 entered.add(p);
-                ret += "The ${p.htmlTitle()} enters the door to the new Universe.<Br><Br>";
+                ret += "The ${p.htmlTitleBasicWithTip()} enters the door to the new Universe.<Br><Br>";
             } else {
                 if (p.gnosis == 3 && rand.nextBool()) {
                     entered.add(p);
-                    ret += "The ${p.htmlTitle()} stands for a long time outside the door to the new Universe. Finally, they enter. <Br><br>";
+                    ret += "The ${p.htmlTitleBasicWithTip()} stands for a long time outside the door to the new Universe. Finally, they enter. <Br><br>";
                 } else if (p.gnosis == 3) {
-                    ret += "The ${p.htmlTitle()} stands for a long time outside the door to the new Universe. Finally, they turn away. <Br><br>";
+                    ret += "The ${p.htmlTitleBasicWithTip()} stands for a long time outside the door to the new Universe. Finally, they turn away. <Br><br>";
                 } else {
-                    ret += "The ${p.htmlTitle()} never even bothers to go see the door to the new Universe. There is still so much to do.<Br><br>";
+                    ret += "The ${p.htmlTitleBasicWithTip()} never even bothers to go see the door to the new Universe. There is still so much to do.<Br><br>";
                 }
             }
         }
@@ -297,7 +297,7 @@ class Aftermath extends Scene {
     void doAtEndOfAfterMath(Element div, String end, bool yellowYard) {
         //used to be power based, anywhere else doing mvp (like yellow yard shit) still is. need to update tournament, too
         Player strongest = findMVP(this.session.players);
-        end += "<br> The MVP of the session was: " + strongest.htmlTitle() + " with a grist level  of: ${strongest.grist}";
+        end += "<br> The MVP of the session was: " + strongest.htmlTitleWithTip() + " with a grist level  of: ${strongest.grist}";
         end += "<br>Thanks for Playing!<br>";
         HouseLogo myTeam = new HouseLogo(this.session.players.length, strongest.getChatFontColor(), this.session.rand);
         end += myTeam.display();

@@ -1,12 +1,14 @@
 import "dart:async";
 import "dart:html";
 import "dart:math";
-import "dart:typed_data";
 
 import "../SBURBSim.dart";
-import "3d/texturehelper.dart";
 import "3d/three.dart" as THREE;
-import "sprite/sprite.dart";
+
+export "pass/effect.dart";
+export "pass/group.dart";
+export "pass/image.dart";
+export "pass/sprite.dart";
 
 class Renderer {
     static bool _loadedThree = false;
@@ -18,10 +20,12 @@ class Renderer {
 
     static Map<CanvasImageSource, THREE.Texture> _textureCache = <CanvasImageSource, THREE.Texture>{};
 
-    static THREE.WebGLRenderer _renderer = new THREE.WebGLRenderer(new THREE.WebGLRendererOptions(alpha:true, antialias: false))..autoClear = false;
+    static THREE.WebGLRenderer _renderer = new THREE.WebGLRenderer(new THREE.WebGLRendererOptions(alpha:true, antialias: false))..autoClear = false..setClearColor(0xFF0000, 0x00);
 
     static List<RenderJob> _pending = <RenderJob>[];
     static bool _processing = false;
+
+    static THREE.WebGLRenderer get webgl => _renderer;
 
     static void render(RenderJob job) {
         _pending.add(job);
@@ -51,8 +55,15 @@ class Renderer {
         window.requestAnimationFrame(_renderLoop);
     }
 
+    static void _setSize(int width, int height) {
+        if (width != _renderer.domElement.width || height != _renderer.domElement.height) {
+            _disposeBuffers();
+        }
+        _renderer.setSize(width, height);
+    }
+
     static Future<Null> _draw(RenderJob job) async {
-        _renderer.setSize(job.width, job.height);
+        _setSize(job.width, job.height);
 
         for (RenderJobPass pass in job._passes) {
             await pass.draw(job);
@@ -79,13 +90,48 @@ class Renderer {
             ..magFilter = THREE.NearestFilter
             ..needsUpdate = true;
     }
+
+    static const int MAX_BUFFERS = 32;
+    static List<THREE.WebGLRenderTarget> _buffers = new List<THREE.WebGLRenderTarget>(MAX_BUFFERS);
+    static int _bufferStackDepth = 0;
+    static THREE.WebGLRenderTarget _getBufferFromStack(int position, int width, int height) {
+        if (position >= MAX_BUFFERS) {
+            throw "Buffer depth limite exceeded - honestly if you got this deep something is probably wrong.";
+        }
+        if (_buffers[position] == null) {
+            _buffers[position] = new THREE.WebGLRenderTarget(width, height);
+        } else {
+            _buffers[position].setSize(width, height);
+        }
+        return _buffers[position];
+    }
+
+    static THREE.WebGLRenderTarget pushBufferStack(int width, int height) {
+        THREE.WebGLRenderTarget buffer = _getBufferFromStack(_bufferStackDepth, width, height);
+        _bufferStackDepth++;
+        return buffer;
+    }
+
+    static void popBufferStack() {
+        _bufferStackDepth--;
+    }
+
+    static void _disposeBuffers() {
+        for (int i=0; i<_buffers.length; i++) {
+            THREE.WebGLRenderTarget buffer = _buffers[i];
+            if (buffer == null) { continue; }
+            buffer.dispose();
+            _buffers[i] = null;
+        }
+        _bufferStackDepth = 0;
+    }
 }
 
 abstract class RendererDefaults {
     static THREE.AmbientLight defaultAmbient = new THREE.AmbientLight(0xFFFFFF, 2.0);
 }
 
-class RenderJob {
+class RenderJob extends Object with RenderPassReceiver {
     DivElement div;
 
     List<RenderJobPass> _passes = <RenderJobPass>[];
@@ -118,151 +164,33 @@ class RenderJob {
         return this.div;
     }
 
-    void add(RenderJobPass pass) {
+    @override
+    void addPass(RenderJobPass pass) {
         this._passes.add(pass);
-    }
-
-    void addImage(String path, [int x, int y, THREE.ShaderMaterial materialOverride]) {
-        this.add(new RenderJobPassImage(path, x,y, materialOverride));
-    }
-
-    void addSprite(String path, Iterable<Palette> palettes, [int x, int y, THREE.ShaderMaterial materialOverride]) {
-        this.add(new RenderJobPassSprite(path, palettes, x, y, materialOverride));
     }
 }
 
 abstract class RenderJobPass {
-    Future<Null> draw(RenderJob job);
+    Future<Null> draw(RenderJob job, [THREE.WebGLRenderTarget target]);
 }
 
-class RenderJobPassImage extends RenderJobPass {
-    static THREE.OrthographicCamera _camera = new THREE.OrthographicCamera.flat(100, 100)..position.z = 800;
-    static THREE.Scene _scene;
-    static THREE.Mesh _mesh;
-    static THREE.ShaderMaterial _defaultMaterial;
+abstract class RenderPassReceiver {
+    void addPass(RenderJobPass pass);
 
-    final String imagePath;
-    final int x;
-    final int y;
-    THREE.ShaderMaterial materialOverride;
-
-    RenderJobPassImage(String this.imagePath, [int this.x=0, int this.y=0, THREE.ShaderMaterial this.materialOverride]);
-
-    @override
-    Future<Null> draw(RenderJob job) async {
-        await _initScene();
-        _camera..bottom = job.height..right = job.width..updateProjectionMatrix();
-
-        ImageElement img = await Loader.getResource(imagePath);
-        THREE.Texture texture = Renderer.getCachedTextureNearest(img);
-
-        THREE.ShaderMaterial material = this.materialOverride != null ? this.materialOverride : _defaultMaterial;
-
-        THREE.getUniform(material, "image").value = texture;
-        THREE.getUniform(material, "size").value = new THREE.Vector2(img.width, img.height);
-
-        _mesh.position..x = x + img.width * 0.5..y = y + img.height * 0.5;
-
-        Renderer._renderer.render(_scene, _camera);
+    void addImagePass(String path, [int x=0, int y=0, THREE.ShaderMaterial materialOverride]) {
+        this.addPass(new RenderJobPassImage(path, x,y, materialOverride));
     }
 
-    Future<Null> _initScene() async {
-        if (_scene != null) { return; }
+    void addSpritePass(String path, Iterable<Palette> palettes, [int x=0, int y=0, THREE.ShaderMaterial materialOverride]) {
+        this.addPass(new RenderJobPassSprite(path, palettes, x, y, materialOverride));
+    }
 
-        _scene = new THREE.Scene();
-
-        THREE.PlaneBufferGeometry plane = new THREE.PlaneBufferGeometry(1,1,1,1);
-
-        _defaultMaterial = await THREE.makeShaderMaterial("shaders/image.vert", "shaders/image.frag")..transparent = true;
-        THREE.setUniform(_defaultMaterial, "image", new THREE.ShaderUniform<THREE.Texture>());
-        THREE.setUniform(_defaultMaterial, "size", new THREE.ShaderUniform<THREE.Vector2>());
-
-        _mesh = new THREE.Mesh(plane, _defaultMaterial)..rotation.x = PI;
-        _scene.add(_mesh);
+    GroupPass addGroupPass() {
+        GroupPass group = new GroupPass();
+        this.addPass(group);
+        return group;
     }
 }
 
-class RenderJobPassSprite extends RenderJobPass {
-    static THREE.OrthographicCamera _camera = new THREE.OrthographicCamera.flat(100, 100)..position.z = 800;
-    static THREE.Scene _scene;
-    static THREE.Mesh _mesh;
-    static THREE.ShaderMaterial _defaultMaterial;
-    static THREE.DataTexture _paletteTexture;
 
-    final String spritePath;
-    final Iterable<Palette> palettes;
-    final int x;
-    final int y;
-    THREE.ShaderMaterial materialOverride;
 
-    RenderJobPassSprite(String this.spritePath, Iterable<Palette> this.palettes, [int this.x = 0, int this.y = 0, THREE.ShaderMaterial this.materialOverride]);
-
-    @override
-    Future<Null> draw(RenderJob job) async {
-        await _initScene();
-        _camera..bottom = job.height..right = job.width..updateProjectionMatrix();
-
-        PSprite sprite = await Loader.getResource(spritePath);
-        _processPalette(sprite, palettes);
-        THREE.Texture texture = sprite.texture;
-
-        THREE.ShaderMaterial material = this.materialOverride != null ? this.materialOverride : _defaultMaterial;
-
-        THREE.getUniform(material, "image").value = texture;
-        THREE.getUniform(material, "size").value = new THREE.Vector2(sprite.width, sprite.height);
-
-        _mesh.position..x = x + sprite.width * 0.5..y = y + sprite.height * 0.5;
-
-        Renderer._renderer.render(_scene, _camera);
-    }
-
-    static void _processPalette(PSprite sprite, Iterable<Palette> palettes) {
-        int index;
-        Uint8List data = _paletteTexture.image.data;
-        for(int i=0; i<256; i++) {
-            index = i * 4;
-            data[index] = 0;
-            data[index+1] = 0;
-            data[index+2] = 0;
-            data[index+3] = 0;
-
-            for (Palette palette in palettes) {
-                if (sprite.paletteNames.containsKey(i)) {
-                    String entry = sprite.paletteNames[i];
-                    if (palette.containsName(entry)) {
-                        Colour colour = palette[entry];
-
-                        data[index] = colour.red;
-                        data[index + 1] = colour.green;
-                        data[index + 2] = colour.blue;
-                        data[index + 3] = colour.alpha;
-                    }
-                }
-            }
-        }
-
-        _paletteTexture.needsUpdate = true;
-    }
-
-    Future<Null> _initScene() async {
-        if (_scene != null) { return; }
-
-        _scene = new THREE.Scene();
-
-        THREE.PlaneBufferGeometry plane = new THREE.PlaneBufferGeometry(1,1,1,1);
-
-        Uint8List data = new Uint8List(256*4);
-        _paletteTexture = new THREE.DataTexture(data, 256, 1, THREE.RGBAFormat, THREE.UnsignedByteType)
-            ..minFilter = THREE.NearestFilter
-            ..magFilter = THREE.NearestFilter
-        ;
-        
-        _defaultMaterial = await THREE.makeShaderMaterial("shaders/image.vert", "shaders/sprite.frag")..transparent = true;
-        THREE.setUniform(_defaultMaterial, "image", new THREE.ShaderUniform<THREE.Texture>());
-        THREE.setUniform(_defaultMaterial, "size", new THREE.ShaderUniform<THREE.Vector2>());
-        THREE.setUniform(_defaultMaterial, "palette", new THREE.ShaderUniform<THREE.TextureBase>()..value=_paletteTexture);
-
-        _mesh = new THREE.Mesh(plane, _defaultMaterial)..rotation.x = PI;
-        _scene.add(_mesh);
-    }
-}

@@ -1,8 +1,12 @@
 import "../../../SBURBSim.dart";
 import "SBURBClass.dart";
-
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
 
 class Prince extends SBURBClass {
+    @override
+    double difficulty = 1.0;
     Prince() : super("Prince", 10, true);
     @override
     List<String> levels = ["PRINCE HARMING", "ROYAL RUMBLER", "DIGIT PRINCE"];
@@ -64,5 +68,35 @@ class Prince extends SBURBClass {
         //modify self.
         p.modifyAssociatedStat(powerBoost, stat);
     }
+
+
+    @override
+    void initializeThemes() {
+       /*
+        new Quest(" "),
+        new Quest(""),
+        new Quest(" ")
+
+        */
+        addTheme(new Theme(<String>["Endings","Finales", "Epilogues", "Codas","Curtains","Conclusions"])
+            ..addFeature(FeatureFactory.CLAPPINGSOUND, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.CONTEMPLATATIVEFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.SKELETONCONSORT, Feature.LOW)
+
+            ..addFeature(new PostDenizenFrogChain("Destroy the Lack of Frogs", [
+                new Quest("With the closing of the curtain, the ${Quest.DENIZEN} has released the frogs, and yet they are nowhere to be found. The ${Quest.PLAYER1} shatter space itself to reveal an entire dimension of croaking assholes. "),
+                new Quest("The ${Quest.PLAYER1} has broken how space itself works to do the ectobiology as effciently as possible.   "),
+                new Quest("The ${Quest.PLAYER1} has found the final frog in a crack in reality.  They combine it and eventually have the    "),
+            ], new FrogReward(), QuestChainFeature.spacePlayer), Feature.WAY_HIGH)
+
+
+            ..addFeature(new PostDenizenQuestChain("Fix All The Things", [
+                new Quest("The land is a fucking mess after all the shit the ${Quest.DENIZEN} put it through, and it falls to the ${Quest.PLAYER1} to get it back to normal. They organize a team of ${Quest.CONSORT}s to start rebuilding infrastructure."),
+                new Quest("The ${Quest.CONSORT} economy is a fucking mess, and probably was even before the ${Quest.DENIZEN} started to fuck things up. Why would you even use ${Quest.PHYSICALMCGUFFIN} as a currency? The ${Quest.PLAYER1} wastes way too much time explaining how economies work."),
+                new Quest("The land finally appears to be in a good state. The ${Quest.PLAYER1} is wistful as they realize that they are no longer needed. ")
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+            ,  Theme.MEDIUM);
+    }
+
 
 }

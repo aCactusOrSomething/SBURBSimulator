@@ -34,7 +34,7 @@ class QuestsAndStuff extends Scene {
       skaiaParties.clear();
       allocateMoonQuests();
       allocateLandQuests(); //<-- is 100% going to happen unless finished, so go last or the thing after you won't count.
-      //allocateSkaiaQuests(); //TODO
+      allocateSkaiaQuests();
       return (landParties.isNotEmpty || moonParties.isNotEmpty || skaiaParties.isNotEmpty);
 	}
 
@@ -58,16 +58,26 @@ class QuestsAndStuff extends Scene {
                 //TODO decide if i will allow co-op moon shit.
                 moonParties.add(new QuestingParty(session, p, null));
                 //back down to "normal"
-                p.moonChance = Math.min(p.moonChance, 33.0);
+                p.moonChance = Math.min(p.moonChance, 10.0);
             }else {
-                p.moonChance += 5;
+                p.moonChance += 5; //fiddle with this to make moon quests more or less spammy
             }
         }
 	}
 
     void allocateSkaiaQuests() {
-	    //you need to be god tier or completely done with your land quests.
-        throw("TODO");
+        List<Player> avail = shuffle(session.rand, session.getReadOnlyAvailablePlayers());
+	   for(Player p in avail) {
+            if((session.isPlayerAvailable(p) && !p.dead) && (p.land == null || p.canSkaia)) {
+                if(p.land != null && p.land.noMoreQuests) {
+                    if(session.rand.nextDouble() > .6) { //small chance of doing skaia before land if you can.
+                        skaiaParties.add(new QuestingParty(session, p, null));
+                    }
+                }else { //100% chance besides moon.
+                    skaiaParties.add(new QuestingParty(session, p, null));
+                }
+            }
+       }
     }
 
 
@@ -91,11 +101,21 @@ class QuestsAndStuff extends Scene {
 		player.moon.initQuest([player]);
 		String inEarly = "";
 		if(player.sprite.name == "sprite") inEarly = "The ${player.htmlTitle()} has awoken early. ";
-		String html = "${player.moon.getChapter()} ${inEarly}  ${player.moon.randomFlavorText(session.rand, player)} ";
+		String html = "${player.moon.getChapter()} ${inEarly} The ${player.htmlTitleWithTip()} is dreaming.  ${player.moon.randomFlavorText(session.rand, player)} ";
 		appendHtml(div, html);
 		//doQuests will append itself.
 		player.moon.doQuest(div, player, null);
 	}
+
+    void processSkaia(Element div, QuestingParty questingParty) {
+	    session.canReckoning = true;
+        Player player = questingParty.player1;
+        session.battlefield.initQuest([player]);
+        String html = "${session.battlefield.getChapter()} The ${player.htmlTitleWithTip()} wanders the battlefield.   ${session.battlefield.randomFlavorText(session.rand, player)} ";
+        appendHtml(div, html);
+        //doQuests will append itself.
+        session.battlefield.doQuest(div, player, null);
+    }
 
     void processLand(Element div, QuestingParty questingParty) {
         Player player = questingParty.player1;
@@ -112,10 +132,11 @@ class QuestsAndStuff extends Scene {
             if(helper is Player) helperText = "$helperText ${helper.interactionEffect(player)} <br><Br>"; //helpers do not.
 
         }
-        String html = "${player.land.getChapter()}The ${player.htmlTitle()} is in the ${player.land.name}.  ${player.land.randomFlavorText(session.rand, player)} $helperText";
+        String html = "${player.land.getChapter()}The ${player.htmlTitleWithTip()} is in the ${player.land.name}.  ${player.land.randomFlavorText(session.rand, player)} $helperText";
         appendHtml(div, html);
         bool savedLevel = player.land.firstCompleted;
         player.land.doQuest(div, player, helper);
+        if(player.land.noMoreQuests) player.canSkaia = true;
 
         if(savedLevel != player.land.firstCompleted) {
             appendHtml(div, "<br><br>The ${player.htmlTitleBasicNoTip()}'s house has been built up enough to let them start visiting other lands. ");
@@ -129,6 +150,7 @@ class QuestsAndStuff extends Scene {
 	    bool playerCorrupted = false;
 	    bool helperCorrupted = false;
 	    if(player.land.corrupted || (helper != null && helper.corrupted)) {
+	        //print("land is corrupted ${player.land.name}");
             playerCorrupted = true;
             helperCorrupted = true;
         }
@@ -144,7 +166,7 @@ class QuestsAndStuff extends Scene {
 
         if(playerCorrupted) player.corruptionLevelOther += 5;
 	    if(playerCorrupted || helperCorrupted) {
-	        session.logger.info("The corruption is spreading.");
+	        //session.logger.info("The corruption is spreading.");
             return "The corruption is spreading.";
         }
 	    return "";
@@ -158,9 +180,15 @@ class QuestsAndStuff extends Scene {
             processMoon(div, qp);
         }
 
+        for(QuestingParty qp in skaiaParties) {
+            processSkaia(div, qp);
+        }
+
         for(QuestingParty qp in landParties) {
 		    processLand(div, qp);
         }
+
+
 	}
 
 

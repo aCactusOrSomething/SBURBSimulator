@@ -27,7 +27,7 @@ void renderContent(Element div) {
 }
 
 void startNewSession() {
-    Element div = querySelector("#story");
+    Element div = SimController.instance.storyElement;
     div.setInnerHtml("");
     Player player = session.players[0];
     String divID = "canvasdeadInvader";
@@ -38,7 +38,7 @@ void startNewSession() {
     Drawing.drawSinglePlayer(buffer, player);
     Drawing.copyTmpCanvasToRealCanvas(canvas, buffer);
     querySelector('body').style.backgroundImage = "url(images/Skaia_Clouds.png)";
-    querySelector("#story").style.backgroundColor = "white";
+    SimController.instance.storyElement.style.backgroundColor = "white";
     querySelector("#debug").style.backgroundColor = "white";
     querySelector("#charSheets").style.backgroundColor = "white";
     window.scrollTo(0, 0);

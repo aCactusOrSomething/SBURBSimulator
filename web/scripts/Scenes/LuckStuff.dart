@@ -29,14 +29,16 @@ class LuckStuff extends Scene{
 			double rollValueLow = player.rollForLuck(Stats.MIN_LUCK);  //separate it out so that EITHER you are good at avoiding bad shit OR you are good at getting good shit.
 			double rollValueHigh = player.rollForLuck(Stats.MAX_LUCK);
 			//can have two luck events in same turn, whatever. fuck this complicated code, what was i even thinking???
-			if(rollValueHigh > this.minHighValue){
-				//alert("High  roll of: " + rollValueHigh);
-				this.rolls.add(new Roll(player, rollValueHigh));
-			}
-			
-			if(rollValueLow < this.minLowValue){
-				//alert("Low  roll of: " + rollValueLow);
-				this.rolls.add(new Roll(player, rollValueLow));
+			if(player.canHelp()) { //can't spam luck stuff without playing the game.
+				if (rollValueHigh > this.minHighValue) {
+					//alert("High  roll of: " + rollValueHigh);
+					this.rolls.add(new Roll(player, rollValueHigh));
+				}
+
+				if (rollValueLow < this.minLowValue) {
+					//alert("Low  roll of: " + rollValueLow);
+					this.rolls.add(new Roll(player, rollValueLow));
+				}
 			}
 		}
 		return this.rolls.length > 0;
@@ -73,7 +75,7 @@ class LuckStuff extends Scene{
 			land = roll.player.shortLand();
 		}
 		Fraymotif f = roll.player.getNewFraymotif(null);
-		String ret = "The " + roll.player.htmlTitle() + " was just wandering around on " + land + " when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest cache of boonbucks. They will finally be able to afford that fraymotifs, "+f.name + ", they have had their eye on! ";
+		String ret = "The " + roll.player.htmlTitle() + " was just wandering around on " + land + " when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest cache of boonbucks. They will finally be able to afford that fraymotif, "+f.name + ", they have had their eye on! ";
 		//roll.player.increasePower();
 		this.session.stats.goodLuckEvent = true;
 		return ret;

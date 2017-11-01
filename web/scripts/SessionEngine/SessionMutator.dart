@@ -702,9 +702,9 @@ class SessionMutator {
         s.logger.info("AB: A Space player is letting the Players enter their own Scratch.");
         List<Player> living = findLivingPlayers(guardians);
         if(living.isEmpty) {
-            appendHtml(querySelector("#story"), "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. Fuck. That's right. The Space Player made it so that they could enter their own Scratched Session. But. Fuck. Everybody is dead. This...god. Maybe...maybe their former guardians can revive them? ");
+            appendHtml(SimController.instance.storyElement, "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. Fuck. That's right. The Space Player made it so that they could enter their own Scratched Session. But. Fuck. Everybody is dead. This...god. Maybe...maybe their former guardians can revive them? ");
         }else {
-            appendHtml(querySelector("#story"), "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. How did the players get into their OWN SCRATCH? This doesn't...fuck. What? So wait, do they count as foreign players??? ");
+            appendHtml(SimController.instance.storyElement, "<br><Br>You feel a nauseating wave of space go over you. What happened? Wait. How did the players get into their OWN SCRATCH? This doesn't...fuck. What? So wait, do they count as foreign players??? ");
         }
         addAliensToSession(s, guardians);
     }
@@ -718,14 +718,14 @@ class SessionMutator {
     void renderTimeButton(Element div) {
         //renders a button. If that button is clicked, resets session.
         String html = "<img src='images/reset.png' id='resetButton'><br>Shit man, we can do better. The ${getPlayersTitles(timePlayersReplacing)} know we can. It's not the 'current' version of them though, but the one from when they got into the code. Time travel, man. ";
-        appendHtml(querySelector("#story"), html);
+        appendHtml(SimController.instance.storyElement, html);
         querySelector("#resetButton").onClick.listen((Event e) => curSessionGlobalVar.addEventToUndoAndReset(null));
     }
 
     void renderSpaceButton(Element div) {
         //renders a button. If that button is clicked, resets session.
         String html = "<img src='images/hussie.png' id='husieButton'><br>Huh. The ${spacePlayer.htmlTitle()} wonders what would happen if we entered the frog through this convinient fourth wall instead of the normal way. There's no way this could go wrong if a Gnosis4 Space Player is telling you to do it! ";
-        appendHtml(querySelector("#story"), html);
+        appendHtml(SimController.instance.storyElement, html);
         querySelector("#husieButton").onClick.listen((Event e) => SimController.instance.doComboSession(null));
     }
 
@@ -911,6 +911,7 @@ class MetaPlayerHandler {
         player.moon = s.derse;
         player.land = player.spawnLand();
         player.land.name = "Land of Spires and Nature";
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Aspiratcher, The</span> Librarian');
         player.deriveChatHandle = false;
         player.godTier = true;
         player.deriveLand = false;
@@ -918,7 +919,6 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Aspiratcher, The</span> Librarian', 13); //hope we span strong enough to fight them.
 
         player.object_to_prototype = new PotentialSprite("Eye", s);
         player.sprite.addPrototyping(player.object_to_prototype);
@@ -965,7 +965,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength("<span class = 'void'>Algebron, The </span>Dilletant", 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature("<span class = 'void'>Algebron, The </span>Dilletant");
+
         player.object_to_prototype = new PotentialSprite("DVR", s);
         player.sprite.addPrototyping(player.object_to_prototype);
 
@@ -1010,7 +1011,7 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('Insurorracle', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('Insurorracle');
         return player;
     }
 
@@ -1038,7 +1039,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Maniomnia, the </span>Dreamwaker', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Maniomnia, the </span>Dreamwaker');
+
         player.object_to_prototype = new PotentialSprite("Caliban", s);
         player.sprite.addPrototyping(player.object_to_prototype);
         player.quirk.capitalization = 1;
@@ -1080,7 +1082,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Nobrop, the </span>Null', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Nobrop, the </span>Null');
+
         player.object_to_prototype = new PotentialSprite("Mom", s);
         player.sprite.addPrototyping(player.object_to_prototype);
 
@@ -1122,7 +1125,7 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Doomod, The </span>Wanderer', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Doomod, The </span>Wanderer');
 
         player.object_to_prototype = new PotentialSprite("Magical Princess Pony", s);
         player.object_to_prototype.helpPhrase = " is helpful, but keeps pushing you to make friends";
@@ -1169,7 +1172,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Recurscker, The</span>Hollow One', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Recurscker, The</span>Hollow One');
+
         player.object_to_prototype = new PotentialSprite("Coin", s);
         player.object_to_prototype.helpPhrase = "was a clever choice for a sprite. He showers enemies in currency. Damn balance-breaking void players.";
 
@@ -1214,7 +1218,7 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('Karmiution', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('Karmiution');
 
         player.object_to_prototype = new PotentialSprite("Paint.net", s);
         player.object_to_prototype.helpPhrase = "tries its best, but a freeware program can only do so much. ";
@@ -1256,7 +1260,7 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Paraxalan, The </span>Ever-Searching', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Paraxalan, The </span>Ever-Searching');
 
         player.object_to_prototype = new PotentialSprite("Cultist", s);
         player.object_to_prototype.illegal = true;
@@ -1305,7 +1309,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Jadeacher the,</span>Researcher', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Jadeacher the,</span>Researcher');
+
         player.object_to_prototype = new PotentialSprite("JR", s);
         player.sprite.addPrototyping(player.object_to_prototype);
 
@@ -1342,7 +1347,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Authorot, the</span> Robot', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Authorot, the</span> Robot');
+
         player.object_to_prototype = new PotentialSprite("Compass", s);
         player.sprite.addPrototyping(player.object_to_prototype);
         player.quirk.capitalization = 1;
@@ -1377,7 +1383,8 @@ class MetaPlayerHandler {
         player.makeGuardian();
         player.guardian.initialize();
         player.guardian.guardian = player;
-        player.makeDenizenWithStrength('<span class = "void">Abbiejean, the </span>Scout', 13); //hope we span strong enough to fight them.
+        player.land.denizenFeature = new HardDenizenFeature('<span class = "void">Abbiejean, the </span>Scout');
+
         player.object_to_prototype = new PotentialSprite("Fire", s);
         player.sprite.addPrototyping(player.object_to_prototype);
         player.quirk.capitalization = 1;

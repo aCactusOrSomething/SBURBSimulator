@@ -5,13 +5,11 @@ import "FeatureTypes/EnemyFeature.dart";
 import "FeatureTypes/SmellFeature.dart";
 import "FeatureTypes/AmbianceFeature.dart";
 import "FeatureTypes/SoundFeature.dart";
-import "FeatureTypes/CorruptionFeature.dart";
 import "FeatureTypes/QuestChainFeature.dart";
 import "dart:html";
 ///A land is build from features.
 class Land extends Object with FeatureHolder {
     //Session session; // inherited from FeatureHolder
-    //TODO implement this.
     bool corrupted = false;
     //can be more than one thing, will pick one or two things at random by weight
     WeightedIterable<SmellFeature> smells;
@@ -119,6 +117,7 @@ class Land extends Object with FeatureHolder {
                 //print("no more quests for $name");
                 thirdCompleted = true;
                 noMoreQuests = true;
+
             }
         }
     }
@@ -177,6 +176,17 @@ class Land extends Object with FeatureHolder {
             name = "Land of ${session.rand.pickFrom(main.possibleNames)} and ${session.rand.pickFrom(main.possibleNames)}";
             this.secondaryTheme = main;
         }
+
+        if(session.rand.nextDouble() >.99) {
+            corrupted = true;
+            List<String> corruptWords = <String>[Zalgo.generate("Google"), Zalgo.generate("Horrorterrors"), Zalgo.generate("Glitches"), Zalgo.generate("Grimoires"), Zalgo.generate("Fluthlu"), Zalgo.generate("The Zoologically Dubious")];
+            session.logger.info("Corrupt land.");
+            if(session.rand.nextBool()) {
+                name = "Land of ${session.rand.pickFrom(corruptWords)} and ${session.rand.pickFrom(this.secondaryTheme.possibleNames)}";
+            }else {
+                name = "Land of ${session.rand.pickFrom(this.mainTheme.possibleNames)} and ${session.rand.pickFrom(corruptWords)}";
+            }
+        }
     }
 
     Land() {
@@ -186,7 +196,7 @@ class Land extends Object with FeatureHolder {
     ///I expect a player to call this after picking a single theme from class, from aspect, and from each interest
     /// since the weights are copied here, i can modify them without modifying their source. i had been worried about that up unil i got this far.
     ///pass in an aspect so i can make denizens.
-    Land.fromWeightedThemes(Map<Theme, double> themes, Session session, Aspect a){
+    Land.fromWeightedThemes(Map<Theme, double> themes, Session session, Aspect a, SBURBClass c){
         this.session = session;
        // print("making a land for session $session");
         if(themes == null) return; //just make an empty land. (nneeded for dead sessions);
@@ -197,8 +207,7 @@ class Land extends Object with FeatureHolder {
         this.processThemes(session.rand);
         this.setFeatureSubLists();
 
-        this.processDenizen(a);
-        this.processCorruption();
+        this.processDenizen(a,c);
     }
 
     void setFeatures(WeightedList<Feature> list) {
@@ -217,26 +226,25 @@ class Land extends Object with FeatureHolder {
         this.allQuestChains = this.getTypedSubList<QuestChainFeature>(FeatureCategories.QUEST_CHAIN).map((QuestChainFeature f) => f.clone()).toList();
     }
 
-    void processDenizen(Aspect a) {
+    void processDenizen(Aspect a, SBURBClass c) {
         Iterable<Feature> choices = this.featureSets[FeatureCategories.DENIZEN.name];
         if (choices == null) { return; }
         if (!choices.isEmpty) {
             this.denizenFeature = (session.rand.pickFrom(this.featureSets["denizen"]) as DenizenFeature);
         }
         if(denizenFeature == null) {
-            //print("picking random denizen feature");
-            denizenFeature = new DenizenFeature("Denizen ${session.rand.pickFrom(a.denizenNames)}");
+            double roll = session.rand.nextDouble(a.difficulty + c.difficulty);
+            if(roll > 0.95) {
+                session.logger.info("strong denizen for $c of $a");
+                denizenFeature = new EasyDenizenFeature("Denizen ${session.rand.pickFrom(DenizenFeature.strongDenizens)}");
+            }else if(roll < 0.05) {
+                session.logger.info("weak denizen for $c of $a");
+                denizenFeature = new HardDenizenFeature("Denizen ${session.rand.pickFrom(DenizenFeature.weakDenizens)}");
+            }else {
+                denizenFeature = new DenizenFeature("Denizen ${session.rand.pickFrom(a.denizenNames)}");
+            }
         }else { //rename it, but don't replace it because it could be a hard denizen.
             denizenFeature.name = "Denizen ${session.rand.pickFrom(a.denizenNames)}";
-        }
-    }
-
-    void processCorruption() {
-        Iterable<Feature> c = this.featureSets["corruption"];
-        if (c != null) {
-            this.corrupted = !c.isEmpty;
-        } else {
-            this.corrupted = false;
         }
     }
 

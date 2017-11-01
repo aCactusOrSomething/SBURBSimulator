@@ -63,7 +63,7 @@ class QuestChainFeature extends Feature {
             completedQuests.add(quests.first);
             quests.remove(quests.first);
             if (quests.isEmpty) {
-                //print("I've finished quest chain $name!");
+               // print("I've finished quest chain $name!,player is $p1");
                 finished = true;
                 reward.apply(div, p1, p2,  land);
             }
@@ -119,6 +119,68 @@ class QuestChainFeature extends Feature {
     static bool murderMode(List<GameEntity> ps) {
         Player p = ps.first as Player;
         return p.murderMode;
+    }
+
+    //whatever, 12x spam combo
+
+    static bool bloodPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.BLOOD;
+    }
+
+    static bool mindPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.MIND;
+    }
+
+    static bool ragePlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.RAGE;
+    }
+
+    static bool voidPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.VOID;
+    }
+
+    static bool heartPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.HEART;
+    }
+
+    static bool timePlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.TIME;
+    }
+
+    static bool breathPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.BREATH;
+    }
+
+    static bool lightPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.LIGHT;
+    }
+
+    static bool spacePlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.SPACE;
+    }
+
+    static bool hopePlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.HOPE;
+    }
+
+    static bool lifePlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.LIFE;
+    }
+
+    static bool doomPlayer(List<GameEntity> ps) {
+        Player p = ps.first as Player;
+        return p.aspect == Aspects.DOOM;
     }
 
 
@@ -195,13 +257,40 @@ class PostDenizenQuestChain extends QuestChainFeature {
 }
 
 
+class PostDenizenFrogChain extends PostDenizenQuestChain {
+
+    PostDenizenFrogChain(String name, List<Quest> quests, Reward reward, Predicate<List<Player>> condition) : super(name, quests, reward, condition);
+
+    @override
+    PostDenizenFrogChain clone() {
+        return new PostDenizenFrogChain(this.name, new List<Quest>.from(this.quests), this.reward, this.condition);
+    }
+
+    @override
+    bool doQuest(Player p1, GameEntity p2, DenizenFeature denizen, ConsortFeature consort, String symbolicMcguffin, String physicalMcguffin, Element div, Land land) {
+        //takes 3 quests to finish.
+        p1.landLevel += p1.session.goodFrogLevel/3;
+        //p1.session.logger.info("land level raised to ${p1.landLevel}");
+        return super.doQuest(p1, p2, denizen, consort, symbolicMcguffin, physicalMcguffin, div, land);
+    }
+}
+
 class MoonQuestChainFeature extends QuestChainFeature {
 
     MoonQuestChainFeature(bool canRepeat, String name, List<Quest> quests, Reward reward, Predicate<List<Player>> condition) : super(canRepeat,name, quests, reward, condition);
     @override
-    PostDenizenQuestChain clone() {
-        return new PostDenizenQuestChain(this.name,  new List<Quest>.from(this.quests), this.reward, this.condition);
+    MoonQuestChainFeature clone() {
+        return new MoonQuestChainFeature(this.canRepeat, this.name,  new List<Quest>.from(this.quests), this.reward, this.condition);
     }
 }
 
 
+
+class SkaiaQuestChainFeature extends QuestChainFeature {
+
+    SkaiaQuestChainFeature(bool canRepeat, String name, List<Quest> quests, Reward reward, Predicate<List<Player>> condition) : super(canRepeat,name, quests, reward, condition);
+    @override
+    SkaiaQuestChainFeature clone() {
+        return new SkaiaQuestChainFeature(this.canRepeat, this.name,  new List<Quest>.from(this.quests), this.reward, this.condition);
+    }
+}

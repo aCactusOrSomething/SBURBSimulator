@@ -1,7 +1,15 @@
-import "../../../SBURBSim.dart";
+import "../../GameEntity.dart";
 import "SBURBClass.dart";
+import "../../../SBURBSim.dart";
+
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
+
 
 class Lord extends SBURBClass {
+    @override
+    double difficulty = 2.0;
     @override
     List<String> levels = ["LAUGHING STOCKINGS", "DELEGATION DELIVERER", "LORDLING"];
     @override
@@ -92,6 +100,37 @@ class Lord extends SBURBClass {
         }else {
             target.modifyAssociatedStat(powerBoost, stat);
         }
+    }
+
+    //rule, control, delegate
+    @override
+    void initializeThemes() {
+        /*
+        new Quest(" "),
+        new Quest(""),
+        new Quest(" ")
+
+        */
+        addTheme(new Theme(<String>["Castles","Keeps", "Fortresses", "Nobility","Forts","Moats","Dungeons"])
+            ..addFeature(FeatureFactory.BLOODSMELL, Feature.LOW)
+            ..addFeature(FeatureFactory.SCREAMSSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.CREEPYFEELING, Feature.LOW)
+            ..addFeature(FeatureFactory.CLANKINGSOUND, Feature.MEDIUM)
+
+            ..addFeature(new PostDenizenFrogChain("Command Minions to Breed Frogs", [
+                new Quest("The ${Quest.DENIZEN} has been subjugated, their hoard of frogs released. Across the land castles and dungeons suddenly are accessible, and filled with croaking. The ${Quest.PLAYER1} comands that the ${Quest.CONSORT}s collect the frogs. The ${Quest.CONSORT}s agree with enthusiastic ${Quest.CONSORTSOUND}s. "),
+                new Quest("The ${Quest.CONSORT}s hit buttons on the ectobiology machine at random. The ${Quest.PLAYER1} sits back and enjoys a tropical drink. The frogs will be ready eventually. "),
+                new Quest("A ${Quest.CONSORT} minion has finally found the final frog. The ${Quest.PLAYER1} rewards them, and punishes everyone else for failing. "),
+            ], new FrogReward(), QuestChainFeature.spacePlayer), Feature.WAY_HIGH)
+
+            ..addFeature(new PostDenizenQuestChain("Conquer Everything", [
+                new Quest("As soon as the ${Quest.DENIZEN} is defeated, the ${Quest.CONSORT}s disolve into civil wars and infighting. It will take a strong leader to unite the land, and the ${Quest.PLAYER1} is up to the task.  "),
+                new Quest("The ${Quest.PLAYER1} has subjugated/assimilated about half of the ${Quest.CONSORT} factions, at this point. They are surprisingly good at following commands, and everything is running with clock work efficiencey."),
+                new Quest("The final ${Quest.CONSORT} commander surrenders. the ${Quest.PLAYER1} controls everything now. They are the Lord of all they survey. ")
+            ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+
+
+            ,  Theme.MEDIUM);
     }
 
 }

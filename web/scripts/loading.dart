@@ -191,15 +191,19 @@ dynamic loadOther(String skipInit){
 
 	loadImage("charSheet.png", skipInit);
 	loadImage("Rewards/no_reward.png", skipInit);
+	loadImage("Rewards/sweetFrog.png", skipInit);
+	loadImage("Rewards/bitterFrog.png", skipInit);
+	loadImage("Rewards/holyShitFrogs.png", skipInit);
 	loadImage("Rewards/sweetLoot.png", skipInit);
 	loadImage("Rewards/sweetGrist.png", skipInit);
 	loadImage("Rewards/sweetBoonies.png", skipInit);
 	loadImage("Rewards/ohShit.png", skipInit);
 	loadImage("Rewards/sweetClock.png", skipInit);
+	loadImage("Rewards/battlefield.png", skipInit);
 
-	if(bardQuest){
-		loadImage("/Bodies/cod.png",skipInit);
-	}
+	loadImage("/Bodies/cod.png",skipInit);
+	loadImage("/Rewards/sweetCod.png",skipInit);
+
 	loadImage("jr.png",skipInit);
 	loadImage("kr_chat.png",skipInit);
   loadImage("drain_lightning.png", skipInit);

@@ -2,7 +2,6 @@ import "FeatureTypes/ConsortFeature.dart";
 import "FeatureTypes/SmellFeature.dart";
 import "FeatureTypes/AmbianceFeature.dart";
 import "FeatureTypes/SoundFeature.dart";
-import "FeatureTypes/CorruptionFeature.dart";
 import "FeatureTypes/QuestChainFeature.dart";
 import "../random.dart";
 import "Feature.dart";
@@ -29,6 +28,7 @@ class FeatureFactory {
     static ConsortFeature SPIDERCONSORT;
     static ConsortFeature DRAGONCONSORT;
     static ConsortFeature SKELETONCONSORT;
+    static ConsortFeature MOLECONSORT;
     static ConsortFeature BIRDCONSORT;
     static ConsortFeature WOLFCONSORT;
     static ConsortFeature ROBOTCONSORT;
@@ -55,9 +55,12 @@ class FeatureFactory {
     static SmellFeature SWEATSMELL;
     static SmellFeature OZONESMELL;
     static SmellFeature BLOODSMELL;
+    static SmellFeature SMOKESMELL;
 
     ////////////////////FEELINGS//////////////////////
     static AmbianceFeature CREEPYFEELING;
+    static AmbianceFeature OVERHEATED;
+    static AmbianceFeature CLAUSTROPHOBICFEELING;
     static AmbianceFeature  CALMFEELING;
     static AmbianceFeature  STUDIOUSFEELING;
     static AmbianceFeature CONTEMPLATATIVEFEELING;
@@ -102,7 +105,6 @@ class FeatureFactory {
     static SoundFeature GUNFIRESOUND;
     static SoundFeature SCREAMSSOUND;  //combined with feelings this gets p interesting.  filled with the sound of screams that feels calm? energizing?
 
-    static CorruptionFeature Corruption;
 
     static void init() {
         initializeConsorts();
@@ -124,8 +126,9 @@ class FeatureFactory {
         LIZARDCONSORT = new ConsortFeature("Lizard", "bleb");
         SNAKECONSORT = new ConsortFeature("Snake", "hiss");
         ALLIGATORCONSORT = new ConsortFeature("Alligator", "nak");
+        MOLECONSORT = new ConsortFeature("Mole", "snuff");
         BIRDCONSORT = new ConsortFeature("Bird", "tweet");
-        WOLFCONSORT = new ConsortFeature("Wolf", "growl");
+        WOLFCONSORT = new ConsortFeature("Wolf", "howl");
         NEWTCONSORT = new ConsortFeature("Newt", "skitter");
         SPIDERCONSORT = new ConsortFeature("Spider", "skitter");
         CUPIDCONSORT = new ConsortFeature("Cupid", "flappa");
@@ -154,6 +157,7 @@ class FeatureFactory {
         OZONESMELL = new SmellFeature("ozone");
         DECEITSMELL = new SmellFeature("deceit");//senator lemonsnout, how COULD you?
         BLOODSMELL = new SmellFeature("blood", Feature.BAD);
+        SMOKESMELL = new SmellFeature("smoke", Feature.BAD);
 
     }
 
@@ -174,6 +178,8 @@ class FeatureFactory {
         HEROICFEELING = new AmbianceFeature("heroic");
         STUPIDFEELING = new AmbianceFeature("stupid", Feature.BAD);
         LUCKYFEELING = new AmbianceFeature("lucky");
+        CLAUSTROPHOBICFEELING = new AmbianceFeature("claustrophobic");
+        OVERHEATED = new AmbianceFeature("overheated");
         CONFUSINGFEELING = new AmbianceFeature("confusing", Feature.BAD);
         CONTEMPLATATIVEFEELING = new AmbianceFeature("contemplatative");
     }
@@ -216,7 +222,6 @@ abstract class FeatureCategories {
     static FeatureTypeSubset<SmellFeature> SMELL = new FeatureTypeSubset<SmellFeature>("smell", _addIfEmpty(FeatureFactory.NOTHINGSMELL));
     static FeatureTypeSubset<SoundFeature> SOUND = new FeatureTypeSubset<SoundFeature>("sound", _addIfEmpty(FeatureFactory.SILENCE));
     static FeatureTypeSubset<AmbianceFeature> AMBIANCE = new FeatureTypeSubset<AmbianceFeature>("ambiance", _addIfEmpty(FeatureFactory.NOTHINGFEELING));
-    static FeatureTypeSubset<CorruptionFeature> CORRUPTION = new FeatureTypeSubset<CorruptionFeature>("corruption");
     static FeatureTypeSubset<ConsortFeature> CONSORT = new FeatureTypeSubset<ConsortFeature>("consort", _multi(<FeatureAdjustment>[_addRandomIfEmpty(FeatureFactory.RANDOM_CONSORTS), _onlyOne]));
     static FeatureTypeSubset<DenizenFeature> DENIZEN = new FeatureTypeSubset<DenizenFeature>("denizen");
     static FeatureTypeSubset<QuestChainFeature> QUEST_CHAIN = new FeatureTypeSubset<QuestChainFeature>("quest chain");
@@ -225,6 +230,7 @@ abstract class FeatureCategories {
     static FeatureTypeSubset<PostDenizenQuestChain> POST_DENIZEN_QUEST_CHAIN = new FeatureTypeSubset<PostDenizenQuestChain>("post denizen quest chain");
 
     static FeatureTypeSubset<MoonQuestChainFeature> MOON_QUEST_CHAIN = new FeatureTypeSubset<MoonQuestChainFeature>("moon quest chain");
+    static FeatureTypeSubset<SkaiaQuestChainFeature> SKAIA_QUEST_CHAIN = new FeatureTypeSubset<SkaiaQuestChainFeature>("battlefield quest chain");
 
     // ################## utility methods - these keep things shorter
 
@@ -261,8 +267,7 @@ abstract class FeatureTemplates {
     static FeatureTemplate QUALIA = new FeatureTemplate()
         ..addFeatureSet(FeatureCategories.SMELL)
         ..addFeatureSet(FeatureCategories.SOUND)
-        ..addFeatureSet(FeatureCategories.AMBIANCE)
-        ..addFeatureSet(FeatureCategories.CORRUPTION);
+        ..addFeatureSet(FeatureCategories.AMBIANCE);
 
     static FeatureTemplate LAND = new FeatureTemplate.from(QUALIA)
         ..addFeatureSet(FeatureCategories.CONSORT)
@@ -274,5 +279,9 @@ abstract class FeatureTemplates {
 
     static FeatureTemplate MOON = new FeatureTemplate.from(QUALIA)
         ..addFeatureSet(FeatureCategories.MOON_QUEST_CHAIN)
+        ..addFeatureSet(FeatureCategories.CONSORT);
+
+    static FeatureTemplate SKAIA = new FeatureTemplate.from(QUALIA)
+        ..addFeatureSet(FeatureCategories.SKAIA_QUEST_CHAIN)
         ..addFeatureSet(FeatureCategories.CONSORT);
 }

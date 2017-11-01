@@ -98,10 +98,18 @@ class Light extends Aspect {
             ..addFeature(FeatureFactory.LIZARDCONSORT, Feature.HIGH)
             ..addFeature(FeatureFactory.IGUANACONSORT, Feature.HIGH)
             ..addFeature(FeatureFactory.CHAMELEONCONSORT, Feature.HIGH)
+
+            ..addFeature(new DenizenQuestChain("The Candlestick Taker", [
+                new Quest("The ${Quest.PLAYER1} walks into a ${Quest.CONSORT} village, and finds all of them standing dejectedly in the village center. Their town has a monthly ceremony celebrating ${Quest.PHYSICALMCGUFFIN}, but ${Quest.DENIZEN} has hoarded all of the planet’s ${Quest.MCGUFFIN} Candles, and everyone knows you can’t have a good ${Quest.PHYSICALMCGUFFIN} ceremony without candles! The ${Quest.PLAYER1} vows to take back some ${Quest.MCGUFFIN} Candles for the poor ${Quest.CONSORT}s. "),
+                new Quest("After a long search, the ${Quest.PLAYER1} has found the warehouse where ${Quest.DENIZEN} has stored all the candles. ${Quest.MCGUFFIN} Candles must be very valuable to ${Quest.DENIZEN} for some reason, because the warehouse roof is swarming with minions, waving a lot of bright spotlights in random intervals. The spotlights will need to be dealt with if the ${Quest.PLAYER1} wants to sneak in without alerting a horde of ${Quest.DENIZEN} minions."),
+                new Quest("After spending hours attempting to determine the rotation of the guards and the patterns of spotlight waving with no luck, the ${Quest.PLAYER1} realizes they don’t have to avoid the lights if they can turn them off instead. They locate an unguarded electric panel outside and cut the power. The ${Quest.DENIZEN} minions don’t even leave the roof; they just confusedly wave their now useless spotlights, allowing the ${Quest.PLAYER1} to slip inside with ease. Captchaloging as much ${Quest.MCGUFFIN} Candles as they can, the ${Quest.PLAYER1} triumphantly returns to the village among the joyful ${Quest.CONSORTSOUND}ing of the ${Quest.CONSORT}s."),
+                new DenizenFightQuest("The ${Quest.PLAYER1} is ready to challenge the ${Quest.DENIZEN} to keep them from restealing the ${Quest.MCGUFFIN} candles. ","Never again shall the ${Quest.CONSORT}s be without ${Quest.MCGUFFIN} Candles!","The ${Quest.MCGUFFIN} candles are once again at risk.")
+            ], new DenizenReward(), QuestChainFeature.playerIsSneakyClass), Feature.HIGH)
+
             ..addFeature(new DenizenQuestChain("Shine the Light", [
                 new Quest("The ${Quest.PLAYER1} finds an incongruous dark patch in the otherwise brightly lit land. A quivering ${Quest.CONSORT} explains that the ${Quest.DENIZEN} has forbidden the ${Quest.CONSORT}s from having light, and moved giant disks to block it from them. Now that's just being mean!  The ${Quest.PLAYER1} vows to help.   "),
                 new Quest("The ${Quest.PLAYER1} has finally managed to destroy the disk blocking light from the ${Quest.CONSORT} village. There is a chorus of happy ${Quest.CONSORTSOUND}s as they bask in the light. The ${Quest.PLAYER1} feels good about a job well done. "),
-                new Quest("Disaster!  The ${Quest.CONSORT} village is once again shrouded in darkness, this time from an even larger disk than before. Judging from the roars, the ${Quest.DENIZEN} is guarding the disk themself.  The ${Quest.PLAYER1} must prepare themself for a tought fight.  "),
+                new Quest("Disaster!  The ${Quest.CONSORT} village is once again shrouded in darkness, this time from an even larger disk than before. Judging from the roars, the ${Quest.DENIZEN} is guarding the disk themself.  The ${Quest.PLAYER1} must prepare themself for a tough fight.  "),
                 new DenizenFightQuest("The ${Quest.PLAYER1} has managed to reach the disk guarded by the ${Quest.DENIZEN}. The monster denies even so basic a right as light, there can be no quarter. It's time to stife!","The ${Quest.DENIZEN} is defeated, the disk destroyed. Finally, the ${Quest.CONSORT}s can enjoy the light in peace.","Darkness reigns.")
             ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
 
@@ -140,6 +148,12 @@ class Light extends Aspect {
                 new Quest("When it comes time for the next performance of the Beautiful ${Quest.PHYSICALMCGUFFIN}, the ${Quest.PLAYER1} is turned away at the door. Apparently the ${Quest.DENIZEN} rampaged and terrorized ${Quest.CONSORT}s until given the lead role. They claim that the ${Quest.PLAYER1} is FAR too drab to be give such an important performance. WHAT. THE. FUCK. The ${Quest.PLAYER1} isn't going to let this stand."),
                 new DenizenFightQuest("There is not enough room on the stage for both of them. The ${Quest.PLAYER1} challenges the ${Quest.DENIZEN} to a glamour off, and wins handily. Enraged, the ${Quest.DENIZEN} attacks.","The ${Quest.PLAYER1} can finally get back to their promising acting career in peace.","The actig career of the ${Quest.PLAYER1} is in shambles.")
             ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
+
+            ..addFeature(new PostDenizenQuestChain("Be the Biggest Star in Paradox Space", [
+                new Quest("After the ${Quest.DENIZEN}, the ${Quest.PLAYER1} is disappointed to learn that barely any of the ${Quest.CONSORT}s know who they are. This will not do!"),
+                new Quest("Posters, ad campaigns, catchy jingles, and the ${Quest.PLAYER1} still runs into the odd ${Quest.CONSORT} that doesn't recognize them on sight. This is getting ridiculous!"),
+                new Quest("The ${Quest.PLAYER1} thinks they finally have an idea.  They focus. Light-y bullshit effects rain down from the sky, and their face is super imposed over the brilliance of Skaia itself. Now EVERYONE on their planet knows who is the most important. It is them.")
+            ], new FraymotifReward("What's my name?", "The ${Fraymotif.OWNER} is famous, and everyone in this fight is lucky to have met them."), QuestChainFeature.playerIsHelpfulClass), Feature.HIGH)
             , Theme.HIGH); // end theme
     }
 }

@@ -109,7 +109,9 @@ class WebGLRenderer {
 	external void set autoClear(bool value);
 
 	external void setClearColor(num color, num alpha);
-	external void render(Scene scene, Camera camera);
+	external void render(Scene scene, Camera camera, [WebGLRenderTarget renderTarget, bool forceClear]);
+	external void clear(bool color, bool depth, bool stencil);
+	external void clearTarget(WebGLRenderTarget renderTarget, bool color, bool depth, bool stencil);
 
 	external void setSize(int width, int height, [bool updateStyle]);
 }
@@ -251,15 +253,29 @@ class PlaneGeometry extends Geometry {
 
 // Textures ################################################################
 
+@JS()
 abstract class TextureBase {
+	external void dispose();
 
+	external num get minFilter;
+	external void set minFilter(int val);
+	external num get magFilter;
+	external void set magFilter(int val);
+	external num get wrapS;
+	external void set wrapS(int val);
+	external num get wrapT;
+	external void set wrapT(int val);
+	external num get format;
+	external void set format(int val);
+	external num get type;
+	external void set type(int val);
+	external num get anisotropy;
+	external void set anisotropy(int val);
 }
 
 @JS()
 class Texture extends TextureBase {
 	external Texture(CanvasImageSource image, [int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy, int encoding]);
-
-	external void dispose();
 
 	external void set needsUpdate(bool flag);
 
@@ -267,28 +283,11 @@ class Texture extends TextureBase {
 	external void set image(CanvasImageSource img);
 
 	external void set flipY(bool flag);
-
-	external num get minFilter;
-	external void set minFilter(int val);
-	external num get magFilter;
-	external void set magFilter(int val);
-	external num get wrapS;
-	external void set wrapS(int val);
-	external num get wrapT;
-	external void set wrapT(int val);
-	external num get format;
-	external void set format(int val);
-	external num get type;
-	external void set type(int val);
-	external num get anisotropy;
-	external void set anisotropy(int val);
 }
 
 @JS()
 class DataTexture extends TextureBase {
 	external DataTexture(TypedData data, int width, int height, int format, int type, [int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy, int encoding]);
-
-	external void dispose();
 
 	external void set needsUpdate(bool flag);
 
@@ -296,21 +295,6 @@ class DataTexture extends TextureBase {
 	external void set image(DataTextureImage img);
 
 	external void set flipY(bool flag);
-
-	external num get minFilter;
-	external void set minFilter(int val);
-	external num get magFilter;
-	external void set magFilter(int val);
-	external num get wrapS;
-	external void set wrapS(int val);
-	external num get wrapT;
-	external void set wrapT(int val);
-	external num get format;
-	external void set format(int val);
-	external num get type;
-	external void set type(int val);
-	external num get anisotropy;
-	external void set anisotropy(int val);
 }
 
 @anonymous
@@ -319,6 +303,17 @@ class DataTextureImage {
 	external TypedData get data;
 	external int get width;
 	external int get height;
+}
+
+@JS()
+class WebGLRenderTarget extends TextureBase {
+	external WebGLRenderTarget(int width, int height);
+
+	external void setSize(int width, int height);
+	external int get width;
+	external int get height;
+
+	external Texture get texture;
 }
 
 // Material ################################################################
@@ -424,6 +419,11 @@ class ShaderUniform<T> {
 @JS()
 class Mesh extends Object3D {
 	external Mesh(AbstractGeometry geometry, Material material);
+
+	external Material get material;
+	external void set material(Material material);
+	external Geometry get geometry;
+	external void set geometry(Geometry geometry);
 }
 
 // Controls ################################################################

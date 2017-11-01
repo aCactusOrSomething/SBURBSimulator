@@ -31,7 +31,7 @@ class Domestic extends InterestCategory {
             ..addFeature(FeatureFactory.MUSICSOUND, Feature.MEDIUM)
             ..addFeature(FeatureFactory.SWEETSMELL, Feature.LOW)
             ..addFeature(new PreDenizenQuestChain("Design the Dress", [
-                new Quest("The ${Quest.PLAYER1} is visited by a Beautiful ${Quest.CONSORT} who wishes to commision a dress. Only the finest ${Quest.PHYSICALMCGUFFIN}will do for material The Beautiful ${Quest.CONSORT} refuses to take 'no' for an answer. "),
+                new Quest("The ${Quest.PLAYER1} is visited by a Beautiful ${Quest.CONSORT} who wishes to commision a dress. Only the finest ${Quest.PHYSICALMCGUFFIN} will do for material The Beautiful ${Quest.CONSORT} refuses to take 'no' for an answer. "),
                 new Quest(" The ${Quest.PLAYER1} had almost given up, but they finally find the perfect ${Quest.PHYSICALMCGUFFIN} to decorate the dress. Now they just need to sew it on."),
                 new Quest("The ${Quest.PLAYER1} presents the  ${Quest.PHYSICALMCGUFFIN} dress to the Beautiful ${Quest.CONSORT}, who ${Quest.CONSORTSOUND}s with delight. They will be SURE to tell all their friends where they got such a wonderful dress.  "),
             ], new FraymotifReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
@@ -57,7 +57,7 @@ class Domestic extends InterestCategory {
             ..addFeature(FeatureFactory.RUSTLINGSOUND, Feature.MEDIUM)
             ..addFeature(FeatureFactory.CREATIVEFEELING, Feature.HIGH)
             ..addFeature(FeatureFactory.CALMFEELING, Feature.MEDIUM)
-            ..addFeature(FeatureFactory.SPIDERCONSORT, Feature.WAY_HIGH)
+            ..addFeature(FeatureFactory.SPIDERCONSORT, Feature.HIGH)
             ..addFeature(new PreDenizenQuestChain("Weave the Cloth", [
                 new Quest("The ${Quest.PLAYER1} finds a loom, and a Wizened ${Quest.CONSORT} who spins them a tale of a magical thread that, when woven into a shawl, confers great mystical power.  The ${Quest.PLAYER1} is enchanted by the thought of this. "),
                 new Quest("The ${Quest.PLAYER1} searches the land high and low. What thread could possibly be worthy of such a legend? Finally, deep in a dungeon, they find a single skein of ${Quest.PHYSICALMCGUFFIN} colored thread. Is this finally it?  "),

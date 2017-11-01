@@ -6,6 +6,9 @@ import "DeadSessionSummary.dart";
 import "../Lands/FeatureTypes/EnemyFeature.dart";
 //only one player, player has no sprite, player has DeadLand, and session has 16 (or less) subLands.
 class DeadSession extends Session {
+    @override
+    bool canReckoning = true; // dead sessions can ALWAYS run out of time.
+
     //TODO any denizen fraymotif should be the caliborn quote
     //page #007356
     // A stupid note is produced, It's the one assholes play to make their audience start punching themselves in the crouch repeatidly
@@ -245,7 +248,7 @@ class DeadSession extends Session {
         chosenThemesForDeadSession[interest2Theme] = player.interest2.category.themes[interest2Theme];
         chosenThemesForDeadSession[deadTheme] = themes[deadTheme];
         print("making a dead land. with themes: ${chosenThemesForDeadSession}");
-        players[0].land = new Land.fromWeightedThemes(chosenThemesForDeadSession, this, players[0].aspect);
+        players[0].land = new Land.fromWeightedThemes(chosenThemesForDeadSession, this, players[0].aspect,players[0].class_name);
     }
 
     @override

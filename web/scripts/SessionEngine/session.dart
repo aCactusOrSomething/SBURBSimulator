@@ -12,16 +12,17 @@ enum CanonLevel {
 
 //okay, fine, yes, global variables are getting untenable.
 class Session {
+    bool canReckoning = false; //can't do the reckoning until this is set (usually when at least one player has made it to the battlefield)
     //TODO some of these should just live in session mutator
     Logger logger = null;
-    List<Moon> moons = new List<Moon>();
+    Battlefield battlefield;
     Moon prospit;
     Moon derse;
+    List<Moon> get moons => <Moon>[prospit, derse];
     int session_id; //initial seed
     //var sceneRenderingEngine = new SceneRenderingEngine(false); //default is homestuck  //comment this line out if need to run sim without it crashing
     List<Player> players = <Player>[];
     FraymotifCreator fraymotifCreator = new FraymotifCreator(); //as long as FraymotifCreator has no state data, this is fine.
-    //TODO all these "session summary stats" things should just be a SessionSummary object I own.
 
     num sessionHealth = 500 * Stats.POWER.coefficient; //grimDark players work to lower it. at 0, it crashes.  maybe have it do other things at other levels, or effect other things.
     List<Player> replayers = <Player>[]; //used for fan oc easter eggs.
@@ -90,6 +91,27 @@ class Session {
         return null;
     }
 
+    SkaiaQuestChainFeature randomBattlefieldQuestChain() {
+        //TODO quests that delay reckoning seem like they'd be boring. but could have specific quests with other effects
+        //like increasing the time the reckoning lasts for (rocks fall ending)
+        List<Quest> possibleActivities = new List<Quest>()
+            ..add(new Quest("The ${Quest.PLAYER1} fights the Dersite army, desparately trying to stave off the Reckoning.   "))
+            ..add(new Quest("The ${Quest.PLAYER1} explores Skaian Castles. Huh, there sure are a lot of books!"))
+            ..add(new Quest("The ${Quest.PLAYER1} reroutes Dersite equipment to resupply Prospitian soliders."))
+            ..add(new Quest("The ${Quest.PLAYER1} mentally prepares for the upcoming Final Battle."))
+            ..add(new Quest("The ${Quest.PLAYER1} enters a Dersite battleship, punches the shit out of the captain, locks the door to the control room, reroutes the autopilot to crash into another battleship, then flies out through a window.  The ships crash and explode, and ${Quest.PLAYER1} walks away in slow-motion without looking backwards."))
+            ..add(new Quest("The ${Quest.PLAYER1} gives speeches to Prospit army, convincing them that their cause is worth fighting for, despite its futility."))
+            ..add(new Quest("The ${Quest.PLAYER1} spares a Derse company in exchange for them leaving the conflict. They decide to join the war for a better world instead."))
+            ..add(new Quest("The ${Quest.PLAYER1} hijacks a massive Dersite drilling machine, creating a hole for the frog to enter Skaia more easily."));
+        List<Quest> chosen = new List<Quest>();
+        int times = rand.nextInt(2) + 3;
+        for(int i = 0; i<times; i++) {
+            chosen.add(rand.pickFrom(possibleActivities));
+        }
+        return new SkaiaQuestChainFeature(true, "Wander The Battlefield", chosen, new BattlefieldReward(), QuestChainFeature.defaultOption);
+    }
+
+
     MoonQuestChainFeature randomProspitQuestChain() {
         List<Quest> possibleActivities = new List<Quest>()
             ..add(new Quest("The ${Quest.PLAYER1} bets 50 boonies on the red frog.   After a nerve wracking set of hops, it comes in first!  "))
@@ -151,11 +173,44 @@ class Session {
         return new MoonQuestChainFeature(true, "Do Dream Bubble Bullshit", chosen, new DreamReward(), QuestChainFeature.hasNoDreamSelfBubbles);
     }
 
+    void setupBattleField() {
+        Map<Theme,double> battleFieldThemes = new Map<Theme, double>();
+        Theme battleFieldTheme = new Theme(<String>["Battlefield"])
+            ..addFeature(FeatureFactory.SMOKESMELL, Feature.HIGH)
+            ..addFeature(FeatureFactory.BLOODSMELL, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.SCREAMSSOUND, Feature.LOW)
+            ..addFeature(FeatureFactory.DANGEROUSFEELING, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.GUNPOWDERSMELL, Feature.MEDIUM)
+            ..addFeature(FeatureFactory.PROSPITIANCARAPACE, Feature.HIGH)
+            ..addFeature(FeatureFactory.DERSECARAPACE, Feature.HIGH)
+            //TODO in npc update, have meeting WV be a quest here.
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW)
+            ..addFeature(randomBattlefieldQuestChain(), Feature.LOW);
+
+
+        battleFieldThemes[battleFieldTheme] = Theme.HIGH;
+        //print("battlefield themes is ${battleFieldThemes}");
+        battlefield = new Battlefield.fromWeightedThemes("BattleField", battleFieldThemes, this, Aspects.LIGHT);
+
+
+    }
+
 
     void setupMoons() {
          print("moons set up $session_id");
+         setupBattleField();
         //no more than one of each.
-        moons.clear();
         Map<Theme,double> prospitThemes = new Map<Theme, double>();
         Theme prospitTheme = new Theme(<String>["Prospit"])
             ..addFeature(FeatureFactory.DISCOSOUND, Feature.MEDIUM)
@@ -225,8 +280,7 @@ class Session {
 
         prospit = new Moon.fromWeightedThemes("Prospit", prospitThemes, this, Aspects.LIGHT, session_id, ReferenceColours.PROSPIT_PALETTE);
         derse = new Moon.fromWeightedThemes("Derse", derseThemes, this, Aspects.VOID, session_id +1, ReferenceColours.DERSE_PALETTE);
-        moons.add(prospit);
-        moons.add(derse);
+
          for(Player p in players) {
              p.syncToSessionMoon();
          }
@@ -257,6 +311,12 @@ class Session {
             //logger.info("removing player $p");
             removeFromArray(p, _availablePlayers);
         }else {
+            if(!mutator.breathField) {
+                //small chance to remove anyways so time players are less op.
+                if(rand.nextDouble() > 0.4) {
+                    removeFromArray(p, _availablePlayers);
+                }
+            }
             //logger.info("not removing player $p, i think they are a breath or time player or the breath field is active ");
         }
 
@@ -294,7 +354,7 @@ class Session {
     //used to live in scene controller but fuck that noise (also used to be named processScenes2)
     void processScenes(List<Player> playersInSession) {
         ////print("processing scene");
-        //querySelector("#story").append("processing scene");
+        //SimController.instance.storyElement.append("processing scene");
         setAvailablePlayers(playersInSession);
         for (num i = 0; i < this.available_scenes.length; i++) {
             Scene s = this.available_scenes[i];
@@ -470,7 +530,8 @@ class Session {
         curSessionGlobalVar.makePlayers();
         curSessionGlobalVar.randomizeEntryOrder();
         curSessionGlobalVar.makeGuardians(); //after entry order established
-        checkEasterEgg(this.easterCallBack, this); //in the controller.
+        //don't need to call easter egg directly
+        this.easterCallBack(this);
 
         return;
     }
@@ -491,6 +552,14 @@ class Session {
 
         SimController.instance.restartSession(); //in controller
     }
+    void easterCallBackScratch(Session that) {
+        if (curSessionGlobalVar.stats.ectoBiologyStarted) { //players are reset except for haivng an ectobiological source
+            setEctobiologicalSource(curSessionGlobalVar.players, curSessionGlobalVar.session_id);
+        }
+        SimController.instance.restartSessionScratch(); //in controller, will initialize players
+
+    }
+
 
     void addEventToUndoAndResetScratch(ImportantEvent e) {
         //print('yellow yard from scratched session');
@@ -500,15 +569,18 @@ class Session {
         bool ectoSave = this.stats.ectoBiologyStarted;
         reinit();
         //use seeds the same was as original session and also make DAMN sure the players/guardians are fresh.
+        //TODO originally scratched yards didn't recreate scenes, seeing if this is source of post land update yellow yard post scratch bug
+        Scene.createScenesForSession(curSessionGlobalVar);
         curSessionGlobalVar.makePlayers();
         curSessionGlobalVar.randomizeEntryOrder();
         curSessionGlobalVar.makeGuardians(); //after entry order established
+
         this.stats.ectoBiologyStarted = ectoSave;
         this.stats.scratched = true;
-        this.switchPlayersForScratch();
 
-
-        SimController.instance.restartSession(); //in controller
+        //don't need to call easter egg directly.
+       this.easterCallBackScratch(this); //in the controller.
+        //SimController.instance.restartSession(); //in controller
     }
 
     Session initializeCombinedSession() {
@@ -710,7 +782,58 @@ class Session {
         return session_id.toString();
     }
 
-    Element newScene(String callingScene, [overRideVoid = false]) {
+    Element newScene(String callingScene, [overRideVoid =false]) {
+        this.currentSceneNum ++;
+        Element ret = new DivElement();
+        ret.id = 'scene${this.currentSceneNum}';
+        ret.classes.add("scene");
+        String lightBS = "";
+        String innerHTML = "";
+        bool debugMode = false;
+        if(debugMode || mutator.lightField) lightBS = "Scene ID: ${this.currentSceneNum} Name: ${callingScene}  Session Health: ${sessionHealth}  TimeTillReckoning: ${timeTillReckoning} Last Rand: ${rand.spawn().nextInt()}";
+        if (this.sbahj) {
+            ret.classes.add("sbahj");
+            int reallyRand = getRandomIntNoSeed(1, 10);
+            for (int i = 0; i < reallyRand; i++) {
+                int indexOfTerribleCSS = getRandomIntNoSeed(0, terribleCSSOptions.length - 1);
+                List<String> tin = terribleCSSOptions[indexOfTerribleCSS];
+                if (tin[1] == "????") {
+                    tin[1] = "${getRandomIntNoSeed(1, 100)}%";
+                }
+                ret.style.setProperty(tin[0], tin[1]);
+                //print("Setting ${tin[0]} to ${tin[1]} in ${ret.style.cssText}");
+            }
+        }
+        if (ouija == true) {
+            int trueRandom = getRandomIntNoSeed(1, 4);
+            innerHTML = "<img class = 'pen15' src = 'images/pen15_bg$trueRandom.png'> $lightBS";
+        }else {
+            innerHTML = "$lightBS";
+        }
+
+        //instead of appending you're replacing. Void4 is SERIOUS about you not getting to see.
+        if(mutator.voidField && !overRideVoid) {
+            if(SimController.instance.voidStory == null) {
+                doNotRender = true;
+                numScenes = 0; //since we're lying to AB anyway, use this to keep track of how many scenes we skipped due to void
+                doNotFetchXml = true;
+                SimController.instance.voidStory = new DivElement();
+                SimController.instance.voidStory.id = "voidStory";
+                SimController.instance.storyElement.append(SimController.instance.voidStory);
+            }
+            SimController.instance.voidStory.setInnerHtml("${"<br>"*numScenes}");//one br for each skipped scene
+            return ret;
+        }else if(overRideVoid) {
+            logger.info("am i setting do not render to false?");
+            //doNotRender = false; //this fucks AB up. don't do it. but at least they'll see the text.
+        }
+
+        ret.setInnerHtml(innerHTML);
+        SimController.instance.storyElement.append(ret);
+        return ret;
+    }
+
+    Element newSceneOld(String callingScene, [overRideVoid = false]) {
         this.currentSceneNum ++;
         String div;
         String lightBS = "";
@@ -748,7 +871,7 @@ class Session {
                 doNotRender = true;
                 numScenes = 0; //since we're lying to AB anyway, use this to keep track of how many scenes we skipped due to void
                 doNotFetchXml = true;
-                appendHtml(querySelector("#story"), "<div id = 'voidStory'></div>");
+                appendHtml(SimController.instance.storyElement, "<div id = 'voidStory'></div>");
                 voidDiv = querySelector("#voidStory");
             }
             voidDiv.setInnerHtml("${"<br>"*numScenes}$div");//one br for each skipped scene
@@ -758,7 +881,7 @@ class Session {
             //doNotRender = false; //this fucks AB up. don't do it. but at least they'll see the text.
         }
 
-        appendHtml(querySelector("#story"), div);
+        appendHtml(SimController.instance.storyElement, div);
         return querySelector("#scene${this.currentSceneNum}");
     }
 

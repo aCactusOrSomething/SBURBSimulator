@@ -3701,3 +3701,60 @@ Completely different set of possible things for grim dark or alien.
 Conversational pairs should have different conditions like, here's how you can respond if you're a seer, etc. etc.
 
 and can add different sets entirely based on interests.
+
+
+~~~~~~~~~~~
+
+Okay this bug is complicated enough to deserve a solid ramble.
+
+Observed behavior: if the same quest hits multiple times, then the TEXT says that the first player
+to do the quest is the one to get the reward, but the CANVAS show the right player getting the reward.
+
+And they seem like they are actually getting the reward in practice.
+
+Can easily test by having all the same aspect players.
+
+Step 1:  Get a session up with the behavior.
+Step 2: Find out how drawing the reward differs from narrating the reward.
+Step 3: ???
+Step 4: Main Release
+
+Okay. So. Drawing happens in super. But replacing text might happen in a child?
+
+Let's experiment.
+
+okay, well accroding to logs the narrationa and drawing and end of quest ALL know the right player
+so why does it narrate wrong one?
+
+is it the div?  is it......hrrrm. well. can i find the right phrase ANYWHERE on the page?
+
+hrrrm, i can confirm that the right player doen's thave the right fraymotif at all either.
+
+fuck. what is going on.
+
+okay. NOW right fraymotif is given out, but text is still wrong. WHY.
+
+
+AHAH!
+
+the text is wrong in the super. see, it says 'maid'.
+
+I've finished quest chain The Mail Goes Through!,player is MageBreath
+VM102:1 narrating player 1 is MageBreath
+VM102:1 applying base reward, text is  The <font color='#3399FF'> Maid of Breath</font> (<font color = '#A10000'>musingBaker</font>) gains the fraymotif Denizen Htaerb's Refrain , as well as all that sweet sweet grist hoarde.
+VM102:1 drawing player 1 is MageBreath
+
+
+
+I can see why, too.  or.... hrmr.
+
+
+no, that would only make sense if it were static
+or if the.......
+
+
+if the reward didn't get reset
+fuck.
+fuckity fuck
+
+don't have the text be a field on the thingy, have it be passed in.

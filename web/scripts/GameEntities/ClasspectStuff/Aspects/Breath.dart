@@ -5,6 +5,8 @@ import "../../../Lands/Reward.dart";
 import "../../../Lands/Quest.dart";
 
 class Breath extends Aspect {
+    @override
+    double difficulty = 0.3;
 
     @override
     AspectPalette palette = new AspectPalette()
@@ -33,7 +35,7 @@ class Breath extends Aspect {
 
 
     @override
-    List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Gale", "Wiznado", "Feather", "Lifting", "Breathless", "Jetstream", "Hurricane", "Tornado", " Kansas", "Breat", "Breeze", "Twister", "Storm", "Wild", "Inhale", "Windy", "Skylark", "Fugue", "Pneumatic", "Wheeze", "Forward", "Vertical", "Whirlwind", "Jetstream"]);
+    List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Gale", "Wiznado", "Feather", "Lifting", "Breathless", "Jetstream", "Hurricane", "Tornado", " Kansas", "Breath", "Breeze", "Twister", "Storm", "Wild", "Inhale", "Windy", "Skylark", "Fugue", "Pneumatic", "Wheeze", "Forward", "Vertical", "Whirlwind", "Jetstream"]);
 
 
     @override
@@ -75,7 +77,7 @@ class Breath extends Aspect {
             ..addFeature(FeatureFactory.NATURESMELL, Feature.MEDIUM)
             ..addFeature(FeatureFactory.WHISTLINGGSOUND, Feature.HIGH)
             ..addFeature(FeatureFactory.CALMFEELING, Feature.MEDIUM)
-            ..addFeature(new DenizenQuestChain("The Mail Goes Through.", [
+            ..addFeature(new DenizenQuestChain("The Mail Goes Through", [
                 new Quest("The ${Quest.PLAYER1} tries posting a letter through the ${Quest.PHYSICALMCGUFFIN} mail system only to find the letter caught in a plug of oil!  ${Quest.DENIZEN} has screwed with the mail system, crippling the ${Quest.CONSORT} economy!"),
                 new Quest("The ${Quest.PLAYER1} cleans out oil from the nearby ${Quest.PHYSICALMCGUFFIN}’s, opening up a few more channels between villages. "),
                 new Quest("The ${Quest.PLAYER1} gets sick of all the fucking oil in the ${Quest.PHYSICALMCGUFFIN} mail system, and realizes the only way to truly deal with it and to allow information to flow free is to confront ${Quest.DENIZEN}."),
@@ -104,7 +106,7 @@ class Breath extends Aspect {
             ..addFeature(new DenizenQuestChain("The Winds of Change", [
                 new Quest("The ${Quest.PLAYER1} is chilling in a ${Quest.CONSORT} village when a FUCK OFF HUGE STORM blows through, destroying the consorts housing. The player learns that ${Quest.DENIZEN} has screwed with the wind system, sending these giant storms at random."),
                 new Quest("The ${Quest.PLAYER1} learns of a ${Quest.PHYSICALMCGUFFIN} system that controls the storms of their land. The begin adventuring and solving puzzles to alter the layout of the ${Quest.PHYSICALMCGUFFIN} system so the storms are redirected from consort villages. "),
-                new Quest("The ${Quest.PLAYER1} finishes the dungeon that holdS the  ${Quest.PHYSICALMCGUFFIN} system’s control panel, only to find the control room totally empty. They learn that they only needed their own ${Quest.MCGUFFIN} to do control the storms in the first place, and it was inside them all along.  "),
+                new Quest("The ${Quest.PLAYER1} finishes the dungeon that holds the  ${Quest.PHYSICALMCGUFFIN} system’s control panel, only to find the control room totally empty. They learn that they only needed their own ${Quest.MCGUFFIN} to do control the storms in the first place, and it was inside them all along.  "),
                 new DenizenFightQuest(" ${Quest.DENIZEN} arrives to challenge the ${Quest.PLAYER1} storm supremacy. Will the ${Quest.PLAYER1} be able to prove their worth?", "${Quest.DENIZEN} lies slain. The ${Quest.PLAYER1} has become the storm master. It is them. ","The storm supremacy of ${Quest.DENIZEN} continues with the defeat of the ${Quest.PLAYER1}.")
             ], new DenizenReward(), QuestChainFeature.defaultOption), Feature.WAY_LOW)
             , Theme.HIGH); // end theme

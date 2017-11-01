@@ -24,6 +24,7 @@ export "Lands/Theme.dart";
 export "Lands/Feature.dart";
 export "Lands/Land.dart";
 export "Lands/Moon.dart";
+export "Lands/BattleField.dart";
 export "Lands/FeatureFactory.dart";
 export "SessionEngine/session.dart";
 export "SessionEngine/DeadSession.dart";
@@ -160,12 +161,12 @@ int getRandomSeed() {
 //bool printCorruptionMessage(String msg, String url, String lineNo, String columnNo, String error){
 bool printCorruptionMessage(ErrorEvent e) {
     if(curSessionGlobalVar == null) {
-      appendHtml(querySelector("#story"), "ERROR: CRASHING EVEN IN NON SIMULATION.");
+      appendHtml(SimController.instance.storyElement, "ERROR: CRASHING EVEN IN NON SIMULATION.");
       SimController.instance.recoverFromCorruption();
       return false;
     }
     //print("Debugging AB: corruption msg in session: ${curSessionGlobalVar.session_id}");
-    Element story = querySelector("#story");
+    Element story = SimController.instance.storyElement;
 
     //String msg = e.message;
     String url = e.path.toString();
@@ -326,7 +327,7 @@ window.addEventListener("error", (e) {
 
 void crashEasterEgg(String url) {
     String canvasHTML = "<br><canvas class = 'void' id='canvasVoidCorruptionEnding" + "' width='" + canvasWidth.toString() + "' height=" + canvasHeight.toString() + "'>  </canvas>";
-    querySelector("#story").appendHtml(canvasHTML, treeSanitizer: NodeTreeSanitizer.trusted);
+    SimController.instance.storyElement.appendHtml(canvasHTML, treeSanitizer: NodeTreeSanitizer.trusted);
     var canvas = querySelector("#canvasVoidCorruptionEnding");
     String chat = "";
     chat += "RS: We are gathered here today in loving memory of- \n";
@@ -353,6 +354,7 @@ void scratch() {
     var ectoSave = curSessionGlobalVar.stats.ectoBiologyStarted;
 
     SimController.instance.reinit();
+    Scene.createScenesForSession(curSessionGlobalVar);
     curSessionGlobalVar.stats.scratched = true;
     curSessionGlobalVar.stats.scratchAvailable = false;
     curSessionGlobalVar.stats.doomedTimeline = false;
@@ -405,7 +407,7 @@ void scratchEasterEggCallBack() {
     scratch += " What will happen?";
    // //print("about to switch players");
 
-    setHtml(querySelector("#story"), scratch);
+    setHtml(SimController.instance.storyElement, scratch);
     if (!doNotRender) window.scrollTo(0, 0);
 
     List<Player> guardians = raggedPlayers; //if i use guardians, they will be all fresh and squeaky. want the former players.
@@ -494,7 +496,7 @@ void renderAfterlifeURL() {
         html = "$html<Br><Br>Simulation took: ${msToTime(stopTime.difference(startTime))} to render. ";
         print("Start time is $startTime and stop time is $stopTime, seconds for stop time is ${stopTime.second}");
         ////print("gonna append: " + html);
-        querySelector("#story").appendHtml(html, treeSanitizer: NodeTreeSanitizer.trusted);
+        SimController.instance.storyElement.appendHtml(html, treeSanitizer: NodeTreeSanitizer.trusted);
     } else {
         stopTime = new DateTime.now();
         String params = window.location.href.substring(window.location.href.indexOf("?") + 1);
@@ -506,7 +508,7 @@ void renderAfterlifeURL() {
         html += '<br><br><a href = "index2.html?seed=' + curSessionGlobalVar.session_id.toString() + '&' + params + ' " target="_blank">Shareable URL </a> ';
         html += "<Br><Br>Simulation took: " + msToTime(stopTime.difference(startTime)) + " to render. ";
         ////print("gonna append: " + html);
-        querySelector("#story").appendHtml(html, treeSanitizer: NodeTreeSanitizer.trusted);
+        SimController.instance.storyElement.appendHtml(html, treeSanitizer: NodeTreeSanitizer.trusted);
     }
 }
 
