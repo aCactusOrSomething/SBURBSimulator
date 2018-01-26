@@ -26,6 +26,14 @@ void changeCanonState(String state) {
 
 }
 
+//todo sets the session leader to gnosis 4.
+void leetHaxMode(){
+	curSessionGlobalVar.players[0].gnosis = 3;
+	curSessionGlobalVar.players[0].addStat(Stats.SBURB_LORE, 1337);
+	curSessionGlobalVar.leetHax = true;
+
+
+}
 
 void faceOffMode(){
 	faceOff = true;

@@ -2492,4 +2492,50 @@ abstract class Drawing {
         //need to return how many lines i created so that whatever called me knows where to put ITS next line.;
         return lines.length;
     }
+
+    //draws a 'lil sburb house for the session, using the favorite color of the MVP and the number of players in session.
+    //todo implement this fully. should be able to draw the squares, make one square into the arrow icon, draw a roof over the topmost squares, and
+    static void drawSburbHouse(CanvasElement canvas, HouseLogo house){
+        CanvasRenderingContext2D ctx = canvas.getContext('2d');
+        ctx.fillStyle = house.color;
+        int size = house.myHouse.length * 10;
+        int roofHeight = size;
+        int rightRoofCorner = size;
+        int leftRoofCorner = size;
+        for(int i = 0; i < house.myHouse.length; i++) {
+            for (int j = 0; j < house.myHouse[i].length; j++) {
+                for (int k = 0; k < house.myHouse[i][j].length; k++) {
+                    if (house.myHouse[i][j][k]) {
+                        if(i == 0) {
+                            ctx.fillRect(size - (10 * j),size - ( 10 * k), 9, 9);
+                            if (roofHeight >= size - (10 * k)) {
+                                roofHeight = size - (10 * k);
+                                if (rightRoofCorner > size - (10 * j)) {
+                                    rightRoofCorner -= 10 * j;
+                                }
+                            }
+                        } else if (i == 1) {
+                            ctx.fillRect(size + (10 * (j + 1)),size - ( 10 * k), 9, 9);
+                            if (roofHeight >= size - (10 * k)) {
+                                roofHeight = size -  (10 * k);
+                                if (leftRoofCorner < size + (10 * (j + 1))) {
+                                    leftRoofCorner += 10 * (j + 1);
+                                }
+                            }
+                        } else if (i == 2) {
+                            ctx.fillRect(size + (10 * (j + 1)),size + ( 10 * (k + 1)), 9, 9);
+                        } else {
+                            ctx.fillRect(size - (10 * j),size + ( 10 * (k + 1)), 9, 9);
+                        }
+                    }
+                }
+            }
+        }
+        ctx.beginPath();
+        ctx.moveTo(rightRoofCorner, roofHeight);
+        ctx.lineTo((rightRoofCorner + leftRoofCorner)/2, roofHeight - 10);
+        ctx.lineTo(leftRoofCorner, roofHeight);
+        //ctx.lineTo(rightRoofCorner, roofHeight);
+        ctx.fill();
+    }
 }

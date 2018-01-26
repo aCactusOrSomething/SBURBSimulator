@@ -94,4 +94,3 @@ class DataPoint {
         return this.stats.isEmpty ? 0.0 : total / this.stats.length;
     }
 }
-

@@ -67,6 +67,7 @@ export "Scenes/FightKing.dart";
 export "Scenes/Aftermath.dart";
 export "Scenes/BeTriggered.dart";
 export "Scenes/Breakup.dart";
+export "Scenes/ConfrontJack.dart";
 export "Scenes/CorpseSmooch.dart";
 export "Scenes/DisengageMurderMode.dart";
 export "Scenes/DoEctobiology.dart";
@@ -99,6 +100,7 @@ export "Scenes/QuadrantDialogue.dart";
 export "Scenes/QueenRejectRing.dart";
 export "Scenes/Reckoning.dart";
 export "Scenes/RelationshipDrama.dart";
+export "Scenes/RainClone.dart";
 export "Scenes/SaveDoomedTimeline.dart";
 export "Scenes/StartDemocracy.dart";
 export "Scenes/UpdateShippingGrid.dart";
@@ -108,6 +110,8 @@ export "Scenes/DeadScenes/DeadIntro.dart";
 export "Scenes/DeadScenes/DeadReckoning.dart";
 export "Scenes/DeadScenes/DeadMeta.dart";
 export "Scenes/DeadScenes/DeadQuests.dart";
+
+export "Scenes/HouseLogo.dart";
 
 export "includes/colour.dart";
 export "includes/palette.dart";

@@ -51,12 +51,19 @@ class GetWasted extends Scene {
         this.playerList = playerList;
         this.player = null;
         List<Player> possibilities = new List<Player>();
-        for (Player p in session.getReadOnlyAvailablePlayers()) { //unlike grim dark, corpses are not allowed to have eureka moments.
-            if (this.loreReachedTippingPoint(p)) {
-                possibilities.add(p);
+        if(this.session.leetHax == false) {
+            for (Player p in session
+                .getReadOnlyAvailablePlayers()) { //unlike grim dark, corpses are not allowed to have eureka moments.
+                if (this.loreReachedTippingPoint(p)) {
+                    possibilities.add(p);
+                }
             }
+        }else{
+            Player hacker = this.session.players[0];
+            possibilities.add(hacker);
         }
         this.player = rand.pickFrom(possibilities);
+
         return this.player != null;
     }
 
@@ -66,7 +73,7 @@ class GetWasted extends Scene {
         if(p.gnosis ==3) tippingPoint = tippingPoint *2; //very last tier should be extra hard.
         if(p.gnosis >=4 || p.gnosis <0) return false; //you are done yo, or you are doing something weird (WM probably caused it)
         //linear works well for these
-        return (p.getStat(Stats.SBURB_LORE) >= tippingPoint * (p.gnosis + 1));
+        return (p.getStat(Stats.SBURB_LORE) >= tippingPoint * (p.gnosis + 1)) || this.session.leetHax == true;
     }
 
     @override
@@ -76,6 +83,7 @@ class GetWasted extends Scene {
         this.player.gnosis ++;
         session.removeAvailablePlayer(this.player);
         processTier(div);
+        this.session.leetHax = false;
     }
 
     void processTier(Element div) {
@@ -237,7 +245,8 @@ class GetWasted extends Scene {
         if(player.aspect == Aspects.LIFE || player.aspect == Aspects.DOOM) return exploitDoom(div);
         if(player.aspect == Aspects.DREAM ) return exploitAlchemy(div);
 
-        return "OMFG, THIS WOULD DO SOMETHING IF JR WASN'T A LAZY PIECE OF SHIT.";
+        return "OMFG, THIS WOULD DO SOMETHING IF CACTUS WASN'T A LAZY PIECE OF SHIT.";
+
     }
 
     String exploitAlchemy(Element div) {

@@ -6,13 +6,24 @@ import "../../../Lands/Quest.dart";
 import "Blood.dart";
 import "Breath.dart";
 import "Doom.dart";
+import "Fate.dart";
+import "Flow.dart";
 import "Heart.dart";
 import "Hope.dart";
+import "Law.dart";
 import "Life.dart";
 import "Light.dart";
+import "Might.dart";
 import "Mind.dart";
+import "Mist.dart";
 import "Rage.dart";
+import "Rain.dart";
+import "Rhyme.dart";
+import "Sand.dart";
+import "Sky.dart";
+import "Snow.dart";
 import "Space.dart";
+import "Stars.dart";
 import "Time.dart";
 import "Void.dart";
 import "Dream.dart";
@@ -32,6 +43,19 @@ abstract class Aspects {
     static Aspect LIFE;
     static Aspect DREAM;
 
+    static Aspect MIGHT;
+    static Aspect MIST;
+    static Aspect RAIN;
+    static Aspect SAND;
+    static Aspect SKY;
+    static Aspect RHYME;
+    static Aspect LAW;
+    static Aspect FATE;
+    static Aspect SNOW;
+    static Aspect FLOW;
+    static Aspect STARS;
+
+
     static Aspect NULL;
 
     static void init() {
@@ -49,7 +73,21 @@ abstract class Aspects {
         LIFE = new Life(11);
         DREAM = new Dream(12);
 
-        NULL = new Aspect(255, "Null", isInternal:true);
+        NULL = new Aspect(255, "Null", isInternal:false);
+
+        MIGHT = new Might(13);
+        MIST = new Mist(14);
+        RAIN = new Rain(15);
+        SAND = new Sand(16);
+        SKY = new Sky(17);
+        RHYME = new Rhyme(18);
+        LAW = new Law(19);
+        FATE = new Fate(20);
+        SNOW = new Snow(21);
+        FLOW = new Flow(22);
+        STARS = new Stars(23);
+
+
     }
 
     // ##################################################################################################
@@ -179,7 +217,15 @@ class Aspect {
         "NULLZILLA"
     ]);
     List<String> denizenNames = new List<String>.unmodifiable(<String>[
-        "ERROR 404: DENIZEN NOT FOUND"
+        "ERROR 404: DENIZEN NOT FOUND",
+        "MissingNo", //infamous glitch pokemon
+        "???", //if nulls show up accidentally, the session is probably created worse than expected
+        "Pumpkin", //my sister, who is not actually real (hence her status as a pumpkin).
+        "Shoes", //Nobody Knows Shoes.
+        "Denizen", //fits theme of null being super generic. their denizen can be Denizen.
+        //"Hiveswap", //will never come out.
+        //oops.
+        "Whomst" //memes.
     ]);
     List<String> fraymotifNames = new List<String>.unmodifiable(<String>[
         "Blank",
@@ -415,4 +461,6 @@ class AspectPalette extends Palette {
     Colour get pants_dark => this[_PANTS_DARK];
 
     void set pants_dark(dynamic c) => this.add(_PANTS_DARK, _handleInput(c), true);
+
+
 }

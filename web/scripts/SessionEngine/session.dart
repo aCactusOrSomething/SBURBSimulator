@@ -35,6 +35,7 @@ class Session {
     CanonLevel canonLevel = CanonLevel.CANON_ONLY; //regular sessions are canon only, but wastes and eggs can change that.
     num numScenes = 0;
     bool sbahj = false;
+    bool leetHax = false;
     num minTimeTillReckoning = 10;
     num maxTimeTillReckoning = 30;
     num hardStrength = null; //mutator sets
@@ -720,7 +721,7 @@ class Session {
         } else if (length == 12) {
             return "TWELVE";
         } else {
-            return "???";
+            return length.toString();
         }
     }
 
@@ -924,6 +925,7 @@ class Session {
     SessionSummary generateSummary() {
         return SessionSummary.makeSummaryForSession(this);
     }
+
 
 }
 

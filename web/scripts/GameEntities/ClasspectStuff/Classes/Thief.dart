@@ -29,6 +29,8 @@ class Thief extends SBURBClass {
 
     Thief() : super("Thief", 7, true);
 
+
+
     @override
     bool highHinit() {
         return false;

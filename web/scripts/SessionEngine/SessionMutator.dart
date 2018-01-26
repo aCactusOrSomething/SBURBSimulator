@@ -629,6 +629,39 @@ class SessionMutator {
         //and second is added to the revive list. so they can choose to alchemy instead of revive their friends.
        return ret;
     }
+    String fate(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String flow(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String law(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String might(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String mist(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String rain(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String rhyme(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String sand(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String sky(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String snow(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
+    String stars(Session s, Player activatingPlayer) {
+        return abjectFailure(s, activatingPlayer);
+    }
 
     //you NEED a div or this won't fucking work. Just accept this.
     void renderHackedYellowYard(Element div, Session session) {
@@ -796,7 +829,7 @@ class SessionMutator {
     //if it's not done yet.
     String abjectFailure(Session s, Player activatingPlayer) {
         effectsInPlay ++;
-        return "The ${activatingPlayer.htmlTitle()} appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe JR is a lazy piece of shit who didn't code anything for this. I know MY headcanon.";
+        return "The ${activatingPlayer.htmlTitle()} appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon.";
     }
 
     SessionSummary makeBullshitSummary(Session session, SessionSummary summary) {
