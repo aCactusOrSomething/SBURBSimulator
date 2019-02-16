@@ -28,6 +28,7 @@ import "Time.dart";
 import "Void.dart";
 import "Dream.dart";
 
+
 abstract class Aspects {
     static Aspect SPACE;
     static Aspect TIME;

@@ -41,7 +41,7 @@ class RainClone extends Scene {
     Player rainyClone = new Player();
     rainyClone = this.original.clone();
     rainyClone.session = this.original.session;
-    rainyClone.denizen = this.original.denizen;//clones don't get their own denizen. hopefully, this wont exile the Original's Denizen...
+    //rainyClone.denizen = this.original.denizen;//clones don't get their own denizen. hopefully, this wont exile the Original's Denizen...
     rainyClone.ectoBiologicalSource = -1;//nope, rain clones don't get ecto-clones.
     rainyClone.canGodTierRevive = false; //please no.
     rainyClone.dreamSelf = false;
