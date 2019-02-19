@@ -455,7 +455,16 @@ class CharacterCreatorHelper {
             return "Life players are associated with high HP and good MANGRIT. They are capable of using the dead as a resource, but have trouble with Alchemy.";
         if (specific == "Blood")
             return "Blood players are associated with high positive relationships, as well as sanity. They are not very lucky. A Blood player is very difficult to murder, being able to insta-calm rampaging players in most cases. They are also in charge of concillitory shipping grids.";
-        return "Aspect help text not found for " + specific + ".";
+        if (specific == "Might")
+            return "Might players are asociated with high strength and sanity.";
+        if (specific == "Mist")
+            return "Mist players are associated with high mobility."; //TODO reimplement mist players doing quests for other people.
+        if (specific == "Rain")
+            return "Rain players are associated with high luck, bad relationships, and insanity. Sometimes there are more of them.";
+
+        return "Aspect help text not found for " + specific + ". if it's one of Cactus' modded aspects, that probably means it's incomplete and not worth using.";
+
+
     }
 
     String generateClassHelp(String topic, String specific) {
@@ -499,7 +508,8 @@ class CharacterCreatorHelper {
             return "A Muse is the most passive possible class. They take on all the negatives of their Aspect and give the positives to others. They do not start with a lot of their Aspect.";
         if (specific == "Lord")
             return "A Lord is the most active possible class. They hoard on all the postives of their Aspect and delegate the negatives to others. They start with a lot of their Aspect.";
-
+        if (specific == "Bro")
+            return "A Bro thinks this game, and how it wants them to develop, isn't as good as some other stuff they like that's better. They reject everything from their aspect, and instead focus on getting strong and ripping sburb apart.";
         return "Class help text not found for " + specific + ".";
     }
 

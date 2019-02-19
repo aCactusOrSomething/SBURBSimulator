@@ -2602,7 +2602,7 @@ _.k3=k3
 _.k4=k4
 _.r1=r1
 _.r2=r2},
-lu:function lu(rx,ry,x1,x2,y1,y2,q,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+lu:function lu(rx,ry,x1,x2,y1,y2,q,B,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -2610,6 +2610,7 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.q=q
+_.B=B
 _.a=a
 _.b=b
 _.c=c
@@ -9256,7 +9257,7 @@ g.j(0,$.az,L.e("#EFEFEF"),!0)
 g.j(0,$.ay,L.e("#DBDBDB"),!0)
 g.j(0,$.ax,L.e("#C6C6C6"),!0)
 g.j(0,$.aw,L.e("#ADADAD"),!0)
-g=new L.lu(h,i,j,k,c,"BLUH BLUH, Ask Cactus to write this. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter. ",b,0.5,15,new H.o(0,null,null,null,null,null,0,r),null,"","",!1,"Rain",null,!1,!1,!1,!1,!0,1,g,P.f(H.a(["SNOWMAN SAVIOR","NOBODY NOWHERE","NULLZILLA"],s),t),P.f(H.a(["ERROR 404: DENIZEN NOT FOUND","MissingNo","???","Pumpkin","Shoes","Denizen","Whomst"],s),t),P.f(H.a(["Blank","Null","Boring","Error"],s),t),P.f(H.a(["Blank","Null","Boring","Error"],s),t),P.f(H.a(["Nothing","Errors","Glitches"],s),t),P.f(H.a(["Nothing","Errors","Glitches"],s),t),"Song","A static sound is heard. It is the one Forgetfulness uses to cover the lacunae. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And there's nothing else to say on the matter. ",P.f(H.a(["Null","Nothing","Mystery"],s),t),H.a([],o),H.a([],n),Q.E(null,null,q))
+g=new L.lu(h,i,j,k,c,"Rudiment","An erratic beat plays. It is the beat Confusion drums. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter. ",b,0.5,15,new H.o(0,null,null,null,null,null,0,r),null,"","",!1,"Rain",null,!1,!1,!1,!1,!0,1,g,P.f(H.a(["SNOWMAN SAVIOR","NOBODY NOWHERE","NULLZILLA"],s),t),P.f(H.a(["ERROR 404: DENIZEN NOT FOUND","MissingNo","???","Pumpkin","Shoes","Denizen","Whomst"],s),t),P.f(H.a(["Blank","Null","Boring","Error"],s),t),P.f(H.a(["Blank","Null","Boring","Error"],s),t),P.f(H.a(["Nothing","Errors","Glitches"],s),t),P.f(H.a(["Nothing","Errors","Glitches"],s),t),"Song","A static sound is heard. It is the one Forgetfulness uses to cover the lacunae. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And there's nothing else to say on the matter. ",P.f(H.a(["Null","Nothing","Mystery"],s),t),H.a([],o),H.a([],n),Q.E(null,null,q))
 g.W(15,"Rain",!1,!1)
 $.tK=g
 g=new L.al(P.n(null,null,null,t,m),P.n(null,null,null,l,m),P.n(null,null,null,t,l),P.n(null,null,null,l,t))
@@ -18178,7 +18179,7 @@ L.lu.prototype={
 gY:function(){return this.rx},
 gJ:function(){return this.x1},
 gO:function(){return this.x2},
-gH:function(){return this.q}}
+gH:function(){return this.B}}
 Y.dS.prototype={}
 Y.cF.prototype={}
 Y.O.prototype={

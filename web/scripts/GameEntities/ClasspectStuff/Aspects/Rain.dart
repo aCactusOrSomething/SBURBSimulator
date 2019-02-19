@@ -30,11 +30,11 @@ class Rain extends Aspect {
   @override
   List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Chaos", "disorder", "puddle", "Rain", "error", "color", "Swirl", "LOL",]);
 
-  /*@override
-  String denizenSongTitle = ;
-*/
   @override
-  String denizenSongDesc = "BLUH BLUH, Ask Cactus to write this. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter. ";
+  String denizenSongTitle = "Rudiment"; //a basic pattern used by drummers, such as the roll, the flam, and the paradiddle.
+
+  @override
+  String denizenSongDesc = "An erratic beat plays. It is the beat Confusion drums. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter. ";
 
 
   @override
