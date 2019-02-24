@@ -1,5 +1,9 @@
 import '../../../SBURBSim.dart';
 import 'Aspect.dart';
+import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
+import "../../../Lands/Reward.dart";
+import "../../../Lands/Quest.dart";
+
 
 class Rain extends Aspect {
   @override
@@ -40,6 +44,12 @@ class Rain extends Aspect {
   List<String> denizenNames = new List<String>.unmodifiable(<String>['Rain', 'Chaac', 'Tohil', "Q'uq'umatz", "Tlaloc", "Cocijo", "Dzahui", "Mu'ye", "Jaguar", "Quiateot", "Lono", "Indra", "Dodola", "Dudumitsa", "Deng", "Mangwe", "Oya", "Asiaq"]);
 
   @override
+  List<String> symbolicMcguffins = ["rain","chaos", "disorder", "insanity", "discontinuity", "distortion"];
+  @override
+  List<String> physicalMcguffins = ["rain","raindrop", "noisemaker", "watercolor", "RNG", "neon tube", "faucet", "hose",];
+
+
+  @override
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[
         new AssociatedStat(Stats.RELATIONSHIPS, -2.0, true),
@@ -53,4 +63,5 @@ class Rain extends Aspect {
   String activateCataclysm(Session s, Player p) {
     return s.mutator.rain(s, p);
   }
+
 }
