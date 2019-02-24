@@ -36,6 +36,8 @@ class Rain extends Aspect {
   @override
   String denizenSongDesc = "An erratic beat plays. It is the beat Confusion drums. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter. ";
 
+  @override
+  List<String> denizenNames = new List<String>.unmodifiable(<String>['Rain', 'Chaac', 'Tohil', "Q'uq'umatz", "Tlaloc", "Cocijo", "Dzahui", "Mu'ye", "Jaguar", "Quiateot", "Lono", "Indra", "Dodola", "Dudumitsa", "Deng", "Mangwe", "Oya", "Asiaq"]);
 
   @override
     @override
