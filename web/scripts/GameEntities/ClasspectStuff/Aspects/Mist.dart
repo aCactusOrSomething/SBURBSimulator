@@ -29,6 +29,10 @@ class Mist extends Aspect{
   @override
   List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Everything", "Encompass", "Halation", "Mist", "Universal", "Steamy", "Most"]);
 
+  override
+  List<String> denizenNames = new List<String>.unmodifiable(<String>['Mist', 'Lumo']);
+
+
   @override
   String denizenSongTitle = "Ensemble"; //a musical piece involving several instruments
 

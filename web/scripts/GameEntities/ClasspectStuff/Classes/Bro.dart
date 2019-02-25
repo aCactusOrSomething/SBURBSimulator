@@ -23,7 +23,7 @@ class Bro extends SBURBClass {
   ];
 
   @override void initializeThemes() {
-    addTheme(new Theme(<String>["Skateboards","Bikes","Ramps"])
+    addTheme(new Theme(<String>["Skateboards","Bikes","Ramps", "Glitches", "Some Noise", "Stunting", "Game",])
     ..addFeature(FeatureFactory.SWEATSMELL, Feature.WAY_LOW)
     ..addFeature(FeatureFactory.ENERGIZINGFEELING, Feature.LOW)
     ..addFeature(FeatureFactory.DRAGONCONSORT, Feature.HIGH)
