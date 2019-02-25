@@ -29,8 +29,9 @@ class Mist extends Aspect{
   @override
   List<String> fraymotifNames = new List<String>.unmodifiable(<String>["Everything", "Encompass", "Halation", "Mist", "Universal", "Steamy", "Most"]);
 
-  override
-  List<String> denizenNames = new List<String>.unmodifiable(<String>['Mist', 'Lumo']);
+  //todo add more denizens. 2 is not enough.
+  @override
+  List<String> denizenNames = new List<String>.unmodifiable(<String>['Mist', 'Lumo',]);
 
 
   @override
