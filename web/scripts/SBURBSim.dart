@@ -292,6 +292,8 @@ String mutatorsInPlay(Session session) {
     if(session.mutator.bloodField) fields.add("Blood");
     if(session.mutator.mindField) fields.add("Mind");
     if(session.mutator.rageField) fields.add("Rage");
+
+    if(session.mutator.mistField) fields.add("Mist");
     return "Mutators in Play: ${fields.join(",")}";
 }
 

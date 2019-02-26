@@ -20,6 +20,8 @@ class SessionMutator {
     bool spaceField = false; //exclusively controls combo endings .
     bool dreamField = false; //alchemy doesn't consume items, alchemy can happen as many times as you want.
 
+    bool mistField = false; //will change titles of entities to "The Mist".
+
     static SessionMutator _instance;
     bool rapsAndLuckDisabled = false;
     num timeTillReckoning = 0;
@@ -642,7 +644,11 @@ class SessionMutator {
         return abjectFailure(s, activatingPlayer);
     }
     String mist(Session s, Player activatingPlayer) {
-        return abjectFailure(s, activatingPlayer);
+        mistField = true;
+        effectsInPlay++;
+        String ret = "Oh my. The ${activatingPlayer.htmlTitle()} is making things blurry. Too blurry. It's hard to tell what anything is anymore.";
+
+        return ret;
     }
     String rain(Session s, Player activatingPlayer) {
         return abjectFailure(s, activatingPlayer);

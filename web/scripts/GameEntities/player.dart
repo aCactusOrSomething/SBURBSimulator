@@ -434,7 +434,8 @@ class Player extends GameEntity{
     @override
     String title() {
         String ret = "";
-
+        if(session.mutator.mistField == true)
+          return GameEntity.MIST_FILLER;
         if (this.doomed) {
             ret = "${ret}Doomed ";
         }
@@ -493,7 +494,7 @@ class Player extends GameEntity{
     //@override
     String titleBasic() {
         String ret = "";
-
+        if(session.mutator.mistField == true) return GameEntity.MIST_FILLER;
         ret = "$ret${this.class_name} of ${this.aspect}";
         return ret;
     }

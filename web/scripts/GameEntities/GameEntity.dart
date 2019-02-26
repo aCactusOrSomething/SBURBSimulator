@@ -2,6 +2,7 @@ import "dart:html";
 import "dart:math" as Math;
 import "../SBURBSim.dart";
 
+
 enum ProphecyState {
     NONE,
     ACTIVE,
@@ -11,6 +12,8 @@ enum ProphecyState {
 //fully replacing old GameEntity that was also an unholy combo of strife engine
 //not abstract, COULD spawn just a generic game entity.
 class GameEntity extends Object with StatOwner   {
+    static final String MIST_FILLER = "The Mist";
+
     static int _nextID = 0;
     Specibus specibus;
     ProphecyState prophecy = ProphecyState.NONE; //doom players can give this which nerfs their stats but ALSO gives them a huge boost when they die
@@ -471,6 +474,9 @@ class GameEntity extends Object with StatOwner   {
 
     String htmlTitleWithTip() {
         String ret = "";
+        if (session.mutator.mistField == true) {
+            return "${getToolTip()}${MIST_FILLER}</span>";
+        }
         if (this.crowned != null) ret = "${ret}Crowned ";
         String pname = this.name;
         if (pname == "Yaldabaoth") {
@@ -479,11 +485,15 @@ class GameEntity extends Object with StatOwner   {
             pname = this.session.rand.pickFrom(misNames);
         }
         if (this.corrupted) pname = Zalgo.generate(this.name); //will i let denizens and royalty get corrupted???
-        return "${getToolTip()}$ret$pname</span>"; //TODO denizens are aspect colored.  also, that extra span there is to close out the tooltip
-    }
+        return "${getToolTip()}$ret$pname</span>";
+    } //TODO denizens are aspect colored.  also, that extra span there is to close out the tooltip
+
 
     String htmlTitle() {
         String ret = "";
+        if (session.mutator.mistField == true) {
+            return MIST_FILLER;
+        }
         if (this.crowned != null) ret = "${ret}Crowned ";
         String pname = this.name;
         if (pname == "Yaldabaoth") {
@@ -533,16 +543,21 @@ class GameEntity extends Object with StatOwner   {
         if (this.crowned != null) ret = "${ret}Crowned ";
         String pname = this.name;
         if (this.corrupted) pname = Zalgo.generate(this.name); //will i let denizens and royalty get corrupted???
+        if (session.mutator.mistField == true) pname = MIST_FILLER;
         return "${getToolTip()}$ret$pname (${(this.getStat(Stats.CURRENT_HEALTH)).round()} hp, ${(this.getStat(Stats.POWER)).round()} power)</font></span>"; //TODO denizens are aspect colored. also, that extra span there is to close out the tooltip
     }
 
     void flipOut(String reason) {}
 
     String htmlTitleBasic() {
+        if(session.mutator.mistField == true)
+            return MIST_FILLER;
         return this.name;
     }
 
     String htmlTitleBasicNoTip() {
+        if(session.mutator.mistField == true)
+            return MIST_FILLER;
         return this.name;
     }
 
@@ -607,6 +622,8 @@ class GameEntity extends Object with StatOwner   {
     Random get rand => this.session.rand;
 
   String title() {
+      if(session.mutator.mistField == true)
+          return MIST_FILLER;
       return name; //players will override this
   }
 
