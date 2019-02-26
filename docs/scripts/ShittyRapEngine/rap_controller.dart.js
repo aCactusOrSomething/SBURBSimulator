@@ -1588,10 +1588,10 @@ _.d=d},cs:function cs(){}},K={dy:function dy(){},
 mC:function(){var t=$.iT
 if(t==null){t=K.mB()
 $.iT=t}return t},
-mB:function(){var t=new K.fx(0,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,0,1,-15,!1,1000,13,20,350,100,C.d.Z(500,$.b.geX()),null,null,null,H.a([],[Q.a3]),6.12,new K.eW(null,null,null,null,null,null,null,null,null,null,null,null,null,null))
+mB:function(){var t=new K.fx(0,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,0,1,-15,!1,1000,13,20,350,100,C.d.Z(500,$.b.geX()),null,null,null,H.a([],[Q.a3]),6.12,new K.eW(null,null,null,null,null,null,null,null,null,null,null,null,null,null))
 t.el()
 return t},
-fx:function fx(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1){var _=this
+fx:function fx(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -1622,7 +1622,8 @@ _.r1=r1
 _.r2=r2
 _.rx=rx
 _.ry=ry
-_.x1=x1},
+_.x1=x1
+_.x2=x2},
 eW:function eW(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy){var _=this
 _.a=a
 _.b=b
@@ -1693,7 +1694,7 @@ _.f$=f$
 _.r$=r$},
 cp:function cp(a,b){this.a=a
 this.b=b},
-aK:function aK(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,S){var _=this
+aK:function aK(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,R){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -1739,7 +1740,7 @@ _.aj=aj
 _.ak=ak
 _.a9=a9
 _.aa=aa
-_.S=S}},T={dP:function dP(){},
+_.R=R}},T={dP:function dP(){},
 kx:function(){var t=$.$get$fr()
 t=t.ga6(t)
 return new H.P(t,new T.ft(),[H.w(t,"h",0)])},
@@ -1773,7 +1774,7 @@ t=new Q.a3(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],t),!
 t.h("",a)
 t.ej(a,b,c,d,e,f)
 return t},
-a3:function a3(x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,S,aK,aL,aY,aZ,aI,b_,aM,X,df,bA,bB,c4,bC,bD,bE,Y,aN,al,ab,ac,at,b0,c5,bh,bF,c6,bG,bi,aO,c7,am,G,bj,b1,aP,an,bk,c8,c9,ca,cb,bH,b2,b3,cc,bl,cd,ce,cf,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
+a3:function a3(x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,R,aK,aL,aY,aZ,aI,b_,aM,X,df,bA,bB,c4,bC,bD,bE,Y,aN,al,ab,ac,at,b0,c5,bh,bF,c6,bG,bi,aO,c7,am,G,bj,b1,aP,an,bk,c8,c9,ca,cb,bH,b2,b3,cc,bl,cd,ce,cf,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
 _.x1=x1
 _.x2=x2
 _.y1=y1
@@ -1789,7 +1790,7 @@ _.aj=aj
 _.ak=ak
 _.a9=a9
 _.aa=aa
-_.S=S
+_.R=R
 _.aK=aK
 _.aL=aL
 _.aY=aY
@@ -2053,7 +2054,7 @@ return t},
 aq:function aq(a,b){this.a=a
 this.b=b}},D={
 ix:function(a){var t=P.ah(P.n,D.bP)
-t.R(0,a.a)
+t.S(0,a.a)
 return new D.cB(t)},
 aw:function(a,b,c){return new D.eh(a,new D.ei(c),b,[c])},
 av:function av(){},
@@ -2185,13 +2186,13 @@ t.bR(83475)
 r.l=t
 F.mo(r)
 r.P=new Y.eZ(r,null,null,null,null,null,null)
-r.S=K.mC()
+r.R=K.mC()
 r.dT()
 r.dU()
 r.a8.a=$.iz
 P.bH("Making sesssion "+C.d.n(83475)+" with initialGameEntity id of "+r.a8.a)
 r.b=new F.cT(!1,"Session: 83475")
-r.S.ec(r)
+r.R.ec(r)
 r.fZ()
 q=R.l6(r,$.kw,$.jR,null)
 q.at="squareWave"
@@ -3326,10 +3327,10 @@ o.h("Sea Armorbeast",null)
 o.u=!0
 o.a$.k(P.e([$.b,30,$.z,50,$.x,50],t,m))
 $.iN=H.a([e7,b7,b9,b8,c0,c1,c2,c3,c4,c5,e0,c6,d7,d8,o],[F.d])
-o=$.br;(o&&C.b).R(o,$.iL)
-o=$.br;(o&&C.b).R(o,$.kn)
-o=$.br;(o&&C.b).R(o,$.iM)
-o=$.br;(o&&C.b).R(o,$.iN)},
+o=$.br;(o&&C.b).S(o,$.iL)
+o=$.br;(o&&C.b).S(o,$.kn)
+o=$.br;(o&&C.b).S(o,$.iM)
+o=$.br;(o&&C.b).S(o,$.iN)},
 eY:function eY(){},
 aU:function aU(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
 _.a=a
@@ -3449,7 +3450,7 @@ _.c=c
 _.d=d
 _.e=e
 _.f=f
-_.r=r},fF:function fF(a){this.a=a}},G={fy:function fy(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,S,aK,aL,aY,aZ,aI,b_,aM){var _=this
+_.r=r},fF:function fF(a){this.a=a}},G={fy:function fy(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,u,a0,F,as,a8,P,l,aj,ak,a9,aa,R,aK,aL,aY,aZ,aI,b_,aM){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -3495,7 +3496,7 @@ _.aj=aj
 _.ak=ak
 _.a9=a9
 _.aa=aa
-_.S=S
+_.R=R
 _.aK=aK
 _.aL=aL
 _.aY=aY
@@ -3512,7 +3513,7 @@ for(t=G.mi(),p=J.X(t.a),t=new H.bd(p,t.b,[H.y(t,0)]);t.t();){o=p.gv()
 if(o.h7(s))q.push(o)}C.b.dV(q)
 for(t=q.length,n=0;n<q.length;q.length===t||(0,H.aj)(q),++n){o=q[n]
 if(o.h7(s)){r.K(0,o)
-for(p=o.ge6(),p=p.gA(p);p.t();)s.T(0,p.gv())}}if(s.a!==0)r.R(0,s)
+for(p=o.ge6(),p=p.gA(p);p.t();)s.T(0,p.gv())}}if(s.a!==0)r.S(0,s)
 return r},
 mi:function(){var t=$.$get$kg()
 t.toString
@@ -3579,7 +3580,7 @@ if(p===s)return
 this.sm(a,p)
 for(r=0;r<t.length;++r)a[r]=t[r]},
 ae:function(a,b){return new H.P(a,b,[H.y(a,0)])},
-R:function(a,b){var t,s
+S:function(a,b){var t,s
 this.aW(a,"addAll")
 for(t=b.length,s=0;s<b.length;b.length===t||(0,H.aj)(b),++s)a.push(b[s])},
 ao:function(a,b){return new H.bn(a,b,[H.y(a,0),null])},
@@ -4423,7 +4424,7 @@ return this.cP(s,a)}else return this.fA(a)},
 fA:function(a){var t=this.d
 if(t==null)return!1
 return this.bn(this.bx(t,this.bm(a)),a)>=0},
-R:function(a,b){b.cg(0,new H.eC(this))},
+S:function(a,b){b.cg(0,new H.eC(this))},
 i:function(a,b){var t,s,r
 if(typeof b==="string"){t=this.b
 if(t==null)return
@@ -5207,7 +5208,7 @@ this.d=(s+1&r-1)>>>0
 return!0}}
 P.fA.prototype={
 gM:function(a){return this.a===0},
-R:function(a,b){var t
+S:function(a,b){var t
 for(t=J.X(b);t.t();)this.K(0,t.gv())},
 J:function(a,b){var t,s,r,q,p
 t=H.a([],this.$ti)
@@ -5837,7 +5838,7 @@ for(r=J.X(a);r.t();){q=r.gv()
 if(!J.t(q,s))t.K(0,q)}this.f$.fX(0,t.gdd(t))},
 f2:function(){var t,s
 t=P.a0(null,null,null,N.L)
-for(s=this.r$,s=s.ga6(s),s=s.gA(s);s.t();)t.R(0,s.gv())
+for(s=this.r$,s=s.ga6(s),s=s.gA(s);s.t();)t.S(0,s.gv())
 this.f$.h_(0,t.gdd(t))},
 V:function(a){return Q.mI(this.r$.i(0,a.a).b,null,N.L)},
 gbg:function(){return this.f$},
@@ -5885,7 +5886,8 @@ r=$.Y
 r=this.a$.ai(r)
 return t.a.q()*(r-s)+s},
 h0:function(){return this.h1(null)},
-br:function(a){return this.d},
+br:function(a){this.c.R.db
+return this.d},
 h:function(a,b){var t,s,r
 this.a$=this.bz()
 t=$.iz+1
@@ -5895,7 +5897,7 @@ this.a=$.mF
 t=$.$get$fJ()
 s=P.a0(null,null,null,D.a1)
 r=new A.co(this,null,null,!1,!1,!1,s,0,0,!0,!1)
-s.R(0,t)
+s.S(0,t)
 r.e=!0
 this.a$.eK(r,null,null)},
 gav:function(a){return this.c},
@@ -5955,7 +5957,7 @@ this.e=t
 if(t.a===0)t.K(0,$.mc)
 s=P.iG(this.geY(),null)
 for(t=new P.aY(s,s.r,null,null,[null]),t.c=s.e;t.t();){r=t.d
-this.e.R(0,r.ge6())
+this.e.S(0,r.ge6())
 this.e.T(0,r)}if(!this.d)$.$get$iA().push(this)},
 $isK:1,
 $asK:function(){return[A.aH]}}
@@ -6099,7 +6101,7 @@ gbf:function(){return this.k1}}
 Y.eZ.prototype={
 e1:function(){var t,s,r,q,p
 t=this.a
-if(t.S.e2(t))return
+if(t.R.e2(t))return
 this.e=E.iy("!!!RING!!! OMG YOU SHOULD NEVER SEE THIS!",this.a)
 s=Z.r("Red Miles",3,null,"")
 s.r.push(new Z.m($.b,2,!0,0,1,2,3,""))
@@ -6125,7 +6127,7 @@ t=p.a$.ai(t)
 p.a$.a_(r,t)},
 e_:function(){var t,s,r,q,p
 t=this.a
-if(t.S.e0(t))return
+if(t.R.e0(t))return
 this.f=E.iy("!!!SCEPTER!!! OMG YOU SHOULD NEVER SEE THIS!",this.a)
 s=Z.r("Reckoning Meteors",3,null,"")
 s.r.push(new Z.m($.b,2,!0,0,1,2,3,""))
@@ -6153,7 +6155,7 @@ t=p.a$.ai(t)
 p.a$.a_(r,t)},
 dY:function(){var t,s,r,q,p
 t=this.a
-if(t.S.dZ(t))return
+if(t.R.dZ(t))return
 t=this.a
 s=new F.aU(null,C.a,t,"Jack","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.ao]),!1,H.a([],[Z.ac]),!1,H.a([],[N.ae]),0,H.a([],[E.al]),null,null,!1,H.a([],[Q.a3]),"",null,null)
 s.h("Jack",t)
@@ -6176,7 +6178,7 @@ q.a$.a_(s,t)
 this.d.fy.push(p)},
 dW:function(){var t,s,r
 t=this.a
-if(t.S.dX(t))return
+if(t.R.dX(t))return
 t=this.a
 s=new F.aU(null,C.a,t,"Democratic Army","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.ao]),!1,H.a([],[Z.ac]),!1,H.a([],[N.ae]),0,H.a([],[E.al]),null,null,!1,H.a([],[Q.a3]),"",null,null)
 s.h("Democratic Army",t)
@@ -6236,22 +6238,22 @@ $2:function(a,b){return H.c(a)+this.a+H.c(b)},
 $S:function(){return{func:1,args:[P.n,P.n]}}}
 Y.fv.prototype={}
 K.fx.prototype={
-ec:function(a){a.y=this.k3
-a.cy=this.k2
-a.cx=this.k1
-a.k1=this.id
-a.id=this.go
-a.go=this.fy
+ec:function(a){a.y=this.k4
+a.cy=this.k3
+a.cx=this.k2
+a.k1=this.k1
+a.id=this.id
+a.go=this.go
 a.a8.l=!1
-a.r1=this.fr
-a.k4=this.dx},
+a.r1=this.fx
+a.k4=this.dy},
 e2:function(a){return!1},
 e0:function(a){return!1},
 dZ:function(a){return!1},
 dX:function(a){return!1},
 el:function(){var t,s,r,q
 $.iT=this
-$.b.shs(this.dy)
+$.b.shs(this.fr)
 for(t=L.jS(),s=J.X(t.a),t=new H.bd(s,t.b,[H.y(t,0)]);t.t();){r=s.gv()
 r.sw(0,r.gdJ())}for(t=T.iS(),s=J.X(t.a),t=new H.bd(s,t.b,[H.y(t,0)]);t.t();){q=s.gv()
 q.sw(0,q.gdJ())}}}
@@ -6301,7 +6303,7 @@ bc:function(){var t,s,r
 t=$.$get$fJ()
 s=P.a0(null,null,null,D.a1)
 r=new A.co(this.Q,null,null,!1,!1,!1,s,0,0,!0,!1)
-s.R(0,t)
+s.S(0,t)
 r.e=!0
 return r},
 d2:function(a,b,c){var t
@@ -6499,6 +6501,7 @@ if(s)return
 if(J.t(J.ii(t),this.c.d.dy))this.al=this.c.d
 else if(J.t(J.ii(this.al),this.c.e.dy))this.al=this.c.e},
 br:function(a){var t,s
+this.c.R.db
 t=this.r1?"Doomed ":""
 s=this.b3
 if(s>3)t+="Severely Grim Dark "
@@ -6622,7 +6625,7 @@ s=this.al
 t.al=s
 if(s!=null)t.bv()
 t.aa=this.aa
-t.S=this.S
+t.R=this.R
 t.aK=this.aK
 t.dx=this.dx
 t.aL=this.aL
@@ -7260,8 +7263,8 @@ bN:function(a){var t,s
 t=this.eb(a)
 s=P.N(t,!0,H.y(t,0))
 t=this.c
-C.b.R(s,t.geS().ge5().ae(0,new E.fi(a)))
-C.b.R(s,t.X.ge5().ae(0,new E.fj(a)))
+C.b.S(s,t.geS().ge5().ae(0,new E.fi(a)))
+C.b.S(s,t.X.ge5().ae(0,new E.fj(a)))
 return s},
 $asbs:function(){return[Q.a3]},
 $asc5:function(){return[Q.a3]},
@@ -8122,7 +8125,7 @@ lazy($,"hL","$get$hL",function(){return H.a(["#A10000","#a25203","#a1a100","#658
 lazy($,"jp","$get$jp",function(){var t,s
 t=[P.n]
 s=H.a(["8=D",">->","//","tumut",")","><>","(","$","?","=begin","=end"],t)
-C.b.R(s,H.a(["<3","<3<","<>","c3<","{","}","<String>[","]","'",".",",","~","!","~","^","&","#","@","%","*"],t))
+C.b.S(s,H.a(["<3","<3<","<>","c3<","{","}","<String>[","]","'",".",",","~","!","~","^","&","#","@","%","*"],t))
 return s})
 lazy($,"ja","$get$ja",function(){var t=[P.n]
 return H.a([H.a(["calm","clam"],t),H.a(["ass","bass"],t),H.a(["god","glub"],t),H.a(["god","cod"],t),H.a(["fuck","glub"],t),H.a(["really","reely"],t),H.a(["kill","krill"],t),H.a(["thing","fin"],t),H.a(["well","whale"],t),H.a(["purpose","porpoise"],t),H.a(["better","betta"],t),H.a(["help","kelp"],t),H.a(["see","sea"],t),H.a(["friend","frond"],t),H.a(["crazy","craysea"],t),H.a(["kid","squid"],t),H.a(["hell","shell"],t)],[[P.l,P.n]])})
@@ -8130,8 +8133,8 @@ lazy($,"j6","$get$j6",function(){var t,s,r
 t=[P.n]
 s=[[P.l,P.n]]
 r=H.a([H.a(["\\well\\b","welp"],t),H.a(["pro","bro"],t),H.a(["guess","suppose"],t),H.a(["S\\b","Z"],t),H.a(["oh my god","omg"],t),H.a(["like","liek"],t),H.a(["ing","in"],t),H.a(["have to","hafta"],t),H.a(["want to","wanna"],t),H.a(["going to","gonna"],t),H.a(["i'm","i am"],t),H.a(["you're","you are"],t),H.a(["we're","we are"],t),H.a(["forever","5ever"],t),H.a(["ever","evah"],t),H.a(["er","ah"],t),H.a(["to","ta"],t)],s)
-C.b.R(r,H.a([H.a(["I'm","Imma"],t),H.a(["don't know","dunno"],t),H.a(["school","skool"],t),H.a(["the","teh"],t),H.a(["aren't","aint"],t),H.a(["ie","ei"],t),H.a(["though","tho"],t),H.a(["you","u"],t),H.a(["right","rite"],t)],s))
-C.b.R(r,H.a([H.a(["n't"," not"],t),H.a(["'m'"," am"],t),H.a(["kind of","kinda"],t),H.a(["okay","ok"],t),H.a(["\\band\\b","&"],t),H.a(["\\bat\\b","@"],t),H.a(["okay","okey dokey"],t)],s))
+C.b.S(r,H.a([H.a(["I'm","Imma"],t),H.a(["don't know","dunno"],t),H.a(["school","skool"],t),H.a(["the","teh"],t),H.a(["aren't","aint"],t),H.a(["ie","ei"],t),H.a(["though","tho"],t),H.a(["you","u"],t),H.a(["right","rite"],t)],s))
+C.b.S(r,H.a([H.a(["n't"," not"],t),H.a(["'m'"," am"],t),H.a(["kind of","kinda"],t),H.a(["okay","ok"],t),H.a(["\\band\\b","&"],t),H.a(["\\bat\\b","@"],t),H.a(["okay","okey dokey"],t)],s))
 return r})
 lazy($,"js","$get$js",function(){var t=[P.n]
 return H.a([H.a(["\\bvery\\b","adequately"],t),H.a(["\\bvery\\b","really"],t),H.a(["\\bvery\\b","super"],t),H.a(["\\bvery\\b","amazingly"],t),H.a(["\\bvery\\b","hella"],t),H.a(["\\bvery\\b","extremely"],t),H.a(["\\bvery\\b","absolutely"],t),H.a(["\\bvery\\b","mega"],t),H.a(["\\bvery\\b ","extra"],t),H.a(["\\bvery\\b","ultra"],t),H.a(["\\bvery\\b","hecka"],t),H.a(["\\bvery\\b","totes"],t)],[[P.l,P.n]])})

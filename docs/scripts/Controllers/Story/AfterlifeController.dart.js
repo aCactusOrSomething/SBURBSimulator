@@ -81,7 +81,7 @@ JY:function(){return new P.aE("Too few elements")},
 q0:function(a,b,c,d){if(J.eA(J.cc(c,b),32))H.KH(a,b,c,d)
 else H.KG(a,b,c,d)},
 KH:function(a,b,c,d){var t,s,r,q,p,o
-for(t=J.aa(b,1),s=J.aO(a);r=J.aN(t),r.eo(t,c);t=r.k(t,1)){q=s.p(a,t)
+for(t=J.aa(b,1),s=J.aO(a);r=J.aN(t),r.ep(t,c);t=r.k(t,1)){q=s.p(a,t)
 p=t
 while(!0){o=J.aN(p)
 if(!(o.bk(p,b)&&J.P(d.$2(s.p(a,o.aa(p,1)),q),0)))break
@@ -128,7 +128,7 @@ n.i(a4,m,n.p(a4,a5))
 n.i(a4,l,n.p(a4,a6))
 e=r.k(a5,1)
 d=t.aa(a6,1)
-if(J.c(a7.$2(j,h),0)){for(c=e;t=J.aN(c),t.eo(c,d);c=t.k(c,1)){b=n.p(a4,c)
+if(J.c(a7.$2(j,h),0)){for(c=e;t=J.aN(c),t.ep(c,d);c=t.k(c,1)){b=n.p(a4,c)
 a=a7.$2(b,j)
 r=J.a6(a)
 if(r.P(a,0))continue
@@ -148,7 +148,7 @@ break}else{n.i(a4,c,n.p(a4,d))
 a2=a0.aa(d,1)
 n.i(a4,d,b)
 d=a2
-break}}}}a3=!0}else{for(c=e;t=J.aN(c),t.eo(c,d);c=t.k(c,1)){b=n.p(a4,c)
+break}}}}a3=!0}else{for(c=e;t=J.aN(c),t.ep(c,d);c=t.k(c,1)){b=n.p(a4,c)
 if(J.af(a7.$2(b,j),0)){if(!t.P(c,e)){n.i(a4,c,n.p(a4,e))
 n.i(a4,e,b)}e=J.aa(e,1)}else if(J.P(a7.$2(b,h),0))for(;!0;)if(J.P(a7.$2(n.p(a4,d),h),0)){d=J.cc(d,1)
 if(J.af(d,c))break
@@ -173,7 +173,7 @@ H.q0(a4,r.k(d,2),a6,a7)
 if(a3)return
 if(t.aQ(e,q)&&r.bk(d,p)){for(;J.c(a7.$2(n.p(a4,e),j),0);)e=J.aa(e,1)
 for(;J.c(a7.$2(n.p(a4,d),h),0);)d=J.cc(d,1)
-for(c=e;t=J.aN(c),t.eo(c,d);c=t.k(c,1)){b=n.p(a4,c)
+for(c=e;t=J.aN(c),t.ep(c,d);c=t.k(c,1)){b=n.p(a4,c)
 if(J.c(a7.$2(b,j),0)){if(!t.P(c,e)){n.i(a4,c,n.p(a4,e))
 n.i(a4,e,b)}e=J.aa(e,1)}else if(J.c(a7.$2(b,h),0))for(;!0;)if(J.c(a7.$2(n.p(a4,d),h),0)){d=J.cc(d,1)
 if(J.af(d,c))break
@@ -299,7 +299,7 @@ else if(H.jG(a,{func:1,args:[,,]}))o.k5(new H.E3(t,a))
 else o.k5(a)
 u.globalState.f.ks()},
 VU:function(a){var t=P.iu(["command","print","msg",a])
-return new H.hC(!0,P.mC(null,P.J)).f_(t)},
+return new H.hC(!0,P.mC(null,P.J)).f0(t)},
 Pl:function(){var t=u.currentScript
 if(t!=null)return String(t.src)
 if(u.globalState.x===!0)return H.Pm()
@@ -313,16 +313,16 @@ s=t.match(new RegExp("^[^@]*@(.*):[0-9]*$","m"))
 if(s!=null)return s[1]
 throw H.j(new P.a9('Cannot extract URI from "'+t+'"'))},
 Pj:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i,h
-t=new H.jy(!0,[]).hL(b.data)
+t=new H.jy(!0,[]).hM(b.data)
 s=J.aO(t)
 switch(s.p(t,"command")){case"start":u.globalState.b=s.p(t,"id")
 r=s.p(t,"functionName")
 q=r==null?u.globalState.cx:u.staticFunctionNameToClosure(r)
 p=s.p(t,"args")
-o=new H.jy(!0,[]).hL(s.p(t,"msg"))
+o=new H.jy(!0,[]).hM(s.p(t,"msg"))
 n=s.p(t,"isSpawnUri")
 m=s.p(t,"startPaused")
-l=new H.jy(!0,[]).hL(s.p(t,"replyTo"))
+l=new H.jy(!0,[]).hM(s.p(t,"replyTo"))
 s=u.globalState.a++
 k=P.J
 j=P.a5(null,null,null,k)
@@ -330,7 +330,7 @@ i=new H.kA(0,null,!1)
 h=new H.kV(s,new H.E(0,null,null,null,null,null,0,[k,H.kA]),j,u.createNewIsolate(),i,new H.hO(H.E_()),new H.hO(H.E_()),!1,!1,[],P.a5(null,null,null,null),null,null,!1,!0,P.a5(null,null,null,null))
 j.h(0,0)
 h.pl(0,i)
-u.globalState.f.a.fS(0,new H.jD(h,new H.vk(q,p,o,n,m,l),"worker-start"))
+u.globalState.f.a.fT(0,new H.jD(h,new H.vk(q,p,o,n,m,l),"worker-start"))
 u.globalState.d=h
 u.globalState.f.ks()
 break
@@ -346,7 +346,7 @@ case"log":H.Pi(s.p(t,"msg"))
 break
 case"print":if(u.globalState.x===!0){s=u.globalState.Q
 k=P.iu(["command","print","msg",t])
-k=new H.hC(!0,P.mC(null,P.J)).f_(k)
+k=new H.hC(!0,P.mC(null,P.J)).f0(k)
 s.toString
 self.postMessage(k)}else P.dp(s.p(t,"msg"))
 break
@@ -354,7 +354,7 @@ case"error":throw H.j(s.p(t,"msg"))}},
 Pi:function(a){var t,s,r,q
 if(u.globalState.x===!0){s=u.globalState.Q
 r=P.iu(["command","log","msg",a])
-r=new H.hC(!0,P.mC(null,P.J)).f_(r)
+r=new H.hC(!0,P.mC(null,P.J)).f0(r)
 s.toString
 self.postMessage(r)}else try{self.console.log(a)}catch(q){H.dq(q)
 t=H.ee(q)
@@ -371,11 +371,11 @@ q=t.f
 J.l7(f,["spawned",new H.kW(s,r),q,t.r])
 r=new H.vl(a,b,c,d,t)
 if(e===!0){t.qh(q,q)
-u.globalState.f.a.fS(0,new H.jD(t,r,"start isolate"))}else r.$0()},
+u.globalState.f.a.fT(0,new H.jD(t,r,"start isolate"))}else r.$0()},
 Vw:function(a,b){var t=new H.zQ(!0,!1,null)
 t.w2(a,b)
 return t},
-Wa:function(a){return new H.jy(!0,[]).hL(new H.hC(!1,P.mC(null,P.J)).f_(a))},
+Wa:function(a){return new H.jy(!0,[]).hM(new H.hC(!1,P.mC(null,P.J)).f0(a))},
 E2:function E2(a,b){this.a=a
 this.b=b},
 E3:function E3(a,b){this.a=a
@@ -521,7 +521,7 @@ t=H.a([],[P.J])
 for(s=a.length,r=0;r<a.length;a.length===s||(0,H.Q)(a),++r){q=a[r]
 if(typeof q!=="number"||Math.floor(q)!==q)throw H.j(H.c1(q))
 if(q<=65535)t.push(q)
-else if(q<=1114111){t.push(55296+(C.b.hG(q-65536,10)&1023))
+else if(q<=1114111){t.push(55296+(C.b.hH(q-65536,10)&1023))
 t.push(56320+(q&1023))}else throw H.j(H.c1(q))}return H.Kf(t)},
 Kk:function(a){var t,s,r,q
 for(t=a.length,s=0;r=a.length,s<r;r===t||(0,H.Q)(a),++s){q=a[s]
@@ -530,7 +530,7 @@ if(q<0)throw H.j(H.c1(q))
 if(q>65535)return H.UH(a)}return H.Kf(a)},
 UI:function(a,b,c){var t,s,r,q,p
 t=J.aN(c)
-if(t.eo(c,500)&&b===0&&t.P(c,a.length))return String.fromCharCode.apply(null,a)
+if(t.ep(c,500)&&b===0&&t.P(c,a.length))return String.fromCharCode.apply(null,a)
 if(typeof c!=="number")return H.w(c)
 s=b
 r=""
@@ -542,7 +542,7 @@ fR:function(a){var t
 if(typeof a!=="number")return H.w(a)
 if(0<=a){if(a<=65535)return String.fromCharCode(a)
 if(a<=1114111){t=a-65536
-return String.fromCharCode((55296|C.i.hG(t,10))>>>0,56320|t&1023)}}throw H.j(P.cn(a,0,1114111,null,null))},
+return String.fromCharCode((55296|C.i.hH(t,10))>>>0,56320|t&1023)}}throw H.j(P.cn(a,0,1114111,null,null))},
 fs:function(a){if(a.date===void 0)a.date=new Date(a.a)
 return a.date},
 Gc:function(a){return a.b?H.fs(a).getUTCFullYear()+0:H.fs(a).getFullYear()+0},
@@ -654,7 +654,7 @@ else if(!("message" in a))return a
 s=a.message
 if("number" in a&&typeof a.number=="number"){r=a.number
 q=r&65535
-if((C.b.hG(r,16)&8191)===10)switch(q){case 438:return t.$1(H.FE(H.h(s)+" (Error "+q+")",null))
+if((C.b.hH(r,16)&8191)===10)switch(q){case 438:return t.$1(H.FE(H.h(s)+" (Error "+q+")",null))
 case 445:case 5007:p=H.h(s)+" (Error "+q+")"
 return t.$1(new H.pf(p,null))}}if(a instanceof TypeError){o=$.$get$KR()
 n=$.$get$KS()
@@ -666,18 +666,18 @@ i=$.$get$KW()
 $.$get$KV()
 h=$.$get$L0()
 g=$.$get$L_()
-f=o.fD(s)
+f=o.fE(s)
 if(f!=null)return t.$1(H.FE(s,f))
-else{f=n.fD(s)
+else{f=n.fE(s)
 if(f!=null){f.method="call"
-return t.$1(H.FE(s,f))}else{f=m.fD(s)
-if(f==null){f=l.fD(s)
-if(f==null){f=k.fD(s)
-if(f==null){f=j.fD(s)
-if(f==null){f=i.fD(s)
-if(f==null){f=l.fD(s)
-if(f==null){f=h.fD(s)
-if(f==null){f=g.fD(s)
+return t.$1(H.FE(s,f))}else{f=m.fE(s)
+if(f==null){f=l.fE(s)
+if(f==null){f=k.fE(s)
+if(f==null){f=j.fE(s)
+if(f==null){f=i.fE(s)
+if(f==null){f=l.fE(s)
+if(f==null){f=h.fE(s)
+if(f==null){f=g.fE(s)
 p=f!=null}else p=!0}else p=!0}else p=!0}else p=!0}else p=!0}else p=!0}else p=!0
 if(p)return t.$1(new H.pf(s,f==null?null:f.method))}}return t.$1(new H.zY(typeof s==="string"?s:""))}if(a instanceof RangeError){if(typeof s==="string"&&s.indexOf("call stack")!==-1)return new P.q6()
 s=function(b){try{return String(b)}catch(e){}return null}(a)
@@ -818,7 +818,7 @@ if(t[p]===a)return p}},
 XO:function(a){if(typeof a==="string"||a==null)return a
 throw H.j(H.rY(H.mb(a),"String"))},
 MU:function(a,b){var t=J.aO(b)
-throw H.j(H.rY(H.mb(a),t.ay(b,3,t.gu(b))))},
+throw H.j(H.rY(H.mb(a),t.ax(b,3,t.gu(b))))},
 dj:function(a,b){var t
 if(a!=null)t=(typeof a==="object"||typeof a==="function")&&J.a6(a)[b]
 else t=!0
@@ -871,10 +871,10 @@ DL:function(a,b,c){var t,s,r,q,p,o
 if(a==null)return""
 t=new P.cN("")
 for(s=b,r=!0,q=!0,p="";s<a.length;++s){if(r)r=!1
-else t.a3=p+", "
+else t.a4=p+", "
 o=a[s]
 if(o!=null)q=!1
-p=t.a3+=H.hb(o,c)}return q?"":"<"+t.G(0)+">"},
+p=t.a4+=H.hb(o,c)}return q?"":"<"+t.G(0)+">"},
 fx:function(a){var t,s
 if(a instanceof H.jW){t=H.Mh(a)
 if(t!=null)return H.hb(t,null)}s=J.a6(a).constructor.builtin$cls
@@ -1081,7 +1081,7 @@ if(!t.$isFZ)throw H.j(P.f0(b,"pattern","is not a Pattern"))
 for(t=t.iZ(b,a),t=new H.qA(t.a,t.b,t.c,null),s=0,r="";t.M();){q=t.d
 p=q.b
 o=p.index
-r=r+H.h(H.Lz().$1(C.c.ay(a,s,o)))+H.h(c.$1(q))
+r=r+H.h(H.Lz().$1(C.c.ax(a,s,o)))+H.h(c.$1(q))
 s=o+p[0].length}t=r+H.h(H.Lz().$1(C.c.d6(a,s)))
 return t.charCodeAt(0)==0?t:t},
 t6:function t6(a,$ti){this.a=a
@@ -1292,7 +1292,7 @@ for(t=a.length;b<t;){s=C.c.bx(a,b)
 if(s!==32&&s!==13&&!J.K_(s))break;++b}return b},
 Ul:function(a,b){var t,s
 for(;b>0;b=t){t=b-1
-s=C.c.az(a,t)
+s=C.c.ay(a,t)
 if(s!==32&&s!==13&&!J.K_(s))break}return b},
 aO:function(a){if(typeof a=="string")return J.jb.prototype
 if(a==null)return a
@@ -1336,10 +1336,10 @@ return J.aN(a).c4(a,b)},
 P:function(a,b){if(typeof a=="number"&&typeof b=="number")return a>b
 return J.aN(a).bk(a,b)},
 eA:function(a,b){if(typeof a=="number"&&typeof b=="number")return a<=b
-return J.aN(a).eo(a,b)},
+return J.aN(a).ep(a,b)},
 af:function(a,b){if(typeof a=="number"&&typeof b=="number")return a<b
 return J.aN(a).aQ(a,b)},
-Nh:function(a,b){return J.aN(a).fL(a,b)},
+Nh:function(a,b){return J.aN(a).fM(a,b)},
 ct:function(a,b){if(typeof a=="number"&&typeof b=="number")return a*b
 return J.eN(a).bs(a,b)},
 dU:function(a,b){return J.aN(a).cz(a,b)},
@@ -1356,36 +1356,36 @@ return J.dz(a).i(a,b,c)},
 Nj:function(a,b){return J.n(a).wc(a,b)},
 Nk:function(a,b,c){return J.n(a).xb(a,b,c)},
 mY:function(a){return J.aN(a).qa(a)},
-E8:function(a,b){return J.n(a).e9(a,b)},
+E8:function(a,b){return J.n(a).ea(a,b)},
 Nl:function(a,b){return J.dz(a).h(a,b)},
 Nm:function(a,b,c,d){return J.n(a).qf(a,b,c,d)},
 Nn:function(a,b){return J.n(a).qj(a,b)},
 cu:function(a,b,c){return J.n(a).N(a,b,c)},
 hJ:function(a,b){return J.n(a).n6(a,b)},
 hK:function(a){return J.n(a).xZ(a)},
-No:function(a,b,c){return J.n(a).fp(a,b,c)},
-HY:function(a){return J.n(a).eb(a)},
+No:function(a,b,c){return J.n(a).fq(a,b,c)},
+HY:function(a){return J.n(a).ec(a)},
 Np:function(a){return J.aN(a).jW(a)},
 r5:function(a,b,c){return J.aN(a).aZ(a,b,c)},
 ig:function(a){return J.n(a).cU(a)},
-HZ:function(a,b){return J.di(a).az(a,b)},
-Nq:function(a,b){return J.eN(a).ec(a,b)},
-I_:function(a,b){return J.n(a).ft(a,b)},
+HZ:function(a,b){return J.di(a).ay(a,b)},
+Nq:function(a,b){return J.eN(a).ed(a,b)},
+I_:function(a,b){return J.n(a).fu(a,b)},
 r6:function(a,b){return J.aO(a).aE(a,b)},
 r7:function(a,b,c){return J.aO(a).qY(a,b,c)},
 Nr:function(a,b){return J.n(a).bh(a,b)},
 Z:function(a,b,c,d){return J.n(a).rj(a,b,c,d)},
 mZ:function(a,b){return J.dz(a).aV(a,b)},
-Ns:function(a,b,c,d){return J.dz(a).im(a,b,c,d)},
+Ns:function(a,b,c,d){return J.dz(a).io(a,b,c,d)},
 jJ:function(a){return J.aN(a).bU(a)},
 I0:function(a,b){return J.dz(a).bE(a,b)},
-I1:function(a){return J.n(a).gh1(a)},
+I1:function(a){return J.n(a).gh2(a)},
 Nt:function(a){return J.n(a).gnb(a)},
 Nu:function(a){return J.n(a).gdH(a)},
 E9:function(a){return J.n(a).gjZ(a)},
 I2:function(a){return J.n(a).gj5(a)},
 Nv:function(a){return J.n(a).gaP(a)},
-l5:function(a){return J.n(a).gee(a)},
+l5:function(a){return J.n(a).gef(a)},
 Nw:function(a){return J.n(a).gjc(a)},
 Nx:function(a){return J.n(a).glj(a)},
 jK:function(a){return J.n(a).grD(a)},
@@ -1397,12 +1397,12 @@ he:function(a){return J.aO(a).gb_(a)},
 r8:function(a){return J.aO(a).gdc(a)},
 jL:function(a){return J.n(a).gby(a)},
 hf:function(a){return J.n(a).gjg(a)},
-bj:function(a){return J.dz(a).gaw(a)},
-Nz:function(a){return J.dz(a).gax(a)},
+bj:function(a){return J.dz(a).gav(a)},
+Nz:function(a){return J.dz(a).gaw(a)},
 c6:function(a){return J.aO(a).gu(a)},
 I4:function(a){return J.n(a).gkk(a)},
 ag:function(a){return J.n(a).gW(a)},
-I5:function(a){return J.n(a).ghU(a)},
+I5:function(a){return J.n(a).ghV(a)},
 NA:function(a){return J.n(a).gCo(a)},
 l6:function(a){return J.n(a).gjn(a)},
 I6:function(a){return J.n(a).glI(a)},
@@ -1415,20 +1415,20 @@ r9:function(a){return J.a6(a).gcp(a)},
 dk:function(a){return J.n(a).ga9(a)},
 Eb:function(a){return J.n(a).gcf(a)},
 jM:function(a){return J.n(a).gdi(a)},
-I8:function(a){return J.n(a).ge8(a)},
+I8:function(a){return J.n(a).ge9(a)},
 bc:function(a){return J.n(a).gak(a)},
 ra:function(a){return J.n(a).ge7(a)},
 NE:function(a){return J.n(a).glW(a)},
 NF:function(a){return J.n(a).goz(a)},
 NG:function(a){return J.n(a).gb3(a)},
-bt:function(a){return J.n(a).ga2(a)},
-NH:function(a){return J.n(a).gfK(a)},
+bt:function(a){return J.n(a).ga3(a)},
+NH:function(a){return J.n(a).gfL(a)},
 NI:function(a){return J.n(a).gH(a)},
 NJ:function(a){return J.n(a).oH(a)},
 eh:function(a,b){return J.n(a).T(a,b)},
 hL:function(a,b){return J.aO(a).b1(a,b)},
 ei:function(a){return J.n(a).e2(a)},
-eZ:function(a,b,c,d,e){return J.n(a).eW(a,b,c,d,e)},
+eZ:function(a,b,c,d,e){return J.n(a).eX(a,b,c,d,e)},
 I9:function(a,b){return J.dz(a).bP(a,b)},
 NK:function(a){return J.n(a).lu(a)},
 rb:function(a,b){return J.dz(a).dd(a,b)},
@@ -1443,32 +1443,32 @@ fY:function(a,b,c){return J.di(a).jv(a,b,c)},
 Ec:function(a,b,c){return J.di(a).Dl(a,b,c)},
 NQ:function(a,b){return J.n(a).Dn(a,b)},
 n_:function(a){return J.aN(a).bF(a)},
-l7:function(a,b){return J.n(a).i_(a,b)},
+l7:function(a,b){return J.n(a).i0(a,b)},
 NR:function(a,b){return J.n(a).syT(a,b)},
 NS:function(a,b){return J.n(a).scv(a,b)},
 n0:function(a,b){return J.n(a).sbe(a,b)},
 ih:function(a,b){return J.n(a).sW(a,b)},
 hM:function(a,b){return J.n(a).sa9(a,b)},
 rc:function(a,b){return J.n(a).sdU(a,b)},
-b5:function(a,b){return J.n(a).sa2(a,b)},
-NT:function(a,b){return J.n(a).fl(a,b)},
+b5:function(a,b){return J.n(a).sa3(a,b)},
+NT:function(a,b){return J.n(a).fm(a,b)},
 rd:function(a,b,c){return J.n(a).mk(a,b,c)},
-NU:function(a,b){return J.dz(a).ep(a,b)},
+NU:function(a,b){return J.dz(a).eq(a,b)},
 fD:function(a,b){return J.di(a).vg(a,b)},
 NV:function(a,b,c){return J.dz(a).c5(a,b,c)},
 dJ:function(a,b){return J.di(a).d6(a,b)},
-d8:function(a){return J.n(a).ek(a)},
+d8:function(a){return J.n(a).el(a)},
 iM:function(a){return J.aN(a).l(a)},
 Ic:function(a){return J.aN(a).tV(a)},
 NW:function(a){return J.dz(a).d2(a)},
 Id:function(a,b){return J.dz(a).bX(a,b)},
 jN:function(a){return J.di(a).DO(a)},
-Ie:function(a,b){return J.aN(a).el(a,b)},
+Ie:function(a,b){return J.aN(a).em(a,b)},
 bS:function(a){return J.a6(a).G(a)},
 fZ:function(a){return J.di(a).DQ(a)},
-hg:function(a){return J.di(a).fh(a)},
+hg:function(a){return J.di(a).fi(a)},
 If:function(a){return J.n(a).ar(a)},
-l8:function(a,b){return J.dz(a).em(a,b)},
+l8:function(a,b){return J.dz(a).en(a,b)},
 t:function t(){},
 vD:function vD(){},
 vF:function vF(){},
@@ -1536,7 +1536,7 @@ t.pn(a,b)
 return t},
 cI:function(a){return new P.qT(new P.cH(0,$.bf,null,[a]),[a])},
 Lv:function(a,b,c){$.bf.toString
-a.eO(b,c)},
+a.eP(b,c)},
 La:function(a,b){var t,s,r
 b.xk()
 try{a.oy(new P.BE(b),new P.BF(b))}catch(r){t=H.dq(r)
@@ -1554,28 +1554,28 @@ t={}
 t.a=a
 for(s=a;!0;){r={}
 q=s.gwK()
-if(b==null){if(q){p=t.a.gi4()
-s=t.a.gi5()
+if(b==null){if(q){p=t.a.gi5()
+s=t.a.gi6()
 o=J.l5(p)
-n=p.gfO()
+n=p.gfP()
 s.toString
-P.l_(null,null,s,o,n)}return}for(;b.gfX()!=null;b=m){m=b.gfX()
-b.sfX(null)
+P.l_(null,null,s,o,n)}return}for(;b.gfY()!=null;b=m){m=b.gfY()
+b.sfY(null)
 P.kU(t.a,b)}l=t.a.giW()
 r.a=q
 r.b=l
 s=!q
-if(!s||b.grL()||b.grK()){k=b.gi5()
-if(q){o=t.a.gi5()
+if(!s||b.grL()||b.grK()){k=b.gi6()
+if(q){o=t.a.gi6()
 o.toString
 o=o==null?k==null:o===k
 if(!o)k.toString
 else o=!0
 o=!o}else o=!1
-if(o){p=t.a.gi4()
-s=t.a.gi5()
+if(o){p=t.a.gi5()
+s=t.a.gi6()
 o=J.l5(p)
-n=p.gfO()
+n=p.gfP()
 s.toString
 P.l_(null,null,s,o,n)
 return}j=$.bf
@@ -1650,15 +1650,15 @@ r=null
 if(r==null)c.$2(t,s)
 else{n=J.l5(r)
 q=n
-p=r.gfO()
+p=r.gfP()
 c.$2(q,p)}}},
-W9:function(a,b,c,d){var t=a.eb(0)
+W9:function(a,b,c,d){var t=a.ec(0)
 if(!!J.a6(t).$isdX&&t!==$.$get$j3())t.m_(new P.CR(b,c,d))
-else b.eO(c,d)},
+else b.eP(c,d)},
 Lu:function(a,b){return new P.CQ(a,b)},
-CS:function(a,b,c){var t=a.eb(0)
+CS:function(a,b,c){var t=a.ec(0)
 if(!!J.a6(t).$isdX&&t!==$.$get$j3())t.m_(new P.CT(b,c))
-else b.fo(c)},
+else b.fp(c)},
 VN:function(a,b,c,d,e,f,g){var t,s
 t=$.bf
 s=e?1:0
@@ -1957,10 +1957,10 @@ t=new P.cN(b)
 s=$.$get$mO()
 s.push(a)
 try{r=t
-r.sa3(P.GD(r.ga3(),a,", "))}finally{if(0>=s.length)return H.b(s,-1)
+r.sa4(P.GD(r.ga4(),a,", "))}finally{if(0>=s.length)return H.b(s,-1)
 s.pop()}s=t
-s.sa3(s.ga3()+c)
-s=t.ga3()
+s.sa4(s.ga4()+c)
+s=t.ga4()
 return s.charCodeAt(0)==0?s:s},
 H2:function(a){var t,s
 for(t=0;s=$.$get$mO(),t<s.length;++t)if(a===s[t])return!0
@@ -1971,19 +1971,19 @@ s=0
 r=0
 while(!0){if(!(s<80||r<3))break
 if(!t.M())return
-q=H.h(t.ga_())
+q=H.h(t.ga0())
 b.push(q)
 s+=q.length+2;++r}if(!t.M()){if(r<=5)return
 if(0>=b.length)return H.b(b,-1)
 p=b.pop()
 if(0>=b.length)return H.b(b,-1)
-o=b.pop()}else{n=t.ga_();++r
+o=b.pop()}else{n=t.ga0();++r
 if(!t.M()){if(r<=4){b.push(H.h(n))
 return}p=H.h(n)
 if(0>=b.length)return H.b(b,-1)
 o=b.pop()
-s+=p.length+2}else{m=t.ga_();++r
-for(;t.M();n=m,m=l){l=t.ga_();++r
+s+=p.length+2}else{m=t.ga0();++r
+for(;t.M();n=m,m=l){l=t.ga0();++r
 if(r>100){while(!0){if(!(s>75&&r>3))break
 if(0>=b.length)return H.b(b,-1)
 s-=b.pop().length+2;--r}b.push("...")
@@ -2001,7 +2001,7 @@ b.push(p)},
 a5:function(a,b,c,d){return new P.mB(0,null,null,null,null,null,0,[d])},
 jd:function(a,b){var t,s
 t=P.a5(null,null,null,b)
-for(s=J.bj(a);s.M();)t.h(0,s.ga_())
+for(s=J.bj(a);s.M();)t.h(0,s.ga0())
 return t},
 K5:function(a){var t,s,r
 t={}
@@ -2009,13 +2009,13 @@ if(P.H2(a))return"{...}"
 s=new P.cN("")
 try{$.$get$mO().push(a)
 r=s
-r.sa3(r.ga3()+"{")
+r.sa4(r.ga4()+"{")
 t.a=!0
 a.bE(0,new P.wd(t,s))
 t=s
-t.sa3(t.ga3()+"}")}finally{t=$.$get$mO()
+t.sa4(t.ga4()+"}")}finally{t=$.$get$mO()
 if(0>=t.length)return H.b(t,-1)
-t.pop()}t=s.ga3()
+t.pop()}t=s.ga4()
 return t.charCodeAt(0)==0?t:t},
 FH:function(a,b){var t=new P.w4(null,0,0,0,[b])
 t.vT(a,b)
@@ -2149,13 +2149,13 @@ f[g]=61}return 0}return(t<<2|3-s)>>>0}for(p=c;p<d;){n=r.p(b,p)
 q=J.aN(n)
 if(q.aQ(n,0)||q.bk(n,255))break;++p}throw H.j(P.f0(b,"Not a byte value at index "+p+": 0x"+J.Ie(r.p(b,p),16),null))},
 VL:function(a,b,c,d,e,f){var t,s,r,q,p,o,n,m,l,k,j
-t=C.b.hG(f,2)
+t=C.b.hH(f,2)
 s=f&3
 if(typeof c!=="number")return H.w(c)
 r=J.di(a)
 q=b
 p=0
-for(;q<c;++q){o=r.az(a,q)
+for(;q<c;++q){o=r.ay(a,q)
 p|=o
 n=$.$get$GV()
 m=o&127
@@ -2186,7 +2186,7 @@ if(e>=d.length)return H.b(d,e)
 d[e]=t>>>4}j=(3-s)*3
 if(o===37)j+=2
 return P.L9(a,q+1,c,-j-1)}throw H.j(new P.cC("Invalid character",a,q))}if(p>=0&&p<=127)return(t<<2|s)>>>0
-for(q=b;q<c;++q){o=r.az(a,q)
+for(q=b;q<c;++q){o=r.ay(a,q)
 if(o>127)break}throw H.j(new P.cC("Invalid character",a,q))},
 VJ:function(a,b,c,d){var t,s,r,q,p,o
 t=P.VK(a,b,c)
@@ -2194,7 +2194,7 @@ s=J.aN(t)
 r=s.aa(t,b)
 if(typeof r!=="number")return H.w(r)
 q=(d&3)+r
-p=C.i.hG(q,2)*3
+p=C.i.hH(q,2)*3
 o=q&3
 if(o!==0&&s.aQ(t,c))p+=o-1
 if(p>0)return new Uint8Array(H.ci(p))
@@ -2207,28 +2207,28 @@ q=0
 while(!0){p=J.aN(r)
 if(!(p.bk(r,b)&&q<2))break
 c$0:{r=p.aa(r,1)
-o=t.az(a,r)
+o=t.ay(a,r)
 if(o===61){++q
 s=r
 break c$0}if((o|32)===100){p=J.a6(r)
 if(p.P(r,b))break
 r=p.aa(r,1)
-o=t.az(a,r)}if(o===51){p=J.a6(r)
+o=t.ay(a,r)}if(o===51){p=J.a6(r)
 if(p.P(r,b))break
 r=p.aa(r,1)
-o=t.az(a,r)}if(o===37){++q
+o=t.ay(a,r)}if(o===37){++q
 s=r
 break c$0}break}}return s},
 L9:function(a,b,c,d){var t,s,r
 if(b===c)return d
 t=-d-1
-for(s=J.di(a);t>0;){r=s.az(a,b)
+for(s=J.di(a);t>0;){r=s.ay(a,b)
 if(t===3){if(r===61){t-=3;++b
 break}if(r===37){--t;++b
 if(b===c)break
-r=s.az(a,b)}else break}if((t>3?t-3:t)===2){if(r!==51)break;++b;--t
+r=s.ay(a,b)}else break}if((t>3?t-3:t)===2){if(r!==51)break;++b;--t
 if(b===c)break
-r=s.az(a,b)}if((r|32)!==100)break;++b;--t
+r=s.ay(a,b)}if((r|32)!==100)break;++b;--t
 if(b===c)break}if(b!==c)throw H.j(new P.cC("Invalid padding character",a,b))
 return-t-1},
 n8:function n8(a){this.a=a},
@@ -2291,16 +2291,16 @@ if(!t&&J.af(c,b))throw H.j(P.cn(c,b,J.c6(a),null,null))
 s=J.bj(a)
 for(r=0;r<b;++r)if(!s.M())throw H.j(P.cn(b,0,r,null,null))
 q=[]
-if(t)for(;s.M();)q.push(s.ga_())
+if(t)for(;s.M();)q.push(s.ga0())
 else{if(typeof c!=="number")return H.w(c)
 r=b
 for(;r<c;++r){if(!s.M())throw H.j(P.cn(c,b,r,null,null))
-q.push(s.ga_())}}return H.Kk(q)},
+q.push(s.ga0())}}return H.Kk(q)},
 GD:function(a,b,c){var t=J.bj(b)
 if(!t.M())return a
-if(c.length===0){do a+=H.h(t.ga_())
-while(t.M())}else{a+=H.h(t.ga_())
-for(;t.M();)a=a+c+H.h(t.ga_())}return a},
+if(c.length===0){do a+=H.h(t.ga0())
+while(t.M())}else{a+=H.h(t.ga0())
+for(;t.M();)a=a+c+H.h(t.ga0())}return a},
 Oh:function(a,b){return J.Nq(a,b)},
 Ok:function(){return new P.fJ(Date.now(),!1)},
 Oj:function(a,b){var t=new P.fJ(a,b)
@@ -2347,7 +2347,7 @@ K7:function(a,b,c,d,e){return new P.wM(a,b,c,d,e)},
 tO:function(a){return new P.Bx(a)},
 an:function(a,b,c){var t,s
 t=H.a([],[c])
-for(s=J.bj(a);s.M();)t.push(s.ga_())
+for(s=J.bj(a);s.M();)t.push(s.ga0())
 if(b)return t
 t.fixed$length=Array
 return t},
@@ -2372,8 +2372,8 @@ GK:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 c=a.length
 t=b+5
 if(c>=t){s=((C.c.bx(a,b+4)^58)*3|C.c.bx(a,b)^100|C.c.bx(a,b+1)^97|C.c.bx(a,b+2)^116|C.c.bx(a,b+3)^97)>>>0
-if(s===0)return P.L1(b>0||c<c?C.c.ay(a,b,c):a,5,null).glZ()
-else if(s===32)return P.L1(C.c.ay(a,t,c),0,null).glZ()}r=H.a(new Array(8),[P.J])
+if(s===0)return P.L1(b>0||c<c?C.c.ax(a,b,c):a,5,null).glZ()
+else if(s===32)return P.L1(C.c.ax(a,t,c),0,null).glZ()}r=H.a(new Array(8),[P.J])
 r[0]=0
 q=b-1
 r[1]=q
@@ -2407,12 +2407,12 @@ j=q<b
 if(j)if(o>p+3){i=null
 j=!1}else{q=n>b
 if(q&&n+1===m){i=null
-j=!1}else{if(!(l<c&&l===m+2&&C.c.fn(a,"..",m)))h=l>m+2&&C.c.fn(a,"/..",l-3)
+j=!1}else{if(!(l<c&&l===m+2&&C.c.fo(a,"..",m)))h=l>m+2&&C.c.fo(a,"/..",l-3)
 else h=!0
 if(h){i=null
-j=!1}else{if(p===b+4)if(C.c.fn(a,"file",b)){if(o<=b){if(!C.c.fn(a,"/",m)){g="file:///"
+j=!1}else{if(p===b+4)if(C.c.fo(a,"file",b)){if(o<=b){if(!C.c.fo(a,"/",m)){g="file:///"
 s=3}else{g="file://"
-s=2}a=g+C.c.ay(a,m,c)
+s=2}a=g+C.c.ax(a,m,c)
 p-=b
 t=s-b
 l+=t
@@ -2421,7 +2421,7 @@ c=a.length
 b=0
 o=7
 n=7
-m=7}else if(m===l)if(b===0&&!0){a=C.c.eE(a,m,l,"/");++l;++k;++c}else{a=C.c.ay(a,b,m)+"/"+C.c.ay(a,l,c)
+m=7}else if(m===l)if(b===0&&!0){a=C.c.eF(a,m,l,"/");++l;++k;++c}else{a=C.c.ax(a,b,m)+"/"+C.c.ax(a,l,c)
 p-=b
 o-=b
 n-=b
@@ -2430,11 +2430,11 @@ t=1-b
 l+=t
 k+=t
 c=a.length
-b=0}i="file"}else if(C.c.fn(a,"http",b)){if(q&&n+3===m&&C.c.fn(a,"80",n+1))if(b===0&&!0){a=C.c.eE(a,n,m,"")
+b=0}i="file"}else if(C.c.fo(a,"http",b)){if(q&&n+3===m&&C.c.fo(a,"80",n+1))if(b===0&&!0){a=C.c.eF(a,n,m,"")
 m-=3
 l-=3
 k-=3
-c-=3}else{a=C.c.ay(a,b,n)+C.c.ay(a,m,c)
+c-=3}else{a=C.c.ax(a,b,n)+C.c.ax(a,m,c)
 p-=b
 o-=b
 n-=b
@@ -2444,11 +2444,11 @@ l-=t
 k-=t
 c=a.length
 b=0}i="http"}else i=null
-else if(p===t&&C.c.fn(a,"https",b)){if(q&&n+4===m&&C.c.fn(a,"443",n+1))if(b===0&&!0){a=C.c.eE(a,n,m,"")
+else if(p===t&&C.c.fo(a,"https",b)){if(q&&n+4===m&&C.c.fo(a,"443",n+1))if(b===0&&!0){a=C.c.eF(a,n,m,"")
 m-=4
 l-=4
 k-=4
-c-=3}else{a=C.c.ay(a,b,n)+C.c.ay(a,m,c)
+c-=3}else{a=C.c.ax(a,b,n)+C.c.ax(a,m,c)
 p-=b
 o-=b
 n-=b
@@ -2459,7 +2459,7 @@ k-=t
 c=a.length
 b=0}i="https"}else i=null
 j=!0}}}else i=null
-if(j){if(b>0||c<a.length){a=C.c.ay(a,b,c)
+if(j){if(b>0||c<a.length){a=C.c.ax(a,b,c)
 p-=b
 o-=b
 n-=b
@@ -2471,16 +2471,16 @@ Vz:function(a,b,c){var t,s,r,q,p,o,n,m,l
 t=new P.A_(a)
 s=H.ci(4)
 r=new Uint8Array(s)
-for(q=b,p=q,o=0;q<c;++q){n=C.c.az(a,q)
+for(q=b,p=q,o=0;q<c;++q){n=C.c.ay(a,q)
 if(n!==46){if((n^48)>9)t.$2("invalid character",q)}else{if(o===3)t.$2("IPv4 address should contain exactly 4 parts",q)
-m=H.fQ(C.c.ay(a,p,q),null,null)
+m=H.fQ(C.c.ax(a,p,q),null,null)
 if(J.P(m,255))t.$2("each part must be in the range 0..255",p)
 l=o+1
 if(o>=s)return H.b(r,o)
 r[o]=m
 p=q+1
 o=l}}if(o!==3)t.$2("IPv4 address should contain exactly 4 parts",c)
-m=H.fQ(C.c.ay(a,p,c),null,null)
+m=H.fQ(C.c.ax(a,p,c),null,null)
 if(J.P(m,255))t.$2("each part must be in the range 0..255",p)
 if(o>=s)return H.b(r,o)
 r[o]=m
@@ -2491,15 +2491,15 @@ t=new P.A0(a)
 s=new P.A1(a,t)
 if(a.length<2)t.$1("address is too short")
 r=[]
-for(q=b,p=q,o=!1,n=!1;q<a0;++q){m=C.c.az(a,q)
+for(q=b,p=q,o=!1,n=!1;q<a0;++q){m=C.c.ay(a,q)
 if(m===58){if(q===b){++q
-if(C.c.az(a,q)!==58)t.$2("invalid start colon.",q)
+if(C.c.ay(a,q)!==58)t.$2("invalid start colon.",q)
 p=q}if(q===p){if(o)t.$2("only one wildcard `::` is allowed",q)
 r.push(-1)
 o=!0}else r.push(s.$2(p,q))
 p=q+1}else if(m===46)n=!0}if(r.length===0)t.$1("too few parts")
 l=p===a0
-k=J.c(C.a.gax(r),-1)
+k=J.c(C.a.gaw(r),-1)
 if(l&&!k)t.$2("expected a part after last `:`",a0)
 if(!l)if(!n)r.push(s.$2(p,a0))
 else{j=P.Vz(a,p,a0)
@@ -2539,7 +2539,7 @@ r=P.W_(a,e,f,!1)
 if(typeof f!=="number")return f.k()
 q=f+1
 if(typeof g!=="number")return H.w(g)
-p=q<g?P.W1(H.fQ(C.c.ay(a,q,g),null,new P.Dc(a,f)),j):null}else{s=""
+p=q<g?P.W1(H.fQ(C.c.ax(a,q,g),null,new P.Dc(a,f)),j):null}else{s=""
 r=null
 p=null}o=P.W0(a,g,h,null,j,r!=null)
 if(typeof h!=="number")return h.aQ()
@@ -2556,13 +2556,13 @@ return a},
 W_:function(a,b,c,d){var t,s
 if(a==null)return
 if(b===c)return""
-if(C.c.az(a,b)===91){if(typeof c!=="number")return c.aa()
+if(C.c.ay(a,b)===91){if(typeof c!=="number")return c.aa()
 t=c-1
-if(C.c.az(a,t)!==93)P.mI(a,b,"Missing end `]` to match `[` in host")
+if(C.c.ay(a,t)!==93)P.mI(a,b,"Missing end `]` to match `[` in host")
 P.L3(a,b+1,t)
-return C.c.ay(a,b,c).toLowerCase()}if(typeof c!=="number")return H.w(c)
+return C.c.ax(a,b,c).toLowerCase()}if(typeof c!=="number")return H.w(c)
 s=b
-for(;s<c;++s)if(C.c.az(a,s)===58){P.L3(a,b,c)
+for(;s<c;++s)if(C.c.ay(a,s)===58){P.L3(a,b,c)
 return"["+a+"]"}return P.W6(a,b,c)},
 W6:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j
 if(typeof c!=="number")return H.w(c)
@@ -2570,39 +2570,39 @@ t=b
 s=t
 r=null
 q=!0
-for(;t<c;){p=C.c.az(a,t)
+for(;t<c;){p=C.c.ay(a,t)
 if(p===37){o=P.Lp(a,t,!0)
 n=o==null
 if(n&&q){t+=3
 continue}if(r==null)r=new P.cN("")
-m=C.c.ay(a,s,t)
-l=r.a3+=!q?m.toLowerCase():m
-if(n){o=C.c.ay(a,t,t+3)
+m=C.c.ax(a,s,t)
+l=r.a4+=!q?m.toLowerCase():m
+if(n){o=C.c.ax(a,t,t+3)
 k=3}else if(o==="%"){o="%25"
 k=1}else k=3
-r.a3=l+o
+r.a4=l+o
 t+=k
 s=t
 q=!0}else{if(p<127){n=p>>>4
 if(n>=8)return H.b(C.a8,n)
 n=(C.a8[n]&1<<(p&15))!==0}else n=!1
 if(n){if(q&&65<=p&&90>=p){if(r==null)r=new P.cN("")
-if(s<t){r.a3+=C.c.ay(a,s,t)
+if(s<t){r.a4+=C.c.ax(a,s,t)
 s=t}q=!1}++t}else{if(p<=93){n=p>>>4
 if(n>=8)return H.b(C.E,n)
 n=(C.E[n]&1<<(p&15))!==0}else n=!1
 if(n)P.mI(a,t,"Invalid character")
-else{if((p&64512)===55296&&t+1<c){j=C.c.az(a,t+1)
+else{if((p&64512)===55296&&t+1<c){j=C.c.ay(a,t+1)
 if((j&64512)===56320){p=65536|(p&1023)<<10|j&1023
 k=2}else k=1}else k=1
 if(r==null)r=new P.cN("")
-m=C.c.ay(a,s,t)
-r.a3+=!q?m.toLowerCase():m
-r.a3+=P.Lk(p)
+m=C.c.ax(a,s,t)
+r.a4+=!q?m.toLowerCase():m
+r.a4+=P.Lk(p)
 t+=k
-s=t}}}}if(r==null)return C.c.ay(a,b,c)
-if(s<c){m=C.c.ay(a,s,c)
-r.a3+=!q?m.toLowerCase():m}n=r.a3
+s=t}}}}if(r==null)return C.c.ax(a,b,c)
+if(s<c){m=C.c.ax(a,s,c)
+r.a4+=!q?m.toLowerCase():m}n=r.a4
 return n.charCodeAt(0)==0?n:n},
 W3:function(a,b,c){var t,s,r,q
 if(b===c)return""
@@ -2615,7 +2615,7 @@ if(r<128){q=r>>>4
 if(q>=8)return H.b(C.G,q)
 q=(C.G[q]&1<<(r&15))!==0}else q=!1
 if(!q)P.mI(a,t,"Illegal scheme character")
-if(65<=r&&r<=90)s=!0}a=C.c.ay(a,b,c)
+if(65<=r&&r<=90)s=!0}a=C.c.ax(a,b,c)
 return P.VX(s?a.toLowerCase():a)},
 VX:function(a){if(a==="http")return"http"
 if(a==="file")return"file"
@@ -2625,7 +2625,7 @@ return a},
 W4:function(a,b,c){var t
 if(a==null)return""
 t=P.kX(a,b,c,C.aI,!1)
-return t==null?C.c.ay(a,b,c):t},
+return t==null?C.c.ax(a,b,c):t},
 W0:function(a,b,c,d,e,f){var t,s,r,q
 t=e==="file"
 s=t||f
@@ -2634,7 +2634,7 @@ if(r&&d==null)return t?"/":""
 r=!r
 if(r&&d!=null)throw H.j(P.ds("Both path and pathSegments specified"))
 if(r){q=P.kX(a,b,c,C.aa,!1)
-if(q==null)q=C.c.ay(a,b,c)}else{d.toString
+if(q==null)q=C.c.ax(a,b,c)}else{d.toString
 q=new H.eF(d,new P.CB(),[H.L(d,0),null]).bP(0,"/")}if(q.length===0){if(t)return"/"}else if(s&&!C.c.d5(q,"/"))q="/"+q
 return P.W5(q,e,f)},
 W5:function(a,b,c){var t=b.length===0
@@ -2642,11 +2642,11 @@ if(t&&!c&&!C.c.d5(a,"/"))return P.W7(a,!t||c)
 return P.W8(a)},
 W2:function(a,b,c,d){var t
 if(a!=null){t=P.kX(a,b,c,C.F,!1)
-return t==null?C.c.ay(a,b,c):t}return},
+return t==null?C.c.ax(a,b,c):t}return},
 VZ:function(a,b,c){var t
 if(a==null)return
 t=P.kX(a,b,c,C.F,!1)
-return t==null?C.c.ay(a,b,c):t},
+return t==null?C.c.ax(a,b,c):t},
 Lp:function(a,b,c){var t,s,r,q,p,o,n,m
 if(typeof b!=="number")return b.k()
 t=b+2
@@ -2654,17 +2654,17 @@ s=J.aO(a)
 r=s.gu(a)
 if(typeof r!=="number")return H.w(r)
 if(t>=r)return"%"
-q=s.az(a,b+1)
-p=s.az(a,t)
+q=s.ay(a,b+1)
+p=s.ay(a,t)
 o=H.Dy(q)
 n=H.Dy(p)
 if(o<0||n<0)return"%"
 m=o*16+n
-if(m<127){t=C.b.hG(m,4)
+if(m<127){t=C.b.hH(m,4)
 if(t>=8)return H.b(C.a7,t)
 t=(C.a7[t]&1<<(m&15))!==0}else t=!1
 if(t)return H.fR(c&&65<=m&&90>=m?(m|32)>>>0:m)
-if(q>=97||p>=97)return s.ay(a,b,b+3).toUpperCase()
+if(q>=97||p>=97)return s.ax(a,b,b+3).toUpperCase()
 return},
 Lk:function(a){var t,s,r,q,p,o,n,m
 if(a<128){t=new Array(3)
@@ -2698,7 +2698,7 @@ p=null
 while(!0){if(typeof r!=="number")return r.aQ()
 if(typeof c!=="number")return H.w(c)
 if(!(r<c))break
-c$0:{o=t.az(a,r)
+c$0:{o=t.ay(a,r)
 if(o<127){n=o>>>4
 if(n>=8)return H.b(d,n)
 n=(d[n]&1<<(o&15))!==0}else n=!1
@@ -2713,18 +2713,18 @@ else n=!1
 if(n){P.mI(a,r,"Invalid character")
 m=null
 l=null}else{if((o&64512)===55296){n=r+1
-if(n<c){k=t.az(a,n)
+if(n<c){k=t.ay(a,n)
 if((k&64512)===56320){o=65536|(o&1023)<<10|k&1023
 l=2}else l=1}else l=1}else l=1
 m=P.Lk(o)}}if(p==null)p=new P.cN("")
-p.a3+=t.ay(a,q,r)
-p.a3+=H.h(m)
+p.a4+=t.ax(a,q,r)
+p.a4+=H.h(m)
 if(typeof l!=="number")return H.w(l)
 r+=l
 q=r}}}if(p==null)return
 if(typeof q!=="number")return q.aQ()
-if(q<c)p.a3+=t.ay(a,q,c)
-t=p.a3
+if(q<c)p.a4+=t.ax(a,q,c)
+t=p.a4
 return t.charCodeAt(0)==0?t:t},
 Ln:function(a){var t=J.di(a)
 if(t.d5(a,"."))return!0
@@ -2744,7 +2744,7 @@ W7:function(a,b){var t,s,r,q,p,o
 if(!P.Ln(a))return!b?P.Ll(a):a
 t=[]
 for(s=J.fD(a,"/"),r=s.length,q=!1,p=0;p<s.length;s.length===r||(0,H.Q)(s),++p){o=s[p]
-if(".."===o)if(t.length!==0&&!J.c(C.a.gax(t),"..")){if(0>=t.length)return H.b(t,-1)
+if(".."===o)if(t.length!==0&&!J.c(C.a.gaw(t),"..")){if(0>=t.length)return H.b(t,-1)
 t.pop()
 q=!0}else{t.push("..")
 q=!1}else if("."===o)q=!0
@@ -2754,26 +2754,26 @@ if(s!==0)if(s===1){if(0>=s)return H.b(t,0)
 s=J.he(t[0])===!0}else s=!1
 else s=!0
 if(s)return"./"
-if(q||J.c(C.a.gax(t),".."))t.push("")
+if(q||J.c(C.a.gaw(t),".."))t.push("")
 if(!b){if(0>=t.length)return H.b(t,0)
 s=P.Ll(t[0])
 if(0>=t.length)return H.b(t,0)
 t[0]=s}return C.a.bP(t,"/")},
 Ll:function(a){var t,s,r,q
 t=J.aO(a)
-if(J.d3(t.gu(a),2)&&P.Lm(t.az(a,0))){s=1
+if(J.d3(t.gu(a),2)&&P.Lm(t.ay(a,0))){s=1
 while(!0){r=t.gu(a)
 if(typeof r!=="number")return H.w(r)
 if(!(s<r))break
-q=t.az(a,s)
-if(q===58)return t.ay(a,0,s)+"%3A"+t.d6(a,s+1)
+q=t.ay(a,s)
+if(q===58)return t.ax(a,0,s)+"%3A"+t.d6(a,s+1)
 if(q<=127){r=q>>>4
 if(r>=8)return H.b(C.G,r)
 r=(C.G[r]&1<<(q&15))===0}else r=!0
 if(r)break;++s}}return a},
 mJ:function(a,b,c,d){var t,s,r,q,p,o
 if(c===C.n&&$.$get$Lo().b.test(H.ex(b)))return b
-t=c.geu().ed(b)
+t=c.gev().ee(b)
 for(s=t.length,r=0,q="";r<s;++r){p=t[r]
 if(p<128){o=p>>>4
 if(o>=8)return H.b(a,o)
@@ -2781,7 +2781,7 @@ o=(a[o]&1<<(p&15))!==0}else o=!1
 if(o)q+=H.fR(p)
 else q=d&&p===32?q+"+":q+"%"+"0123456789ABCDEF"[p>>>4&15]+"0123456789ABCDEF"[p&15]}return q.charCodeAt(0)==0?q:q},
 VY:function(a,b){var t,s,r,q
-for(t=J.di(a),s=0,r=0;r<2;++r){q=t.az(a,b+r)
+for(t=J.di(a),s=0,r=0;r<2;++r){q=t.ay(a,b+r)
 if(48<=q&&q<=57)s=s*16+q-48
 else{q|=32
 if(97<=q&&q<=102)s=s*16+q-87
@@ -2791,36 +2791,36 @@ if(typeof c!=="number")return H.w(c)
 t=J.aO(a)
 s=b
 while(!0){if(!(s<c)){r=!0
-break}q=t.az(a,s)
+break}q=t.ay(a,s)
 if(q<=127)if(q!==37)p=e&&q===43
 else p=!0
 else p=!0
 if(p){r=!1
 break}++s}if(r){if(C.n!==d)p=!1
 else p=!0
-if(p)return t.ay(a,b,c)
-else o=new H.hQ(t.ay(a,b,c))}else{o=[]
-for(s=b;s<c;++s){q=t.az(a,s)
+if(p)return t.ax(a,b,c)
+else o=new H.hQ(t.ax(a,b,c))}else{o=[]
+for(s=b;s<c;++s){q=t.ay(a,s)
 if(q>127)throw H.j(P.ds("Illegal percent encoding in URI"))
 if(q===37){p=t.gu(a)
 if(typeof p!=="number")return H.w(p)
 if(s+3>p)throw H.j(P.ds("Truncated URI"))
 o.push(P.VY(a,s+1))
 s+=2}else if(e&&q===43)o.push(32)
-else o.push(q)}}return new P.A6(!1).ed(o)},
+else o.push(q)}}return new P.A6(!1).ee(o)},
 Lm:function(a){var t=a|32
 return 97<=t&&t<=122},
 L2:function(a,b,c,d,e){var t,s
 if(a==null||a==="text/plain")a=""
-if(a.length===0||a==="application/octet-stream")t=d.a3+=a
+if(a.length===0||a==="application/octet-stream")t=d.a4+=a
 else{s=P.Vy(a)
 if(s<0)throw H.j(P.f0(a,"mimeType","Invalid MIME type"))
-t=d.a3+=H.h(P.mJ(C.O,C.c.ay(a,0,s),C.n,!1))
-d.a3=t+"/"
-t=d.a3+=H.h(P.mJ(C.O,C.c.d6(a,s+1),C.n,!1))}if(b!=null){e.push(t.length)
-e.push(d.a3.length+8)
-d.a3+=";charset="
-d.a3+=H.h(P.mJ(C.O,b,C.n,!1))}},
+t=d.a4+=H.h(P.mJ(C.O,C.c.ax(a,0,s),C.n,!1))
+d.a4=t+"/"
+t=d.a4+=H.h(P.mJ(C.O,C.c.d6(a,s+1),C.n,!1))}if(b!=null){e.push(t.length)
+e.push(d.a4.length+8)
+d.a4+=";charset="
+d.a4+=H.h(P.mJ(C.O,b,C.n,!1))}},
 Vy:function(a){var t,s,r
 for(t=a.length,s=-1,r=0;r<t;++r){if(C.c.bx(a,r)!==47)continue
 if(s<0){s=r
@@ -2834,7 +2834,7 @@ p=null
 while(!0){o=s.gu(a)
 if(typeof o!=="number")return H.w(o)
 if(!(r<o))break
-c$0:{p=s.az(a,r)
+c$0:{p=s.ay(a,r)
 if(p===44||p===59)break
 if(p===47){if(q<0){q=r
 break c$0}throw H.j(new P.cC("Invalid MIME type",a,r))}}++r}if(q<0&&r>b)throw H.j(new P.cC("Invalid MIME type",a,r))
@@ -2843,15 +2843,15 @@ n=-1
 while(!0){o=s.gu(a)
 if(typeof o!=="number")return H.w(o)
 if(!(r<o))break
-p=s.az(a,r)
+p=s.ay(a,r)
 if(p===61){if(n<0)n=r}else if(p===59||p===44)break;++r}if(n>=0)t.push(n)
-else{m=C.a.gax(t)
-if(p!==44||r!==m+7||!s.fn(a,"base64",m+1))throw H.j(new P.cC("Expecting '='",a,r))
+else{m=C.a.gaw(t)
+if(p!==44||r!==m+7||!s.fo(a,"base64",m+1))throw H.j(new P.cC("Expecting '='",a,r))
 break}}t.push(r)
 o=r+1
 if((t.length&1)===1)a=C.X.Cp(0,a,o,s.gu(a))
 else{l=P.kX(a,o,s.gu(a),C.F,!0)
-if(l!=null)a=s.eE(a,o,s.gu(a),l)}return new P.mt(a,t,c)},
+if(l!=null)a=s.eF(a,o,s.gu(a),l)}return new P.mt(a,t,c)},
 Wf:function(){var t,s,r,q,p
 t=P.Un(22,new P.D0(),!0,P.fv)
 s=new P.D_(t)
@@ -3056,7 +3056,7 @@ hr:function hr(){},
 jo:function jo(){},
 i9:function i9(){},
 q:function q(){},
-cN:function cN(a3){this.a3=a3},
+cN:function cN(a4){this.a4=a4},
 jq:function jq(){},
 jt:function jt(){},
 A2:function A2(a){this.a=a},
@@ -3318,7 +3318,7 @@ t="element tag unavailable"
 try{s=J.n(a)
 r=s.gtQ(a)
 if(typeof r==="string")t=s.gtQ(a)}catch(q){H.dq(q)}return t},
-F5:function(a,b,c){return W.Ji(a,null,null,b,null,null,null,c).fH(new W.v4())},
+F5:function(a,b,c){return W.Ji(a,null,null,b,null,null,null,c).fI(new W.v4())},
 Ji:function(a,b,c,d,e,f,g,h){var t,s,r,q
 t=W.is
 s=new P.cH(0,$.bf,null,[t])
@@ -3385,7 +3385,7 @@ Wd:function(a){var t
 if(!!J.a6(a).$isiW)return a
 t=new P.kS([],[],!1)
 t.c=!0
-return t.fJ(a)},
+return t.fK(a)},
 GW:function(a){if(a===window)return a
 else return new W.Bj(a)},
 D5:function(a){var t=$.bf
@@ -3888,7 +3888,7 @@ _.dx=dx
 _.dy=dy},
 AX:function AX(a){this.a=a},
 AZ:function AZ(){},
-tm:function tm(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,ae,b4,aU,b5,ct,aL,ef,cW,c6,bS,dm,bH,bI,as,aA){var _=this
+tm:function tm(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,ae,b4,aU,b5,ct,aL,eg,cW,c6,bS,dm,bH,bI,aA,az){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -3924,26 +3924,26 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.ae=ae
 _.b4=b4
 _.aU=aU
 _.b5=b5
 _.ct=ct
 _.aL=aL
-_.ef=ef
+_.eg=eg
 _.cW=cW
 _.c6=c6
 _.bS=bS
 _.dm=dm
 _.bH=bH
 _.bI=bI
-_.as=as
-_.aA=aA},
+_.aA=aA
+_.az=az},
 fW:function fW(a,b,c,d,e){var _=this
 _.a=a
 _.b=b
@@ -3970,7 +3970,7 @@ _.d=d
 _.e=e
 _.f=f
 _.r=r},
-Wr:function(a){switch(a.hz(0)){case"<":return"&lt;"
+Wr:function(a){switch(a.hA(0)){case"<":return"&lt;"
 case"&":return"&amp;"
 case"]]>":return"]]&gt;"}throw H.j(new P.lc(null))},
 Df:function Df(){},
@@ -3981,7 +3981,7 @@ this.b=b
 this.c=c},
 Dg:function Dg(){},
 Dh:function Dh(){},
-rL:function rL(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+rL:function rL(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -3989,11 +3989,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -4022,7 +4022,7 @@ _.k3=k3
 _.k4=k4
 _.r1=r1
 _.r2=r2},
-rN:function rN(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+rN:function rN(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -4030,11 +4030,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -4069,7 +4069,7 @@ _.d=d
 _.a=a
 _.b=b
 _.c=c},
-uZ:function uZ(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+uZ:function uZ(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -4077,11 +4077,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -4221,7 +4221,7 @@ t=t.gd3(t)
 return new H.cG(t,new T.y5(),[H.as(t,"v",0)])},
 Vf:function(){var t,s
 t=H.a([],[P.q])
-for(s=$.$get$fT(),s=s.gd3(s),s=s.gaw(s);s.M();)t.push(J.ag(s.ga_()))
+for(s=$.$get$fT(),s=s.gd3(s),s=s.gav(s);s.M();)t.push(J.ag(s.ga0()))
 return t},
 pT:function(){var t=$.$get$fT()
 t=t.gd3(t)
@@ -4233,7 +4233,7 @@ return $.y1},
 Vh:function(a){var t,s
 t=$.$get$fT()
 if(t.gb_(t))T.Gn()
-for(t=$.$get$fT(),t=t.gd3(t),t=t.gaw(t);t.M();){s=t.ga_()
+for(t=$.$get$fT(),t=t.gd3(t),t=t.gav(t);t.M();){s=t.ga0()
 if(J.c(J.ag(s),a))return s}return $.y1},
 Vg:function(a){return P.an(new H.eF(a,new T.y6(),[H.L(a,0),null]),!0,T.f9)},
 Vd:function(a,b,c,d){var t=[P.q]
@@ -4349,7 +4349,7 @@ if(a3>=t)return H.b(h,a3)
 h[a3]=a
 a3=d+3
 if(a3>=t)return H.b(h,a3)
-h[a3]=a0+0*(255-a0)}}r.hk(s,i,$.$get$ez().ac(11)+0,$.$get$ez().ac(11)+0)},
+h[a3]=a0+0*(255-a0)}}r.hl(s,i,$.$get$ez().ac(11)+0,$.$get$ez().ac(11)+0)},
 Ex:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b
 if(T.bT())return
 t=J.n(a)
@@ -4387,7 +4387,7 @@ f=i+3
 if(f>>>0!==f||f>=l.length)return H.b(l,f)
 if(l[f]>=128){l=p.gK(j)
 if(typeof l!=="number")return H.w(l)
-e=C.b.fL(g,l)*4
+e=C.b.fM(g,l)*4
 l=t.gaP(q)
 d=p.gaP(j)
 if(e>>>0!==e||e>=d.length)return H.b(d,e)
@@ -4413,7 +4413,7 @@ b[l]=c
 c=t.gaP(q)
 l=$.$get$ez().ac(156)
 if(f>=c.length)return H.b(c,f)
-c[f]=l+100}++g}++h}r.hk(s,q,0,0)},
+c[f]=l+100}++g}++h}r.hl(s,q,0,0)},
 J_:function(a,b){var t,s,r,q,p,o,n
 if(T.bT())return
 t=J.n(a)
@@ -4427,7 +4427,7 @@ n=t.gaP(r)
 if(o>=n.length)return H.b(n,o)
 n=C.i.bU(n[o]*b)
 if(o>=p.length)return H.b(p,o)
-p[o]=n}}C.w.hk(s,r,0,0)},
+p[o]=n}}C.w.hl(s,r,0,0)},
 Op:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 if(T.bT())return
 t=J.n(a)
@@ -4454,7 +4454,7 @@ g=4*C.b.d7(j,4000)+3
 if(g>=h.length)return H.b(h,g)
 g=h[g]
 if(i>=m.length)return H.b(m,i)
-m[i]=g/2|0}}C.w.hk(s,r,0,0)},
+m[i]=g/2|0}}C.w.hl(s,r,0,0)},
 OF:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 if(T.bT())return
 t=J.n(a)
@@ -4481,7 +4481,7 @@ g=4*C.b.d7(j,4000)+3
 if(g>=h.length)return H.b(h,g)
 g=h[g]
 if(i>=m.length)return H.b(m,i)
-m[i]=g*2}}C.w.hk(s,r,0,0)},
+m[i]=g*2}}C.w.hl(s,r,0,0)},
 de:function(a,b,c,d){var t,s,r,q,p,o,n,m,l,k
 if(T.bT())return
 t=J.n(a)
@@ -4518,7 +4518,7 @@ k[m]=l
 l=t.gaP(q)
 m=n+3
 if(m>=l.length)return H.b(l,m)
-l[m]=d}}r.hk(s,q,0,0)},
+l[m]=d}}r.hl(s,q,0,0)},
 k0:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
 if(T.bT())return
 t=J.n(a)
@@ -4555,7 +4555,7 @@ m=t.gaP(q)
 l=f.gqt()
 if(i>=m.length)return H.b(m,i)
 m[i]=l
-break}}}r.hk(s,q,0,0)},
+break}}}r.hl(s,q,0,0)},
 bO:function(a){var t,s,r
 t=P.al("\\.|\\/",!0,!1)
 a.toString
@@ -4705,15 +4705,15 @@ p=C.j.T(a,"2d")
 r=J.n(p)
 r.sdq(p,"42px Times New Roman")
 r.sc8(p,"#000000")
-r.bK(p,b.hY(),101,276)
+r.bK(p,b.e8(),101,276)
 t=b.gt().gb8()
-r.sc8(p,t.ge7(t).hp())
-r.bK(p,b.hY(),100,275)
+r.sc8(p,t.ge7(t).hq())
+r.bK(p,b.e8(),100,275)
 r.sdq(p,"24px Times New Roman")
 r.bK(p,"("+H.h(b.gam())+")",100,317)
 r.sc8(p,"#000000")
 t=$.$get$cX()
-for(s=C.a.gaw(t),t=new H.ev(s,new T.tv(),[H.L(t,0)]),o=0;t.M();){n=s.ga_()
+for(s=C.a.gav(t),t=new H.ev(s,new T.tv(),[H.L(t,0)]),o=0;t.M();){n=s.ga0()
 m=359+24*o
 r.bK(p,H.h(n)+": ",10,m)
 r.bK(p,C.b.G(J.n_(b.R(n))),300,m);++o}t=359+24*o
@@ -4724,7 +4724,7 @@ r.bK(p,"Grist Collected: ",10,t)
 r.bK(p,C.i.G(b.gcq()),300,t);++o
 t=359+24*o
 r.bK(p,"Former Friends Killed: ",10,t)
-r.bK(p,C.b.G(b.geB()),300,t);++o
+r.bK(p,C.b.G(b.geC()),300,t);++o
 t=359+24*o
 r.bK(p,"Fraymotifs Unlocked: ",10,t)
 r.bK(p,C.b.G(b.gaC().length),300,t);++o
@@ -4736,10 +4736,10 @@ r.bK(p,"Gnosis Level: ",10,t)
 r.bK(p,""+b.gbZ()+"/4",300,t);++o
 t=359+24*o
 r.bK(p,"Doomed Clones: ",10,t)
-r.bK(p,C.b.G(b.geS().length),300,t);++o
+r.bK(p,C.b.G(b.geT().length),300,t);++o
 t=359+24*o
 r.bK(p,"Prophecy Status: ",10,t)
-r.bK(p,C.c.d6(b.gfE().b,C.c.b1(b.gfE().b,".")+1),250,t);++o
+r.bK(p,C.c.d6(b.gfF().b,C.c.b1(b.gfF().b,".")+1),250,t);++o
 t=359+24*o
 r.bK(p,"Times Died: ",10,t)
 r.bK(p,C.b.G(b.gkt()),300,t)
@@ -4780,7 +4780,7 @@ s=$.$get$Ks()
 r=b.gt().gb8()
 T.de(p,s,r.ge7(r),255)
 q.sc8(o,"#000000")
-for(n=0;$.$get$MG(),n<16;++n)if(b.gcQ()<n)q.io(o,5,300-(21+17*n),192,15)
+for(n=0;$.$get$MG(),n<16;++n)if(b.gcQ()<n)q.ip(o,5,300-(21+17*n),192,15)
 s=t.querySelector("#sprite_template")
 r=J.n(s)
 q=r.gH(s)
@@ -4803,17 +4803,17 @@ r=J.n(s)
 q=r.gH(s)
 p=W.N(r.gK(s),q)
 q=$.$get$Gh()
-s=b.gt().gb8().gfN()
+s=b.gt().gb8().gfO()
 o=C.j.T(a,"2d")
 r=a.height
 if(typeof r!=="number")return r.bG()
 n=J.n(o)
 m=n.zk(o,325,r/2,5,650,r,650)
-q=C.b.el(q.jz(!1),16)
-m.addColorStop(0,"#"+C.c.ej(q,6,"0").toUpperCase())
-m.addColorStop(1,s.hp())
+q=C.b.em(q.jz(!1),16)
+m.addColorStop(0,"#"+C.c.ek(q,6,"0").toUpperCase())
+m.addColorStop(1,s.hq())
 n.sc8(o,m)
-n.io(o,150,0,650,a.height)
+n.ip(o,150,0,650,a.height)
 s=t.querySelector("#sprite_template")
 r=J.n(s)
 q=r.gH(s)
@@ -4844,8 +4844,8 @@ r=s[r]
 s=p.width
 if(typeof s!=="number")return s.bG()
 t.bK(o,r,s/2,32)
-s=C.b.el($.$get$jm().jz(!1),16)
-t.sc8(o,"#"+C.c.ej(s,6,"0").toUpperCase())
+s=C.b.em($.$get$jm().jz(!1),16)
+t.sc8(o,"#"+C.c.ek(s,6,"0").toUpperCase())
 s=b.gbW()
 r=b.gcQ()
 if(r<0||r>=s.length)return H.b(s,r)
@@ -4865,7 +4865,7 @@ r=J.n(s)
 q=r.gH(s)
 p=W.N(r.gK(s),q)
 T.dK(p,"cataclysm.png")
-T.de(p,$.$get$Gh(),b.gt().gb8().gfN(),255)
+T.de(p,$.$get$Gh(),b.gt().gb8().gfO(),255)
 q=t.querySelector("#godtierlevelup_template")
 s=J.n(q)
 r=s.gH(q)
@@ -4873,8 +4873,8 @@ o=W.N(s.gK(q),r)
 r=b.gt().gb8().gj2()
 n=C.j.T(o,"2d")
 q=J.n(n)
-q.sc8(n,r.hp())
-q.io(n,0,0,o.width,o.height)
+q.sc8(n,r.hq())
+q.ip(n,0,0,o.width,o.height)
 q=t.querySelector("#sprite_template")
 r=J.n(q)
 s=r.gH(q)
@@ -4948,12 +4948,12 @@ t=C.j.T(a,"2d")
 s=J.n(t)
 s.sox(t,"center")
 s.sdq(t,"bold 12px Courier New")
-r=C.b.el($.$get$jm().jz(!1),16)
-s.sc8(t,"#"+C.c.ej(r,6,"0").toUpperCase())
+r=C.b.em($.$get$jm().jz(!1),16)
+s.sc8(t,"#"+C.c.ek(r,6,"0").toUpperCase())
 for(q=289,p=0;p<b.gbW().length;++p){if(b.gcQ()+1>p){r=$.$get$MH()
 if(p>=16)return H.b(r,p)
-s.sc8(t,r[p])}else{r=C.b.el($.$get$jm().jz(!1),16)
-s.sc8(t,"#"+C.c.ej(r,6,"0").toUpperCase())}r=b.gbW()
+s.sc8(t,r[p])}else{r=C.b.em($.$get$jm().jz(!1),16)
+s.sc8(t,"#"+C.c.ek(r,6,"0").toUpperCase())}r=b.gbW()
 if(p>=r.length)return H.b(r,p)
 s.bK(t,r[p],101,q)
 q-=17}},
@@ -4981,7 +4981,7 @@ s=t.querySelector("#chat_text_template")
 r=J.n(s)
 q=r.gH(s)
 l=W.N(r.gK(s),q)
-T.IP(l,b,c,"-- "+H.h(b.gam())+" ["+b.a5()+"] began pestering "+H.h(c.gam())+" ["+c.a5()+"] --",d)
+T.IP(l,b,c,"-- "+H.h(b.gam())+" ["+b.a6()+"] began pestering "+H.h(c.gam())+" ["+c.a6()+"] --",d)
 k=b.I(c)
 j=c.I(b)
 q=t.querySelector("#sprite_template")
@@ -5029,11 +5029,11 @@ t=t.querySelector("#chat_text_template")
 r=J.n(t)
 q=r.gH(t)
 k=W.N(r.gK(t),q)
-j="-- jadedResearcher [JR] began pestering "+H.h(c.gam())+" ["+c.a5()+"] --"
+j="-- jadedResearcher [JR] began pestering "+H.h(c.gam())+" ["+c.a6()+"] --"
 o=C.j.T(k,"2d")
 q=J.n(o)
 q.sdq(o,"12px Times New Roman")
-if(c.geK())q.sdq(o,"12px Comic Sans MS")
+if(c.geL())q.sdq(o,"12px Comic Sans MS")
 q.sc8(o,"#000000")
 q.bK(o,j,16,18)
 T.OD(k,b,c,8,54)
@@ -5111,7 +5111,7 @@ s=t.querySelector("#chat_text_template")
 r=J.n(s)
 q=r.gH(s)
 l=W.N(r.gK(s),q)
-T.IP(l,b,c,"-- "+H.h(b.gam())+" ["+b.a5()+"] began pestering "+H.h(c.gam())+" ["+c.a5()+"] --",d)
+T.IP(l,b,c,"-- "+H.h(b.gam())+" ["+b.a6()+"] began pestering "+H.h(c.gam())+" ["+c.a6()+"] --",d)
 J.Z(C.j.T(a,"2d"),n,-100,0)
 J.Z(C.j.T(a,"2d"),m,650,0)
 J.Z(C.j.T(a,"2d"),p,230,0)
@@ -5138,7 +5138,7 @@ IP:function(a,b,c,d,e){var t,s
 t=C.j.T(a,"2d")
 s=J.n(t)
 s.sdq(t,"12px Times New Roman")
-if(b.geK())s.sdq(t,"12px Comic Sans MS")
+if(b.geL())s.sdq(t,"12px Comic Sans MS")
 s.sc8(t,"#000000")
 s.bK(t,d,16,18)
 T.OC(a,e,b,c,8,54)},
@@ -5166,7 +5166,7 @@ t=Q.dZ(b)
 if(t.cx===!0||t.r1)T.tw(a,t,c,!1)
 else{s="#"+H.h(t.k3)
 r=document.querySelector(s)
-J.Z(J.eh(a,"2d"),r,0,0)}s=t.ev
+J.Z(J.eh(a,"2d"),r,0,0)}s=t.ew
 if(s!=null){c=J.eh(a,"2d")
 T.bO(s)
 q=P.al("\\.|\\/",!0,!1)
@@ -5191,7 +5191,7 @@ t.or(c,4.71238898038469)}if(s&&J.P(b.bD,3)){c=J.eh(a,"2d")
 q=b.c6?"squiddles_chaos.png":"grimdark.png"
 T.bO(q)
 t="#"+H.a8(q,P.al("\\.|\\/",!0,!1),"_")
-J.Z(c,document.querySelector(t),0,0)}if(b.c.ga6().rS(b))T.dK(a,b.ab.gn9())
+J.Z(c,document.querySelector(t),0,0)}if(b.c.ga_().rS(b))T.dK(a,b.ab.gn9())
 if(s&&b.aX&&b.bp===!0){b.ab.gDU()
 c=J.eh(a,"2d")
 q="Wings/wing"+H.h(b.aB.r)+".png"
@@ -5229,7 +5229,7 @@ T.IL(a,b)}else if(b.bp===!0){c=t.T(a,"2d")
 q=T.tx(b)
 T.bO(q)
 J.Z(c,o.querySelector("#"+H.a8(q,P.al("\\.|\\/",!0,!1),"_")),0,0)
-if($.H4&&J.c(b.as,$.fu))T.dK(a,"/Bodies/cod.png")
+if($.H4&&J.c(b.aA,$.fu))T.dK(a,"/Bodies/cod.png")
 T.k0(a,$.$get$i5(),b.ab.gb8())
 if(b.bS)T.lp(a)
 c=t.T(a,"2d")
@@ -5243,9 +5243,9 @@ r=P.q
 m=A.dd
 l=P.J
 k=new L.ba(P.z(null,null,null,r,m),P.z(null,null,null,l,m),P.z(null,null,null,r,l),P.z(null,null,null,l,r))
-r=b.ab.gb8().gfN()
+r=b.ab.gb8().gfO()
 k.j(0,$.aV,L.f(r),!0)
-r=b.ab.gb8().gi0()
+r=b.ab.gb8().gi1()
 k.j(0,$.aU,L.f(r),!0)
 j=A.UA(H.a([b.bA.gb8(),k],[A.kv]))
 T.k0(a,$.$get$i5(),j)}else{q=T.ty(b)
@@ -5255,7 +5255,7 @@ J.Z(c,o.querySelector("#"+H.a8(q,P.al("\\.|\\/",!0,!1),"_")),0,0)
 if(b.bS)T.lp(a)
 T.k0(a,$.$get$i5(),b.ab.gb8())}T.Oo(a,b)
 if(b.cN)T.OJ(a,b)
-if(b.eh)T.OI(a,b)
+if(b.ei)T.OI(a,b)
 if(b.bH)T.OG(a,b)}else{c=t.T(a,"2d")
 q="Bodies/baby"+H.h(b.x1)+".png"
 if(b.aX)q="Bodies/grub"+H.h(b.x1)+".png"
@@ -5263,8 +5263,8 @@ T.bO(q)
 J.Z(c,o.querySelector("#"+H.a8(q,P.al("\\.|\\/",!0,!1),"_")),0,0)
 if(b.bS)T.lp(a)
 if(b.aX)T.de(a,$.$get$Kv(),A.eP(J.dJ(b.aN,1)),255)
-else{T.de(a,$.$get$i5().p(0,$.aR),b.ab.gb8().gfN(),255)
-T.de(a,$.$get$i5().p(0,$.aQ),b.ab.gb8().gi0(),255)}}if($.Hx)T.dK(a,"/Bodies/pen15.png")
+else{T.de(a,$.$get$i5().p(0,$.aR),b.ab.gb8().gfO(),255)
+T.de(a,$.$get$i5().p(0,$.aQ),b.ab.gb8().gi1(),255)}}if($.Hx)T.dK(a,"/Bodies/pen15.png")
 if($.Mi)if($.$get$ez().a.E()>0.9)T.dK(a,"/Bodies/face4.png")
 else T.dK(a,"/Bodies/face"+H.h(b.x1)+".png")
 c=t.T(a,"2d")
@@ -5287,8 +5287,8 @@ t.gj5(a).drawImage(h,0,0)}if(b.bH)T.de(a,$.$get$jm(),$.$get$KA(),255)
 else if(b.c6){r=b.c1
 m=$.$get$a_()
 l=m.length
-if(typeof r!=="number")return r.fL()
-r=C.i.fL(r,l)
+if(typeof r!=="number")return r.fM()
+r=C.i.fM(r,l)
 g=$.$get$jm()
 if(r>>>0!==r||r>=l)return H.b(m,r)
 T.de(a,g,m[r],255)}else if(s&&J.P(b.bD,3))T.de(a,$.$get$jm(),$.$get$Ku(),255)
@@ -5310,7 +5310,7 @@ T.de(a,$.$get$pI(),A.eP(J.dJ(b.aN,1)),255)}if(s&&b.cx===!0)if(b.dx!=null)T.Op(a)
 else T.OF(a)
 if(s&&J.c(b.ab,$.b2)){t=$.l
 t=b.a$.X(t)
-T.J_(a,1-t/(2000*$.l.r))}else if(b.c.ga6().f&&!b.c.ga6().rS(b))T.J_(a,0.2)},
+T.J_(a,1-t/(2000*$.l.r))}else if(b.c.ga_().f&&!b.c.ga_().rS(b))T.J_(a,0.2)},
 OG:function(a,b){var t,s
 t=J.eh(a,"2d")
 T.bO("robo_face.png")
@@ -5907,11 +5907,11 @@ r=s.lA(t,"M").width
 if(typeof r!=="number")return r.bs()
 q=r*1.2
 p=b.split("\n")
-o=c.a5()
+o=c.a6()
 for(n=e,m=0;m<p.length;++m){l=J.hg(p[m])
 r=J.di(l)
-if(r.d5(l,o)){s.sc8(t,c.eG())
-if(c.geK())s.sdq(t,"12px Comic Sans")
+if(r.d5(l,o)){s.sc8(t,c.eH())
+if(c.geL())s.sdq(t,"12px Comic Sans")
 else s.sdq(t,"12px Times New Roman")}else if(r.d5(l,"JR: ")){s.sc8(t,"#3da35a")
 s.sdq(t,"12px Times New Roman")}else s.sc8(t,"#000000")
 r=a.width
@@ -5939,14 +5939,14 @@ r=s.lA(t,"M").width
 if(typeof r!=="number")return r.bs()
 q=r*1.2
 p=b.split("\n")
-o=c.a5()
+o=c.a6()
 n=d.cD(o)
 for(m=0;m<p.length;++m){l=J.hg(p[m])
 r=J.di(l)
-if(r.d5(l,n)){s.sc8(t,d.eG())
-if(d.geK())s.sdq(t,"12px Comic Sans MS")
-else s.sdq(t,"12px Times New Roman")}else if(r.d5(l,o)){s.sc8(t,c.eG())
-if(c.geK())s.sdq(t,"12px Comic Sans MS")
+if(r.d5(l,n)){s.sc8(t,d.eH())
+if(d.geL())s.sdq(t,"12px Comic Sans MS")
+else s.sdq(t,"12px Times New Roman")}else if(r.d5(l,o)){s.sc8(t,c.eH())
+if(c.geL())s.sdq(t,"12px Comic Sans MS")
 else s.sdq(t,"12px Times New Roman")}else s.sc8(t,"#000000")
 r=a.width
 if(typeof r!=="number")return r.aa()
@@ -5989,14 +5989,14 @@ if(i>=b.length)return H.b(b,i)
 b=b[i]
 if(!(d<b.length))break
 if(b[d]===!0)if(j){a=q-10*d
-s.io(t,h,a,9,9)
+s.ip(t,h,a,9,9)
 if(n>=a){if(o>h)o-=r
 n=a}}else if(k){a=q-10*d
-s.io(t,e,a,9,9)
+s.ip(t,e,a,9,9)
 if(n>=a){if(p<e)p+=f
 n=a}}else{c=10*(d+1)
-if(l)s.io(t,e,q+c,9,9)
-else s.io(t,h,q+c,9,9)}++d}r=c
+if(l)s.ip(t,e,q+c,9,9)
+else s.ip(t,h,q+c,9,9)}++d}r=c
 i=g}}s.ym(t)
 s.th(t,o,n)
 s.nS(t,(o+p)/2,n-10)
@@ -6011,7 +6011,7 @@ t=new B.eB(new P.cN(""),0,0)
 t.al(a,8)
 s=J.hK(c)
 for(r=s.length,q=0;q<r;++q)t.al(s[q],8)
-return t.ho(b)},
+return t.hp(b)},
 OO:function(a,b,c,d){var t,s,r,q,p
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -6027,7 +6027,7 @@ s=d.gjo()
 r=C.m.bU(Math.log(s.gu(s))/0.6931471805599453)+1
 q=J.hK(c)
 for(s=q.length,p=0;p<s;++p)t.al(q[p],r)
-return t.ho(b)},
+return t.hp(b)},
 OM:function(a,b,c,d){var t,s,r,q,p,o
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -6043,7 +6043,7 @@ this.b=b},
 VB:function(a){var t,s
 t=J.aO(a)
 s=t.b1(a,":")
-if(s>0)return new A.AO(t.ay(a,0,s),t.ay(a,s+1,t.gu(a)),a,null)
+if(s>0)return new A.AO(t.ax(a,0,s),t.ax(a,s+1,t.gu(a)),a,null)
 else return new U.AQ(a,null)},
 jx:function jx(){},
 pm:function pm(){},
@@ -6912,7 +6912,7 @@ t=new L.ej(0.5,a,new H.E(0,null,null,null,null,null,0,[X.a1,P.ad]),null,"","",!1
 t.cg(a,b,c,!1)
 return t},
 f:function(a){if(!!J.a6(a).$isdd)return a
-if(typeof a==="number"&&Math.floor(a)===a)return A.eC(a,C.c.ej(C.b.el(a,16),6,"0").length>6)
+if(typeof a==="number"&&Math.floor(a)===a)return A.eC(a,C.c.ek(C.b.em(a,16),6,"0").length>6)
 if(typeof a==="string")if(C.c.d5(a,"#"))return A.eP(C.c.d6(a,1))
 else return A.eP(a)
 throw H.j("Invalid AspectPalette input: colour must be a Colour object, a valid colour int, or valid hex string (with or without leading #)")},
@@ -7014,7 +7014,7 @@ _.k3=k3
 _.k4=k4
 _.r1=r1
 _.r2=r2},
-wr:function wr(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+wr:function wr(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -7022,11 +7022,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -7055,7 +7055,7 @@ _.k3=k3
 _.k4=k4
 _.r1=r1
 _.r2=r2},
-xE:function xE(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+xE:function xE(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -7063,8 +7063,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -7212,8 +7212,8 @@ t=1
 break}q=L.iO
 p=new P.cH(0,$.bf,null,[q])
 if(!$.$get$le().bh(0,a)){$.$get$le().i(0,a,H.a([],[[P.iT,L.iO]]))
-$.$get$Ej().ic("Requesting "+a)
-A.lW(a,!1,null).fH(new L.rJ(a,b,c))}$.$get$le().p(0,a).push(new P.id(p,[q]))
+$.$get$Ej().ie("Requesting "+a)
+A.lW(a,!1,null).fI(new L.rJ(a,b,c))}$.$get$le().p(0,a).push(new P.id(p,[q]))
 r=p
 t=1
 break
@@ -7241,7 +7241,7 @@ s=2}else s=b
 s=C.b.cB(1,s)
 t.b=s
 t.c=s+1
-t.fq(0)
+t.fs(0)
 r=new L.t2(t,H.a([],[P.J]),0,0)
 r.h(0,t.b)
 s=a.length
@@ -7288,15 +7288,15 @@ if(t>=b.length)return H.b(b,t)
 s=b[t]
 o=s.I(p)
 n=p.I(s)
-o.fg()
-o.fg()
-n.fg()
-n.fg()
-n.fg()
-n.fg()}C.a.V(r,b)},
+o.fh()
+o.fh()
+n.fh()
+n.fh()
+n.fh()
+n.fh()}C.a.V(r,b)},
 ng:function ng(a,b){this.a=a
 this.b=b},
-fU:function fU(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,ae,b4,aU,b5,ct,aL){var _=this
+fU:function fU(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,ae,b4,aU,b5,ct,aL){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -7332,11 +7332,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.ae=ae
 _.b4=b4
 _.aU=aU
@@ -7345,8 +7345,8 @@ _.ct=ct
 _.aL=aL},
 yn:function yn(){},
 MP:function(a){var t=J.NO($.$get$LB(),a)
-if(t.ghf())throw H.j(P.ds(new D.pt(t).G(0)))
-return t.ga2(t)},
+if(t.ghg())throw H.j(P.ds(new D.pt(t).G(0)))
+return t.ga3(t)},
 H6:function(a0,a1){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a
 P.dp("checking eggs, first player is "+H.h(J.d8(C.a.gah($.p.r)))+" with moon "+H.h(C.a.gah($.p.r).gaq()))
 t=$.p.f
@@ -7456,17 +7456,17 @@ if(J.c(O.c5("images",null),"pumpkin"))$.ey=!0
 if(J.c(O.c5("prophecy",null),"pigeon"))L.Xq()
 if(J.c(O.c5("easter",null),"egg")){$.r_=!0
 window.alert("Yo Dawg, I herd you liek easter eggs???")}if(J.c(O.c5("selfInsertOC",null),"true")){t=U.It()
-t.ff("redditCharacters","OCs/reddit.txt",!0,null,null)
-t.ff("tumblrCharacters","OCs/tumblr.txt",!0,null,null)
-t.ff("discordCharcters","OCs/discord.txt",!0,null,null)
-t.ff("creditsBuckaroos","OCs/creditsBuckaroos.txt",!0,null,null)
-t.ff("ideasWranglers","OCs/ideasWranglers.txt",!0,null,null)
-t.ff("patrons","OCs/patrons.txt",!0,null,null)
-t.ff("patrons2","OCs/patrons2.txt",!0,null,null)
-t.ff("patrons3","OCs/patrons3.txt",!0,null,null)
-t.ff("canon","OCs/canon.txt",!0,null,null)
-t.ff("bards","OCs/bards.txt",!0,null,null)
-t.ff("otherFandoms","OCs/otherFandoms.txt",!0,a0,a1)
+t.fg("redditCharacters","OCs/reddit.txt",!0,null,null)
+t.fg("tumblrCharacters","OCs/tumblr.txt",!0,null,null)
+t.fg("discordCharcters","OCs/discord.txt",!0,null,null)
+t.fg("creditsBuckaroos","OCs/creditsBuckaroos.txt",!0,null,null)
+t.fg("ideasWranglers","OCs/ideasWranglers.txt",!0,null,null)
+t.fg("patrons","OCs/patrons.txt",!0,null,null)
+t.fg("patrons2","OCs/patrons2.txt",!0,null,null)
+t.fg("patrons3","OCs/patrons3.txt",!0,null,null)
+t.fg("canon","OCs/canon.txt",!0,null,null)
+t.fg("bards","OCs/bards.txt",!0,null,null)
+t.fg("otherFandoms","OCs/otherFandoms.txt",!0,a0,a1)
 return}if(J.c(O.c5("nepeta",null),":33"))L.MN()
 if(J.c(O.c5("luck",null),"AAAAAAAALL"))L.MI()
 if(J.c(O.c5("honk",null),":o)"))L.Mq()
@@ -7528,22 +7528,22 @@ o=R.da($.p,$.c4,$.b2)
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hS(o)
+n.hT(o)
 o.aB=n
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hS(p)
+n.hT(p)
 p.aB=n
-p.aA=o
-o.aA=p
+p.az=o
+o.az=p
 C.a.h($.p.r,p)}}for(t=0;t<8;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 p=s[t]
 o=p.gaT()
 p.sb9([])
-o.ht(R.eM($.p.r))
-p.ht($.p.r)
+o.hu(R.eM($.p.r))
+p.hu($.p.r)
 L.e4(p,t)
 L.mU(o,t)
 p.sbW(Y.dS(p))
@@ -7557,31 +7557,31 @@ o=R.da($.p,$.c4,$.b2)
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hS(o)
+n.hT(o)
 o.aB=n
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hS(p)
+n.hT(p)
 p.aB=n
-p.aA=o
-o.aA=p
+p.az=o
+o.az=p
 C.a.h($.p.r,p)}}for(t=0;t<8;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 p=s[t]
 o=p.gaT()
 p.sb9([])
-o.ht(R.eM($.p.r))
-p.ht($.p.r)
+o.hu(R.eM($.p.r))
+p.hu($.p.r)
 L.mU(p,t)
 L.e4(o,t)
 p.sbW(Y.dS(p))
 o.sbW(Y.dS(o))}C.a.su($.p.r,8)},
 e4:function(a,b){var t
 a.sbm(!1)
-a.sie(!1)
 a.sig(!1)
-if(b===0){a.sav("#ff0000")
+a.sih(!1)
+if(b===0){a.sau("#ff0000")
 a.sC($.fa)
 a.saS(!0)
 a.st($.cp)
@@ -7598,13 +7598,13 @@ a.gm().f=0
 a.gm().c=1
 a.gm().a=[]
 a.gm().b=[["lol","hehehe"]]
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Wind and Shade"
 a.saq($.p.d)}else if(b===1){a.saq($.p.e)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.saS(!0)
 a.sC($.cM)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Light and Rain"
 a.st($.cd)
 a.sam("tentacleTherapist")
@@ -7622,9 +7622,9 @@ a.gm().a=[]
 a.gm().b=[["hey","greetings"],["yes","certainly"]]
 a.gm().e=""
 a.gm().d=""}else if(b===2){a.saq($.p.e)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.eV)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Heat and Clockwork"
 a.st($.ap)
 a.scO("#feffd7")
@@ -7643,9 +7643,9 @@ a.gm().b=[["hey","sup"]]
 a.saS(!0)
 a.gm().e=""
 a.gm().d=""}else if(b===3){a.saq($.p.d)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.fb)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Frost and Frogs"
 a.st($.aI)
 a.saO(9)
@@ -7665,11 +7665,11 @@ a.gm().b=[]
 a.saS(!0)
 a.gm().e=""
 a.gm().d=""}else if(b===4){a.saq($.p.d)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.eI)
 a.saS(!0)
 a.st($.cq)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Crypts and Helium"
 a.saO(38)
 a.scO("#000000")
@@ -7686,9 +7686,9 @@ a.gm().a=[]
 a.gm().b=[["lol","hoo hoo"]]
 a.gm().e=""
 a.gm().d=""}else if(b===5){a.saq($.p.e)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.eq)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Pyramids and Neon"
 a.st($.b2)
 a.saO(24)
@@ -7707,9 +7707,9 @@ a.gm().b=[["like","liek"],["school","skool"]]
 a.saS(!0)
 a.gm().e=""
 a.gm().d=""}else if(b===6){a.saq($.p.e)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.i8)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Tombs and Krypton"
 a.st($.cy)
 a.saO(36)
@@ -7728,9 +7728,9 @@ a.gm().b=[["hey","sup"]]
 a.saS(!0)
 a.gm().e=""
 a.gm().d=""}else if(b===7){a.saq($.p.d)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.c4)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Mounds and Xenon"
 a.st($.cj)
 a.saO(37)
@@ -7781,7 +7781,7 @@ L.fB(p,o)}}},
 Xq:function(){var t,s,r,q,p,o,n,m,l
 window.alert("...Well. Fuck.")
 for(t=$.p.r,s=t.length,r=G.aj,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q){p=t[q]
-p.sh3(!1)
+p.sh4(!1)
 o=$.oV
 n=$.d1
 m=$.cl
@@ -7848,20 +7848,20 @@ L.ef(t,7)
 L.M6(t)},
 Dl:function(a,b){if(!J.c(a.gt(),$.ap)&&!J.c(a.gt(),$.aI))a.st(b.ab)
 a.sbm(b.aX)
-a.sC(b.as)
+a.sC(b.aA)
 a.sm(b.aB)
 a.sb7(b.dn)
 a.sba(b.cX)
 a.saO(b.c1)
-a.sav(b.aN)
+a.sau(b.aN)
 a.scO(b.bJ)
-a.saS(b.fa)
-a.shn(b.bH)
+a.saS(b.fb)
+a.sho(b.bH)
 a.sa7(b.db)
 a.sam(b.aM)
 a.saj(b.bt)
 a.san(b.bu)
-a.sbW(b.eT)},
+a.sbW(b.eU)},
 M6:function(a){var t,s,r,q
 for(t=0;s=$.p.r,t<s.length;++t){r=s[t]
 q=r.gaT()
@@ -7886,8 +7886,8 @@ p.sC($.eq)
 q.saO(7)
 q.sb7(22)
 q.sba(22)
-if(t){q.sav("#416600")
-p.sav("#416600")
+if(t){q.sau("#416600")
+p.sau("#416600")
 q.gm().r=3
 p.gm().r=3}else{C.a.V(q.gm().b,[["ee","33"],["per","purr"]])
 C.a.V(q.gm().b,[["ee","33"],["per","purr"]])}p.saO(7)
@@ -7897,14 +7897,14 @@ XJ:function(){var t,s,r,q
 $.p.r=[]
 for(t=0;t<8;++t){s=R.iJ($.p)
 r=R.iJ($.p)
-if(t===0){s.fc=!0
-r.fc=!0
+if(t===0){s.fd=!0
+r.fd=!0
 q=$.aI
 s.ab=q
 r.ab=q}else if(t===1){q=$.ap
 s.ab=q
-r.ab=q}s.aA=r
-r.aA=s
+r.ab=q}s.az=r
+r.az=s
 C.a.h($.p.r,s)}L.MI()
 for(t=0;q=$.p.r,t<q.length;++t){s=q[t]
 r=s.gaT()
@@ -7922,16 +7922,16 @@ XH:function(){var t,s,r,q
 for(t=0;t<12;++t){s=$.p
 if(t>s.r.length){r=R.iJ(s)
 q=R.iJ($.p)
-r.eA()
-r.eV()
+r.eB()
+r.eW()
 if(r.aU)r.a=r.c.gn().v($.$get$b4()).bi()
-r.fd()
-q.eA()
-q.eV()
+r.fe()
+q.eB()
+q.eW()
 if(q.aU)q.a=q.c.gn().v($.$get$b4()).bi()
-q.fd()
-r.aA=q
-q.aA=r
+q.fe()
+r.az=q
+q.az=r
 C.a.h($.p.r,r)}}L.Mq()
 for(t=0;s=$.p.r,t<s.length;++t){r=s[t]
 q=r.gaT()
@@ -7943,14 +7943,14 @@ r.sbW(Y.dS(r))
 q.sbW(Y.dS(q))}},
 XF:function(){var t,s,r,q,p,o
 t=$.p
-t.aL.x1.t_(t)
+t.aL.x2.t_(t)
 t=$.p
-t.r=t.aL.x1.gnY()
+t.r=t.aL.x2.gnY()
 P.dp("players is: "+H.h($.p.r))
 t=$.p.r
 if(0>=t.length)return H.b(t,0)
 t[0].sdz(!0)
-for(t=$.p.r,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].ses(null)
+for(t=$.p.r,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].seu(null)
 for(q=0;t=$.p.r,q<t.length;++q){p=t[q]
 o=p.gaT()
 p.sb9([])
@@ -7966,16 +7966,16 @@ XC:function(){var t,s,r,q
 for(t=0;t<12;++t){s=$.p
 if(t>s.r.length){r=R.iJ(s)
 q=R.iJ($.p)
-r.aA=q
-q.aA=r
-r.eA()
-r.eV()
+r.az=q
+q.az=r
+r.eB()
+r.eW()
 if(r.aU)r.a=r.c.gn().v($.$get$b4()).bi()
-r.fd()
-q.eA()
-q.eV()
+r.fe()
+q.eB()
+q.eW()
 if(q.aU)q.a=q.c.gn().v($.$get$b4()).bi()
-q.fd()
+q.fe()
 C.a.h($.p.r,r)}}L.LQ()
 for(t=0;s=$.p.r,t<s.length;++t){r=s[t]
 q=r.gaT()
@@ -7991,27 +7991,27 @@ r=s.r
 q=r.length
 if(t<q){if(t>=q)return H.b(r,t)}else{p=R.da(s,$.c4,$.b2)
 o=R.da($.p,$.c4,$.b2)
-p.eA()
-p.eV()
+p.eB()
+p.eW()
 if(p.aU)p.a=p.c.gn().v($.$get$b4()).bi()
-p.fd()
-o.eA()
-o.eV()
+p.fe()
+o.eB()
+o.eW()
 if(o.aU)o.a=o.c.gn().v($.$get$b4()).bi()
-o.fd()
+o.fe()
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(o)
+n.hU(o)
 o.aB=n
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(p)
+n.hU(p)
 p.aB=n
 C.a.h($.p.r,p)
-p.aA=o
-o.aA=p}}for(t=0;t<12;++t){s=$.p.r
+p.az=o
+o.az=p}}for(t=0;t<12;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 p=s[t]
 o=p.gaT()
@@ -8028,27 +8028,27 @@ r=s.r
 q=r.length
 if(t<q){if(t>=q)return H.b(r,t)}else{p=R.da(s,$.c4,$.b2)
 o=R.da($.p,$.c4,$.b2)
-p.eA()
-p.eV()
+p.eB()
+p.eW()
 if(p.aU)p.a=p.c.gn().v($.$get$b4()).bi()
-p.fd()
-o.eA()
-o.eV()
+p.fe()
+o.eB()
+o.eW()
 if(o.aU)o.a=o.c.gn().v($.$get$b4()).bi()
-o.fd()
+o.fe()
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(o)
+n.hU(o)
 o.aB=n
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(p)
+n.hU(p)
 p.aB=n
 C.a.h($.p.r,p)
-p.aA=o
-o.aA=p}}for(t=0;t<12;++t){s=$.p.r
+p.az=o
+o.az=p}}for(t=0;t<12;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 p=s[t]
 o=p.gaT()
@@ -8062,12 +8062,12 @@ o.sbW(Y.dS(o))}},
 ef:function(a,b){var t,s
 a.scO("#000000")
 a.sbm(!0)
-a.sie(!1)
 a.sig(!1)
+a.sih(!1)
 if(b===0){a.st($.bY)
 a.saq($.p.d)
-a.sav("#ff0000")
-a.sB(a.at())
+a.sau("#ff0000")
+a.sB(a.as())
 a.gB().dy="Land of Pulse and Haze"
 a.sC($.eV)
 a.saO(29)
@@ -8093,13 +8093,13 @@ t.push(new Z.A($.H,1,!0,0,1,2,3,""))
 s.e=" All allies just settle their shit for a little while. Cool it. "
 C.a.h(a.gaC(),s)}else if(b===1){a.saq($.p.d)
 a.st($.bW)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Thought and Flow"
 a.sC($.cM)
 a.saO(10)
 a.sb7(46)
 a.sba(46)
-a.sav("#008282")
+a.sau("#008282")
 a.gm().f=2
 a.gm().c=2
 a.gm().r=4
@@ -8115,13 +8115,13 @@ a.sam("gallowsCalibrator")
 a.gm().e=""
 a.gm().d=""}else if(b===2){a.saq($.p.d)
 a.st($.cz)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Mirth and Tents"
 a.sC($.fu)
 a.saO(41)
 a.sb7(29)
 a.sba(29)
-a.sav("#631db4")
+a.sau("#631db4")
 a.gm().f=4
 a.gm().c=2
 a.gm().r=10
@@ -8142,14 +8142,14 @@ t.push(new Z.A($.H,3,!1,0,1,2,3,""))
 t.push(new Z.A($.H,3,!0,0,1,2,3,""))
 s.e=" Oh god oh no no no no no no no no. The enemies are no longer doing okay, psychologically speaking. "
 C.a.h(a.gaC(),s)}else if(b===3){a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Caves and Silence"
 a.st($.b2)
 a.sC($.fa)
 a.saO(8)
 a.sb7(43)
 a.sba(43)
-a.sav("#0021cb")
+a.sau("#0021cb")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=6
@@ -8166,12 +8166,12 @@ a.san(new B.a2(t,"Weight Lifting"))
 a.sam("centaursTesticle")}else if(b===4){a.saq($.p.e)
 a.st($.ap)
 a.sC($.eI)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Quartz and Melody"
 a.saO(40)
 a.sb7(36)
 a.sba(36)
-a.sav("#A10000")
+a.sau("#A10000")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=0
@@ -8184,8 +8184,8 @@ t=$.dt
 t.Z("Death")
 a.san(new B.a2(t,"Death"))
 t=P.H_($.p.f)
-if(t.E()>0.6){a.shn(!0)
-a.sav("#0021cb")
+if(t.E()>0.6){a.sho(!0)
+a.sau("#0021cb")
 a.scO("#313131")}if(t.E()>0.6)a.sa7(!0)
 a.sam("apocalypseArisen")
 a.saS(!0)
@@ -8202,13 +8202,13 @@ t.push(new Z.A($.H,3,!1,0,1,2,3,""))
 s.e=" The souls of the dead start hassling all enemies. "
 C.a.h(a.gaC(),s)}else if(b===5){a.saq($.p.e)
 a.st($.cy)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Little Cubes and Tea"
 a.sC($.eq)
 a.saO(7)
 a.sb7(22)
 a.sba(22)
-a.sav("#416600")
+a.sau("#416600")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=3
@@ -8225,13 +8225,13 @@ L.N1()
 a.gm().e=""
 a.gm().d=""}else if(b===6){a.saq($.p.d)
 a.st($.cp)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Sand and Zephyr"
 a.sC($.c4)
 a.saO(42)
 a.sb7(28)
 a.sba(28)
-a.sav("#a25203")
+a.sau("#a25203")
 a.gm().r=1
 a.gm().f=5
 a.gm().c=2
@@ -8252,14 +8252,14 @@ t.push(new Z.A($.H,3,!0,0,1,2,3,""))
 t.push(new Z.A($.H,3,!1,0,1,2,3,""))
 s.e=" Local animal equivalents start hassling all enemies. "
 C.a.h(a.gaC(),s)}else if(b===7){a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Maps and Treasure"
 a.st($.cd)
 a.sC($.fS)
 a.saO(14)
 a.sb7(27)
 a.sba(27)
-a.sav("#004182")
+a.sau("#004182")
 a.gm().f=1
 a.gm().c=3
 a.gm().a=[]
@@ -8281,14 +8281,14 @@ t.push(new Z.A($.aA,3,!0,0,1,2,3,""))
 t.push(new Z.A($.aA,3,!1,0,1,2,3,""))
 s.e=" All enemies start damaging themselves. It's kind of embarassing how easy this is.  "
 C.a.h(a.gaC(),s)}else if(b===8){a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Rays and Frogs"
 a.st($.aI)
 a.sC($.hw)
 a.saO(39)
 a.sb7(26)
 a.sba(26)
-a.sav("#078446")
+a.sau("#078446")
 a.gm().f=3
 a.gm().r=5
 a.gm().c=2
@@ -8303,14 +8303,14 @@ a.san(new B.a2(t,"Fashion"))
 a.sam("grimAuxiliatrix")
 a.gm().e=""
 a.gm().d=""}else if(b===9){a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Wrath and Angels"
 a.st($.cj)
 a.sC($.i8)
 a.saO(6)
 a.sb7(19)
 a.sba(19)
-a.sav("#610061")
+a.sau("#610061")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=7
@@ -8325,14 +8325,14 @@ a.san(new B.a2(t,"History"))
 a.sam("caligulasAquarium")
 a.gm().e=""
 a.gm().d=""}else if(b===10){a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Dew and Glass"
 a.st($.cq)
 a.sC($.fb)
 a.saO(19)
 a.sb7(35)
 a.sba(35)
-a.sav("#99004d")
+a.sau("#99004d")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=9
@@ -8347,14 +8347,14 @@ a.san(new B.a2(t,"Justice"))
 a.sam("cuttlefishCuller")
 a.gm().e=""
 a.gm().d=""}else if(b===11){a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Brains and Fire"
 a.st($.bo)
 a.sC($.kB)
 a.saO(2)
 a.sb7(33)
 a.sba(33)
-a.sav("#a1a100")
+a.sau("#a1a100")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=2
@@ -8380,12 +8380,12 @@ C.a.h(a.gaC(),s)}},
 fB:function(a,b){var t,s
 a.scO("#000000")
 a.sbm(!0)
-a.sie(!1)
 a.sig(!1)
+a.sih(!1)
 if(b===0){a.saq($.p.d)
 a.st($.bY)
-a.sav("#ff0000")
-a.sB(a.at())
+a.sau("#ff0000")
+a.sB(a.as())
 a.gB().dy="Land of Pulse and Haze"
 a.sC($.cM)
 a.saO(44)
@@ -8410,14 +8410,14 @@ t.push(new Z.A($.H,1,!1,0,1,2,3,""))
 t.push(new Z.A($.H,1,!0,0,1,2,3,""))
 s.e=" All allies just settle their shit for a little while. Cool it. "
 C.a.h(a.gaC(),s)}else if(b===1){a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Thought and Flow"
 a.st($.bW)
 a.sC($.eV)
 a.saO(47)
 a.sb7(46)
 a.sba(46)
-a.sav("#008282")
+a.sau("#008282")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=4
@@ -8431,14 +8431,14 @@ a.san(new B.a2(t,"Video Games"))
 a.sam("gallowsCalibrator")
 a.gm().e=""
 a.gm().d=""}else if(b===2){a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Mirth and Tents"
 a.st($.cz)
 a.sC($.i8)
 a.saO(45)
 a.sb7(29)
 a.sba(29)
-a.sav("#631db4")
+a.sau("#631db4")
 a.gm().f=4
 a.gm().c=2
 a.gm().r=10
@@ -8460,13 +8460,13 @@ t.push(new Z.A($.H,3,!0,0,1,2,3,""))
 s.e=" Oh god oh no no no no no no no no. The enemies are no longer doing okay, psychologically speaking. "
 C.a.h(a.gaC(),s)}else if(b===3){a.saq($.p.e)
 a.st($.b2)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Caves and Silence"
 a.sC($.c4)
 a.saO(53)
 a.sb7(43)
 a.sba(43)
-a.sav("#0021cb")
+a.sau("#0021cb")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=6
@@ -8483,12 +8483,12 @@ a.san(new B.a2(t,"Weight Lifting"))
 a.sam("centaursTesticle")}else if(b===4){a.saq($.p.e)
 a.st($.ap)
 a.sC($.fb)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Quartz and Melody"
 a.saO(50)
 a.sb7(36)
 a.sba(36)
-a.sav("#A10000")
+a.sau("#A10000")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=0
@@ -8515,12 +8515,12 @@ s.e=" The souls of the dead start hassling all enemies. "
 C.a.h(a.gaC(),s)}else if(b===5){a.st($.cy)
 a.saq($.p.e)
 a.sC($.kB)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Little Cubes and Tea"
 a.saO(51)
 a.sb7(22)
 a.sba(22)
-a.sav("#416600")
+a.sau("#416600")
 a.gm().f=2
 a.gm().c=2
 a.gm().r=3
@@ -8536,13 +8536,13 @@ a.sam("arsenicCatnip")
 a.gm().e=""
 a.gm().d=""}else if(b===6){a.st($.cp)
 a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Sand and Zephyr"
 a.sC($.eq)
 a.saO(254)
 a.sb7(28)
 a.sba(28)
-a.sav("#a25203")
+a.sau("#a25203")
 a.gm().r=1
 a.gm().f=0
 a.gm().c=2
@@ -8565,13 +8565,13 @@ t.push(new Z.A($.H,3,!1,0,1,2,3,""))
 s.e=" Local animal equivalents start hassling all enemies. "
 C.a.h(a.gaC(),s)}else if(b===7){a.st($.cd)
 a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Maps and Treasure"
 a.sC($.hw)
 a.saO(52)
 a.sb7(27)
 a.sba(27)
-a.sav("#004182")
+a.sau("#004182")
 a.gm().f=1
 a.gm().c=2
 a.gm().a=[]
@@ -8594,13 +8594,13 @@ t.push(new Z.A($.aA,3,!1,0,1,2,3,""))
 s.e=" All enemies start damaging themselves. It's kind of embarassing how easy this is.  "
 C.a.h(a.gaC(),s)}else if(b===8){a.st($.aI)
 a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Rays and Frogs"
 a.sC($.eI)
 a.saO(55)
 a.sb7(26)
 a.sba(26)
-a.sav("#078446")
+a.sau("#078446")
 a.gm().f=1
 a.gm().r=5
 a.gm().c=2
@@ -8616,13 +8616,13 @@ a.sam("grimAuxiliatrix")
 a.gm().e=""
 a.gm().d=""}else if(b===9){a.st($.cj)
 a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Wrath and Angels"
 a.sC($.fu)
 a.saO(56)
 a.sb7(19)
 a.sba(19)
-a.sav("#610061")
+a.sau("#610061")
 a.gm().f=1
 a.gm().c=1
 a.gm().r=7
@@ -8638,13 +8638,13 @@ a.sam("caligulasAquarium")
 a.gm().e=""
 a.gm().d=""}else if(b===10){a.saq($.p.e)
 a.st($.cq)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Dew and Glass"
 a.sC($.fS)
 a.saO(57)
 a.sb7(35)
 a.sba(35)
-a.sav("#99004d")
+a.sau("#99004d")
 a.gm().f=1
 a.gm().c=2
 a.gm().r=9
@@ -8661,13 +8661,13 @@ a.saS(!0)
 a.gm().e=""
 a.gm().d=""}else if(b===11){a.st($.bo)
 a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Brains and Fire"
 a.sC($.fa)
 a.saO(48)
 a.sb7(33)
 a.sba(33)
-a.sav("#a1a100")
+a.sau("#a1a100")
 a.gm().f=2
 a.gm().c=2
 a.gm().r=2
@@ -8699,15 +8699,15 @@ o=R.da($.p,$.c4,$.b2)
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(o)
+n.hU(o)
 o.aB=n
 s=$.p.ae
 n=new D.e_([],[],0,"","",0,0,s)
 n.r=s.ac(12)
-n.hT(p)
+n.hU(p)
 p.aB=n
-p.aA=o
-o.aA=p
+p.az=o
+o.az=p
 C.a.h($.p.r,p)}}for(t=0;t<12;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 p=s[t]
@@ -8760,7 +8760,7 @@ _.e=e
 _.f=f
 _.a=a
 _.b=b
-_.c=c},fo:function fo(){},ii:function ii(){},rG:function rG(a){this.a=a},mm:function mm(){},uF:function uF(rx,ry,x1,x2,y1,y2,L,a1,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+_.c=c},fo:function fo(){},ii:function ii(){},rG:function rG(a){this.a=a},mm:function mm(){},uF:function uF(rx,ry,x1,x2,y1,y2,L,a2,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -8768,7 +8768,7 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
-_.a1=a1
+_.a2=a2
 _.a=a
 _.b=b
 _.c=c
@@ -8916,14 +8916,14 @@ e=f+3
 if(e>=h.length){r=H.b(h,e)
 t=1
 break $async$outer}h[e]=0}++g}++i}p.clearRect(0,0,h,q.height)
-C.w.hk(p,k,0,0)
+C.w.hl(p,k,0,0)
 r=q
 t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$pR,s)},
 Vc:function(a,b,c){var t=document.createElement("div")
-O.pR(a,b,c).fH(new O.xZ(t))
+O.pR(a,b,c).fI(new O.xZ(t))
 return t},
 xZ:function xZ(a){this.a=a},
 f8:function f8(a,b,c,d,e,f,r,x,y,z){var _=this
@@ -9077,7 +9077,7 @@ _.fx=fx
 _.fy=fy
 _.go=go
 _.id=id},
-wu:function wu(rx,ry,x1,x2,y1,y2,L,a1,a0,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+wu:function wu(rx,ry,x1,x2,y1,y2,L,a2,a1,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -9085,8 +9085,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.a=a
 _.b=b
 _.c=c
@@ -9212,14 +9212,14 @@ C.a.iR(t,new E.DW())
 s=[]
 for(r=t.length,q=0;q<t.length;t.length===r||(0,H.Q)(t),++q){p=t[q]
 if(s.length===0)s.push(p)
-else{o=C.a.gax(s)
+else{o=C.a.gaw(s)
 n=J.n(o)
-m=J.aa(n.ge8(o),1)
+m=J.aa(n.ge9(o),1)
 l=J.n(p)
 k=l.gcf(p)
 if(typeof k!=="number")return H.w(k)
 if(m>=k){n=n.gcf(o)
-l=l.ge8(p)
+l=l.ge9(p)
 if(J.P(n,l))H.aG(P.ds("Invalid range: "+H.h(n)+"-"+H.h(l)))
 m=s.length
 k=m-1
@@ -9344,7 +9344,7 @@ _.fx=fx
 _.fy=fy
 _.go=go
 _.id=id},
-xD:function xD(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+xD:function xD(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -9352,8 +9352,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -9500,7 +9500,7 @@ pZ:function pZ(a){this.a=a},
 h0:function h0(a,b){this.a=a
 this.b=b},
 DZ:function(a,b){var t=$.$get$LC().bz(new A.iU(a,0))
-t=t.ga2(t)
+t=t.ga3(t)
 return new D.h0(t,b==null?"["+V.HE(a)+"] expected":b)},
 We:function(){var t,s
 t=new Y.fH(P.an([new L.db(new D.CW(),new L.dn(P.an([new N.ff("input expected"),D.dQ("-",null)],!1,null)).bQ(new N.ff("input expected"))),new L.db(new D.CX(),new N.ff("input expected"))],!1,null))
@@ -9515,26 +9515,26 @@ pt:function pt(a){this.a=a},
 w_:function w_(){},
 Ih:function(a,b,c){var t,s,r
 if(a.length===0)return H.a([],[D.f_])
-if(!C.a.gah(a).jU(c===3)&&!b.ga6().cy)return H.a([],[D.f_])
+if(!C.a.gah(a).jU(c===3)&&!b.ga_().cy)return H.a([],[D.f_])
 if(c===0){t=new D.jO(a,null)
-t.f7()
+t.f8()
 return H.a([t],[D.f_])}if(c===1){t=new D.jO(a,null)
-t.f7()
+t.f8()
 s=new D.l9(a,null)
-s.f7()
+s.f8()
 return H.a([t,s],[D.f_])}if(typeof c!=="number")return c.bk()
 if(c>1){t=new D.jO(a,null)
-t.f7()
+t.f8()
 s=new D.l9(a,null)
-s.f7()
+s.f8()
 r=new D.n3(a,null)
-r.f7()
+r.f8()
 return H.a([t,s,r],[D.f_])}t=new D.jO(a,null)
-t.f7()
+t.f8()
 s=new D.l9(a,null)
-s.f7()
+s.f8()
 r=new D.n3(a,null)
-r.f7()
+r.f8()
 return H.a([t,s,r],[D.f_])},
 f_:function f_(){},
 jO:function jO(a,b){this.a=a
@@ -9601,7 +9601,7 @@ if(a==null){s=new A.ca(null,null)
 s.a=C.A
 t.x=s}else s=a
 t.r=s.ac(12)
-t.hS(b)
+t.hT(b)
 return t},
 HA:function(a,b){var t,s
 t=new D.e_([],[],0,"","",0,0,a)
@@ -9609,7 +9609,7 @@ if(a==null){s=new A.ca(null,null)
 s.a=C.A
 t.x=s}else s=a
 t.r=s.ac(12)
-t.hT(b)
+t.hU(b)
 return t},
 WV:function(a){var t=[["x","%"],["X","%"],["s","z"],["w","vv"],["w","v"],["v","w"],["!","~"],["N","|\\/"],["\\b[a-z]*\\b","\u79c1"]]
 t.push(["M","|\\/|"])
@@ -9751,23 +9751,23 @@ q=R.da($.p,$.c4,$.b2)
 s=$.p.ae
 p=new D.e_([],[],0,"","",0,0,s)
 p.r=s.ac(12)
-p.hS(q)
+p.hT(q)
 q.aB=p
 s=$.p.ae
 p=new D.e_([],[],0,"","",0,0,s)
 p.r=s.ac(12)
-p.hS(r)
+p.hT(r)
 r.aB=p
-r.aA=q
-q.aA=r
+r.az=q
+q.az=r
 C.a.h($.p.r,r)}}C.a.su($.p.r,b)
 for(t=0;t<b;++t){s=$.p.r
 if(t>=s.length)return H.b(s,t)
 r=s[t]
 q=r.gaT()
 r.sb9([])
-q.ht(R.eM($.p.r))
-r.ht($.p.r)
+q.hu(R.eM($.p.r))
+r.hu($.p.r)
 a.$2(r,t)
 a.$2(q,t)
 r.sbW(Y.dS(r))
@@ -9811,7 +9811,7 @@ J.b5(m.I(q),20)
 J.b5(m.I(o),20)
 for(t=r.gb9(),s=t.length,i=0;i<t.length;t.length===s||(0,H.Q)(t),++i){h=t[i]
 g=J.n(h)
-if(J.af(g.ga2(h),0))g.sa2(h,0)}J.b5(o.I(m),20)
+if(J.af(g.ga3(h),0))g.sa3(h,0)}J.b5(o.I(m),20)
 J.b5(o.I(r),20)
 J.b5(o.I(p),-20)
 J.b5(o.I(j),-20)
@@ -9820,9 +9820,9 @@ C.a.su($.p.r,9)},
 Uy:function(a,b){var t,s
 a.sbm(!0)
 a.scO("#000000")
-a.sie(!1)
 a.sig(!1)
-if(b===0){a.sav("#A10000")
+a.sih(!1)
+if(b===0){a.sau("#A10000")
 a.sC($.c4)
 a.saS(!0)
 a.st($.cy)
@@ -9850,10 +9850,10 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d="["
 a.gm().e="]"
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Mines and Smoke"
 a.gB().fy=new Q.cU("Terpischore",null,null,null)
-a.saq($.p.e)}else if(b===1){a.sav("#416600")
+a.saq($.p.e)}else if(b===1){a.sau("#416600")
 a.sC($.cM)
 a.saS(!0)
 a.st($.cp)
@@ -9877,10 +9877,10 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d=">{"
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Problems and Wind"
 a.gB().fy=new Q.cU("Aeolus",null,null,null)
-a.saq($.p.e)}else if(b===2){a.sav("#a25203")
+a.saq($.p.e)}else if(b===2){a.sau("#a25203")
 a.sC($.eI)
 a.saS(!0)
 a.st($.bo)
@@ -9903,16 +9903,16 @@ s=$.dt
 s.Z("Surviving the PLOTS")
 a.san(new B.a2(s,"Surviving the PLOTS"))
 a.gm().f=0
-a.sir(!0)
+a.sis(!0)
 a.gm().c=1
 a.gm().a=[]
 a.gm().b=[["i","1"],["o","0"]]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Poison and Paranoia"
 a.gB().fy=new Q.cU("Tartarus",null,null,null)
-a.saq($.p.e)}else if(b===3){a.sav("#008282")
+a.saq($.p.e)}else if(b===3){a.sau("#008282")
 a.sC($.hw)
 a.saS(!0)
 a.st($.cz)
@@ -9940,10 +9940,10 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d="=|}"
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Walls and Strife"
 a.gB().fy=new Q.cU("Bacchus",null,null,null)
-a.saq($.p.e)}else if(b===4){a.sav("#a1a100")
+a.saq($.p.e)}else if(b===4){a.sau("#a1a100")
 a.sC($.fu)
 a.saS(!0)
 a.st($.ap)
@@ -9971,10 +9971,10 @@ a.gm().a=[]
 a.gm().b=[["s","z"],["c","z"]]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Clocks and Crime"
 a.gB().fy=new Q.cU("Chronos",null,null,null)
-a.saq($.p.d)}else if(b===5){a.sav("#078446")
+a.saq($.p.d)}else if(b===5){a.sau("#078446")
 a.sC($.fb)
 a.saS(!0)
 a.st($.bW)
@@ -10002,10 +10002,10 @@ a.gm().a=[]
 a.gm().b=[["i","1"],["l","1"],["e","3"],["one","1"]]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Bullshit and More Bullshit"
 a.gB().fy=new Q.cU("Athena",null,null,null)
-a.saq($.p.d)}else if(b===6){a.sav("#0021cb")
+a.saq($.p.d)}else if(b===6){a.sau("#0021cb")
 a.sC($.fa)
 a.saS(!0)
 a.st($.cj)
@@ -10029,10 +10029,10 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d="|"
 a.gm().e="|"
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Titanium and Dreams"
 a.gB().fy=new Q.cU("Hyperion",null,null,null)
-a.saq($.p.d)}else if(b===7){a.sav("#631db4")
+a.saq($.p.d)}else if(b===7){a.sau("#631db4")
 a.sC($.eV)
 a.saS(!0)
 a.st($.aI)
@@ -10056,10 +10056,10 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Drought and Frogs"
 a.gB().fy=new Q.cU("Echidna",null,null,null)
-a.saq($.p.d)}else if(b===8){a.sav("#008282")
+a.saq($.p.d)}else if(b===8){a.sau("#008282")
 a.sC($.cM)
 a.saS(!0)
 a.sbL(!0)
@@ -10084,25 +10084,25 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d="```"
 a.gm().e="```"
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of ??? and ???"
 a.gB().fy=new Q.cU("???",null,null,null)
 a.saq($.p.d)}},
 Uz:function(a,b){var t,s
 t=$.p
-a.sie(!1)
 a.sig(!1)
+a.sih(!1)
 if(b===0){a.sbm(!1)
 a.scO("#381e0a")
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.sC($.fa)
 a.saS(!0)
 a.st($.ap)
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Vader","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Vader",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.saO(51)
 a.sam("insipidTestimony")
 s=$.dA
@@ -10117,11 +10117,11 @@ a.gm().a=[]
 a.gm().b=[["good","great"],["lol","lel"],["nope","nah"],["asshole","hooker"]]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Cold and Pendulums"
 a.gB().fy=new Q.cU("Hephaestus",null,null,null)
 a.saq($.p.e)}else if(b===1){a.sbm(!1)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.scO("#e0be78")
 a.sC($.fb)
 a.saS(!0)
@@ -10133,8 +10133,8 @@ a.sam("ViolinKid")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Violin","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Violin",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 s=$.f6
 s.Z("Coding")
 a.saj(new B.a2(s,"Coding"))
@@ -10147,11 +10147,11 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of  Harmony and Paranoia"
 a.gB().fy=new Q.cU("Echidna",null,null,null)
 a.saq($.p.d)}else if(b===2){a.sbm(!1)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.scO("#ffffff")
 a.sC($.fS)
 a.saS(!0)
@@ -10163,8 +10163,8 @@ a.sam("nuclearChronosphere")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Zebra","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Zebra",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 s=$.dM
 s.Z("Knowledge")
 a.saj(new B.a2(s,"Knowledge"))
@@ -10177,11 +10177,11 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Stars and Castles"
 a.gB().fy=new Q.nB("Abraxas",null,null,null)
 a.saq($.p.d)}else if(b===3){a.sbm(!1)
-a.sav("#ff0000")
+a.sau("#ff0000")
 a.scO("#b55c0d")
 a.sC($.fb)
 a.saS(!0)
@@ -10193,8 +10193,8 @@ a.sam("collectiveAspirant")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Nemetona","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Nemetona",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 s=$.ki
 s.Z("Swimming")
 a.saj(new B.a2(s,"Swimming"))
@@ -10207,40 +10207,40 @@ a.gm().a=[]
 a.gm().b=[["good","fantastic"],["lol","hee"],["nope","no thank you"],["asshole","jerk"]]
 a.gm().d=""
 a.gm().e="~\u2122"
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Rainbows and Oil"
 a.gB().fy=new Q.e7("Yaldabaoth",null,null,null)
 a.saq($.p.e)}},
 Uv:function(a,b){var t,s
 t=$.p
-a.sie(!1)
 a.sig(!1)
+a.sih(!1)
 if(b===0){a.dI("b=%C2%80%00%C3%BF%C3%A6%C3%BE9%00%05%1F%1F%16&s=,,Dungeon Mastering,Video Games,gorristerChampion&x=AQ==")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"David Duchovny","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("David Duchovny",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Paths and Tea"
 a.gB().fy=new Q.cU("Odin",null,null,null)}else if(b===1){a.dI("b=%00%C2%80%C3%BF%19%C3%BEc%00%01%08%089&s=,,Social Justice,Writing,grapefruitTwostep&x=AQ==")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Gillian Anderson","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Gillian Anderson",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
-a.sB(a.at())
+a.sB(a.as())
 a.gm().e=""
 a.gB().fy=new Q.cU("Ares",null,null,null)}else if(b===2){a.dI("b=%00%00%00Q%C3%BE%C3%93%00G''C&s=,,Knowledge,Fan Fiction,pleasantPigeon&x=AQ==")
 a.gm().f=$.ft
@@ -10249,52 +10249,52 @@ a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())}else if(b===3){a.dI("b=%3F%19%04%20%C3%BE%25%00B%14%14F&s=,,Drawing,Death,vengefulKappa&x=AQ==")
+a.sB(a.as())}else if(b===3){a.dI("b=%3F%19%04%20%C3%BE%25%00B%14%14F&s=,,Drawing,Death,vengefulKappa&x=AQ==")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Scandalous Fanart","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Scandalous Fanart",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
-a.sB(a.at())
+a.sB(a.as())
 a.gm().e=""
 a.gB().fy=new Q.cU("Hades",null,null,null)}else if(b===4){a.dI("b=G2%00%C2%85%C3%BE%0B%00T%0A%0A%40&s=,,Puns,Psychology,machiosAvatar&x=AQ==")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Earthbound","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Earthbound",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
-a.sB(a.at())
+a.sB(a.as())
 a.gm().e=""}else if(b===5){a.dI("b=8%22%07J%C3%BEM%00G%13%13%1E&s=,,Unicycling,Phylosophy,unicycleKing&x=AQ==")
 a.sdv(!1)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Zardoz","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Zardoz",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d=""
-a.sB(a.at())
+a.sB(a.as())
 a.gm().e=""}},
 Uw:function(a,b){var t,s,r,q,p,o
 t=$.p
-a.sie(!1)
 a.sig(!1)
+a.sih(!1)
 if(b===0){a.dI("b=%00%00%00%17%C3%B9f%10J%02%02%25&s=,,Mysteries,Detectives,abroachedPervestigator&x=AQ==")
 a.sdv(!1)
 C.a.su(a.gaC(),0)
-a.sh3(!1)
+a.sh4(!1)
 s=$.oX
 r=$.T
 q=$.bQ
@@ -10304,8 +10304,8 @@ p.e.h(0,s)
 a.sc_(p)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Owldad","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Owldad",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
@@ -10313,7 +10313,7 @@ a.gm().b=[["o","O-"]]
 a.gm().d="-|"
 a.gm().e="|-"
 a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Caves and Rain"
 a.gB().fy=new Q.cU("Synesis",null,null,null)
 p=a.gB()
@@ -10322,7 +10322,7 @@ $.$get$cJ().push(s)
 p.fx=s}else if(b===1){a.dI("b=%00%00%00%C2%BA%C3%BE%C2%85%10Z%24%24(&s=,,Knitting,Cults,angelicThroes&x=AQ==")
 a.sdv(!1)
 C.a.su(a.gaC(),0)
-a.sh3(!1)
+a.sh4(!1)
 s=$.oX
 r=$.T
 q=$.aK
@@ -10332,8 +10332,8 @@ p.e.h(0,s)
 a.sc_(p)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Sheepmom","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Sheepmom",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.pF
 a.gm().c=$.V3
 a.gm().a=[]
@@ -10341,7 +10341,7 @@ a.gm().b=[["a","/\\"],["t","+"]]
 a.gm().d=""
 a.saq($.p.d)
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Cherished Hymns and Reason"
 a.gB().fy=new Q.cU("Ecclesia",null,null,null)
 p=a.gB()
@@ -10350,7 +10350,7 @@ $.$get$cJ().push(s)
 p.fx=s}else if(b===2){a.dI("b=%00%00%00!%C3%B7%C2%A5%10%05%3B%3B%3C&s=,,Programming,Online Trolling,perspicaciousAlieniloquy&x=AQ==")
 a.sdv(!1)
 C.a.su(a.gaC(),0)
-a.sh3(!1)
+a.sh4(!1)
 s=$.vm
 r=$.T
 q=$.bp
@@ -10360,8 +10360,8 @@ p.e.h(0,s)
 a.sc_(p)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Crowdad","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Crowdad",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.pF
 a.gm().c=$.Kn
 a.gm().a=[]
@@ -10369,7 +10369,7 @@ a.gm().b=[["o","0"],["i","1"],["l","1"]]
 a.gm().d=""
 a.gm().e=""
 a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Mountains and Robots"
 a.gB().fy=new Q.cU("Patrikos",null,null,null)
 p=a.gB()
@@ -10378,7 +10378,7 @@ $.$get$cJ().push(s)
 p.fx=s}else if(b===3){a.dI("b=%00%00%00h%C3%B0(%10%1055.&s=,,Literature,Cooking,transientTechnicality&x=AQ==")
 a.sdv(!1)
 C.a.su(a.gaC(),0)
-a.sh3(!1)
+a.sh4(!1)
 s=$.Fr
 r=$.T
 q=$.bQ
@@ -10396,8 +10396,8 @@ o.e=" Uses dark knowledge as a defense against mind control. "
 C.a.h(a.gaC(),o)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Batdad","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Batdad",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.pF
 a.gm().c=$.Kn
 a.gm().a=[["o","O"]]
@@ -10405,7 +10405,7 @@ a.gm().b=[["v",">"]]
 a.gm().d=""
 a.gm().e=""
 a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Echoes and Haze"
 a.gB().fy=new Q.cU("Sige",null,null,null)
 p=a.gB()
@@ -10413,7 +10413,7 @@ s=new S.ce("Raven","caw",null,null)
 $.$get$cJ().push(s)
 p.fx=s}else if(b===4){a.dI("b=%00%00%009%C3%B2T%10G((%20&s=,,Fighting,Survival,persistentPaletot&x=AQ==")
 a.sdv(!1)
-a.sh3(!1)
+a.sh4(!1)
 C.a.su(a.gaC(),0)
 s=$.Fp
 r=$.T
@@ -10424,8 +10424,8 @@ p.e.h(0,s)
 a.sc_(p)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Cricketdad","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Cricketdad",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 o=Z.K("Pyrokinesis",1,null,"")
@@ -10437,7 +10437,7 @@ a.gm().b=[["w","||"],["y","|"],["e","[["]]
 a.gm().d=""
 a.gm().e=""
 a.saq($.p.d)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Construction and Fistfights"
 a.gB().fy=new Q.cU("Acinetos",null,null,null)
 p=a.gB()
@@ -10445,7 +10445,7 @@ s=new S.ce("Magpie","screech",null,null)
 $.$get$cJ().push(s)
 p.fx=s}else if(b===5){a.dI("b=%00%00%00%03%C3%B3%7D%10%13%11%11%0E&s=,,Undead,Archaeology,palingeneticMortician&x=AQ==")
 a.sdv(!1)
-a.sh3(!1)
+a.sh4(!1)
 C.a.su(a.gaC(),0)
 o=Z.K("Ghost Communing",1,null,"")
 s=o.r
@@ -10455,8 +10455,8 @@ o.e=" The souls of the dead start hassling all enemies. "
 C.a.h(a.gaC(),o)
 s=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Vulturemom","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Vulturemom",t)
-a.sa4(s)
-a.gc0().bC(a.ga4())
+a.sa5(s)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
@@ -10471,7 +10471,7 @@ a.gm().b=[["o","-0-"]]
 a.gm().d="--{{:} "
 a.gm().e=""
 a.saq($.p.e)
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Slums and Resonance"
 a.gB().fy=new Q.cU("Sermo",null,null,null)
 p=a.gB()
@@ -10479,7 +10479,7 @@ s=new S.ce("Vultures","sqwuak",null,null)
 $.$get$cJ().push(s)
 p.fx=s}else if(b===6){a.dI("b=%00%00%00%C2%AB%C3%BAU%10%03%13%15%06&s=,,Murder,Status,adoniseAbdicator&x=AQ==")
 a.sdv(!1)
-a.sh3(!1)
+a.sh4(!1)
 C.a.su(a.gaC(),0)
 s=$.vv
 r=$.T
@@ -10490,15 +10490,15 @@ p.e.h(0,s)
 a.sc_(p)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Eeldad","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Eeldad",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.ft
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[]
 a.gm().d="/2/"
 a.gm().e="/3/"
-a.sB(a.at())
+a.sB(a.as())
 a.saq($.p.e)
 a.gB().dy="Land of Brass and Despair"
 a.gB().fy=new Q.cU("Vita",null,null,null)
@@ -10508,7 +10508,7 @@ $.$get$cJ().push(s)
 p.fx=s}else if(b===7){a.dI("b=%00%00%00%C2%90%C3%B6f%10V%3D%3D%04&s=,,Revolution,Equality,malcontentMarionette&x=AQ==")
 a.sdv(!1)
 C.a.su(a.gaC(),0)
-a.sh3(!1)
+a.sh4(!1)
 s=$.kl
 r=$.T
 q=$.cs
@@ -10519,15 +10519,15 @@ a.sc_(p)
 a.saq($.p.d)
 p=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,t,"Tarantulamom","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D("Tarantulamom",t)
-a.sa4(p)
-a.gc0().bC(a.ga4())
+a.sa5(p)
+a.gc0().bC(a.ga5())
 a.gm().f=$.V2
 a.gm().c=$.eG
 a.gm().a=[]
 a.gm().b=[["T","7"],["B","8"],["G","9"],["I","1"]]
 a.gm().d=""
 a.gm().e=""
-a.sB(a.at())
+a.sB(a.as())
 a.gB().dy="Land of Discord and Frogs"
 a.gB().fy=new Q.cU("Matrikos",null,null,null)
 p=a.gB()
@@ -10915,53 +10915,53 @@ e7=[E.cr]
 $.iA=H.a([n,l,k,j,h,g,i,f,e,c,b,d,a,a0,a2,a1,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b9,b8,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6],e7)
 e6=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Frog","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e6.D("Frog",null)
-e6.a0=!0
+e6.a1=!0
 e6.a$.S(P.U([$.aB,100,$.l,10],t,m))
 e6.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e5=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Lizard","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e5.D("Lizard",null)
 e5.a$.S(P.U([$.l,20],t,m))
-e5.a0=!0
+e5.a1=!0
 e5.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e4=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Salamander","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e4.D("Salamander",null)
-e4.a0=!0
+e4.a1=!0
 e4.a$.S(P.U([$.a7,500,$.X,500,$.l,20],t,m))
 e4.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e3=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Iguana","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e3.D("Iguana",null)
-e3.a0=!0
+e3.a1=!0
 e3.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e2=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Crocodile","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e2.D("Crocodile",null)
-e2.a0=!0
+e2.a1=!0
 e2.a$.S(P.U([$.l,50],t,m))
 e2.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e1=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Turtle","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e1.D("Turtle",null)
-e1.a0=!0
+e1.a1=!0
 e1.a$.S(P.U([$.aB,-100,$.l,20],t,m))
 e1.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 e0=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Alligator","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 e0.D("Alligator",null)
 e0.a$.S(P.U([$.a7,500,$.X,500,$.aB,100,$.l,50],t,m))
-e0.a0=!0
+e0.a1=!0
 e0.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 d9=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Snake","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 d9.D("Snake",null)
 d9.y1=!0
 d9.a$.S(P.U([$.a7,500,$.X,500,$.aB,100,$.l,10],t,m))
-d9.a0=!0
+d9.a1=!0
 d9.x1="providessss the requisssssite amount of gigglessssssnort hideytalk to be jusssssst barely helpful. AND the underlings seem to go after it first! Bonus! "
 d8=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Axolotl","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 d8.D("Axolotl",null)
 d8.a$.S(P.U([$.l,20,$.a7,50,$.X,50],t,m))
-d8.a0=!0
+d8.a1=!0
 d8.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 d7=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"Newt","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
 d7.D("Newt",null)
 d7.a$.S(P.U([$.l,20],t,m))
-d7.a0=!0
+d7.a1=!0
 d7.x1="provides the requisite amount of gigglesnort  hideytalk to be fairly useful, AND the underlings seem to go after it first! Bonus! "
 $.G5=H.a([e6,e5,e4,e3,e2,e1,e0,d9,d8,d7],e7)
 d7=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,null,"First Guardian","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],p),null,null,!1,H.a([],o),"",null,null)
@@ -11503,14 +11503,14 @@ _.r2=r2
 _.rx=rx
 _.ry=ry
 _.a$=a$},
-M:function M(x1,x2,y1,y2,L,a1,a0,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
+M:function M(x1,x2,y1,y2,L,a2,a1,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
 _.x1=x1
 _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.a=a
 _.b=b
 _.c=c
@@ -11572,7 +11572,7 @@ _.Q=Q
 _.ch=ch},
 FK:function(a,b){return new F.kr(b,a)},
 ao:function(a){if(a===C.S){window
-return C.D.gee(C.D)}if(a===C.T){window
+return C.D.gef(C.D)}if(a===C.T){window
 return C.D.gE7()}if(a===C.U){window
 return C.D.gBq()}return P.WG()},
 kq:function kq(a,b){this.a=a
@@ -11584,14 +11584,14 @@ OV:function(a,b,c,d){var t,s,r,q
 t=new B.eB(new P.cN(""),0,0)
 t.al(a,8)
 s=J.hK(c)
-for(r=s.length,q=0;q<r;++q)t.h0(s[q])
-return t.ho(b)},
+for(r=s.length,q=0;q<r;++q)t.h1(s[q])
+return t.hp(b)},
 OU:function(a,b,c,d){var t,s,r,q,p
 t=H.ci(c)
 s=new Uint8Array(t)
 r=new B.f2(null,0)
 r.a=J.hJ(a,b)
-for(q=0;q<c;++q){p=r.hV()
+for(q=0;q<c;++q){p=r.hW()
 if(q>=t)return H.b(s,q)
 s[q]=p}return s},
 OT:function(a,b,c,d){var t,s,r,q,p,o,n,m
@@ -11607,8 +11607,8 @@ while(!0){n=p+o
 if(n<s){m=o+p
 if(m>=s)return H.b(q,m)
 m=q[m]===a}else m=!1
-if(!m)break;++o}t.h0(o-1)
-t.al(a,r)}return t.ho(b)},
+if(!m)break;++o}t.h1(o-1)
+t.al(a,r)}return t.hp(b)},
 OS:function(a,b,c,d){var t,s,r,q,p,o,n,m,l
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -11616,7 +11616,7 @@ r=d.y
 q=C.m.bU(Math.log(r.gu(r))/0.6931471805599453)+1
 p=new B.f2(null,0)
 p.a=J.hJ(a,b)
-for(o=0;o<c;){n=p.hV()+1
+for(o=0;o<c;){n=p.hW()+1
 m=p.bN(q)
 for(l=0;l<n;++l){r=o+l
 if(r<0||r>=t)return H.b(s,r)
@@ -11632,15 +11632,15 @@ while(!0){o=q+p
 if(o<r){n=p+q
 if(n>=r)return H.b(s,n)
 n=s[n]===a}else n=!1
-if(!n)break;++p}t.h0(p-1)
-t.h0(a)}return t.ho(b)},
+if(!n)break;++p}t.h1(p-1)
+t.h1(a)}return t.hp(b)},
 OQ:function(a,b,c,d){var t,s,r,q,p,o,n,m
 t=H.ci(c)
 s=new Uint8Array(t)
 r=new B.f2(null,0)
 r.a=J.hJ(a,b)
-for(q=0;q<c;){p=r.hV()+1
-o=r.hV()
+for(q=0;q<c;){p=r.hW()+1
+o=r.hW()
 for(n=0;n<p;++n){m=q+n
 if(m<0||m>=t)return H.b(s,m)
 s[m]=o}q+=p}return s}},Q={wR:function wR(a){this.a=a},ht:function ht(){},x4:function x4(a){this.a=a},x5:function x5(a){this.a=a},x6:function x6(a,b,c){this.a=a
@@ -11722,7 +11722,7 @@ _.y=y
 _.z=z
 _.Q=Q
 _.ch=ch},
-Ad:function Ad(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+Ad:function Ad(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -11730,8 +11730,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -11772,12 +11772,12 @@ t=J.n(a)
 s=t.ga9(a)
 r=a.gC()
 q=a.gt()
-p=a.ga4()
+p=a.ga5()
 o=a.gaq()
 n=a.gaS()
 m=[Q.O]
 l=new Q.O(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],m),!1,!1,[],!1,null,r,null,0,0,!1,null,null,null,q,null,null,null,null,null,p,!1,null,-1,!1,null,null,null,!0,!1,"#ff0000",null,null,null,null,n,!0,!1,!1,!1,0,0,0,!1,0,!1,!1,!1,null,C.e,s,"","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],m),"",null,null)
-l.a$=l.h2()
+l.a$=l.h3()
 m=$.eS+1
 $.eS=m
 l.k4=m
@@ -11787,38 +11787,38 @@ s=P.a5(null,null,null,D.bg)
 n=new A.hN(l,null,null,!1,!1,!1,s,0,0,!0,!1)
 s.V(0,m)
 n.e=!0
-l.a$.eq(n,null,null)
+l.a$.er(n,null,null)
 l.bA=o
 if(o!=null)l.cs()
 l.d="player_"+H.h(l.k4)
 s=new A.ib(null,l)
 s.a=H.a([],[A.at])
 l.y2=s
-l.bH=a.ghn()
-l.fb=a.gbZ()
+l.bH=a.gho()
+l.fc=a.gbZ()
 l.k3=a.gjJ()
 l.r1=a.gle()
-l.cx=a.ghx()
+l.cx=a.ghy()
 l.dx=a.gc7()
 l.c=t.ga9(a)
 l.k4=t.gbe(a)
-l.eT=a.gbW()
-l.f9=a.gcQ()
-l.c6=a.ghr()
+l.eU=a.gbW()
+l.fa=a.gcQ()
+l.c6=a.ghs()
 a.gyf()
 l.k9=!1
-l.bS=a.geK()
-l.ev=a.ghd()
+l.bS=a.geL()
+l.ew=a.ghe()
 l.bD=a.gaI()
-l.e_=a.gfI()
+l.e_=a.gfJ()
 l.cN=a.gbM()
-l.eh=a.gir()
+l.ei=a.gis()
 l.db=a.ga7()
 l.aX=a.gbm()
 l.bp=a.gbf()
 l.cY=a.gbL()
 l.c1=a.gaO()
-l.aN=a.gav()
+l.aN=a.gau()
 l.bJ=a.gcO()
 l.aM=a.gam()
 l.dn=a.gb7()
@@ -11859,45 +11859,45 @@ s=o.r
 s.push(new Z.A($.l,3,!0,0,1,2,3,""))
 s.push(new Z.A($.l,0,!1,0,1,2,3,""))
 o.e=" They are stubborn throes. "
-C.a.h(t.fy,o)}if(t.bp===!0){o=$.p.x.hg(a.gn(),H.a([a],[Q.O]),3)
+C.a.h(t.fy,o)}if(t.bp===!0){o=$.p.x.hh(a.gn(),H.a([a],[Q.O]),3)
 C.a.h(t.fy,o)}s=$.l
 s=t.a$.X(s)
-if(s>50){o=$.p.x.hg(a.gn(),H.a([a],[Q.O]),2)
-C.a.h(t.fy,o)}o=$.p.x.hg(a.gn(),H.a([a],[Q.O]),1)
+if(s>50){o=$.p.x.hh(a.gn(),H.a([a],[Q.O]),2)
+C.a.h(t.fy,o)}o=$.p.x.hh(a.gn(),H.a([a],[Q.O]),1)
 C.a.h(t.fy,o)
 return t},
-O:function O(x1,x2,y1,y2,L,a1,a0,ag,Y,au,ae,b4,aU,b5,ct,aL,ef,cW,c6,bS,dm,bH,bI,as,aA,j9,ja,k9,ev,hM,hN,ab,bl,bA,bt,bu,aM,bT,h5,eT,f9,bp,e_,c1,bJ,eg,aX,aN,dn,cX,h6,aB,fa,il,cY,cN,eh,h7,fb,bD,fc,h8,nz,jb,li,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
+O:function O(x1,x2,y1,y2,L,a2,a1,ag,Y,at,ae,b4,aU,b5,ct,aL,eg,cW,c6,bS,dm,bH,bI,aA,az,j9,ja,k9,ew,hN,hO,ab,bl,bA,bt,bu,aM,bT,h6,eU,fa,bp,e_,c1,bJ,eh,aX,aN,dn,cX,h7,aB,fb,im,cY,cN,ei,h8,fc,bD,fd,h9,nz,jb,li,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,a$){var _=this
 _.x1=x1
 _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.ae=ae
 _.b4=b4
 _.aU=aU
 _.b5=b5
 _.ct=ct
 _.aL=aL
-_.ef=ef
+_.eg=eg
 _.cW=cW
 _.c6=c6
 _.bS=bS
 _.dm=dm
 _.bH=bH
 _.bI=bI
-_.as=as
 _.aA=aA
+_.az=az
 _.j9=j9
 _.ja=ja
 _.k9=k9
-_.ev=ev
-_.hM=hM
+_.ew=ew
 _.hN=hN
+_.hO=hO
 _.ab=ab
 _.bl=bl
 _.bA=bA
@@ -11905,30 +11905,30 @@ _.bt=bt
 _.bu=bu
 _.aM=aM
 _.bT=bT
-_.h5=h5
-_.eT=eT
-_.f9=f9
+_.h6=h6
+_.eU=eU
+_.fa=fa
 _.bp=bp
 _.e_=e_
 _.c1=c1
 _.bJ=bJ
-_.eg=eg
+_.eh=eh
 _.aX=aX
 _.aN=aN
 _.dn=dn
 _.cX=cX
-_.h6=h6
+_.h7=h7
 _.aB=aB
-_.fa=fa
-_.il=il
+_.fb=fb
+_.im=im
 _.cY=cY
 _.cN=cN
-_.eh=eh
-_.h7=h7
-_.fb=fb
-_.bD=bD
-_.fc=fc
+_.ei=ei
 _.h8=h8
+_.fc=fc
+_.bD=bD
+_.fd=fd
+_.h9=h9
 _.nz=nz
 _.jb=jb
 _.li=li
@@ -11971,15 +11971,15 @@ ha:function(a,b,c,d,e){var t,s,r,q,p,o,n,m,l,k
 if(c){t=Q.Y(d,null,e)
 s=a.gu(a)
 C.a.su(t.b,s)}else t=Q.Y(d,a.gu(a),e)
-if(H.hD(a,"$isv",[e],"$asv"))if(H.hD(a,"$isd7",[e],"$asd7"))for(s=J.bj(a.gix()),r=0;s.M();){q=s.ga_()
+if(H.hD(a,"$isv",[e],"$asv"))if(H.hD(a,"$isd7",[e],"$asd7"))for(s=J.bj(a.giy()),r=0;s.M();){q=s.ga0()
 p=t.b
 o=p.length
 if(r>=o)return H.b(p,r)
-p[r]=q;++r}else for(s=a.gaw(a),p=[H.L(t,0)],r=0;s.M();){n=s.ga_()
+p[r]=q;++r}else for(s=a.gav(a),p=[H.L(t,0)],r=0;s.M();){n=s.ga0()
 o=t.b
 m=t.q(n,1)
 if(r>=o.length)return H.b(o,r)
-o[r]=new Q.m(n,m,p);++r}else for(s=a.gaw(a),p=[e],o=[H.L(t,0)];s.M();){l=s.ga_()
+o[r]=new Q.m(n,m,p);++r}else for(s=a.gav(a),p=[e],o=[H.L(t,0)];s.M();){l=s.ga0()
 if(H.D6(l,e)){m=t.b
 k=t.q(l,1)
 if(0>=m.length)return H.b(m,0)
@@ -11991,13 +11991,13 @@ GR:function(a,b,c,d){var t,s,r,q,p,o,n
 t=Q.Y(c,null,d)
 s=a.gu(a)
 C.a.su(t.b,s)
-for(s=a.gcL(a),s=s.gaw(s),r=[d],q=0;s.M();){p=s.ga_()
+for(s=a.gcL(a),s=s.gav(s),r=[d],q=0;s.M();){p=s.ga0()
 o=a.p(0,p)
 n=t.b
 if(q>=n.length)return H.b(n,q)
 n[q]=new Q.m(p,o,r);++q}return t},
-Al:function(a,b,c){return new Q.qr(J.l8(a.gix(),new Q.Am(c,b)),null,[c])},
-ju:function(a,b,c,d){return new Q.qq(J.rb(a.gix(),new Q.Ak(c,d,b)),null,[c,d])},
+Al:function(a,b,c){return new Q.qr(J.l8(a.giy(),new Q.Am(c,b)),null,[c])},
+ju:function(a,b,c,d){return new Q.qq(J.rb(a.giy(),new Q.Ak(c,d,b)),null,[c,d])},
 Vp:function(a,b,c){return new Q.mo(J.l8(a,new Q.zu(b,c)).dd(0,new Q.zv(b,c)),null,[b,c])},
 d7:function d7(){},
 kN:function kN(b,a,$ti){this.b=b
@@ -12075,7 +12075,7 @@ _.f=f
 _.a=a
 _.b=b
 _.c=c},
-ws:function ws(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+ws:function ws(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -12083,8 +12083,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -12152,7 +12152,7 @@ _.go=go
 _.id=id},
 KM:function(a,b){var t,s,r,q
 for(t=a.length,s=0,r=0;r<a.length;a.length===t||(0,H.Q)(a),++r){q=a[r].glB()
-q=J.dT(b.hq(0,q,!1),q.length)
+q=J.dT(b.hr(0,q,!1),q.length)
 if(typeof q!=="number")return H.w(q)
 s+=q}return s},
 KN:function(a,b){var t,s,r,q
@@ -12342,7 +12342,7 @@ if(m<q){l=n+o
 if(l>=q)return H.b(r,l)
 l=r[l]===a&&n<s}else l=!1
 if(!l)break;++n}t.al(n-1,p)
-t.al(a,8)}return t.ho(b)},
+t.al(a,8)}return t.hp(b)},
 P_:function(a,b,c,d,e){var t,s,r,q,p,o,n,m,l
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -12370,7 +12370,7 @@ if(l<s){k=m+n
 if(k>=s)return H.b(p,k)
 k=p[k]===a&&m<q}else k=!1
 if(!k)break;++m}t.al(m-1,o)
-t.al(a,r)}return t.ho(b)},
+t.al(a,r)}return t.hp(b)},
 OW:function(a,b,c,d,e){var t,s,r,q,p,o,n,m,l,k
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -12402,7 +12402,7 @@ l=p[l]===a&&n<q}else l=!1
 if(!l)break;++n}k=C.m.bU(Math.log(n)/0.6931471805599453)+1
 t.al(k-1,5)
 t.al(n-1,k)
-t.al(a,r)}return t.ho(b)},
+t.al(a,r)}return t.hp(b)},
 OY:function(a,b,c,d){var t,s,r,q,p,o,n,m,l
 t=H.ci(c)
 s=new Uint8Array(t)
@@ -12427,7 +12427,7 @@ return P.an(new H.cG(a,new V.DF(b),[t]),!0,t)},
 MY:function(a){return a.v(["...umm...,","...fuck","...fuck, can we start over? ","...pretend I just finished that, okay?","er...Shit.","errr...","ummm...shit.","...fucking hell.","what the hell, I know I had a rhyme for this...","...okay, should I just...like, give up here?","and gog fucking damn it","...fuuuuuuuuuuuuuuuuuu","... fuck my life"])},
 l3:function(a,b,c){var t,s,r,q,p
 t=J.n(a)
-if(t.ga9(a).ga6().db)return["Guess you don't appreciate raps. Asshole. ",-13]
+if(t.ga9(a).ga_().dx)return["Guess you don't appreciate raps. Asshole. ",-13]
 s=t.ga9(a).gn().v($.$get$MZ()).uv(a)
 r=s[0]
 q=s[1]
@@ -12448,7 +12448,7 @@ if(typeof a==="number")return C.i.bF(a)
 t=J.bS(a)
 s=J.aO(t)
 if(!J.c(s.gu(t),1))throw H.j(P.ds('"'+H.h(t)+'" is not a character'))
-return s.az(t,0)},
+return s.ay(t,0)},
 HE:function(a){var t,s,r,q
 t=a.length
 if(t>1){for(s=0,r="";s<t;++s)r+=V.HE(a[s])
@@ -12461,7 +12461,7 @@ case 12:return"\\f"
 case 13:return"\\r"
 case 34:return'\\"'
 case 39:return"\\'"
-case 92:return"\\\\"}if(q<32)return"\\x"+C.c.ej(C.b.el(q,16),2,"0")
+case 92:return"\\\\"}if(q<32)return"\\x"+C.c.ek(C.b.em(q,16),2,"0")
 return H.fR(q)}},Z={xH:function xH(a,b,c){this.a=a
 this.b=b
 this.c=c},rO:function rO(k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id){var _=this
@@ -12505,7 +12505,7 @@ _.e=e
 _.f=f
 _.a=a
 _.b=b
-_.c=c},tB:function tB(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+_.c=c},tB:function tB(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -12513,11 +12513,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -12995,7 +12995,7 @@ a3.x2=[new K.nT(!0,a3,H.a([],t)),new E.nS(!0,a3,H.a([],t))]
 a3.y2=[]
 for(a2=0;t=a3.x1,a2<t.length;++a2)a3.y2.push(t[a2])},
 k:function(a,b,c){var t
-if(J.P(b.gaI(),3)){t=C.c.fh(Y.cY(c))
+if(J.P(b.gaI(),3)){t=C.c.fi(Y.cY(c))
 if(a==null)return a.k()
 return a+t+"\n"}else{t=J.eN(a)
 if(J.P(b.gaI(),1))return t.k(a,J.hg(c))+"\n"
@@ -13057,7 +13057,7 @@ for(s=0;s<a.length;++s){r=a[s]
 if(C.c.d5(r,b))t.push(r)}return t},
 hd:function(a){var t,s,r
 t=C.a.bP((a&&C.a).c5(a,0,a.length-1),", ")
-s=C.a.gax(a)
+s=C.a.gaw(a)
 r=a.length<2?"":" and "
 return C.a.bP([t,s],r)},
 H5:function(a){var t,s,r,q,p,o
@@ -13104,7 +13104,7 @@ if(p==null)p="mystery"
 if(o==null)o="Mystery"
 return H.h(p)+H.h(o)},
 l4:function(a){var t=H.a8(J.fY(a,P.al("<(,?:.|\\n)*?>",!0,!0),""),P.al(",",!0,!0),"")
-if(t.length>144)t=C.c.ay(t,0,141)+"..."
+if(t.length>144)t=C.c.ax(t,0,141)+"..."
 return t},
 X7:function(a){if(a>11)return"???"
 return H.a(["first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth","eleventh","twelfth"],[P.q])[a]},
@@ -13135,7 +13135,7 @@ if(a>=t.length)return H.b(t,a)
 return t[a]},
 X2:function(a){return H.fQ(J.fY(a,"#",""),16,new Y.Dx())},
 Xc:function(a){var t,s,r
-t=C.b.el(a,16)
+t=C.b.em(a,16)
 s=6-t.length
 for(r=0;r<s;++r)t="0"+t
 return"#"+t},
@@ -13225,20 +13225,20 @@ s="checking for two players, ps is "+H.h(a)+", ret is "+r
 t.toString
 F.ao(C.h).$1(t.aG(C.h,s))
 return r},
-UP:function(a){return H.dj(C.a.gah(a),"$isO").eg},
+UP:function(a){return H.dj(C.a.gah(a),"$isO").eh},
 UR:function(a){var t=H.dj(C.a.gah(a),"$isO")
-return!t.eg&&!t.c.gA().gf8()},
+return!t.eh&&!t.c.gA().gf9()},
 UQ:function(a){var t=H.dj(C.a.gah(a),"$isO")
-return!t.eg&&t.c.gA().gf8()},
+return!t.eh&&t.c.gA().gf9()},
 UN:function(a){return J.c(H.dj(C.a.gah(a),"$isO").ab,$.bY)},
 V0:function(a){return J.c(H.dj(C.a.gah(a),"$isO").ab,$.ap)},
 V_:function(a){return J.c(H.dj(J.I3(a),"$isO").ab,$.aI)},
-UZ:function(a){return H.dj(C.a.gah(a),"$isO").as.gcK()},
-UX:function(a){return H.dj(C.a.gah(a),"$isO").as.gcE()},
-UW:function(a){return H.dj(C.a.gah(a),"$isO").as.gcl()},
-UT:function(a){return H.dj(C.a.gah(a),"$isO").as.gck()},
-UV:function(a){return H.dj(C.a.gah(a),"$isO").as.gcI()},
-UY:function(a){return H.dj(C.a.gah(a),"$isO").as.gcJ()},
+UZ:function(a){return H.dj(C.a.gah(a),"$isO").aA.gcK()},
+UX:function(a){return H.dj(C.a.gah(a),"$isO").aA.gcE()},
+UW:function(a){return H.dj(C.a.gah(a),"$isO").aA.gcl()},
+UT:function(a){return H.dj(C.a.gah(a),"$isO").aA.gck()},
+UV:function(a){return H.dj(C.a.gah(a),"$isO").aA.gcI()},
+UY:function(a){return H.dj(C.a.gah(a),"$isO").aA.gcJ()},
 UU:function(a){var t=H.dj(C.a.gah(a),"$isO")
 return J.c(t.ab,$.bo)||J.c(t.ab,$.ap)},
 UO:function(a){return!0},
@@ -13433,10 +13433,10 @@ q=a.length
 if(r){if(s>=q)return H.b(a,s)
 r=a[s].gm()
 if(s>=a.length)return H.b(a,s)
-r.hT(a[s])}else{if(s>=q)return H.b(a,s)
+r.hU(a[s])}else{if(s>=q)return H.b(a,s)
 r=a[s].gm()
 if(s>=a.length)return H.b(a,s)
-r.hS(a[s])}}}}if(0>=r)return H.b(a,0)
+r.hT(a[s])}}}}if(0>=r)return H.b(a,0)
 J.c(a[0].gdz(),!0)
 if(t.length!==0)R.Xw(a)},
 iJ:function(a){var t,s,r,q,p,o,n
@@ -13448,7 +13448,7 @@ t=$.c4
 q=$.b2
 p=[Q.O]
 o=new Q.O(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],p),!1,!1,[],!1,null,t,null,0,0,!1,null,null,null,q,null,null,null,null,null,s,!1,null,-1,!1,null,null,null,!0,!1,"#ff0000",null,null,null,null,!0,!0,!1,!1,!1,0,0,0,!1,0,!1,!1,!1,null,C.e,a,"","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],p),"",null,null)
-o.a$=o.h2()
+o.a$=o.h3()
 p=$.eS+1
 $.eS=p
 o.k4=p
@@ -13458,7 +13458,7 @@ q=P.a5(null,null,null,D.bg)
 t=new A.hN(o,null,null,!1,!1,!1,q,0,0,!0,!1)
 q.V(0,p)
 t.e=!0
-o.a$.eq(t,null,null)
+o.a$.er(t,null,null)
 o.bA=r
 if(r!=null)o.cs()
 o.d="player_"+H.h(o.k4)
@@ -13468,14 +13468,14 @@ o.y2=t
 t=a.ae
 q=t.v(B.j7())
 p=new B.a2(null,null)
-n=t.v(q.gia())
+n=t.v(q.gib())
 p.a=q
 p.b=n
 o.bt=p
 p=a.ae
 q=p.v(B.j7())
 t=new B.a2(null,null)
-n=p.v(q.gia())
+n=p.v(q.gib())
 t.a=q
 t.b=n
 o.bu=t
@@ -13490,7 +13490,7 @@ o.aB=q
 q.f=1
 q.c=1
 q.r=1
-o.eV()
+o.eW()
 return o},
 da:function(a,b,c){var t,s,r,q,p,o,n
 t=a.gn().v($.iA)
@@ -13498,7 +13498,7 @@ J.hM(t,a)
 s=a.gn().v(a.gtf())
 r=[Q.O]
 q=new Q.O(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],r),!1,!1,[],!1,null,b,null,0,0,!1,null,null,null,c,null,null,null,null,null,t,!1,null,-1,!1,null,null,null,!0,!1,"#ff0000",null,null,null,null,!1,!0,!1,!1,!1,0,0,0,!1,0,!1,!1,!1,null,C.e,a,"","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],r),"",null,null)
-q.a$=q.h2()
+q.a$=q.h3()
 r=$.eS+1
 $.eS=r
 q.k4=r
@@ -13508,7 +13508,7 @@ p=P.a5(null,null,null,D.bg)
 o=new A.hN(q,null,null,!1,!1,!1,p,0,0,!0,!1)
 p.V(0,r)
 o.e=!0
-q.a$.eq(o,null,null)
+q.a$.er(o,null,null)
 q.bA=s
 if(s!=null)q.cs()
 q.d="player_"+H.h(q.k4)
@@ -13519,14 +13519,14 @@ q.r4()
 r=a.gn()
 p=r.v(B.j7())
 o=new B.a2(null,null)
-n=r.v(p.gia())
+n=r.v(p.gib())
 o.a=p
 o.b=n
 q.bt=o
 o=a.gn()
 p=o.v(B.j7())
 r=new B.a2(null,null)
-n=o.v(p.gia())
+n=o.v(p.gib())
 r.a=p
 r.b=n
 q.bu=r
@@ -13536,8 +13536,8 @@ r=a.gn().ac(1+$.Ke-1)+1
 q.dn=r
 q.cX=r
 if(a.gn().a.E()>0.7)q.cX=a.gn().ac(1+$.Ke-1)+1
-q.eA()
-q.eV()
+q.eB()
+q.eW()
 return q},
 r2:function(a,b,c,d){var t,s,r,q,p,o
 t=a.gn().v($.iA)
@@ -13545,7 +13545,7 @@ J.hM(t,a)
 if(d==null)d=a.gn().v(a.gtf())
 s=[Q.O]
 r=new Q.O(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],s),!1,!1,[],!1,null,b,null,0,0,!1,null,null,null,c,null,null,null,null,null,t,!1,null,-1,!1,null,null,null,!0,!1,"#ff0000",null,null,null,null,!1,!0,!1,!1,!1,0,0,0,!1,0,!1,!1,!1,null,C.e,a,"","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],s),"",null,null)
-r.a$=r.h2()
+r.a$=r.h3()
 s=$.eS+1
 $.eS=s
 r.k4=s
@@ -13555,7 +13555,7 @@ q=P.a5(null,null,null,D.bg)
 p=new A.hN(r,null,null,!1,!1,!1,q,0,0,!0,!1)
 q.V(0,s)
 p.e=!0
-r.a$.eq(p,null,null)
+r.a$.er(p,null,null)
 r.bA=d
 if(d!=null)r.cs()
 r.d="player_"+H.h(r.k4)
@@ -13566,21 +13566,21 @@ r.r4()
 s=a.gn()
 q=s.v(B.j7())
 p=new B.a2(null,null)
-o=s.v(q.gia())
+o=s.v(q.gib())
 p.a=q
 p.b=o
 r.bt=p
 p=a.gn()
 q=p.v(B.j7())
 s=new B.a2(null,null)
-o=p.v(q.gia())
+o=p.v(q.gib())
 s.a=q
 s.b=o
 r.bu=s
-r.eA()
-r.eV()
+r.eB()
+r.eW()
 if(r.aU)r.a=r.c.gn().v($.$get$b4()).bi()
-r.fd()
+r.fe()
 r.x1=a.gn().ac(3)+1
 r.c1=a.gn().ac(1+$.Kd-1)+1
 s=a.gn().ac(46)+1
@@ -13602,21 +13602,21 @@ Y.fA(s,a.b5)
 return R.r2(a,t,s,a.e)},
 bE:function(a,b){var t,s,r
 t=$.p.aL
-if(t.f)return t.r1
+if(t.f)return t.r2
 for(s=0;s<a.length;++s){r=a[s]
 if(r instanceof Q.O)if(J.c(r.ab,b))return r}return},
 iK:function(a,b){var t,s,r,q
 t=$.p.aL
-if(t.f&&t.r1!=null)return[t.r1]
+if(t.f&&t.r2!=null)return[t.r2]
 s=H.a([],[Q.O])
 for(r=0;r<a.length;++r){q=a[r]
 if(q instanceof Q.O)if(J.c(q.ab,b))s.push(q)}return s},
 WR:function(a,b,c){var t,s
 for(t=0;t<a.length;++t){s=a[t]
-if(s instanceof Q.O)if(J.c(s.as,b)&&J.c(s.ab,c))return s}return},
+if(s instanceof Q.O)if(J.c(s.aA,b)&&J.c(s.ab,c))return s}return},
 hF:function(a,b){var t,s
 for(t=0;t<a.length;++t){s=a[t]
-if(s instanceof Q.O)if(J.c(s.as,b))return s}return},
+if(s instanceof Q.O)if(J.c(s.aA,b))return s}return},
 Mn:function(a){var t,s,r,q
 t=a.length
 if(t===0)return
@@ -13635,12 +13635,12 @@ hG:function(a){var t,s,r,q
 t=[]
 for(s=0;s<a.length;++s){r=a[s]
 if(!r.ga7()){if(s>=a.length)return H.b(a,s)
-q=J.dk(a[s]).ga6().y&&!r.ga7()}else q=!0
+q=J.dk(a[s]).ga_().y&&!r.ga7()}else q=!0
 if(q)t.push(r)}return t},
 b9:function(a){var t,s,r
 t=[]
 for(s=0;s<a.length;++s){if(a[s].ga7()){if(s>=a.length)return H.b(a,s)
-if(J.dk(a[s]).ga6().y){if(s>=a.length)return H.b(a,s)
+if(J.dk(a[s]).ga_().y){if(s>=a.length)return H.b(a,s)
 r=a[s].ga7()}else r=!1}else r=!0
 if(r){if(s>=a.length)return H.b(a,s)
 t.push(a[s])}}return t},
@@ -13660,7 +13660,7 @@ s=a[0].w()
 for(r=1;r<a.length;++r)s=s+" and "+a[r].w()
 return s},
 MQ:function(a){var t,s,r
-for(t=0,s=0;r=a.length,s<r;++s)t+=a[s].fG()
+for(t=0,s=0;r=a.length,s<r;++s)t+=a[s].fH()
 return t/r},
 jH:function(a){var t,s,r
 t=a.length
@@ -13681,12 +13681,12 @@ if(!r.gcc()||r.gbL())t.push(r)}return t},
 E0:function(a,b){var t,s,r
 for(t=0;t<a.length;++t){s=a[t]
 r=s.gaT()
-if(s.ges()==null){s.ses(b)
-if(r!=null)r.ses(b)}}},
+if(s.geu()==null){s.seu(b)
+if(r!=null)r.seu(b)}}},
 Mo:function(a){var t,s,r
 t=H.a([],[Q.O])
 for(s=0;s<a.length;++s){r=a[s]
-if(r.ges()==null)t.push(r)}return t},
+if(r.geu()==null)t.push(r)}return t},
 M0:function(a,b,c){var t,s
 if(a==null)return
 t=J.ig(a)
@@ -13696,17 +13696,17 @@ s.saT(t)}return t},
 mP:function(a,b){var t,s,r
 t=H.a([],[Q.O])
 for(s=0;s<a.length;++s){r=a[s]
-if(r.ges()===b||r.ges()==null)t.push(r)}return t},
+if(r.geu()===b||r.geu()==null)t.push(r)}return t},
 Dr:function(a){var t,s
-for(t=0;t<a.length;++t){if(a[t].ga4()!=null){if(t>=a.length)return H.b(a,t)
-s=J.d3(a[t].ga4().R($.l),200*$.l.r)}else s=!1
+for(t=0;t<a.length;++t){if(a[t].ga5()!=null){if(t>=a.length)return H.b(a,t)
+s=J.d3(a[t].ga5().R($.l),200*$.l.r)}else s=!1
 if(s){if(t>=a.length)return H.b(a,t)
-return a[t].ga4().w()}}return},
+return a[t].ga5().w()}}return},
 Mm:function(a){var t,s
-for(t=0;t<a.length;++t){if(a[t].ga4()!=null){if(t>=a.length)return H.b(a,t)
-s=a[t].ga4().ghb()}else s=!1
+for(t=0;t<a.length;++t){if(a[t].ga5()!=null){if(t>=a.length)return H.b(a,t)
+s=a[t].ga5().ghc()}else s=!1
 if(s){if(t>=a.length)return H.b(a,t)
-return a[t].ga4().w()}}return},
+return a[t].ga5().w()}}return},
 eM:function(a){var t,s,r
 t=H.a([],[Q.O])
 for(s=0;s<a.length;++s){r=a[s].gaT()
@@ -13718,8 +13718,8 @@ for(t=0,s=0;s<a.length;++s)t+=a[s].gcq()
 return t},
 Dt:function(a,b,c,d){var t,s
 if(J.c(a.gC(),b.gC()))return"Anything goes when you fight your own class, I guess."
-t=b.hv(d)
-s=a.hv(c)
+t=b.hw(d)
+s=a.hw(c)
 if(typeof t!=="number")return t.bk()
 if(typeof s!=="number")return H.w(s)
 if(t>s)return"Which is pretty much how you expected things to go down between a "+H.h(a.gC())+" and a "+H.h(b.gC())+" in that exact situation. "
@@ -19025,7 +19025,7 @@ g="<BR>"+H.h(h.gam())+":"
 f=H.a(["SAVE US","GIVE UP","FIX IT","HELP US","WHY?","OBEY","CEASE REPRODUCTION","COWER","IT KEEPS HAPPENING","SBURB BROKE US. WE BROKE SBURB.","I AM THE EMISSARY OF THE NOBLE CIRCLE OF THE HORRORTERRORS."],n)
 e=Y.cY($.p.ae.v(f))
 i=h.gt().gb8()
-o.N(t,"<b style = 'color: "+i.ge7(i).hp()+"; '>"+g+e+"</b>",C.d)}for(j=0;j<3;++j)o.N(t,"<BR>...",C.d)
+o.N(t,"<b style = 'color: "+i.ge7(i).hq()+"; '>"+g+e+"</b>",C.d)}for(j=0;j<3;++j)o.N(t,"<BR>...",C.d)
 o.N(t,"<BR>SUGGESTED ACTION: "+p,C.d)
 A.mT()
 $.bR.tz()
@@ -19046,22 +19046,23 @@ if(a.aL.d)t.push("Heart")
 if(a.aL.r)t.push("Blood")
 if(a.aL.Q)t.push("Mind")
 if(a.aL.z)t.push("Rage")
+if(a.aL.db)t.push("Mist")
 return"Mutators in Play: "+C.a.bP(t,",")},
 Mw:function(a){var t,s,r
-for(t=a.ag.a,s="",r=0;r<t.length;++r)s=s+t[r].fA()+", "
+for(t=a.ag.a,s="",r=0;r<t.length;++r)s=s+t[r].fB()+", "
 return s+". "},
 XB:function(a){var t,s,r,q,p
 if(0>=a.length)return H.b(a,0)
 t=A.Mw(a[0])
 if(t!==". ")t="Which had YellowYardEvents:  "+t
 if(0>=a.length)return H.b(a,0)
-s=a[0].Y.gfM()?"(scratched)":""
+s=a[0].Y.gfN()?"(scratched)":""
 if(0>=a.length)return H.b(a,0)
 r=H.h(a[0].f)+s+t
 for(q=1;q<a.length;++q){t=A.Mw(a[q])
 if(t!==". ")t=" which had YellowYardEvents:  "+t
 if(q>=a.length)return H.b(a,q)
-s=a[q].Y.gfM()?"(scratched)":""
+s=a[q].Y.gfN()?"(scratched)":""
 p=r+" which combined with: "
 if(q>=a.length)return H.b(a,q)
 r=p+H.h(a[q].f)+s+t+" "}return r},
@@ -19080,14 +19081,14 @@ s+=C.c.k(" It...appears that the ",r.U())+" managed to figure out that killing e
 J.rd($.bR.a,s,C.d)
 if(!$.ey)C.q.kD(window,0,0)
 o=$.mS
-n=$.p.hh("???")
+n=$.p.hi("???")
 H.h(n.id)
 o.length
 t=$.aC
 m=W.N($.ay,t)
 n.appendChild(m)
 T.lo(m,o)
-l=$.p.hh("???")
+l=$.p.hi("???")
 H.h(l.id)
 $.p.r
 t=$.aC
@@ -19112,8 +19113,8 @@ t.nq()
 t.l1(0)},
 MD:function(a,b,c,d){var t,s,r
 t=J.bj(a)
-for(s=d,r=!0;t.M();)if(r){s=c.$1(t.ga_())
-r=!1}else s=b.$2(s,c.$1(t.ga_()))
+for(s=d,r=!0;t.M();)if(r){s=c.$1(t.ga0())
+r=!1}else s=b.$2(s,c.$1(t.ga0()))
 return s},
 Hr:function(a,b){return A.MD(a,new A.DO(b),new A.DP(),"")},
 Xf:function(a,b){return A.MD(a,new A.DM(b),new A.DN(),"")},
@@ -19323,9 +19324,9 @@ K0:function(a){if(!$.$get$i2().bh(0,a))$.$get$i2().i(0,a,new Y.iD(a,null,H.a([],
 return $.$get$i2().p(0,a)},
 Uo:function(a,b){var t
 if($.$get$i2().bh(0,a))throw H.j("Resource "+a+" has already been requested for loading")
-if(b==null)b=Z.Jd(C.a.gax(a.split("."))).a
+if(b==null)b=Z.Jd(C.a.gaw(a.split("."))).a
 t=A.K0(a)
-b.hW(C.c.bs("../",N.K9())+a).fH(new A.w5(t))
+b.hX(C.c.bs("../",N.K9())+a).fI(new A.w5(t))
 return t.n1(0)},
 p3:function(a){var t=0,s=P.cI(),r,q,p,o,n,m,l,k,j,i,h,g,f,e
 var $async$p3=P.cR(function(b,c){if(b===1)return P.cO(c,s)
@@ -19333,19 +19334,19 @@ while(true)switch(t){case 0:t=3
 return P.fw(A.lW(H.h(a)+".bundle",!0,null),$async$p3)
 case 3:q=c
 p=J.aO(a)
-o=p.ay(a,0,p.t5(a,$.$get$K2()))
+o=p.ax(a,0,p.t5(a,$.$get$K2()))
 p=J.Nw(q),n=p.length,m=[[P.iT,,]],l=[null],k=0
 case 4:if(!(k<p.length)){t=6
 break}j=p[k]
 i=J.n(j)
-h=Z.Jd(C.a.gax(J.fD(i.gW(j),"."))).a
+h=Z.Jd(C.a.gaw(J.fD(i.gW(j),"."))).a
 g=o+"/"+H.h(i.gW(j))
 if(!$.$get$i2().bh(0,g))$.$get$i2().i(0,g,new Y.iD(g,null,H.a([],m),l))
 f=$.$get$i2().p(0,g)
 e=h
 t=7
 return P.fw(h.jd(H.dj(i.gbc(j),"$isfv").buffer),$async$p3)
-case 7:e.cm(0,c).fH(f.gCH())
+case 7:e.cm(0,c).fI(f.gCH())
 case 5:p.length===n||(0,H.Q)(p),++k
 t=4
 break
@@ -19379,7 +19380,7 @@ s=A.dd
 r=P.J
 q=new A.kv(P.z(null,null,null,t,s),P.z(null,null,null,r,s),P.z(null,null,null,t,r),P.z(null,null,null,r,t))
 for(p=0;p<2;++p){o=a[p]
-for(t=o.gCm(o),t=t.gaw(t);t.M();){n=t.d
+for(t=o.gCm(o),t=t.gav(t);t.M();){n=t.d
 q.j(0,n,o.p(0,n),!0)}}return q},
 kv:function kv(a,b,c,d){var _=this
 _.a=a
@@ -19396,11 +19397,11 @@ this.a=a},
 Vx:function(a,b){var t,s,r,q,p,o,n,m
 for(t=$.$get$KQ(),t.toString,t=new S.qf(t).C4(a),s=t.length,r=1,q=0,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
 n=J.n(o)
-m=n.ge8(o)
+m=n.ge9(o)
 if(typeof m!=="number")return H.w(m)
 if(b<m){if(typeof q!=="number")return H.w(q)
 return[r,b-q+1]}++r
-q=n.ge8(o)}if(typeof q!=="number")return H.w(q)
+q=n.ge9(o)}if(typeof q!=="number")return H.w(q)
 return[r,b-q+1]},
 qg:function(a,b){var t
 if(typeof a==="string"){t=K.Vx(a,b)
@@ -19458,7 +19459,7 @@ _.y=y
 _.a=a
 _.b=b
 _.c=c},
-vX:function vX(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+vX:function vX(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -19466,8 +19467,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -19498,10 +19499,10 @@ _.k3=k3
 _.k4=k4
 _.r1=r1
 _.r2=r2},
-Vj:function(){var t=new K.pX(0,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,0,1,-15,!1,1000,13,20,350,100,500*$.l.r,null,null,null,H.a([],[Q.O]),6.12,new K.wo(null,null,null,null,null,null,null,null,null,null,null,null,null,null))
+Vj:function(){var t=new K.pX(0,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,0,1,-15,!1,1000,13,20,350,100,500*$.l.r,null,null,null,H.a([],[Q.O]),6.12,new K.wo(null,null,null,null,null,null,null,null,null,null,null,null,null,null))
 t.w_()
 return t},
-pX:function pX(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1){var _=this
+pX:function pX(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -19532,7 +19533,8 @@ _.r1=r1
 _.r2=r2
 _.rx=rx
 _.ry=ry
-_.x1=x1},
+_.x1=x1
+_.x2=x2},
 yj:function yj(a,b,c){this.a=a
 this.b=b
 this.c=c},
@@ -19831,19 +19833,19 @@ j7:function(){var t=$.$get$i0()
 t=t.gd3(t)
 return new H.cG(t,new B.ve(),[H.as(t,"v",0)])},
 Jl:function(a){var t,s
-for(t=$.$get$i0(),t=t.gd3(t),t=t.gaw(t);t.M();){s=t.ga_()
+for(t=$.$get$i0(),t=t.gd3(t),t=t.gav(t);t.M();){s=t.ga0()
 if(J.c(J.ag(s),a))return s}return},
 Jk:function(a,b){var t=new B.a2(null,null)
 t.vQ(a,b)
 return t},
 vg:function(a,b,c){var t,s
-t=b.fC(a.gaj().ga8())?a.gaj().ga8():null
-if(b.fC(a.gan().ga8()))t=a.gan().ga8()
+t=b.fD(a.gaj().ga8())?a.gaj().ga8():null
+if(b.fD(a.gan().ga8()))t=a.gan().ga8()
 if(t!=null){s=t.gCI()
 return s}else return"nice"},
 oR:function(a,b,c){var t,s
-t=!b.fC(a.gaj().ga8())?a.gaj().ga8():null
-if(!b.fC(a.gan().ga8()))t=a.gan().ga8()
+t=!b.fD(a.gaj().ga8())?a.gaj().ga8():null
+if(!b.fD(a.gan().ga8()))t=a.gan().ga8()
 if(t!=null){s=t.gCn()
 return s}else return"annoying"},
 ve:function ve(){},
@@ -19894,9 +19896,9 @@ b.b=a.b
 b.a=a.a
 t=R.bE(a.a.gF(),$.ap)
 t.af($.H,-10)
-t.geS().push(b.e)
-t.ew("their own doomed time clones that seem to be mind controlled or something")
-if(b.r!=null)t.geS().push(b.r)},
+t.geT().push(b.e)
+t.ex("their own doomed time clones that seem to be mind controlled or something")
+if(b.r!=null)t.geT().push(b.r)},
 Mb:function(){var t,s,r,q,p,o,n
 t=H.dj(document.querySelector("input[name='decision']:checked"),"$islM").value
 s=H.fQ(t,null,new B.Do())
@@ -19917,7 +19919,7 @@ r=$.X
 q=$.a7
 q=n.a$.X(q)
 n.a$.aJ(r,C.i.l(q))
-n.ev="mind_forehead.png"
+n.ew="mind_forehead.png"
 o.r=n
 $.p.n_(null)}},
 AS:function AS(a){this.a=a},
@@ -20052,7 +20054,7 @@ _.x=x
 _.y=y
 _.z=z
 _.Q=Q
-_.ch=ch},yF:function yF(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+_.ch=ch},yF:function yF(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -20060,8 +20062,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -20091,7 +20093,7 @@ _.k2=k2
 _.k3=k3
 _.k4=k4
 _.r1=r1
-_.r2=r2},zO:function zO(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+_.r2=r2},zO:function zO(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -20099,11 +20101,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.a=a
 _.b=b
 _.c=c
@@ -20148,10 +20150,10 @@ for(s=0;s<a.length;++s){r=a[s]
 q=J.n(r)
 p=new N.aF(q.gdU(r),0,null,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
 p.ar(0)
-p.b=q.ga2(r)
+p.b=q.ga3(r)
 p.c=q.gak(r)
 p.d=r.gO()
-p.e=r.gh4()
+p.e=r.gh5()
 p.f=r.gdA()
 t.push(p)}return t},
 KC:function(a,b){var t,s,r,q
@@ -20164,62 +20166,62 @@ if(q!=null)r.v_(q)}},
 hv:function(a,b){var t,s,r
 t=J.n(a)
 t.ga9(a).gA().snI(!0)
-if(t.ga9(a).ga6().f){a=t.ga9(a).ga6().r1
-b=J.dk(a).ga6().r1}s=a.I(b)
-s.eL(s.gcH())
+if(t.ga9(a).ga_().f){a=t.ga9(a).ga_().r2
+b=J.dk(a).ga_().r2}s=a.I(b)
+s.eM(s.gcH())
 r=b.I(a)
-r.eL(r.gcH())},
+r.eM(r.gcH())},
 me:function(a,b){var t,s,r
 t=J.n(a)
 t.ga9(a).gA().srR(!0)
-if(t.ga9(a).ga6().f){a=t.ga9(a).ga6().r1
-b=J.dk(a).ga6().r1}s=a.I(b)
-s.eL(s.gd4())
+if(t.ga9(a).ga_().f){a=t.ga9(a).ga_().r2
+b=J.dk(a).ga_().r2}s=a.I(b)
+s.eM(s.gd4())
 r=b.I(a)
-r.eL(r.gd4())},
+r.eM(r.gd4())},
 eU:function(a,b){var t,s,r
 t=J.n(a)
 t.ga9(a).gA().sB9(!0)
-if(t.ga9(a).ga6().f){a=t.ga9(a).ga6().r1
-b=J.dk(a).ga6().r1}s=a.I(b)
+if(t.ga9(a).ga_().f){a=t.ga9(a).ga_().r2
+b=J.dk(a).ga_().r2}s=a.I(b)
 t=J.n(s)
-if(J.af(t.ga2(s),0))t.sa2(s,1)
-s.eL(s.gcM())
+if(J.af(t.ga3(s),0))t.sa3(s,1)
+s.eM(s.gcM())
 r=b.I(a)
 t=J.n(r)
-if(J.af(t.ga2(r),0))t.sa2(r,1)
-r.eL(r.gcM())},
+if(J.af(t.ga3(r),0))t.sa3(r,1)
+r.eM(r.gcM())},
 xR:function(a,b,c){var t,s,r,q,p,o,n
 J.dk(b).gA().sB8(!0)
 t=J.n(a)
-if(t.ga9(a).ga6().f){a=t.ga9(a).ga6().r1
+if(t.ga9(a).ga_().f){a=t.ga9(a).ga_().r2
 t=J.n(a)
-b=t.ga9(a).ga6().r1
-c=t.ga9(a).ga6().r1}s=a.I(b)
+b=t.ga9(a).ga_().r2
+c=t.ga9(a).ga_().r2}s=a.I(b)
 r=a.I(c)
 q=b.I(a)
 p=b.I(c)
 o=c.I(a)
 n=c.I(b)
 t=J.n(s)
-if(J.P(t.ga2(s),0))t.sa2(s,-1)
+if(J.P(t.ga3(s),0))t.sa3(s,-1)
 t=J.n(r)
-if(J.P(t.ga2(r),0))t.sa2(r,-1)
-s.eL(s.gdW())
-r.eL(s.gdW())
-q.eL(s.gdW())
-p.eL(s.gdW())
-o.eL(s.gdW())
-n.eL(s.gdW())},
+if(J.P(t.ga3(r),0))t.sa3(r,-1)
+s.eM(s.gdW())
+r.eM(s.gdW())
+q.eM(s.gdW())
+p.eM(s.gdW())
+o.eM(s.gdW())
+n.eM(s.gdW())},
 Va:function(a,b){var t,s
-if(a.c.ga6().d){t=a.c.gap()
+if(a.c.ga_().d){t=a.c.gap()
 t.toString
-F.ao(C.h).$1("("+t.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: heart field active")
+F.ao(C.h).$1("("+t.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: heart field active")
 t=new N.aF(a,333,b,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
 t.ar(0)
-return t}else if(a.c.ga6().r){t=new N.aF(a,10,b,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
+return t}else if(a.c.ga_().r){t=new N.aF(a,10,b,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
 t.ar(0)
-return t}else if(a.c.ga6().z){s=new N.aF(a,-1313,b,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
+return t}else if(a.c.ga_().z){s=new N.aF(a,-1313,b,"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
 s.ar(0)
 s.d="Enemies"
 s.f="Enemies"
@@ -20231,7 +20233,7 @@ KB:function(a,b){var t,s,r,q,p,o,n,m,l
 for(t=0;t<b.length;++t){s=b[t]
 r=s.gb9()
 for(q=0;q<r.length;++q){p=r[q]
-o=s.fG()
+o=s.fH()
 if(o>5){n=J.n(p)
 if(J.c(n.ar(p),p.gbB()))if(J.P(J.mY(J.cc(s.R($.H),n.gak(p).R($.H))),2)||o<5)N.eU(s,n.gak(p))
 else N.hv(s,n.gak(p))
@@ -20279,7 +20281,7 @@ K9:function(){var t=P.GJ()
 if(!$.$get$x9().bh(0,t))$.$get$x9().i(0,t,N.UB(t))
 return $.$get$x9().p(0,t)}},G={pM:function pM(){},qu:function qu(a,x$){this.a=a
 this.x$=x$},qt:function qt(a,b){this.a=a
-this.b=b},vY:function vY(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+this.b=b},vY:function vY(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -20287,8 +20289,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -20335,7 +20337,7 @@ _.x=x
 _.y=y
 _.z=z
 _.Q=Q
-_.ch=ch},ym:function ym(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,ae,b4,aU,b5,ct,aL,ef,cW,c6,bS,dm,bH,bI){var _=this
+_.ch=ch},ym:function ym(a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2,rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,ae,b4,aU,b5,ct,aL,eg,cW,c6,bS,dm,bH,bI){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -20371,18 +20373,18 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.ae=ae
 _.b4=b4
 _.aU=aU
 _.b5=b5
 _.ct=ct
 _.aL=aL
-_.ef=ef
+_.eg=eg
 _.cW=cW
 _.c6=c6
 _.bS=bS
@@ -20395,7 +20397,7 @@ t=G.aj
 s=P.jd(a,t)
 r=P.a5(null,null,null,t)
 q=H.a([],[G.i])
-for(t=G.Ui(),p=J.bj(t.a),t=new H.ev(p,t.b,[H.L(t,0)]);t.M();){o=p.ga_()
+for(t=G.Ui(),p=J.bj(t.a),t=new H.ev(p,t.b,[H.L(t,0)]);t.M();){o=p.ga0()
 if(o.tY(s))q.push(o)}C.a.kE(q)
 for(t=q.length,n=0;n<q.length;q.length===t||(0,H.Q)(q),++n){o=q[n]
 if(o.tY(s)){r.h(0,o)
@@ -20604,7 +20606,7 @@ _.a=a
 _.x$=x$},
 AQ:function AQ(a,x$){this.a=a
 this.x$=x$},
-tu:function tu(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,au,ae,b4,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+tu:function tu(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,at,ae,b4,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -20612,11 +20614,11 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
-_.au=au
+_.at=at
 _.ae=ae
 _.b4=b4
 _.a=a
@@ -20733,7 +20735,7 @@ s=t.jy()
 s.toString
 H.kY(s,0,null)
 s=new Uint8Array(s,0)
-return C.y.geu().ed(s)},
+return C.y.gev().ee(s)},
 Xs:function(a,b){var t,s,r
 t=[]
 for(s=0;s<a.length;++s)t.push(a[s].DN(!0))
@@ -20754,19 +20756,19 @@ if(typeof p!=="number")return H.w(p)
 if(!(q<p))break
 o=q*11
 n=q*5
-m=U.M9(r.ay(a,o,o+11),C.a.c5(t,n,n+5))
+m=U.M9(r.ax(a,o,o+11),C.a.c5(t,n,n+5))
 m.k4=q
 s.push(m);++q}if(c!=null&&J.he(c)!==!0)U.Wt(s,c)
 return s},
 Wt:function(a,b){var t,s,r
-t=C.y.gr5().ed(b).buffer
+t=C.y.gr5().ee(b).buffer
 s=new B.f2(null,0)
 s.a=(t&&C.p).n6(t,0)
 for(r=0;r<a.length;++r)a[r].tv(s)},
 M9:function(a,b){var t,s,r,q,p,o,n,m
 t=[Q.O]
 s=new Q.O(null,null,!1,null,0,0,0,0,!1,null,!0,!0,!0,!0,null,null,0,H.a([],t),!1,!1,[],!1,null,null,null,0,0,!1,null,null,null,null,null,null,null,null,null,null,!1,null,-1,!1,null,null,null,!0,!1,"#ff0000",null,null,null,null,null,!0,!1,!1,!1,0,0,0,!1,0,!1,!1,!1,null,C.e,null,"","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],t),"",null,null)
-s.a$=s.h2()
+s.a$=s.h3()
 t=$.eS+1
 $.eS=t
 s.k4=t
@@ -20776,7 +20778,7 @@ r=P.a5(null,null,null,D.bg)
 q=new A.hN(s,null,null,!1,!1,!1,r,0,0,!0,!1)
 r.V(0,t)
 q.e=!0
-s.a$.eq(q,null,null)
+s.a$.er(q,null,null)
 s.bA=null
 s.d="player_"+H.h(s.k4)
 t=new A.ib(null,s)
@@ -20791,67 +20793,67 @@ t.r=r.ac(12)
 s.aB=t
 if(0>=b.length)return H.b(b,0)
 t=b[0]
-t=C.c.jv(C.c.fh(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
+t=C.c.jv(C.c.fi(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
 r=P.al(",",!0,!0)
 t=H.a8(t,r,"")
-if(t.length>144)t=C.c.ay(t,0,141)+"..."
+if(t.length>144)t=C.c.ax(t,0,141)+"..."
 s.dx=t
 if(1>=b.length)return H.b(b,1)
 t=b[1]
-t=C.c.jv(C.c.fh(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
+t=C.c.jv(C.c.fi(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
 r=P.al(",",!0,!0)
 t=H.a8(t,r,"")
-if(t.length>144)t=C.c.ay(t,0,141)+"..."
+if(t.length>144)t=C.c.ax(t,0,141)+"..."
 s.rx=t
 if(2>=b.length)return H.b(b,2)
 t=b[2]
-t=C.c.jv(C.c.fh(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
+t=C.c.jv(C.c.fi(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
 r=P.al(",",!0,!0)
 p=H.a8(t,r,"")
-if(p.length>144)p=C.c.ay(p,0,141)+"..."
+if(p.length>144)p=C.c.ax(p,0,141)+"..."
 if(3>=b.length)return H.b(b,3)
 t=b[3]
-t=C.c.jv(C.c.fh(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
+t=C.c.jv(C.c.fi(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
 r=P.al(",",!0,!0)
 o=H.a8(t,r,"")
-if(o.length>144)o=C.c.ay(o,0,141)+"..."
+if(o.length>144)o=C.c.ax(o,0,141)+"..."
 if(4>=b.length)return H.b(b,4)
 t=b[4]
-t=C.c.jv(C.c.fh(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
+t=C.c.jv(C.c.fi(P.ie(t,0,J.c6(t),C.n,!1)),P.al("<(,?:.|\\n)*?>",!0,!0),"")
 r=P.al(",",!0,!0)
 t=H.a8(t,r,"")
-if(t.length>144)t=C.c.ay(t,0,141)+"..."
+if(t.length>144)t=C.c.ax(t,0,141)+"..."
 s.aM=t
 t=J.di(a)
-s.bJ=Y.Xc((t.az(a,0)<<16>>>0)+(t.az(a,1)<<8>>>0)+t.az(a,2))
-s.as=T.Gm(t.az(a,3)>>>4)
-s.ab=L.Eh(t.az(a,3)&15)
-s.e_=Y.MB(t.az(a,4)>>>4)
-s.aN=Y.MB(t.az(a,4)&15)
-n=B.vf(t.az(a,5)>>>4)
-m=B.vf(t.az(a,5)&15)
+s.bJ=Y.Xc((t.ay(a,0)<<16>>>0)+(t.ay(a,1)<<8>>>0)+t.ay(a,2))
+s.aA=T.Gm(t.ay(a,3)>>>4)
+s.ab=L.Eh(t.ay(a,3)&15)
+s.e_=Y.MB(t.ay(a,4)>>>4)
+s.aN=Y.MB(t.ay(a,4)&15)
+n=B.vf(t.ay(a,5)>>>4)
+m=B.vf(t.ay(a,5)&15)
 n.Z(p)
 s.bt=new B.a2(n,p)
 m.Z(o)
 s.bu=new B.a2(m,o)
-s.bD=t.az(a,6)>>>5
-s.aX=0!==(16&t.az(a,6))
-s.cY=0!==(8&t.az(a,6))
-s.bp=0!==(4&t.az(a,6))
-s.cN=0!==(2&t.az(a,6))
-s.eh=0!==(1&t.az(a,6))
-s.bH=0!==(128&t.az(a,7))
-r=t.az(a,7)
+s.bD=t.ay(a,6)>>>5
+s.aX=0!==(16&t.ay(a,6))
+s.cY=0!==(8&t.ay(a,6))
+s.bp=0!==(4&t.ay(a,6))
+s.cN=0!==(2&t.ay(a,6))
+s.ei=0!==(1&t.ay(a,6))
+s.bH=0!==(128&t.ay(a,7))
+r=t.ay(a,7)
 q=s.c
-r=0!==(64&r)?q.gfF():q.geQ()
+r=0!==(64&r)?q.gfG():q.geR()
 s.bA=r
 if(r!=null)s.cs()
-s.db=0!==(32&t.az(a,7))
-s.fa=0!==(16&t.az(a,7))
-s.aB.r=t.az(a,7)&15
-s.dn=t.az(a,8)
-s.cX=t.az(a,9)
-s.c1=t.az(a,10)
+s.db=0!==(32&t.ay(a,7))
+s.fb=0!==(16&t.ay(a,7))
+s.aB.r=t.ay(a,7)&15
+s.dn=t.ay(a,8)
+s.cX=t.ay(a,9)
+s.c1=t.ay(a,10)
 H.eO("loaded player: "+H.h(s.aM))
 return s},
 rZ:function rZ(a,b){this.a=a
@@ -20940,7 +20942,7 @@ _.fy=fy
 _.go=go
 _.id=id},
 VA:function(a,b,c,d,e,f,g){var t=document.createElement("div")
-L.rK($.$get$In()).fH(new U.Aq(a,b,c,d,e,f,g,t))
+L.rK($.$get$In()).fI(new U.Aq(a,b,c,d,e,f,g,t))
 return t},
 L5:function(a,b,c,d,e,f,g,h){var t,s,r,q
 t=C.i.jW(Math.max(f*h,g*h))
@@ -20977,7 +20979,7 @@ _.d=d
 _.e=e
 _.f=f},jU:function jU(a,b,c){this.a=a
 this.b=b
-this.c=c},v1:function v1(rx,ry,x1,x2,y1,y2,L,a1,a0,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
+this.c=c},v1:function v1(rx,ry,x1,x2,y1,y2,L,a2,a1,ag,Y,a,b,c,d,e,f,r,x,y,z,Q,ch,cx,cy,db,dx,dy,fr,fx,fy,go,id,k1,k2,k3,k4,r1,r2){var _=this
 _.rx=rx
 _.ry=ry
 _.x1=x1
@@ -20985,8 +20987,8 @@ _.x2=x2
 _.y1=y1
 _.y2=y2
 _.L=L
+_.a2=a2
 _.a1=a1
-_.a0=a0
 _.ag=ag
 _.Y=Y
 _.a=a
@@ -21076,13 +21078,13 @@ gjB:function(a){return a.top},
 gl0:function(a){return a.bottom},
 th:function(a,b,c){return a.moveTo(b,c)},
 nS:function(a,b,c){return a.lineTo(b,c)},
-gh1:function(a){return a.attributes},
-gez:function(a){return a.image},
+gh2:function(a){return a.attributes},
+geA:function(a){return a.image},
 gaP:function(a){return a.data},
 gH:function(a){return a.width},
 gK:function(a){return a.height},
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b},
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b},
 gak:function(a){return a.target},
 gdU:function(a){return a.source}}
 J.xe.prototype={}
@@ -21093,16 +21095,16 @@ return t==null?this.vs(a):J.bS(t)},
 $S:function(){return{func:1,opt:[,,,,,,,,,,,,,,,,]}}}
 J.ja.prototype={
 l4:function(a,b){if(!!a.immutable$list)throw H.j(new P.a9(b))},
-f5:function(a,b){if(!!a.fixed$length)throw H.j(new P.a9(b))},
-h:function(a,b){this.f5(a,"add")
+f6:function(a,b){if(!!a.fixed$length)throw H.j(new P.a9(b))},
+h:function(a,b){this.f6(a,"add")
 a.push(b)},
 d_:function(a,b,c){var t
-this.f5(a,"insert")
+this.f6(a,"insert")
 t=a.length
 if(b>t)throw H.j(P.e0(b,null,null))
 a.splice(b,0,c)},
 aW:function(a,b){var t
-this.f5(a,"remove")
+this.f6(a,"remove")
 for(t=0;t<a.length;++t)if(J.c(a[t],b)){a.splice(t,1)
 return!0}return!1},
 kS:function(a,b,c){var t,s,r,q,p
@@ -21114,10 +21116,10 @@ if(a.length!==s)throw H.j(new P.cT(a))}p=t.length
 if(p===s)return
 this.su(a,p)
 for(r=0;r<t.length;++r)a[r]=t[r]},
-em:function(a,b){return new H.cG(a,b,[H.L(a,0)])},
+en:function(a,b){return new H.cG(a,b,[H.L(a,0)])},
 V:function(a,b){var t
-this.f5(a,"addAll")
-for(t=J.bj(b);t.M();)a.push(t.ga_())},
+this.f6(a,"addAll")
+for(t=J.bj(b);t.M();)a.push(t.ga0())},
 bE:function(a,b){var t,s
 t=a.length
 for(s=0;s<t;++s){b.$1(a[s])
@@ -21130,7 +21132,7 @@ s.fixed$length=Array
 for(r=0;r<a.length;++r){q=H.h(a[r])
 if(r>=t)return H.b(s,r)
 s[r]=q}return s.join(b)},
-ep:function(a,b){return H.zt(a,b,null,H.L(a,0))},
+eq:function(a,b){return H.zt(a,b,null,H.L(a,0))},
 rG:function(a,b,c){var t,s,r
 t=a.length
 for(s=b,r=0;r<t;++r){s=c.$2(s,a[r])
@@ -21145,10 +21147,10 @@ if(c<b||c>a.length)throw H.j(P.cn(c,b,a.length,"end",null))}if(b===c)return H.a(
 return H.a(a.slice(b,c),[H.L(a,0)])},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(H.dE())},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(H.dE())},
-ok:function(a,b,c){this.f5(a,"removeRange")
+ok:function(a,b,c){this.f6(a,"removeRange")
 P.eH(b,c,a.length,null,null,null)
 a.splice(b,c-b)},
 bR:function(a,b,c,d,e){var t,s,r,q,p,o,n
@@ -21171,12 +21173,12 @@ if(p>>>0!==p||p>=d.length)return H.b(d,p)
 n=d[p]
 a[s.k(b,q)]=n}}},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-im:function(a,b,c,d){var t
+io:function(a,b,c,d){var t
 this.l4(a,"fill range")
 P.eH(b,c,a.length,null,null,null)
 for(t=b;t<c;++t)a[t]=d},
-eE:function(a,b,c,d){var t,s,r,q,p,o,n
-this.f5(a,"replaceRange")
+eF:function(a,b,c,d){var t,s,r,q,p,o,n
+this.f6(a,"replaceRange")
 P.eH(b,c,a.length,null,null,null)
 d=C.c.d2(d)
 t=J.cc(c,b)
@@ -21210,12 +21212,12 @@ this.l4(a,"sort")
 t=b==null?P.Ha():b
 H.q0(a,0,a.length-1,t)},
 kE:function(a){return this.iR(a,null)},
-hR:function(a,b,c){var t
+hS:function(a,b,c){var t
 if(c>=a.length)return-1
 if(c<0)c=0
 for(t=c;t<a.length;++t)if(J.c(a[t],b))return t
 return-1},
-b1:function(a,b){return this.hR(a,b,0)},
+b1:function(a,b){return this.hS(a,b,0)},
 aE:function(a,b){var t
 for(t=0;t<a.length;++t)if(J.c(a[t],b))return!0
 return!1},
@@ -21228,10 +21230,10 @@ else{t=H.a(a.slice(0),t)
 t.fixed$length=Array
 t=t}return t},
 d2:function(a){return this.bX(a,!0)},
-gaw:function(a){return new J.fE(a,a.length,0,null,[H.L(a,0)])},
+gav:function(a){return new J.fE(a,a.length,0,null,[H.L(a,0)])},
 gbV:function(a){return H.iB(a)},
 gu:function(a){return a.length},
-su:function(a,b){this.f5(a,"set length")
+su:function(a,b){this.f6(a,"set length")
 if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(P.f0(b,"newLength",null))
 if(b<0)throw H.j(P.cn(b,0,null,"newLength",null))
 a.length=b},
@@ -21252,7 +21254,7 @@ $isv:1,
 $asv:null}
 J.FB.prototype={}
 J.fE.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t,s,r
 t=this.a
 s=t.length
@@ -21263,7 +21265,7 @@ return!1}this.d=t[r]
 this.c=r+1
 return!0}}
 J.ko.prototype={
-ec:function(a,b){var t
+ed:function(a,b){var t
 if(typeof b!=="number")throw H.j(H.c1(b))
 if(a<b)return-1
 else if(a>b)return 1
@@ -21291,15 +21293,15 @@ if(isFinite(s))return s
 throw H.j(new P.a9(""+a+".floor()"))},
 bF:function(a){if(a>0){if(a!==1/0)return Math.round(a)}else if(a>-1/0)return 0-Math.round(0-a)
 throw H.j(new P.a9(""+a+".round()"))},
-aZ:function(a,b,c){if(this.ec(b,c)>0)throw H.j(H.c1(b))
-if(this.ec(a,b)<0)return b
-if(this.ec(a,c)>0)return c
+aZ:function(a,b,c){if(this.ed(b,c)>0)throw H.j(H.c1(b))
+if(this.ed(a,b)<0)return b
+if(this.ed(a,c)>0)return c
 return a},
 l:function(a){return a},
-el:function(a,b){var t,s,r,q
+em:function(a,b){var t,s,r,q
 if(b<2||b>36)throw H.j(P.cn(b,2,36,"radix",null))
 t=a.toString(b)
-if(C.c.az(t,t.length-1)!==41)return t
+if(C.c.ay(t,t.length-1)!==41)return t
 s=/^([\da-z]+)(?:\.([\da-z]+))?\(e\+(\d+)\)$/.exec(t)
 if(s==null)H.aG(new P.a9("Unexpected toString result: "+t))
 r=J.aO(s)
@@ -21318,7 +21320,7 @@ return a-b},
 bG:function(a,b){return a/b},
 bs:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
 return a*b},
-fL:function(a,b){var t
+fM:function(a,b){var t
 if(typeof b!=="number")throw H.j(H.c1(b))
 t=a%b
 if(t===0)return 0
@@ -21341,7 +21343,7 @@ if(b<0)throw H.j(H.c1(b))
 if(a>0)t=b>31?0:a>>>b
 else{t=b>31?31:b
 t=a>>t>>>0}return t},
-hG:function(a,b){var t
+hH:function(a,b){var t
 if(a>0)t=b>31?0:a>>>b
 else{t=b>31?31:b
 t=a>>t>>>0}return t},
@@ -21356,7 +21358,7 @@ aQ:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
 return a<b},
 bk:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
 return a>b},
-eo:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
+ep:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
 return a<=b},
 c4:function(a,b){if(typeof b!=="number")throw H.j(H.c1(b))
 return a>=b},
@@ -21372,7 +21374,7 @@ gcp:function(a){return C.b4},
 $isad:1,
 $isbJ:1}
 J.jb.prototype={
-az:function(a,b){if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(H.dR(a,b))
+ay:function(a,b){if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(H.dR(a,b))
 if(b<0)throw H.j(H.dR(a,b))
 if(b>=a.length)H.aG(H.dR(a,b))
 return a.charCodeAt(b)},
@@ -21386,7 +21388,7 @@ if(typeof c!=="number")return c.aQ()
 if(c<0||c>b.length)throw H.j(P.cn(c,0,b.length,null,null))
 t=a.length
 if(c+t>b.length)return
-for(s=0;s<t;++s)if(this.az(b,c+s)!==this.bx(a,s))return
+for(s=0;s<t;++s)if(this.ay(b,c+s)!==this.bx(a,s))return
 return new H.mn(c,b,a)},
 k:function(a,b){if(typeof b!=="string")throw H.j(P.f0(b,null,null))
 return a+b},
@@ -21400,22 +21402,22 @@ return H.a8(a,b,c)},
 Dl:function(a,b,c){return H.XN(a,b,c,null)},
 vg:function(a,b){var t=a.split(b)
 return t},
-eE:function(a,b,c,d){var t,s
+eF:function(a,b,c,d){var t,s
 H.H7(b)
 c=P.eH(b,c,a.length,null,null,null)
 H.H7(c)
 t=a.substring(0,b)
 s=a.substring(c)
 return t+d+s},
-fn:function(a,b,c){var t
+fo:function(a,b,c){var t
 H.H7(c)
 if(typeof c!=="number")return c.aQ()
 if(c<0||c>a.length)throw H.j(P.cn(c,0,a.length,null,null))
 if(typeof b==="string"){t=c+b.length
 if(t>a.length)return!1
 return b===a.substring(c,t)}return J.NL(b,a,c)!=null},
-d5:function(a,b){return this.fn(a,b,0)},
-ay:function(a,b,c){var t
+d5:function(a,b){return this.fo(a,b,0)},
+ax:function(a,b,c){var t
 if(typeof b!=="number"||Math.floor(b)!==b)H.aG(H.c1(b))
 if(c==null)c=a.length
 if(typeof c!=="number"||Math.floor(c)!==c)H.aG(H.c1(c))
@@ -21424,17 +21426,17 @@ if(t.aQ(b,0))throw H.j(P.e0(b,null,null))
 if(t.bk(b,c))throw H.j(P.e0(b,null,null))
 if(J.P(c,a.length))throw H.j(P.e0(c,null,null))
 return a.substring(b,c)},
-d6:function(a,b){return this.ay(a,b,null)},
+d6:function(a,b){return this.ax(a,b,null)},
 DO:function(a){return a.toLowerCase()},
 DQ:function(a){return a.toUpperCase()},
-fh:function(a){var t,s,r,q,p
+fi:function(a){var t,s,r,q,p
 t=a.trim()
 s=t.length
 if(s===0)return t
 if(this.bx(t,0)===133){r=J.Uk(t,1)
 if(r===s)return""}else r=0
 q=s-1
-p=this.az(t,q)===133?J.Ul(t,q):s
+p=this.ay(t,q)===133?J.Ul(t,q):s
 if(r===0&&p===s)return t
 return t.substring(r,p)},
 bs:function(a,b){var t,s
@@ -21446,11 +21448,11 @@ for(t=a,s="";!0;){if((b&1)===1)s=t+s
 b=b>>>1
 if(b===0)break
 t+=t}return s},
-ej:function(a,b,c){var t=b-a.length
+ek:function(a,b,c){var t=b-a.length
 if(t<=0)return a
 return this.bs(c,t)+a},
 gj4:function(a){return new H.hQ(a)},
-hR:function(a,b,c){var t,s,r,q
+hS:function(a,b,c){var t,s,r,q
 if(b==null)H.aG(H.c1(b))
 if(c<0||c>a.length)throw H.j(P.cn(c,0,a.length,null,null))
 if(typeof b==="string")return a.indexOf(b,c)
@@ -21458,7 +21460,7 @@ t=J.a6(b)
 if(!!t.$iskp){s=b.pE(a,c)
 return s==null?-1:s.b.index}for(r=a.length,q=c;q<=r;++q)if(t.nX(b,a,q)!=null)return q
 return-1},
-b1:function(a,b){return this.hR(a,b,0)},
+b1:function(a,b){return this.hS(a,b,0)},
 BN:function(a,b,c){var t
 if(b==null)H.aG(H.c1(b))
 c=a.length
@@ -21472,7 +21474,7 @@ return H.XM(a,b,c)},
 aE:function(a,b){return this.qY(a,b,0)},
 gb_:function(a){return a.length===0},
 gdc:function(a){return a.length!==0},
-ec:function(a,b){var t
+ed:function(a,b){var t
 if(typeof b!=="string")throw H.j(H.c1(b))
 if(a===b)t=0
 else t=a<b?-1:1
@@ -21495,7 +21497,7 @@ $isq:1,
 $isFZ:1}
 H.hQ.prototype={
 gu:function(a){return this.a.length},
-p:function(a,b){return C.c.az(this.a,b)},
+p:function(a,b){return C.c.ay(this.a,b)},
 $asms:function(){return[P.J]},
 $asje:function(){return[P.J]},
 $asix:function(){return[P.J]},
@@ -21504,7 +21506,7 @@ $asC:function(){return[P.J]},
 $asv:function(){return[P.J]}}
 H.C.prototype={$asC:null}
 H.iv.prototype={
-gaw:function(a){return new H.fq(this,this.gu(this),0,null,[H.as(this,"iv",0)])},
+gav:function(a){return new H.fq(this,this.gu(this),0,null,[H.as(this,"iv",0)])},
 bE:function(a,b){var t,s
 t=this.gu(this)
 if(typeof t!=="number")return H.w(t)
@@ -21514,7 +21516,7 @@ if(t!==this.gu(this))throw H.j(new P.cT(this))}},
 gb_:function(a){return J.c(this.gu(this),0)},
 gah:function(a){if(J.c(this.gu(this),0))throw H.j(H.dE())
 return this.aV(0,0)},
-gax:function(a){if(J.c(this.gu(this),0))throw H.j(H.dE())
+gaw:function(a){if(J.c(this.gu(this),0))throw H.j(H.dE())
 return this.aV(0,J.cc(this.gu(this),1))},
 aE:function(a,b){var t,s
 t=this.gu(this)
@@ -21537,7 +21539,7 @@ q=0
 s=""
 for(;q<t;++q){s+=H.h(this.aV(0,q))
 if(t!==this.gu(this))throw H.j(new P.cT(this))}return s.charCodeAt(0)==0?s:s}},
-em:function(a,b){return this.vr(0,b)},
+en:function(a,b){return this.vr(0,b)},
 dd:function(a,b){return new H.eF(this,b,[H.as(this,"iv",0),null])},
 tB:function(a,b){var t,s,r
 t=this.gu(this)
@@ -21547,7 +21549,7 @@ if(typeof t!=="number")return H.w(t)
 r=1
 for(;r<t;++r){s=b.$2(s,this.aV(0,r))
 if(t!==this.gu(this))throw H.j(new P.cT(this))}return s},
-ep:function(a,b){return H.zt(this,b,null,H.as(this,"iv",0))},
+eq:function(a,b){return H.zt(this,b,null,H.as(this,"iv",0))},
 bX:function(a,b){var t,s,r,q
 t=[H.as(this,"iv",0)]
 if(b){s=H.a([],t)
@@ -21584,7 +21586,7 @@ return J.cc(r,s)},
 aV:function(a,b){var t=J.aa(this.gxo(),b)
 if(J.af(b,0)||J.d3(t,this.gwt()))throw H.j(P.cL(b,this,"index",null,null))
 return J.mZ(this.a,t)},
-ep:function(a,b){var t,s
+eq:function(a,b){var t,s
 if(J.af(b,0))H.aG(P.cn(b,0,null,"count",null))
 t=J.aa(this.b,b)
 s=this.c
@@ -21620,7 +21622,7 @@ r=this.c
 if(r!=null){if(J.af(r,0))H.aG(P.cn(r,0,null,"end",null))
 if(s.bk(t,r))throw H.j(P.cn(t,0,r,"start",null))}}}
 H.fq.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t,s,r,q
 t=this.a
 s=J.aO(t)
@@ -21632,11 +21634,11 @@ if(q>=r){this.d=null
 return!1}this.d=s.aV(t,q);++this.c
 return!0}}
 H.jf.prototype={
-gaw:function(a){return new H.p5(null,J.bj(this.a),this.b,this.$ti)},
+gav:function(a){return new H.p5(null,J.bj(this.a),this.b,this.$ti)},
 gu:function(a){return J.c6(this.a)},
 gb_:function(a){return J.he(this.a)},
 gah:function(a){return this.b.$1(J.I3(this.a))},
-gax:function(a){return this.b.$1(J.Nz(this.a))},
+gaw:function(a){return this.b.$1(J.Nz(this.a))},
 aV:function(a,b){return this.b.$1(J.mZ(this.a,b))},
 $asv:function(a,b){return[b]}}
 H.lq.prototype={$isC:1,
@@ -21644,10 +21646,10 @@ $asC:function(a,b){return[b]},
 $asv:function(a,b){return[b]}}
 H.p5.prototype={
 M:function(){var t=this.b
-if(t.M()){this.a=this.c.$1(t.ga_())
+if(t.M()){this.a=this.c.$1(t.ga0())
 return!0}this.a=null
 return!1},
-ga_:function(){return this.a},
+ga0:function(){return this.a},
 $aslR:function(a,b){return[b]}}
 H.eF.prototype={
 gu:function(a){return J.c6(this.a)},
@@ -21656,15 +21658,15 @@ $asiv:function(a,b){return[b]},
 $asC:function(a,b){return[b]},
 $asv:function(a,b){return[b]}}
 H.cG.prototype={
-gaw:function(a){return new H.ev(J.bj(this.a),this.b,this.$ti)},
+gav:function(a){return new H.ev(J.bj(this.a),this.b,this.$ti)},
 dd:function(a,b){return new H.jf(this,b,[H.L(this,0),null])}}
 H.ev.prototype={
 M:function(){var t,s
-for(t=this.a,s=this.b;t.M();)if(s.$1(t.ga_())===!0)return!0
+for(t=this.a,s=this.b;t.M();)if(s.$1(t.ga0())===!0)return!0
 return!1},
-ga_:function(){return this.a.ga_()}}
+ga0:function(){return this.a.ga0()}}
 H.qa.prototype={
-gaw:function(a){return new H.zB(J.bj(this.a),this.b,this.$ti)}}
+gav:function(a){return new H.zB(J.bj(this.a),this.b,this.$ti)}}
 H.tE.prototype={
 gu:function(a){var t,s
 t=J.c6(this.a)
@@ -21680,25 +21682,25 @@ this.b=t
 if(J.d3(t,0))return this.a.M()
 this.b=-1
 return!1},
-ga_:function(){if(J.af(this.b,0))return
-return this.a.ga_()}}
+ga0:function(){if(J.af(this.b,0))return
+return this.a.ga0()}}
 H.zC.prototype={
-gaw:function(a){return new H.zD(J.bj(this.a),this.b,!1,this.$ti)}}
+gav:function(a){return new H.zD(J.bj(this.a),this.b,!1,this.$ti)}}
 H.zD.prototype={
 M:function(){if(this.c)return!1
 var t=this.a
-if(!t.M()||this.b.$1(t.ga_())!==!0){this.c=!0
+if(!t.M()||this.b.$1(t.ga0())!==!0){this.c=!0
 return!1}return!0},
-ga_:function(){if(this.c)return
-return this.a.ga_()}}
+ga0:function(){if(this.c)return
+return this.a.ga0()}}
 H.mi.prototype={
-ep:function(a,b){return new H.mi(this.a,this.b+H.CU(b),this.$ti)},
-gaw:function(a){return new H.yy(J.bj(this.a),this.b,this.$ti)}}
+eq:function(a,b){return new H.mi(this.a,this.b+H.CU(b),this.$ti)},
+gav:function(a){return new H.yy(J.bj(this.a),this.b,this.$ti)}}
 H.nC.prototype={
 gu:function(a){var t=J.cc(J.c6(this.a),this.b)
 if(J.d3(t,0))return t
 return 0},
-ep:function(a,b){return new H.nC(this.a,this.b+H.CU(b),this.$ti)},
+eq:function(a,b){return new H.nC(this.a,this.b+H.CU(b),this.$ti)},
 $isC:1,
 $asC:null,
 $asv:null}
@@ -21707,19 +21709,19 @@ M:function(){var t,s
 for(t=this.a,s=0;s<this.b;++s)t.M()
 this.b=0
 return t.M()},
-ga_:function(){return this.a.ga_()}}
+ga0:function(){return this.a.ga0()}}
 H.nD.prototype={
-gaw:function(a){return C.ak},
+gav:function(a){return C.ak},
 bE:function(a,b){},
 gb_:function(a){return!0},
 gu:function(a){return 0},
 gah:function(a){throw H.j(H.dE())},
-gax:function(a){throw H.j(H.dE())},
+gaw:function(a){throw H.j(H.dE())},
 aV:function(a,b){throw H.j(P.cn(b,0,0,"index",null))},
 aE:function(a,b){return!1},
-em:function(a,b){return this},
+en:function(a,b){return this},
 dd:function(a,b){return C.aj},
-ep:function(a,b){if(J.af(b,0))H.aG(P.cn(b,0,null,"count",null))
+eq:function(a,b){if(J.af(b,0))H.aG(P.cn(b,0,null,"count",null))
 return this},
 bX:function(a,b){var t,s
 t=this.$ti
@@ -21730,12 +21732,12 @@ t=H.a(s,t)}return t},
 d2:function(a){return this.bX(a,!0)}}
 H.tG.prototype={
 M:function(){return!1},
-ga_:function(){return}}
+ga0:function(){return}}
 H.nV.prototype={
 su:function(a,b){throw H.j(new P.a9("Cannot change the length of a fixed-length list"))},
 h:function(a,b){throw H.j(new P.a9("Cannot add to a fixed-length list"))},
 aW:function(a,b){throw H.j(new P.a9("Cannot remove from a fixed-length list"))},
-eE:function(a,b,c,d){throw H.j(new P.a9("Cannot remove from a fixed-length list"))}}
+eF:function(a,b,c,d){throw H.j(new P.a9("Cannot remove from a fixed-length list"))}}
 H.zZ.prototype={
 i:function(a,b,c){throw H.j(new P.a9("Cannot modify an unmodifiable list"))},
 su:function(a,b){throw H.j(new P.a9("Cannot change the length of an unmodifiable list"))},
@@ -21743,8 +21745,8 @@ h:function(a,b){throw H.j(new P.a9("Cannot add to an unmodifiable list"))},
 aW:function(a,b){throw H.j(new P.a9("Cannot remove from an unmodifiable list"))},
 bR:function(a,b,c,d,e){throw H.j(new P.a9("Cannot modify an unmodifiable list"))},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-eE:function(a,b,c,d){throw H.j(new P.a9("Cannot remove from an unmodifiable list"))},
-im:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an unmodifiable list"))},
+eF:function(a,b,c,d){throw H.j(new P.a9("Cannot remove from an unmodifiable list"))},
+io:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an unmodifiable list"))},
 $isy:1,
 $asy:null,
 $isC:1,
@@ -21823,7 +21825,7 @@ else t=!0
 if(t){J.l7(a,c)
 return}t=this.cx
 if(t==null){t=P.FH(null,null)
-this.cx=t}t.fS(0,new H.BS(a,c))},
+this.cx=t}t.fT(0,new H.BS(a,c))},
 B_:function(a,b){var t
 if(!this.r.P(0,a))return
 t=J.a6(b)
@@ -21832,7 +21834,7 @@ else t=!0
 if(t){this.lr()
 return}t=this.cx
 if(t==null){t=P.FH(null,null)
-this.cx=t}t.fS(0,this.gBK())},
+this.cx=t}t.fT(0,this.gBK())},
 B3:function(a,b){var t,s,r
 t=this.dx
 if(t.a===0){if(this.db===!0&&this===u.globalState.e)return
@@ -21886,12 +21888,12 @@ if(t.gu(t)-this.c.a>0||this.y||!this.x)u.globalState.z.i(0,this.a,this)
 else this.lr()},
 lr:function(){var t,s,r,q,p
 t=this.cx
-if(t!=null)t.fq(0)
-for(t=this.b,s=t.gd3(t),s=s.gaw(s);s.M();)s.ga_().wk()
-t.fq(0)
-this.c.fq(0)
+if(t!=null)t.fs(0)
+for(t=this.b,s=t.gd3(t),s=s.gav(s);s.M();)s.ga0().wk()
+t.fs(0)
+this.c.fs(0)
 u.globalState.z.aW(0,this.a)
-this.dx.fq(0)
+this.dx.fs(0)
 if(this.ch!=null){for(r=0;t=this.ch,s=t.length,r<s;r+=2){q=t[r]
 p=r+1
 if(p>=s)return H.b(t,p)
@@ -21923,7 +21925,7 @@ if(s.x===!0){r=s.z
 r=r.gb_(r)&&s.f.b===0}else r=!1
 if(r){s=s.Q
 r=P.iu(["command","close"])
-r=new H.hC(!0,new P.qN(0,null,null,null,null,null,0,[null,P.J])).f_(r)
+r=new H.hC(!0,new P.qN(0,null,null,null,null,null,0,[null,P.J])).f0(r)
 s.toString
 self.postMessage(r)}return!1}t.CK()
 return!0},
@@ -21935,7 +21937,7 @@ else try{this.pX()}catch(r){t=H.dq(r)
 s=H.ee(r)
 q=u.globalState.Q
 p=P.iu(["command","error","msg",H.h(t)+"\n"+H.h(s)])
-p=new H.hC(!0,P.mC(null,P.J)).f_(p)
+p=new H.hC(!0,P.mC(null,P.J)).f0(p)
 q.toString
 self.postMessage(p)}}}
 H.Bu.prototype={
@@ -21962,14 +21964,14 @@ else s.$0()}t.mX()},
 $S:function(){return{func:1,v:true}}}
 H.Bc.prototype={}
 H.kW.prototype={
-i_:function(a,b){var t,s,r
+i0:function(a,b){var t,s,r
 t=u.globalState.z.p(0,this.a)
 if(t==null)return
 s=this.b
 if(s.gpO())return
 r=H.Wa(b)
 if(t.gza()===s){t.AY(r)
-return}u.globalState.f.a.fS(0,new H.jD(t,new H.C2(this,r),"receive"))},
+return}u.globalState.f.a.fT(0,new H.jD(t,new H.C2(this,r),"receive"))},
 P:function(a,b){if(b==null)return!1
 return b instanceof H.kW&&J.c(this.b,b.b)},
 gbV:function(a){return this.b.gmM()}}
@@ -21978,9 +21980,9 @@ $0:function(){var t=this.a.b
 if(!t.gpO())J.Nj(t,this.b)},
 $S:function(){return{func:1}}}
 H.mL.prototype={
-i_:function(a,b){var t,s,r
+i0:function(a,b){var t,s,r
 t=P.iu(["command","message","port",this,"msg",b])
-s=new H.hC(!0,P.mC(null,P.J)).f_(t)
+s=new H.hC(!0,P.mC(null,P.J)).f0(t)
 if(u.globalState.x===!0){u.globalState.Q.toString
 self.postMessage(s)}else{r=u.globalState.ch.p(0,this.b)
 if(r!=null)r.postMessage(s)}},
@@ -22001,7 +22003,7 @@ $isV5:1,
 gmM:function(){return this.a},
 gpO:function(){return this.c}}
 H.zQ.prototype={
-eb:function(a){var t
+ec:function(a){var t
 if(self.setTimeout!=null){if(this.b)throw H.j(new P.a9("Timer in event loop cannot be canceled."))
 t=this.c
 if(t==null)return;--u.globalState.f.b
@@ -22014,7 +22016,7 @@ else t=!1
 if(t){this.c=1
 t=u.globalState.f
 s=u.globalState.d
-t.a.fS(0,new H.jD(s,new H.zR(this,b),"timer"))
+t.a.fT(0,new H.jD(s,new H.zR(this,b),"timer"))
 this.b=!0}else if(self.setTimeout!=null){++u.globalState.f.b
 this.c=self.setTimeout(H.fX(new H.zS(this,b),0),a)}else throw H.j(new P.a9("Timer greater than 0."))},
 bj:function(a){return this.gt1().$1(a)},
@@ -22049,7 +22051,7 @@ s=b.a
 return t==null?s==null:t===s}return!1},
 gmM:function(){return this.a}}
 H.hC.prototype={
-f_:function(a){var t,s,r,q,p
+f0:function(a){var t,s,r,q,p
 if(a==null||typeof a==="string"||typeof a==="number"||typeof a==="boolean")return a
 t=this.b
 s=t.p(0,a)
@@ -22086,18 +22088,18 @@ this.kv(a,"Can't serialize indexable: ")},
 uP:function(a){var t,s,r
 t=[]
 C.a.su(t,a.length)
-for(s=0;s<a.length;++s){r=this.f_(a[s])
+for(s=0;s<a.length;++s){r=this.f0(a[s])
 if(s>=t.length)return H.b(t,s)
 t[s]=r}return t},
 uQ:function(a){var t
-for(t=0;t<a.length;++t)C.a.i(a,t,this.f_(a[t]))
+for(t=0;t<a.length;++t)C.a.i(a,t,this.f0(a[t]))
 return a},
 uS:function(a){var t,s,r,q
 if(!!a.constructor&&a.constructor!==Object)this.kv(a,"Only plain JS Objects are supported:")
 t=Object.keys(a)
 s=[]
 C.a.su(s,t.length)
-for(r=0;r<t.length;++r){q=this.f_(a[t[r]])
+for(r=0;r<t.length;++r){q=this.f0(a[t[r]])
 if(r>=s.length)return H.b(s,r)
 s[r]=q}return["js-object",t,s]},
 uU:function(a){if(this.a)return["sendport",a.b,a.a,a.c]
@@ -22105,7 +22107,7 @@ return["raw sendport",a]},
 uT:function(a){if(this.a)return["sendport",u.globalState.b,a.a,a.b.gmM()]
 return["raw sendport",a]}}
 H.jy.prototype={
-hL:function(a){var t,s,r,q,p,o
+hM:function(a){var t,s,r,q,p,o
 if(a==null||typeof a==="string"||typeof a==="number"||typeof a==="boolean")return a
 if(typeof a!=="object"||a===null||a.constructor!==Array)throw H.j(P.ds("Bad serialized message: "+H.h(a)))
 switch(C.a.gah(a)){case"ref":if(1>=a.length)return H.b(a,1)
@@ -22170,7 +22172,7 @@ s=0
 while(!0){r=t.gu(a)
 if(typeof r!=="number")return H.w(r)
 if(!(s<r))break
-t.i(a,s,this.hL(t.p(a,s)));++s}return a},
+t.i(a,s,this.hM(t.p(a,s)));++s}return a},
 zD:function(a){var t,s,r,q,p,o
 t=a.length
 if(1>=t)return H.b(a,1)
@@ -22180,7 +22182,7 @@ r=a[2]
 q=P.hq()
 this.b.push(q)
 s=J.NW(J.rb(s,this.gzB()))
-for(t=J.aO(s),p=J.aO(r),o=0;o<t.gu(s);++o)q.i(0,t.p(s,o),this.hL(p.p(r,o)))
+for(t=J.aO(s),p=J.aO(r),o=0;o<t.gu(s);++o)q.i(0,t.p(s,o),this.hM(p.p(r,o)))
 return q},
 zE:function(a){var t,s,r,q,p,o,n
 t=a.length
@@ -22211,7 +22213,7 @@ o=0
 while(!0){n=t.gu(s)
 if(typeof n!=="number")return H.w(n)
 if(!(o<n))break
-q[t.p(s,o)]=this.hL(p.p(r,o));++o}return q}}
+q[t.p(s,o)]=this.hM(p.p(r,o));++o}return q}}
 H.t6.prototype={
 $asjs:function(){},
 $asp4:function(){},
@@ -22270,7 +22272,7 @@ this.c.push(a)
 this.b.push(b);++t.a},
 $S:function(){return{func:1,args:[P.q,,]}}}
 H.zW.prototype={
-fD:function(a){var t,s,r
+fE:function(a){var t,s,r
 t=new RegExp(this.a).exec(a)
 if(t==null)return
 s=Object.create(null)
@@ -22300,7 +22302,7 @@ H.zY.prototype={
 G:function(a){var t=this.a
 return t.length===0?"Error":"Error: "+t}}
 H.lB.prototype={
-gfO:function(){return this.b}}
+gfP:function(){return this.b}}
 H.E7.prototype={
 $1:function(a){if(!!J.a6(a).$isio)if(a.$thrownJsError==null)a.$thrownJsError=this.a
 return a},
@@ -22385,17 +22387,17 @@ p:function(a,b){var t,s,r
 if(typeof b==="string"){t=this.b
 if(t==null)return
 s=this.jO(t,b)
-return s==null?null:s.ghP()}else if(typeof b==="number"&&(b&0x3ffffff)===b){r=this.c
+return s==null?null:s.ghQ()}else if(typeof b==="number"&&(b&0x3ffffff)===b){r=this.c
 if(r==null)return
 s=this.jO(r,b)
-return s==null?null:s.ghP()}else return this.By(b)},
+return s==null?null:s.ghQ()}else return this.By(b)},
 By:function(a){var t,s,r
 t=this.d
 if(t==null)return
 s=this.kM(t,this.kf(a))
 r=this.kg(s,a)
 if(r<0)return
-return s[r].ghP()},
+return s[r].ghQ()},
 i:function(a,b,c){var t,s
 if(typeof b==="string"){t=this.b
 if(t==null){t=this.mO()
@@ -22409,7 +22411,7 @@ this.d=t}s=this.kf(a)
 r=this.kM(t,s)
 if(r==null)this.mV(t,s,[this.mP(a,b)])
 else{q=this.kg(r,a)
-if(q>=0)r[q].shP(b)
+if(q>=0)r[q].shQ(b)
 else r.push(this.mP(a,b))}},
 aW:function(a,b){if(typeof b==="string")return this.pU(this.b,b)
 else if(typeof b==="number"&&(b&0x3ffffff)===b)return this.pU(this.c,b)
@@ -22422,8 +22424,8 @@ r=this.kg(s,a)
 if(r<0)return
 q=s.splice(r,1)[0]
 this.q6(q)
-return q.ghP()},
-fq:function(a){if(this.a>0){this.f=null
+return q.ghQ()},
+fs:function(a){if(this.a>0){this.f=null
 this.e=null
 this.d=null
 this.c=null
@@ -22438,14 +22440,14 @@ if(s!==this.r)throw H.j(new P.cT(this))
 t=t.c}},
 pk:function(a,b,c){var t=this.jO(a,b)
 if(t==null)this.mV(a,b,this.mP(b,c))
-else t.shP(c)},
+else t.shQ(c)},
 pU:function(a,b){var t
 if(a==null)return
 t=this.jO(a,b)
 if(t==null)return
 this.q6(t)
 this.pC(a,b)
-return t.ghP()},
+return t.ghQ()},
 mP:function(a,b){var t,s
 t=new H.w0(a,b,null,null,[null,null])
 if(this.e==null){this.f=t
@@ -22494,14 +22496,14 @@ $R:2,
 $S:function(){return H.e3(function(a,b){return{func:1,args:[a,b]}},this.a,"E")}}
 H.w0.prototype={
 grT:function(){return this.a},
-ghP:function(){return this.b},
+ghQ:function(){return this.b},
 gwX:function(){return this.c},
 gx0:function(){return this.d},
-shP:function(a){return this.b=a}}
+shQ:function(a){return this.b=a}}
 H.w1.prototype={
 gu:function(a){return this.a.a},
 gb_:function(a){return this.a.a===0},
-gaw:function(a){var t,s
+gav:function(a){var t,s
 t=this.a
 s=new H.w2(t,t.r,null,null,this.$ti)
 s.c=t.e
@@ -22515,7 +22517,7 @@ for(;s!=null;){b.$1(s.a)
 if(r!==t.r)throw H.j(new P.cT(t))
 s=s.c}}}
 H.w2.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t=this.a
 if(this.b!==t.r)throw H.j(new P.cT(t))
 else{t=this.c
@@ -22575,7 +22577,7 @@ $isV8:1,
 $isFZ:1}
 H.qO.prototype={
 gcf:function(a){return this.b.index},
-hz:function(a){var t=this.b
+hA:function(a){var t=this.b
 if(a>>>0!==a||a>=t.length)return H.b(t,a)
 return t[a]},
 p:function(a,b){var t=this.b
@@ -22583,11 +22585,11 @@ if(b>>>0!==b||b>=t.length)return H.b(t,b)
 return t[b]},
 $ishr:1}
 H.B3.prototype={
-gaw:function(a){return new H.qA(this.a,this.b,this.c,null)},
+gav:function(a){return new H.qA(this.a,this.b,this.c,null)},
 $askn:function(){return[P.hr]},
 $asv:function(){return[P.hr]}}
 H.qA.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t,s,r,q
 t=this.b
 if(t==null)return!1
@@ -22604,13 +22606,13 @@ return!0}}this.d=null
 this.b=null
 return!1}}
 H.mn.prototype={
-p:function(a,b){return this.hz(b)},
-hz:function(a){if(!J.c(a,0))throw H.j(P.e0(a,null,null))
+p:function(a,b){return this.hA(b)},
+hA:function(a){if(!J.c(a,0))throw H.j(P.e0(a,null,null))
 return this.c},
 $ishr:1,
 gcf:function(a){return this.a}}
 H.Cp.prototype={
-gaw:function(a){return new H.Cq(this.a,this.b,this.c,null)},
+gav:function(a){return new H.Cq(this.a,this.b,this.c,null)},
 gah:function(a){var t,s,r
 t=this.a
 s=this.b
@@ -22633,12 +22635,12 @@ return!1}n=o+r
 this.d=new H.mn(o,q,s)
 this.c=n===this.c?n+1:n
 return!0},
-ga_:function(){return this.d}}
+ga0:function(){return this.d}}
 H.jg.prototype={
 gcp:function(a){return C.aQ},
-fp:function(a,b,c){H.kY(a,b,c)
+fq:function(a,b,c){H.kY(a,b,c)
 return c==null?new Uint8Array(a,b):new Uint8Array(a,b,c)},
-xZ:function(a){return this.fp(a,0,null)},
+xZ:function(a){return this.fq(a,0,null)},
 xY:function(a,b,c){var t
 H.kY(a,b,c)
 t=new DataView(a,b)
@@ -22652,7 +22654,7 @@ wP:function(a,b,c,d){if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(P.f0(b,
 else throw H.j(P.cn(b,0,c,d,null))},
 pq:function(a,b,c,d){if(b>>>0!==b||b>c)this.wP(a,b,c,d)},
 $isjh:1,
-gi7:function(a){return a.buffer},
+gi8:function(a){return a.buffer},
 gkk:function(a){return a.byteLength}}
 H.wB.prototype={
 gcp:function(a){return C.aR}}
@@ -22873,13 +22875,13 @@ xq:function(){this.y^=1},
 gwR:function(){return(this.y&2)!==0},
 xl:function(){this.y|=4},
 gx9:function(){return(this.y&4)!==0},
-hE:function(){},
 hF:function(){},
+hG:function(){},
 giU:function(){return this.y},
-gfT:function(){return this.z},
+gfU:function(){return this.z},
 gjL:function(){return this.Q},
 siU:function(a){return this.y=a},
-sfT:function(a){return this.z=a},
+sfU:function(a){return this.z=a},
 sjL:function(a){return this.Q=a}}
 P.iH.prototype={
 gki:function(){return!1},
@@ -22893,19 +22895,19 @@ jK:function(a){var t
 a.siU(this.c&1)
 t=this.e
 this.e=a
-a.sfT(null)
+a.sfU(null)
 a.sjL(t)
 if(t==null)this.d=a
-else t.sfT(a)},
+else t.sfU(a)},
 pV:function(a){var t,s
 t=a.gjL()
-s=a.gfT()
+s=a.gfU()
 if(t==null)this.d=s
-else t.sfT(s)
+else t.sfU(s)
 if(s==null)this.e=t
 else s.sjL(t)
 a.sjL(a)
-a.sfT(a)},
+a.sfU(a)},
 xp:function(a,b,c,d){var t,s,r
 if((this.c&4)!==0){if(c==null)c=P.LU()
 t=new P.qI($.bf,0,c,this.$ti)
@@ -22921,7 +22923,7 @@ t=this.d
 s=this.e
 if(t==null?s==null:t===s)P.LH(this.a)
 return r},
-x6:function(a){if(a.gfT()===a)return
+x6:function(a){if(a.gfU()===a)return
 if(a.gwR())a.xl()
 else{this.pV(a)
 if((this.c&2)===0&&this.d==null)this.mx()}return},
@@ -22931,7 +22933,7 @@ kI:function(){if((this.c&4)!==0)return new P.aE("Cannot add new events after cal
 return new P.aE("Cannot add new events while doing an addStream")},
 h:function(a,b){if(!this.gkO())throw H.j(this.kI())
 this.kT(b)},
-f6:function(a){var t
+f7:function(a){var t
 if((this.c&4)!==0)return this.r
 if(!this.gkO())throw H.j(this.kI())
 this.c|=4
@@ -22948,15 +22950,15 @@ this.c=t^3
 for(;s!=null;)if(s.wv(r)){s.siU(s.giU()|2)
 a.$1(s)
 s.xq()
-q=s.gfT()
+q=s.gfU()
 if(s.gx9())this.pV(s)
 s.siU(s.giU()&4294967293)
-s=q}else s=s.gfT()
+s=q}else s=s.gfU()
 this.c&=4294967293
 if(this.d==null)this.mx()},
 mx:function(){if((this.c&4)!==0&&this.r.a===0)this.r.kJ(null)
 P.LH(this.b)},
-gfZ:function(){return this.c}}
+gh_:function(){return this.c}}
 P.mG.prototype={
 gkO:function(){return P.iH.prototype.gkO.call(this)===!0&&(this.c&2)===0},
 kI:function(){if((this.c&2)!==0)return new P.aE("Cannot fire new event. Controller is already firing an event")
@@ -22964,14 +22966,14 @@ return this.vx()},
 kT:function(a){var t=this.d
 if(t==null)return
 if(t===this.e){this.c|=2
-t.i2(0,a)
+t.i3(0,a)
 this.c&=4294967293
 if(this.d==null)this.mx()
 return}this.pH(new P.Cw(this,a))},
 iX:function(){if(this.d!=null)this.pH(new P.Cx(this))
 else this.r.kJ(null)}}
 P.Cw.prototype={
-$1:function(a){a.i2(0,this.b)},
+$1:function(a){a.i3(0,this.b)},
 $S:function(){return H.e3(function(a){return{func:1,args:[[P.fe,a]]}},this.a,"mG")}}
 P.Cx.prototype={
 $1:function(a){a.pm()},
@@ -22982,23 +22984,23 @@ P.qD.prototype={
 nh:function(a,b){if(a==null)a=new P.ku()
 if(this.a.a!==0)throw H.j(new P.aE("Future already completed"))
 $.bf.toString
-this.eO(a,b)},
+this.eP(a,b)},
 l8:function(a){return this.nh(a,null)},
 $isiT:1,
 gAX:function(){return this.a}}
 P.id.prototype={
-ft:function(a,b){var t=this.a
+fu:function(a,b){var t=this.a
 if(t.a!==0)throw H.j(new P.aE("Future already completed"))
 t.kJ(b)},
-z_:function(a){return this.ft(a,null)},
-eO:function(a,b){this.a.pn(a,b)}}
+z_:function(a){return this.fu(a,null)},
+eP:function(a,b){this.a.pn(a,b)}}
 P.qT.prototype={
-ft:function(a,b){var t=this.a
+fu:function(a,b){var t=this.a
 if(t.a!==0)throw H.j(new P.aE("Future already completed"))
-t.fo(b)},
-eO:function(a,b){this.a.eO(a,b)}}
+t.fp(b)},
+eP:function(a,b){this.a.eP(a,b)}}
 P.qJ.prototype={
-gi5:function(){return this.b.b},
+gi6:function(){return this.b.b},
 grL:function(){return(this.c&1)!==0},
 gB6:function(){return(this.c&2)!==0},
 grK:function(){return this.c===8},
@@ -23010,13 +23012,13 @@ rJ:function(a){var t,s,r
 t=this.e
 s=J.n(a)
 r=this.b.b
-if(H.jG(t,{func:1,args:[,,]}))return r.DC(t,s.gee(a),a.gfO())
-else return r.ot(t,s.gee(a))},
+if(H.jG(t,{func:1,args:[,,]}))return r.DC(t,s.gef(a),a.gfP())
+else return r.ot(t,s.gef(a))},
 B5:function(){return this.b.b.tO(this.d)},
-gfX:function(){return this.a},
+gfY:function(){return this.a},
 gcS:function(a){return this.b},
 gqw:function(){return this.d},
-sfX:function(a){return this.a=a}}
+sfY:function(a){return this.a=a}}
 P.cH.prototype={
 gwQ:function(){return this.a===2},
 gmN:function(){return this.a>=4},
@@ -23026,7 +23028,7 @@ this.c=a},
 oy:function(a,b){var t=$.bf
 if(t!==C.o){t.toString
 if(b!=null)b=P.LD(b,t)}return this.mW(a,b)},
-fH:function(a){return this.oy(a,null)},
+fI:function(a){return this.oy(a,null)},
 mW:function(a,b){var t,s
 t=new P.cH(0,$.bf,null,[null])
 s=b==null?1:3
@@ -23041,20 +23043,20 @@ this.jK(new P.qJ(null,s,8,a,null,[t,t]))
 return s},
 xk:function(){this.a=1},
 wj:function(){this.a=0},
-gi4:function(){return this.c},
+gi5:function(){return this.c},
 gwi:function(){return this.c},
 xm:function(a){this.a=4
 this.c=a},
 xj:function(a){this.a=8
 this.c=a},
-pr:function(a){this.a=a.gfZ()
+pr:function(a){this.a=a.gh_()
 this.c=a.giW()},
 jK:function(a){var t,s
 t=this.a
 if(t<=1){a.a=this.c
 this.c=a}else{if(t===2){s=this.c
 if(!s.gmN()){s.jK(a)
-return}this.a=s.gfZ()
+return}this.a=s.gh_()
 this.c=s.giW()}t=this.b
 t.toString
 P.jF(null,null,t,new P.BA(this,a))}},
@@ -23065,10 +23067,10 @@ if(a==null)return
 s=this.a
 if(s<=1){r=this.c
 this.c=a
-if(r!=null){for(q=a;q.gfX()!=null;)q=q.gfX()
-q.sfX(r)}}else{if(s===2){p=this.c
+if(r!=null){for(q=a;q.gfY()!=null;)q=q.gfY()
+q.sfY(r)}}else{if(s===2){p=this.c
 if(!p.gmN()){p.pT(a)
-return}this.a=p.gfZ()
+return}this.a=p.gh_()
 this.c=p.giW()}t.a=this.pW(a)
 s=this.b
 s.toString
@@ -23077,9 +23079,9 @@ iV:function(){var t=this.c
 this.c=null
 return this.pW(t)},
 pW:function(a){var t,s,r
-for(t=a,s=null;t!=null;s=t,t=r){r=t.gfX()
-t.sfX(s)}return s},
-fo:function(a){var t,s
+for(t=a,s=null;t!=null;s=t,t=r){r=t.gfY()
+t.sfY(s)}return s},
+fp:function(a){var t,s
 t=this.$ti
 if(H.hD(a,"$isdX",t,"$asdX"))if(H.hD(a,"$iscH",t,null))P.BD(a,this)
 else P.La(a,this)
@@ -23087,11 +23089,11 @@ else{s=this.iV()
 this.a=4
 this.c=a
 P.kU(this,s)}},
-eO:function(a,b){var t=this.iV()
+eP:function(a,b){var t=this.iV()
 this.a=8
 this.c=new P.jP(a,b)
 P.kU(this,t)},
-pv:function(a){return this.eO(a,null)},
+pv:function(a){return this.eP(a,null)},
 kJ:function(a){var t
 if(H.hD(a,"$isdX",this.$ti,"$asdX")){this.wh(a)
 return}this.a=1
@@ -23112,8 +23114,8 @@ P.jF(null,null,t,new P.BB(this,a,b))},
 w8:function(a,b){this.a=4
 this.c=a},
 $isdX:1,
-gfZ:function(){return this.a},
-gi5:function(){return this.b},
+gh_:function(){return this.a},
+gi6:function(){return this.b},
 giW:function(){return this.c}}
 P.BA.prototype={
 $0:function(){P.kU(this.a,this.b)},
@@ -23124,19 +23126,19 @@ $S:function(){return{func:1}}}
 P.BE.prototype={
 $1:function(a){var t=this.a
 t.wj()
-t.fo(a)},
+t.fp(a)},
 "call*":"$1",
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 P.BF.prototype={
-$2:function(a,b){this.a.eO(a,b)},
+$2:function(a,b){this.a.eP(a,b)},
 $1:function(a){return this.$2(a,null)},
 "call*":"$2",
 $R:1,
 $D:function(){return[null]},
 $S:function(){return{func:1,args:[,],opt:[,]}}}
 P.BG.prototype={
-$0:function(){this.a.eO(this.b,this.c)},
+$0:function(){this.a.eP(this.b,this.c)},
 $S:function(){return{func:1}}}
 P.BC.prototype={
 $0:function(){var t,s
@@ -23150,26 +23152,26 @@ P.BH.prototype={
 $0:function(){P.BD(this.b,this.a)},
 $S:function(){return{func:1}}}
 P.BB.prototype={
-$0:function(){this.a.eO(this.b,this.c)},
+$0:function(){this.a.eP(this.b,this.c)},
 $S:function(){return{func:1}}}
 P.BL.prototype={
 $0:function(){var t,s,r,q,p,o,n
 t=null
 try{t=this.d.B5()}catch(q){s=H.dq(q)
 r=H.ee(q)
-if(this.c){p=J.l5(this.a.a.gi4())
+if(this.c){p=J.l5(this.a.a.gi5())
 o=s
 o=p==null?o==null:p===o
 p=o}else p=!1
 o=this.b
-if(p)o.b=this.a.a.gi4()
+if(p)o.b=this.a.a.gi5()
 else o.b=new P.jP(s,r)
 o.a=!0
-return}if(!!J.a6(t).$isdX){if(t instanceof P.cH&&t.gfZ()>=4){if(t.gfZ()===8){p=this.b
+return}if(!!J.a6(t).$isdX){if(t instanceof P.cH&&t.gh_()>=4){if(t.gh_()===8){p=this.b
 p.b=t.giW()
 p.a=!0}return}n=this.a.a
 p=this.b
-p.b=t.fH(new P.BM(n))
+p.b=t.fI(new P.BM(n))
 p.a=!1}},
 $S:function(){return{func:1,v:true}}}
 P.BM.prototype={
@@ -23187,23 +23189,23 @@ q.a=!0}},
 $S:function(){return{func:1,v:true}}}
 P.BJ.prototype={
 $0:function(){var t,s,r,q,p,o,n,m
-try{t=this.a.a.gi4()
+try{t=this.a.a.gi5()
 q=this.c
 if(q.C3(t)===!0&&q.gBb()){p=this.b
 p.b=q.rJ(t)
 p.a=!1}}catch(o){s=H.dq(o)
 r=H.ee(o)
 q=this.a
-p=J.l5(q.a.gi4())
+p=J.l5(q.a.gi5())
 n=s
 m=this.b
-if(p==null?n==null:p===n)m.b=q.a.gi4()
+if(p==null?n==null:p===n)m.b=q.a.gi5()
 else m.b=new P.jP(s,r)
 m.a=!0}},
 $S:function(){return{func:1,v:true}}}
 P.qB.prototype={
 gqw:function(){return this.a},
-ghU:function(a){return this.b}}
+ghV:function(a){return this.b}}
 P.dO.prototype={
 dd:function(a,b){return new P.BY(b,this,[H.as(this,"dO",0),null])},
 AZ:function(a,b){return new P.BO(a,b,this,[H.as(this,"dO",0)])},
@@ -23212,46 +23214,46 @@ aE:function(a,b){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[P.ew])
 t.a=null
-t.a=this.dr(new P.z3(t,this,b,s),!0,new P.z4(s),s.ghC())
+t.a=this.dr(new P.z3(t,this,b,s),!0,new P.z4(s),s.ghD())
 return s},
 bE:function(a,b){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[null])
 t.a=null
-t.a=this.dr(new P.zb(t,this,b,s),!0,new P.zc(s),s.ghC())
+t.a=this.dr(new P.zb(t,this,b,s),!0,new P.zc(s),s.ghD())
 return s},
 gu:function(a){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[P.J])
 t.a=0
-this.dr(new P.zh(t),!0,new P.zi(t,s),s.ghC())
+this.dr(new P.zh(t),!0,new P.zi(t,s),s.ghD())
 return s},
 gb_:function(a){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[P.ew])
 t.a=null
-t.a=this.dr(new P.zd(t,s),!0,new P.ze(s),s.ghC())
+t.a=this.dr(new P.zd(t,s),!0,new P.ze(s),s.ghD())
 return s},
 d2:function(a){var t,s,r
 t=H.as(this,"dO",0)
 s=H.a([],[t])
 r=new P.cH(0,$.bf,null,[[P.y,t]])
-this.dr(new P.zj(this,s),!0,new P.zk(s,r),r.ghC())
+this.dr(new P.zj(this,s),!0,new P.zk(s,r),r.ghD())
 return r},
-ep:function(a,b){if(typeof b!=="number"||Math.floor(b)!==b||b<0)H.aG(P.ds(b))
+eq:function(a,b){if(typeof b!=="number"||Math.floor(b)!==b||b<0)H.aG(P.ds(b))
 return new P.Ck(b,this,[H.as(this,"dO",0)])},
 gah:function(a){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[H.as(this,"dO",0)])
 t.a=null
-t.a=this.dr(new P.z7(t,this,s),!0,new P.z8(s),s.ghC())
+t.a=this.dr(new P.z7(t,this,s),!0,new P.z8(s),s.ghD())
 return s},
-gax:function(a){var t,s
+gaw:function(a){var t,s
 t={}
 s=new P.cH(0,$.bf,null,[H.as(this,"dO",0)])
 t.a=null
 t.b=!1
-this.dr(new P.zf(t,this),!0,new P.zg(t,s),s.ghC())
+this.dr(new P.zf(t,this),!0,new P.zg(t,s),s.ghD())
 return s},
 aV:function(a,b){var t,s
 t={}
@@ -23259,7 +23261,7 @@ if(typeof b!=="number"||Math.floor(b)!==b||b<0)throw H.j(P.ds(b))
 s=new P.cH(0,$.bf,null,[H.as(this,"dO",0)])
 t.a=null
 t.b=0
-t.a=this.dr(new P.z5(t,this,b,s),!0,new P.z6(t,this,b,s),s.ghC())
+t.a=this.dr(new P.z5(t,this,b,s),!0,new P.z6(t,this,b,s),s.ghD())
 return s}}
 P.z3.prototype={
 $1:function(a){var t,s
@@ -23276,7 +23278,7 @@ P.z2.prototype={
 $1:function(a){if(a===!0)P.CS(this.a.a,this.b,!0)},
 $S:function(){return{func:1,args:[P.ew]}}}
 P.z4.prototype={
-$0:function(){this.a.fo(!1)},
+$0:function(){this.a.fp(!1)},
 "call*":"$0",
 $R:0,
 $S:function(){return{func:1}}}
@@ -23292,7 +23294,7 @@ P.za.prototype={
 $1:function(a){},
 $S:function(){return{func:1,args:[,]}}}
 P.zc.prototype={
-$0:function(){this.a.fo(null)},
+$0:function(){this.a.fp(null)},
 "call*":"$0",
 $R:0,
 $S:function(){return{func:1}}}
@@ -23302,7 +23304,7 @@ $1:function(a){++this.a.a},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 P.zi.prototype={
-$0:function(){this.b.fo(this.a.a)},
+$0:function(){this.b.fp(this.a.a)},
 "call*":"$0",
 $R:0,
 $S:function(){return{func:1}}}
@@ -23312,7 +23314,7 @@ $1:function(a){P.CS(this.a.a,this.b,!1)},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 P.ze.prototype={
-$0:function(){this.a.fo(!0)},
+$0:function(){this.a.fp(!0)},
 "call*":"$0",
 $R:0,
 $S:function(){return{func:1}}}
@@ -23322,7 +23324,7 @@ $1:function(a){this.b.push(a)},
 $R:1,
 $S:function(){return H.e3(function(a){return{func:1,args:[a]}},this.a,"dO")}}
 P.zk.prototype={
-$0:function(){this.b.fo(this.a)},
+$0:function(){this.b.fp(this.a)},
 "call*":"$0",
 $R:0,
 $S:function(){return{func:1}}}
@@ -23350,7 +23352,7 @@ $S:function(){return H.e3(function(a){return{func:1,args:[a]}},this.b,"dO")}}
 P.zg.prototype={
 $0:function(){var t,s,r,q
 r=this.a
-if(r.b){this.b.fo(r.a)
+if(r.b){this.b.fp(r.a)
 return}try{r=H.dE()
 throw H.j(r)}catch(q){t=H.dq(q)
 s=H.ee(q)
@@ -23381,8 +23383,8 @@ if(!(b instanceof P.qE))return!1
 return b.a===this.a}}
 P.qF.prototype={
 mQ:function(){return this.x.x6(this)},
-hE:function(){this.x.x7(this)},
-hF:function(){this.x.x8(this)}}
+hF:function(){this.x.x7(this)},
+hG:function(){this.x.x8(this)}}
 P.fe.prototype={
 kp:function(a,b){var t=this.e
 if((t&8)!==0)return
@@ -23400,7 +23402,7 @@ if(t)this.r.mj(this)
 else{t=(this.e&4294967291)>>>0
 this.e=t
 if((t&32)===0)this.pJ(this.gkQ())}}}},
-eb:function(a){var t=(this.e&4294967279)>>>0
+ec:function(a){var t=(this.e&4294967279)>>>0
 this.e=t
 if((t&8)===0)this.my()
 t=this.f
@@ -23411,7 +23413,7 @@ this.e=t
 if((t&64)!==0)this.r.qB()
 if((this.e&32)===0)this.r=null
 this.f=this.mQ()},
-i2:function(a,b){var t=this.e
+i3:function(a,b){var t=this.e
 if((t&8)!==0)return
 if(t<32)this.kT(b)
 else this.mv(new P.Bl(b,null,[H.as(this,"fe",0)]))},
@@ -23425,8 +23427,8 @@ t=(t|2)>>>0
 this.e=t
 if(t<32)this.iX()
 else this.mv(C.an)},
-hE:function(){},
 hF:function(){},
+hG:function(){},
 mQ:function(){return},
 mv:function(a){var t,s
 t=this.r
@@ -23475,8 +23477,8 @@ if((t&8)!==0){this.r=null
 return}s=(t&4)!==0
 if(a===s)break
 this.e=(t^32)>>>0
-if(s)this.hE()
-else this.hF()
+if(s)this.hF()
+else this.hG()
 this.e=(this.e&4294967263)>>>0}t=this.e
 if((t&64)!==0&&t<128)this.r.mj(this)},
 mu:function(a,b,c,d,e){var t,s
@@ -23487,8 +23489,8 @@ this.a=t
 this.b=P.LD(b==null?P.Wz():b,s)
 this.c=c==null?P.LU():c},
 $isiF:1,
-gi5:function(){return this.d},
-gfZ:function(){return this.e}}
+gi6:function(){return this.d},
+gh_:function(){return this.e}}
 P.Bg.prototype={
 $0:function(){var t,s,r,q,p,o
 t=this.a
@@ -23517,20 +23519,20 @@ P.Cm.prototype={
 dr:function(a,b,c,d){return this.a.xp(a,d,c,!0===b)},
 lw:function(a,b,c){return this.dr(a,null,b,c)}}
 P.qH.prototype={
-ghU:function(a){return this.a},
-shU:function(a,b){return this.a=b}}
+ghV:function(a){return this.a},
+shV:function(a,b){return this.a=b}}
 P.Bl.prototype={
 o8:function(a){a.kT(this.b)},
-ga2:function(a){return this.b}}
+ga3:function(a){return this.b}}
 P.Bn.prototype={
 o8:function(a){a.q_(this.b,this.c)},
 $asqH:function(){},
-gee:function(a){return this.b},
-gfO:function(){return this.c}}
+gef:function(a){return this.b},
+gfP:function(){return this.c}}
 P.Bm.prototype={
 o8:function(a){a.iX()},
-ghU:function(a){return},
-shU:function(a,b){throw H.j(new P.aE("No events after a done."))}}
+ghV:function(a){return},
+shV:function(a,b){throw H.j(new P.aE("No events after a done."))}}
 P.C3.prototype={
 mj:function(a){var t=this.a
 if(t===1)return
@@ -23538,7 +23540,7 @@ if(t>=1){this.a=1
 return}P.N2(new P.C4(this,a))
 this.a=1},
 qB:function(){if(this.a===1)this.a=3},
-gfZ:function(){return this.a}}
+gh_:function(){return this.a}}
 P.C4.prototype={
 $0:function(){var t,s,r,q
 t=this.a
@@ -23555,7 +23557,7 @@ P.Cn.prototype={
 gb_:function(a){return this.c==null},
 h:function(a,b){var t=this.c
 if(t==null){this.c=b
-this.b=b}else{t.shU(0,b)
+this.b=b}else{t.shV(0,b)
 this.c=b}}}
 P.qI.prototype={
 gki:function(){return this.b>=4},
@@ -23570,7 +23572,7 @@ op:function(a){var t=this.b
 if(t>=4){t-=4
 this.b=t
 if(t<4&&(t&1)===0)this.pZ()}},
-eb:function(a){return $.$get$j3()},
+ec:function(a){return $.$get$j3()},
 iX:function(){var t=(this.b&4294967293)>>>0
 this.b=t
 if(t>=4)return
@@ -23578,46 +23580,46 @@ this.b=(t|1)>>>0
 t=this.c
 if(t!=null)this.a.os(t)},
 $isiF:1,
-gi5:function(){return this.a},
-gfZ:function(){return this.b}}
+gi6:function(){return this.a},
+gh_:function(){return this.b}}
 P.Co.prototype={
-eb:function(a){var t,s
+ec:function(a){var t,s
 t=this.a
 s=this.b
 this.b=null
 if(t!=null){this.a=null
 if(!this.c)s.kJ(!1)
-return t.eb(0)}return $.$get$j3()}}
+return t.ec(0)}return $.$get$j3()}}
 P.CR.prototype={
-$0:function(){return this.a.eO(this.b,this.c)},
+$0:function(){return this.a.eP(this.b,this.c)},
 $S:function(){return{func:1}}}
 P.CQ.prototype={
 $2:function(a,b){P.W9(this.a,this.b,a,b)},
 $S:function(){return{func:1,args:[,P.i9]}}}
 P.CT.prototype={
-$0:function(){return this.a.fo(this.b)},
+$0:function(){return this.a.fp(this.b)},
 $S:function(){return{func:1}}}
 P.jB.prototype={
 dr:function(a,b,c,d){return this.pz(a,d,c,!0===b)},
 lw:function(a,b,c){return this.dr(a,null,b,c)},
 pz:function(a,b,c,d){return P.VN(this,a,b,c,d,H.as(this,"jB",0),H.as(this,"jB",1))},
-mK:function(a,b){b.i2(0,a)},
+mK:function(a,b){b.i3(0,a)},
 pK:function(a,b,c){c.iT(a,b)},
 $asdO:function(a,b){return[b]}}
 P.jC.prototype={
-i2:function(a,b){if((this.e&2)!==0)return
+i3:function(a,b){if((this.e&2)!==0)return
 this.vy(0,b)},
 iT:function(a,b){if((this.e&2)!==0)return
 this.vz(a,b)},
-hE:function(){var t=this.y
+hF:function(){var t=this.y
 if(t==null)return
 t.o7(0)},
-hF:function(){var t=this.y
+hG:function(){var t=this.y
 if(t==null)return
 t.op(0)},
 mQ:function(){var t=this.y
 if(t!=null){this.y=null
-return t.eb(0)}return},
+return t.ec(0)}return},
 wF:function(a){this.x.mK(a,this)},
 wJ:function(a,b){this.x.pK(a,b,this)},
 wH:function(){this.pm()},
@@ -23630,7 +23632,7 @@ t=null
 try{t=this.b.$1(a)}catch(q){s=H.dq(q)
 r=H.ee(q)
 P.Lq(b,s,r)
-return}b.i2(0,t)}}
+return}b.i3(0,t)}}
 P.BO.prototype={
 pK:function(a,b,c){var t,s,r,q,p
 t=!0
@@ -23661,14 +23663,14 @@ mK:function(a,b){var t,s
 t=b.gmD(b)
 s=J.aN(t)
 if(s.bk(t,0)){b.smD(0,s.aa(t,1))
-return}b.i2(0,a)},
+return}b.i3(0,a)},
 $asjB:function(a){return[a,a]},
 $asdO:null}
 P.jP.prototype={
 G:function(a){return H.h(this.a)},
 $isio:1,
-gee:function(a){return this.a},
-gfO:function(){return this.b}}
+gef:function(a){return this.a},
+gfP:function(){return this.b}}
 P.CN.prototype={}
 P.D3.prototype={
 $0:function(){var t,s,r
@@ -23739,7 +23741,7 @@ return t==null?!1:t[b]!=null}else if(typeof b==="number"&&(b&0x3ffffff)===b){s=t
 return s==null?!1:s[b]!=null}else return this.wm(b)},
 wm:function(a){var t=this.d
 if(t==null)return!1
-return this.fV(t[this.fU(a)],a)>=0},
+return this.fW(t[this.fV(a)],a)>=0},
 p:function(a,b){var t,s,r,q
 if(typeof b==="string"&&b!=="__proto__"){t=this.b
 if(t==null)s=null
@@ -23751,8 +23753,8 @@ s=r===q?null:r}return s}else return this.wA(0,b)},
 wA:function(a,b){var t,s,r
 t=this.d
 if(t==null)return
-s=t[this.fU(b)]
-r=this.fV(s,b)
+s=t[this.fV(b)]
+r=this.fW(s,b)
 return r<0?null:s[r+1]},
 i:function(a,b,c){var t,s
 if(typeof b==="string"&&b!=="__proto__"){t=this.b
@@ -23763,10 +23765,10 @@ this.c=s}this.pt(s,b,c)}else this.xh(b,c)},
 xh:function(a,b){var t,s,r,q
 t=this.d
 if(t==null){t=P.GX()
-this.d=t}s=this.fU(a)
+this.d=t}s=this.fV(a)
 r=t[s]
 if(r==null){P.GY(t,s,[a,b]);++this.a
-this.e=null}else{q=this.fV(r,a)
+this.e=null}else{q=this.fW(r,a)
 if(q>=0)r[q+1]=b
 else{r.push(a,b);++this.a
 this.e=null}}},
@@ -23776,8 +23778,8 @@ else return this.jP(0,b)},
 jP:function(a,b){var t,s,r
 t=this.d
 if(t==null)return
-s=t[this.fU(b)]
-r=this.fV(s,b)
+s=t[this.fV(b)]
+r=this.fW(s,b)
 if(r<0)return;--this.a
 this.e=null
 return s.splice(r,2)[1]},
@@ -23812,8 +23814,8 @@ if(a!=null&&a[b]!=null){t=P.VO(a,b)
 delete a[b];--this.a
 this.e=null
 return t}else return},
-fU:function(a){return J.eg(a)&0x3ffffff},
-fV:function(a,b){var t,s
+fV:function(a){return J.eg(a)&0x3ffffff},
+fW:function(a,b){var t,s
 if(a==null)return-1
 t=a.length
 for(s=0;s<t;s+=2)if(J.c(a[s],b))return s
@@ -23828,7 +23830,7 @@ $S:function(){return{func:1,args:[,]}}}
 P.qL.prototype={
 gu:function(a){return this.a.a},
 gb_:function(a){return this.a.a===0},
-gaw:function(a){var t=this.a
+gav:function(a){var t=this.a
 return new P.qM(t,t.kK(),0,null,this.$ti)},
 aE:function(a,b){return this.a.bh(0,b)},
 bE:function(a,b){var t,s,r,q
@@ -23837,7 +23839,7 @@ s=t.kK()
 for(r=s.length,q=0;q<r;++q){b.$1(s[q])
 if(s!==t.e)throw H.j(new P.cT(t))}}}
 P.qM.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t,s,r
 t=this.b
 s=this.c
@@ -23856,7 +23858,7 @@ for(s=0;s<t;++s){r=a[s].grT()
 if(r==null?b==null:r===b)return s}return-1}}
 P.mB.prototype={
 wW:function(){return new P.mB(0,null,null,null,null,null,0,this.$ti)},
-gaw:function(a){var t=new P.eL(this,this.r,null,null,[null])
+gav:function(a){var t=new P.eL(this,this.r,null,null,[null])
 t.c=this.e
 return t},
 gu:function(a){return this.a},
@@ -23870,7 +23872,7 @@ if(s==null)return!1
 return s[b]!=null}else return this.wl(b)},
 wl:function(a){var t=this.d
 if(t==null)return!1
-return this.fV(t[this.fU(a)],a)>=0},
+return this.fW(t[this.fV(a)],a)>=0},
 nU:function(a){var t
 if(!(typeof a==="string"&&a!=="__proto__"))t=typeof a==="number"&&(a&0x3ffffff)===a
 else t=!0
@@ -23879,8 +23881,8 @@ else return this.wT(a)},
 wT:function(a){var t,s,r
 t=this.d
 if(t==null)return
-s=t[this.fU(a)]
-r=this.fV(s,a)
+s=t[this.fV(a)]
+r=this.fW(s,a)
 if(r<0)return
 return J.cx(s,r).gjN()},
 bE:function(a,b){var t,s
@@ -23892,7 +23894,7 @@ t=t.gmB()}},
 gah:function(a){var t=this.e
 if(t==null)throw H.j(new P.aE("No elements"))
 return t.gjN()},
-gax:function(a){var t=this.f
+gaw:function(a){var t=this.f
 if(t==null)throw H.j(new P.aE("No elements"))
 return t.a},
 h:function(a,b){var t,s,r
@@ -23906,14 +23908,14 @@ if(r==null){s=Object.create(null)
 s["<non-identifier-key>"]=s
 delete s["<non-identifier-key>"]
 this.c=s
-r=s}return this.ps(r,b)}else return this.fS(0,b)},
-fS:function(a,b){var t,s,r
+r=s}return this.ps(r,b)}else return this.fT(0,b)},
+fT:function(a,b){var t,s,r
 t=this.d
 if(t==null){t=P.VT()
-this.d=t}s=this.fU(b)
+this.d=t}s=this.fV(b)
 r=t[s]
 if(r==null)t[s]=[this.mA(b)]
-else{if(this.fV(r,b)>=0)return!1
+else{if(this.fW(r,b)>=0)return!1
 r.push(this.mA(b))}return!0},
 aW:function(a,b){if(typeof b==="string"&&b!=="__proto__")return this.jM(this.b,b)
 else if(typeof b==="number"&&(b&0x3ffffff)===b)return this.jM(this.c,b)
@@ -23921,12 +23923,12 @@ else return this.jP(0,b)},
 jP:function(a,b){var t,s,r
 t=this.d
 if(t==null)return!1
-s=t[this.fU(b)]
-r=this.fV(s,b)
+s=t[this.fV(b)]
+r=this.fW(s,b)
 if(r<0)return!1
 this.pu(s.splice(r,1)[0])
 return!0},
-fq:function(a){if(this.a>0){this.f=null
+fs:function(a){if(this.a>0){this.f=null
 this.e=null
 this.d=null
 this.c=null
@@ -23960,8 +23962,8 @@ else t.b=s
 if(s==null)this.f=t
 else s.smC(t);--this.a
 this.r=this.r+1&67108863},
-fU:function(a){return J.eg(a)&0x3ffffff},
-fV:function(a,b){var t,s
+fV:function(a){return J.eg(a)&0x3ffffff},
+fW:function(a,b){var t,s
 if(a==null)return-1
 t=a.length
 for(s=0;s<t;++s)if(J.c(a[s].gjN(),b))return s
@@ -23977,7 +23979,7 @@ gmB:function(){return this.b},
 gmC:function(){return this.c},
 smC:function(a){return this.c=a}}
 P.eL.prototype={
-ga_:function(){return this.d},
+ga0:function(){return this.d},
 M:function(){var t=this.a
 if(this.b!==t.r)throw H.j(new P.cT(t))
 else{t=this.c
@@ -23992,34 +23994,34 @@ for(s=new P.eL(this,this.r,null,null,[null]),s.c=this.e;s.M();){r=s.d
 if(!a.aE(0,r))t.h(0,r)}return t}}
 P.hp.prototype={
 dd:function(a,b){return H.ks(this,b,H.as(this,"hp",0),null)},
-em:function(a,b){return new H.cG(this,b,[H.as(this,"hp",0)])},
+en:function(a,b){return new H.cG(this,b,[H.as(this,"hp",0)])},
 aE:function(a,b){var t
-for(t=this.gaw(this);t.M();)if(J.c(t.ga_(),b))return!0
+for(t=this.gav(this);t.M();)if(J.c(t.ga0(),b))return!0
 return!1},
 bE:function(a,b){var t
-for(t=this.gaw(this);t.M();)b.$1(t.ga_())},
+for(t=this.gav(this);t.M();)b.$1(t.ga0())},
 bX:function(a,b){return P.an(this,b,H.as(this,"hp",0))},
 d2:function(a){return this.bX(a,!0)},
 gu:function(a){var t,s
-t=this.gaw(this)
+t=this.gav(this)
 for(s=0;t.M();)++s
 return s},
-gb_:function(a){return!this.gaw(this).M()},
-gdc:function(a){return this.gaw(this).M()},
-ep:function(a,b){return H.q_(this,b,H.as(this,"hp",0))},
-gah:function(a){var t=this.gaw(this)
+gb_:function(a){return!this.gav(this).M()},
+gdc:function(a){return this.gav(this).M()},
+eq:function(a,b){return H.q_(this,b,H.as(this,"hp",0))},
+gah:function(a){var t=this.gav(this)
 if(!t.M())throw H.j(H.dE())
-return t.ga_()},
-gax:function(a){var t,s
-t=this.gaw(this)
+return t.ga0()},
+gaw:function(a){var t,s
+t=this.gav(this)
 if(!t.M())throw H.j(H.dE())
-do s=t.ga_()
+do s=t.ga0()
 while(t.M())
 return s},
 aV:function(a,b){var t,s,r
 if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(P.Ef("index"))
 if(b<0)H.aG(P.cn(b,0,null,"index",null))
-for(t=this.gaw(this),s=0;t.M();){r=t.ga_()
+for(t=this.gav(this),s=0;t.M();){r=t.ga0()
 if(b===s)return r;++s}throw H.j(P.cL(b,this,"index",null,s))},
 G:function(a){return P.JX(this,"(",")")},
 $isv:1,
@@ -24028,7 +24030,7 @@ P.kn.prototype={}
 P.je.prototype={}
 P.ix.prototype={$asy:null,$asC:null,$asv:null,$isy:1,$isC:1,$isv:1}
 P.bU.prototype={
-gaw:function(a){return new H.fq(a,this.gu(a),0,null,[H.as(a,"bU",0)])},
+gav:function(a){return new H.fq(a,this.gu(a),0,null,[H.as(a,"bU",0)])},
 aV:function(a,b){return this.p(a,b)},
 bE:function(a,b){var t,s
 t=this.gu(a)
@@ -24040,7 +24042,7 @@ gb_:function(a){return J.c(this.gu(a),0)},
 gdc:function(a){return!this.gb_(a)},
 gah:function(a){if(J.c(this.gu(a),0))throw H.j(H.dE())
 return this.p(a,0)},
-gax:function(a){if(J.c(this.gu(a),0))throw H.j(H.dE())
+gaw:function(a){if(J.c(this.gu(a),0))throw H.j(H.dE())
 return this.p(a,J.cc(this.gu(a),1))},
 aE:function(a,b){var t,s,r,q
 t=this.gu(a)
@@ -24055,9 +24057,9 @@ bP:function(a,b){var t
 if(J.c(this.gu(a),0))return""
 t=P.GD("",a,b)
 return t.charCodeAt(0)==0?t:t},
-em:function(a,b){return new H.cG(a,b,[H.as(a,"bU",0)])},
+en:function(a,b){return new H.cG(a,b,[H.as(a,"bU",0)])},
 dd:function(a,b){return new H.eF(a,b,[H.as(a,"bU",0),null])},
-ep:function(a,b){return H.zt(a,b,null,H.as(a,"bU",0))},
+eq:function(a,b){return H.zt(a,b,null,H.as(a,"bU",0))},
 bX:function(a,b){var t,s,r,q
 t=[H.as(a,"bU",0)]
 if(b){s=H.a([],t)
@@ -24093,7 +24095,7 @@ C.a.su(r,s)
 for(q=0;q<s;++q){p=this.p(a,b+q)
 if(q>=r.length)return H.b(r,q)
 r[q]=p}return r},
-im:function(a,b,c,d){var t
+io:function(a,b,c,d){var t
 P.eH(b,c,this.gu(a),null,null,null)
 for(t=b;t<c;++t)this.i(a,t,d)},
 bR:function(a,b,c,d,e){var t,s,r,q,p,o,n,m
@@ -24113,7 +24115,7 @@ s=J.eN(b)
 n=0
 for(;n<t;++n)this.i(a,s.k(b,n),o.p(q,p.k(r,n)))}},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-eE:function(a,b,c,d){var t,s,r,q,p,o,n
+eF:function(a,b,c,d){var t,s,r,q,p,o,n
 P.eH(b,c,this.gu(a),null,null,null)
 d=C.c.d2(d)
 t=J.cc(c,b)
@@ -24131,7 +24133,7 @@ o=q.k(b,s)
 this.su(a,n)
 this.bR(a,o,n,a,c)
 this.dS(a,b,o,d)}},
-hR:function(a,b,c){var t,s
+hS:function(a,b,c){var t,s
 t=this.gu(a)
 if(typeof t!=="number")return H.w(t)
 if(c>=t)return-1
@@ -24141,7 +24143,7 @@ while(!0){t=this.gu(a)
 if(typeof t!=="number")return H.w(t)
 if(!(s<t))break
 if(J.c(this.p(a,s),b))return s;++s}return-1},
-b1:function(a,b){return this.hR(a,b,0)},
+b1:function(a,b){return this.hS(a,b,0)},
 glT:function(a){return new H.iE(a,[H.as(a,"bU",0)])},
 G:function(a){return P.h8(a,"[","]")},
 $isy:1,
@@ -24170,15 +24172,15 @@ P.js.prototype={$ascm:null,$iscm:1}
 P.wd.prototype={
 $2:function(a,b){var t,s
 t=this.a
-if(!t.a)this.b.a3+=", "
+if(!t.a)this.b.a4+=", "
 t.a=!1
 t=this.b
-s=t.a3+=H.h(a)
-t.a3=s+": "
-t.a3+=H.h(b)},
+s=t.a4+=H.h(a)
+t.a4=s+": "
+t.a4+=H.h(b)},
 $S:function(){return{func:1,args:[,,]}}}
 P.w4.prototype={
-gaw:function(a){return new P.BV(this,this.c,this.d,this.b,null,this.$ti)},
+gav:function(a){return new P.BV(this,this.c,this.d,this.b,null,this.$ti)},
 bE:function(a,b){var t,s,r
 t=this.d
 for(s=this.b;s!==this.c;s=(s+1&this.a.length-1)>>>0){r=this.a
@@ -24193,7 +24195,7 @@ if(t===this.c)throw H.j(H.dE())
 s=this.a
 if(t>=s.length)return H.b(s,t)
 return s[t]},
-gax:function(a){var t,s,r
+gaw:function(a){var t,s,r
 t=this.b
 s=this.c
 if(t===s)throw H.j(H.dE())
@@ -24219,13 +24221,13 @@ r.fixed$length=Array
 s=H.a(r,t)}this.xt(s)
 return s},
 d2:function(a){return this.bX(a,!0)},
-h:function(a,b){this.fS(0,b)},
+h:function(a,b){this.fT(0,b)},
 aW:function(a,b){var t,s
 for(t=this.b;t!==this.c;t=(t+1&this.a.length-1)>>>0){s=this.a
 if(t<0||t>=s.length)return H.b(s,t)
 if(J.c(s[t],b)){this.jP(0,t);++this.d
 return!0}}return!1},
-fq:function(a){var t,s,r,q,p
+fs:function(a){var t,s,r,q,p
 t=this.b
 s=this.c
 if(t!==s){for(r=this.a,q=r.length,p=q-1;t!==s;t=(t+1&p)>>>0){if(t<0||t>=q)return H.b(r,t)
@@ -24242,7 +24244,7 @@ q=s[t]
 s[t]=null
 this.b=(t+1&r-1)>>>0
 return q},
-fS:function(a,b){var t,s,r
+fT:function(a,b){var t,s,r
 t=this.a
 s=this.c
 r=t.length
@@ -24301,7 +24303,7 @@ this.a=H.a(t,[b])},
 $asC:null,
 $asv:null}
 P.BV.prototype={
-ga_:function(){return this.e},
+ga0:function(){return this.e},
 M:function(){var t,s,r
 t=this.a
 if(this.c!==t.d)H.aG(new P.cT(t))
@@ -24317,7 +24319,7 @@ P.yp.prototype={
 gb_:function(a){return this.a===0},
 gdc:function(a){return this.a!==0},
 V:function(a,b){var t
-for(t=J.bj(b);t.M();)this.h(0,t.ga_())},
+for(t=J.bj(b);t.M();)this.h(0,t.ga0())},
 bX:function(a,b){var t,s,r,q,p,o
 t=this.$ti
 if(b){s=H.a([],t)
@@ -24330,7 +24332,7 @@ s[q]=p}return s},
 d2:function(a){return this.bX(a,!0)},
 dd:function(a,b){return new H.lq(this,b,[H.L(this,0),null])},
 G:function(a){return P.h8(this,"{","}")},
-em:function(a,b){return new H.cG(this,b,this.$ti)},
+en:function(a,b){return new H.cG(this,b,this.$ti)},
 bE:function(a,b){var t
 for(t=new P.eL(this,this.r,null,null,[null]),t.c=this.e;t.M();)b.$1(t.d)},
 bP:function(a,b){var t,s
@@ -24341,12 +24343,12 @@ if(b===""){s=""
 do s+=H.h(t.d)
 while(t.M())}else{s=H.h(t.d)
 for(;t.M();)s=s+b+H.h(t.d)}return s.charCodeAt(0)==0?s:s},
-ep:function(a,b){return H.q_(this,b,H.L(this,0))},
+eq:function(a,b){return H.q_(this,b,H.L(this,0))},
 gah:function(a){var t=new P.eL(this,this.r,null,null,[null])
 t.c=this.e
 if(!t.M())throw H.j(H.dE())
 return t.d},
-gax:function(a){var t,s
+gaw:function(a){var t,s
 t=new P.eL(this,this.r,null,null,[null])
 t.c=this.e
 if(!t.M())throw H.j(H.dE())
@@ -24365,7 +24367,7 @@ $isv:1,
 $asv:null}
 P.yo.prototype={}
 P.n8.prototype={
-geu:function(){return this.a},
+gev:function(){return this.a},
 gr5:function(){return C.ah},
 Cp:function(a,a0,a1,a2){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b
 t=J.aO(a0)
@@ -24379,41 +24381,41 @@ o=-1
 n=-1
 m=0
 for(;r<a2;r=l){l=r+1
-k=t.az(a0,r)
+k=t.ay(a0,r)
 if(k===37){j=l+2
-if(j<=a2){i=H.Dy(t.az(a0,l))
-h=H.Dy(t.az(a0,l+1))
+if(j<=a2){i=H.Dy(t.ay(a0,l))
+h=H.Dy(t.ay(a0,l+1))
 g=i*16+h-(h&256)
 if(g===37)g=-1
 l=j}else g=-1}else g=k
 if(0<=g&&g<=127){if(g<0||g>=s.length)return H.b(s,g)
 f=s[g]
-if(f>=0){g=C.c.az("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",f)
+if(f>=0){g=C.c.ay("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",f)
 if(g===k)continue
-k=g}else{if(f===-1){if(o<0){e=p==null?p:p.a3.length
+k=g}else{if(f===-1){if(o<0){e=p==null?p:p.a4.length
 if(e==null)e=0
 o=J.aa(e,r-q)
 n=r}++m
 if(k===61)continue}k=g}if(f!==-2){if(p==null)p=new P.cN("")
-p.a3+=t.ay(a0,q,r)
-p.a3+=H.fR(k)
+p.a4+=t.ax(a0,q,r)
+p.a4+=H.fR(k)
 q=l
-continue}}throw H.j(new P.cC("Invalid base64 data",a0,r))}if(p!=null){e=p.a3+=t.ay(a0,q,a2)
+continue}}throw H.j(new P.cC("Invalid base64 data",a0,r))}if(p!=null){e=p.a4+=t.ax(a0,q,a2)
 d=e.length
 if(o>=0)P.Im(a0,n,a2,o,m,d)
-else{c=C.b.fL(d-1,4)+1
+else{c=C.b.fM(d-1,4)+1
 if(c===1)throw H.j(new P.cC("Invalid base64 encoding length ",a0,a2))
 for(;c<4;){e+="="
-p.a3=e;++c}}e=p.a3
-return t.eE(a0,a1,a2,e.charCodeAt(0)==0?e:e)}b=a2-a1
+p.a4=e;++c}}e=p.a4
+return t.eF(a0,a1,a2,e.charCodeAt(0)==0?e:e)}b=a2-a1
 if(o>=0)P.Im(a0,n,a2,o,m,b)
-else{c=C.i.fL(b,4)
+else{c=C.i.fM(b,4)
 if(c===1)throw H.j(new P.cC("Invalid base64 encoding length ",a0,a2))
-if(c>1)a0=t.eE(a0,a2,a2,c===2?"==":"=")}return a0},
+if(c>1)a0=t.eF(a0,a2,a2,c===2?"==":"=")}return a0},
 $asij:function(){return[[P.y,P.J],P.q]},
-j8:function(a,b,c,d){return this.geu().$4(a,b,c,d)}}
+j8:function(a,b,c,d){return this.gev().$4(a,b,c,d)}}
 P.n9.prototype={
-ed:function(a){var t,s
+ee:function(a){var t,s
 t=J.aO(a)
 if(t.gb_(a)===!0)return""
 s=this.a?"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_":"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -24440,28 +24442,28 @@ P.Be.prototype={
 qZ:function(a,b){var t=this.c
 if(t==null||t.length<b){t=new Uint8Array(H.ci(b))
 this.c=t}t=t.buffer
-return(t&&C.p).fp(t,0,b)}}
+return(t&&C.p).fq(t,0,b)}}
 P.Bb.prototype={
 h:function(a,b){this.kL(0,b,0,b.length,!1)},
-f6:function(a){this.kL(0,null,0,0,!0)},
-h_:function(a,b,c,d){P.eH(b,c,a.length,null,null,null)
+f7:function(a){this.kL(0,null,0,0,!0)},
+h0:function(a,b,c,d){P.eH(b,c,a.length,null,null,null)
 this.kL(0,a,b,c,d)}}
 P.B4.prototype={
 kL:function(a,b,c,d,e){var t=this.b.nw(b,c,d,e)
 if(t!=null)this.a.h(0,P.kH(t,0,null))
-if(e)this.a.f6(0)}}
+if(e)this.a.f7(0)}}
 P.CC.prototype={
 kL:function(a,b,c,d,e){var t=this.b.nw(b,c,d,e)
-if(t!=null)this.a.h_(t,0,t.length,e)}}
+if(t!=null)this.a.h0(t,0,t.length,e)}}
 P.rB.prototype={
-fu:function(a,b,c){var t,s
+fv:function(a,b,c){var t,s
 c=P.eH(b,c,J.c6(a),null,null,null)
 if(b===c)return new Uint8Array(H.ci(0))
 t=new P.Ba(0)
 s=t.zr(a,b,c)
 t.yV(0,a,c)
 return s},
-ed:function(a){return this.fu(a,0,null)},
+ee:function(a){return this.fv(a,0,null)},
 $asfI:function(){return[P.q,[P.y,P.J]]}}
 P.Ba.prototype={
 zr:function(a,b,c){var t,s
@@ -24480,61 +24482,61 @@ $asni:function(){return[[P.y,P.J]]}}
 P.rU.prototype={}
 P.ni.prototype={}
 P.ij.prototype={
-j8:function(a,b,c,d){return this.geu().$4(a,b,c,d)}}
+j8:function(a,b,c,d){return this.gev().$4(a,b,c,d)}}
 P.By.prototype={
-geu:function(){return this.a.geu().nF(this.b.a)},
+gev:function(){return this.a.gev().nF(this.b.a)},
 $asij:function(a,b,c){return[a,c]},
-j8:function(a,b,c,d){return this.geu().$4(a,b,c,d)}}
+j8:function(a,b,c,d){return this.gev().$4(a,b,c,d)}}
 P.fI.prototype={
 nF:function(a){return new P.Bz(this,a,[H.as(this,"fI",0),H.as(this,"fI",1),null])}}
 P.Bz.prototype={
-ed:function(a){return this.b.ed(this.a.ed(a))},
+ee:function(a){return this.b.ee(this.a.ee(a))},
 $asfI:function(a,b,c){return[a,c]}}
 P.tH.prototype={
 $asij:function(){return[P.q,[P.y,P.J]]},
-j8:function(a,b,c,d){return this.geu().$4(a,b,c,d)}}
+j8:function(a,b,c,d){return this.gev().$4(a,b,c,d)}}
 P.zm.prototype={}
 P.zn.prototype={
-h:function(a,b){this.h_(b,0,b.length,!1)},
+h:function(a,b){this.h0(b,0,b.length,!1)},
 qm:function(a){var t=new P.cN("")
 return new P.CD(new P.mK(!1,t,!0,0,0,0),this,t)},
 $isVn:1}
 P.Cr.prototype={
-f6:function(a){},
-h_:function(a,b,c,d){var t,s,r
-if(b!==0||c!==a.length)for(t=this.a,s=J.di(a),r=b;r<c;++r)t.a3+=H.fR(s.az(a,r))
-else this.a.a3+=H.h(a)},
-h:function(a,b){this.a.a3+=H.h(b)},
+f7:function(a){},
+h0:function(a,b,c,d){var t,s,r
+if(b!==0||c!==a.length)for(t=this.a,s=J.di(a),r=b;r<c;++r)t.a4+=H.fR(s.ay(a,r))
+else this.a.a4+=H.h(a)},
+h:function(a,b){this.a.a4+=H.h(b)},
 qm:function(a){return new P.CH(new P.mK(!1,this.a,!0,0,0,0),this)}}
 P.CH.prototype={
-f6:function(a){this.a.rE(0)},
-h:function(a,b){this.a.fu(b,0,b.length)},
-h_:function(a,b,c,d){this.a.fu(a,b,c)
-if(d)this.f6(0)}}
+f7:function(a){this.a.rE(0)},
+h:function(a,b){this.a.fv(b,0,b.length)},
+h0:function(a,b,c,d){this.a.fv(a,b,c)
+if(d)this.f7(0)}}
 P.CD.prototype={
-f6:function(a){var t,s,r,q
+f7:function(a){var t,s,r,q
 this.a.rE(0)
 t=this.c
-s=t.a3
+s=t.a4
 r=this.b
 if(s.length!==0){q=s.charCodeAt(0)==0?s:s
-t.a3=""
-r.h_(q,0,q.length,!0)}else r.f6(0)},
-h:function(a,b){this.h_(b,0,b.length,!1)},
-h_:function(a,b,c,d){var t,s,r
-this.a.fu(a,b,c)
+t.a4=""
+r.h0(q,0,q.length,!0)}else r.f7(0)},
+h:function(a,b){this.h0(b,0,b.length,!1)},
+h0:function(a,b,c,d){var t,s,r
+this.a.fv(a,b,c)
 t=this.c
-s=t.a3
+s=t.a4
 if(s.length!==0){r=s.charCodeAt(0)==0?s:s
-this.b.h_(r,0,r.length,d)
-t.a3=""
-return}if(d)this.f6(0)}}
+this.b.h0(r,0,r.length,d)
+t.a4=""
+return}if(d)this.f7(0)}}
 P.A5.prototype={
 gW:function(a){return"utf-8"},
-geu:function(){return C.am},
-j8:function(a,b,c,d){return this.geu().$4(a,b,c,d)}}
+gev:function(){return C.am},
+j8:function(a,b,c,d){return this.gev().$4(a,b,c,d)}}
 P.A7.prototype={
-fu:function(a,b,c){var t,s,r,q,p,o
+fv:function(a,b,c){var t,s,r,q,p,o
 t=J.aO(a)
 s=t.gu(a)
 P.eH(b,c,s,null,null,null)
@@ -24544,9 +24546,9 @@ p=J.a6(q)
 if(p.P(q,0))return new Uint8Array(H.ci(0))
 p=new Uint8Array(H.ci(p.bs(q,3)))
 o=new P.CG(0,0,p)
-if(o.ww(a,b,s)!==s)o.q9(t.az(a,r.aa(s,1)),0)
+if(o.ww(a,b,s)!==s)o.q9(t.ay(a,r.aa(s,1)),0)
 return C.u.c5(p,0,o.b)},
-ed:function(a){return this.fu(a,0,null)},
+ee:function(a){return this.fv(a,0,null)},
 $asfI:function(){return[P.q,[P.y,P.J]]}}
 P.CG.prototype={
 q9:function(a,b){var t,s,r,q,p
@@ -24587,13 +24589,13 @@ t=this.c
 s=t.length
 r=J.di(a)
 q=b
-for(;q<c;++q){p=r.az(a,q)
+for(;q<c;++q){p=r.ay(a,q)
 if(p<=127){o=this.b
 if(o>=s)break
 this.b=o+1
 t[o]=p}else if((p&64512)===55296){if(this.b+3>=s)break
 n=q+1
-if(this.q9(p,r.az(a,n)))q=n}else if(p<=2047){o=this.b
+if(this.q9(p,r.ay(a,n)))q=n}else if(p<=2047){o=this.b
 m=o+1
 if(m>=s)break
 this.b=m
@@ -24614,22 +24616,22 @@ this.b=o+1
 if(o>=s)return H.b(t,o)
 t[o]=128|p&63}}return q}}
 P.A6.prototype={
-fu:function(a,b,c){var t,s,r,q
+fv:function(a,b,c){var t,s,r,q
 t=J.c6(a)
 P.eH(b,c,t,null,null,null)
 s=new P.cN("")
 r=new P.mK(!1,s,!0,0,0,0)
-r.fu(a,b,t)
+r.fv(a,b,t)
 r.rF(0,a,t)
-q=s.a3
+q=s.a4
 return q.charCodeAt(0)==0?q:q},
-ed:function(a){return this.fu(a,0,null)},
+ee:function(a){return this.fv(a,0,null)},
 nF:function(a){return this.vn(a)},
 $asfI:function(){return[[P.y,P.J],P.q]}}
 P.mK.prototype={
 rF:function(a,b,c){if(this.e>0)throw H.j(new P.cC("Unfinished UTF-8 octet sequence",b,c))},
 rE:function(a){return this.rF(a,null,null)},
-fu:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
+fv:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 t=this.d
 s=this.e
 r=this.f
@@ -24641,16 +24643,16 @@ p=new P.CE(this,a,b,c)
 $loop$0:for(o=J.aO(a),n=this.b,m=b;!0;m=g){$multibyte$2:if(s>0){do{if(m===c)break $loop$0
 l=o.p(a,m)
 k=J.aN(l)
-if(k.bw(l,192)!==128){k=new P.cC("Bad UTF-8 encoding 0x"+k.el(l,16),a,m)
+if(k.bw(l,192)!==128){k=new P.cC("Bad UTF-8 encoding 0x"+k.em(l,16),a,m)
 throw H.j(k)}else{j=J.dU(t,6)
 k=k.bw(l,63)
 if(typeof k!=="number")return H.w(k)
 t=(j|k)>>>0;--s;++m}}while(s>0)
 k=r-1
 if(k<0||k>=4)return H.b(C.a2,k)
-if(t<=C.a2[k]){k=new P.cC("Overlong encoding of 0x"+C.b.el(t,16),a,m-r-1)
-throw H.j(k)}if(t>1114111){k=new P.cC("Character outside valid Unicode range: 0x"+C.b.el(t,16),a,m-r-1)
-throw H.j(k)}if(!this.c||t!==65279)n.a3+=H.fR(t)
+if(t<=C.a2[k]){k=new P.cC("Overlong encoding of 0x"+C.b.em(t,16),a,m-r-1)
+throw H.j(k)}if(t>1114111){k=new P.cC("Character outside valid Unicode range: 0x"+C.b.em(t,16),a,m-r-1)
+throw H.j(k)}if(!this.c||t!==65279)n.a4+=H.fR(t)
 this.c=!1}if(typeof c!=="number")return H.w(c)
 k=m<c
 for(;k;){i=q.$2(a,m)
@@ -24672,7 +24674,7 @@ r=2
 continue $loop$0}if(j.bw(l,248)===240&&j.aQ(l,245)){t=j.bw(l,7)
 s=3
 r=3
-continue $loop$0}j=new P.cC("Bad UTF-8 encoding 0x"+j.el(l,16),a,g-1)
+continue $loop$0}j=new P.cC("Bad UTF-8 encoding 0x"+j.em(l,16),a,g-1)
 throw H.j(j)}}break $loop$0}if(s>0){this.d=t
 this.e=s
 this.f=r}}}
@@ -24686,16 +24688,16 @@ for(;r<t;++r){q=s.p(a,r)
 if(J.HW(q,127)!==q)return r-b}return t-b},
 $S:function(){return{func:1,ret:P.J,args:[,P.J]}}}
 P.CE.prototype={
-$2:function(a,b){this.a.b.a3+=P.kH(this.b,a,b)},
+$2:function(a,b){this.a.b.a4+=P.kH(this.b,a,b)},
 $S:function(){return{func:1,v:true,args:[P.J,P.J]}}}
 P.wN.prototype={
 $2:function(a,b){var t,s,r
 t=this.b
 s=this.a
-t.a3+=s.a
-r=t.a3+=H.h(a.gwU())
-t.a3=r+": "
-t.a3+=H.h(P.nF(b))
+t.a4+=s.a
+r=t.a4+=H.h(a.gwU())
+t.a4=r+": "
+t.a4+=H.h(P.nF(b))
 s.a=", "},
 "call*":"$2",
 $R:2,
@@ -24706,9 +24708,9 @@ P.fJ.prototype={
 P:function(a,b){if(b==null)return!1
 if(!(b instanceof P.fJ))return!1
 return this.a===b.a&&this.b===b.b},
-ec:function(a,b){return C.b.ec(this.a,b.gxr())},
+ed:function(a,b){return C.b.ed(this.a,b.gxr())},
 gbV:function(a){var t=this.a
-return(t^C.b.hG(t,30))&1073741823},
+return(t^C.b.hH(t,30))&1073741823},
 G:function(a){var t,s,r,q,p,o,n
 t=P.Ol(H.Gc(this))
 s=P.no(H.xv(this))
@@ -24731,21 +24733,21 @@ gxr:function(){return this.a}}
 P.ad.prototype={$iscS:1,
 $ascS:function(){return[P.bJ]}}
 P.fk.prototype={
-k:function(a,b){return new P.fk(this.a+b.gi3())},
-aa:function(a,b){return new P.fk(this.a-b.gi3())},
+k:function(a,b){return new P.fk(this.a+b.gi4())},
+aa:function(a,b){return new P.fk(this.a-b.gi4())},
 bs:function(a,b){if(typeof b!=="number")return H.w(b)
 return new P.fk(C.i.bF(this.a*b))},
 iS:function(a,b){if(b===0)throw H.j(new P.vd())
 return new P.fk(C.b.iS(this.a,b))},
-aQ:function(a,b){return this.a<b.gi3()},
-bk:function(a,b){return this.a>b.gi3()},
-eo:function(a,b){return this.a<=b.gi3()},
-c4:function(a,b){return this.a>=b.gi3()},
+aQ:function(a,b){return this.a<b.gi4()},
+bk:function(a,b){return this.a>b.gi4()},
+ep:function(a,b){return this.a<=b.gi4()},
+c4:function(a,b){return this.a>=b.gi4()},
 P:function(a,b){if(b==null)return!1
 if(!(b instanceof P.fk))return!1
 return this.a===b.a},
 gbV:function(a){return this.a&0x1FFFFFFF},
-ec:function(a,b){return C.b.ec(this.a,b.gi3())},
+ed:function(a,b){return C.b.ed(this.a,b.gi4())},
 G:function(a){var t,s,r,q,p
 t=new P.tD()
 s=this.a
@@ -24758,7 +24760,7 @@ qa:function(a){return new P.fk(Math.abs(this.a))},
 mf:function(a){return new P.fk(0-this.a)},
 $iscS:1,
 $ascS:function(){return[P.fk]},
-gi3:function(){return this.a}}
+gi4:function(){return this.a}}
 P.tC.prototype={
 $1:function(a){if(a>=1e5)return""+a
 if(a>=1e4)return"0"+a
@@ -24772,7 +24774,7 @@ $1:function(a){if(a>=10)return""+a
 return"0"+a},
 $S:function(){return{func:1,ret:P.q,args:[P.J]}}}
 P.io.prototype={
-gfO:function(){return H.ee(this.$thrownJsError)}}
+gfP:function(){return H.ee(this.$thrownJsError)}}
 P.lc.prototype={
 G:function(a){return"Assertion failed"}}
 P.ku.prototype={
@@ -24816,8 +24818,8 @@ t={}
 s=new P.cN("")
 t.a=""
 for(r=this.c,q=r.length,p=0;p<q;++p){o=r[p]
-s.a3+=t.a
-s.a3+=H.h(P.nF(o))
+s.a4+=t.a
+s.a4+=H.h(P.nF(o))
 t.a=", "}this.d.bE(0,new P.wN(t,s))
 n=P.nF(this.a)
 m=s.G(0)
@@ -24836,11 +24838,11 @@ if(t==null)return"Concurrent modification during iteration."
 return"Concurrent modification during iteration: "+H.h(P.nF(t))+"."}}
 P.x0.prototype={
 G:function(a){return"Out of Memory"},
-gfO:function(){return},
+gfP:function(){return},
 $isio:1}
 P.q6.prototype={
 G:function(a){return"Stack Overflow"},
-gfO:function(){return},
+gfP:function(){return},
 $isio:1}
 P.tj.prototype={
 G:function(a){var t=this.a
@@ -24859,7 +24861,7 @@ if(typeof q!=="string")return r!=null?s+(" (at offset "+H.h(r)+")"):s
 if(r!=null){t=J.aN(r)
 t=t.aQ(r,0)||t.bk(r,q.length)}else t=!1
 if(t)r=null
-if(r==null){if(q.length>78)q=C.c.ay(q,0,75)+"..."
+if(r==null){if(q.length>78)q=C.c.ax(q,0,75)+"..."
 return s+"\n"+q}if(typeof r!=="number")return H.w(r)
 p=1
 o=0
@@ -24872,7 +24874,7 @@ n=!1}else if(l===13){++p
 o=m+1
 n=!0}}s=p>1?s+(" (at line "+p+", character "+H.h(r-o+1)+")\n"):s+(" (at character "+H.h(r+1)+")\n")
 k=q.length
-for(m=r;m<q.length;++m){l=C.c.az(q,m)
+for(m=r;m<q.length;++m){l=C.c.ay(q,m)
 if(l===10||l===13){k=m
 break}}if(k-o>78)if(r-o<75){j=o+75
 i=o
@@ -24884,7 +24886,7 @@ j=r+36
 g="..."}h="..."}else{j=k
 i=o
 h=""
-g=""}f=C.c.ay(q,i,j)
+g=""}f=C.c.ax(q,i,j)
 return s+h+f+g+"\n"+C.c.bs(" ",r-i+h.length)+"^\n"},
 gdU:function(a){return this.b},
 gko:function(a){return this.c}}
@@ -24908,48 +24910,48 @@ P.J.prototype={$iscS:1,
 $ascS:function(){return[P.bJ]}}
 P.v.prototype={
 dd:function(a,b){return H.ks(this,b,H.as(this,"v",0),null)},
-em:function(a,b){return new H.cG(this,b,[H.as(this,"v",0)])},
+en:function(a,b){return new H.cG(this,b,[H.as(this,"v",0)])},
 aE:function(a,b){var t
-for(t=this.gaw(this);t.M();)if(J.c(t.ga_(),b))return!0
+for(t=this.gav(this);t.M();)if(J.c(t.ga0(),b))return!0
 return!1},
 bE:function(a,b){var t
-for(t=this.gaw(this);t.M();)b.$1(t.ga_())},
+for(t=this.gav(this);t.M();)b.$1(t.ga0())},
 bP:function(a,b){var t,s
-t=this.gaw(this)
+t=this.gav(this)
 if(!t.M())return""
 if(b===""){s=""
-do s+=H.h(t.ga_())
-while(t.M())}else{s=H.h(t.ga_())
-for(;t.M();)s=s+b+H.h(t.ga_())}return s.charCodeAt(0)==0?s:s},
+do s+=H.h(t.ga0())
+while(t.M())}else{s=H.h(t.ga0())
+for(;t.M();)s=s+b+H.h(t.ga0())}return s.charCodeAt(0)==0?s:s},
 BI:function(a){return this.bP(a,"")},
 bX:function(a,b){return P.an(this,b,H.as(this,"v",0))},
 d2:function(a){return this.bX(a,!0)},
 gu:function(a){var t,s
-t=this.gaw(this)
+t=this.gav(this)
 for(s=0;t.M();)++s
 return s},
-gb_:function(a){return!this.gaw(this).M()},
+gb_:function(a){return!this.gav(this).M()},
 gdc:function(a){return!this.gb_(this)},
-ep:function(a,b){return H.q_(this,b,H.as(this,"v",0))},
-gah:function(a){var t=this.gaw(this)
+eq:function(a,b){return H.q_(this,b,H.as(this,"v",0))},
+gah:function(a){var t=this.gav(this)
 if(!t.M())throw H.j(H.dE())
-return t.ga_()},
-gax:function(a){var t,s
-t=this.gaw(this)
+return t.ga0()},
+gaw:function(a){var t,s
+t=this.gav(this)
 if(!t.M())throw H.j(H.dE())
-do s=t.ga_()
+do s=t.ga0()
 while(t.M())
 return s},
 giQ:function(a){var t,s
-t=this.gaw(this)
+t=this.gav(this)
 if(!t.M())throw H.j(H.dE())
-s=t.ga_()
+s=t.ga0()
 if(t.M())throw H.j(H.Uj())
 return s},
 aV:function(a,b){var t,s,r
 if(typeof b!=="number"||Math.floor(b)!==b)throw H.j(P.Ef("index"))
 if(b<0)H.aG(P.cn(b,0,null,"index",null))
-for(t=this.gaw(this),s=0;t.M();){r=t.ga_()
+for(t=this.gav(this),s=0;t.M();){r=t.ga0()
 if(b===s)return r;++s}throw H.j(P.cL(b,this,"index",null,s))},
 G:function(a){return P.JX(this,"(",")")},
 $asv:null}
@@ -24975,20 +24977,20 @@ P.q.prototype={$iscS:1,
 $ascS:function(){return[P.q]},
 $isFZ:1}
 P.cN.prototype={
-gu:function(a){return this.a3.length},
-gb_:function(a){return this.a3.length===0},
-gdc:function(a){return this.a3.length!==0},
-G:function(a){var t=this.a3
+gu:function(a){return this.a4.length},
+gb_:function(a){return this.a4.length===0},
+gdc:function(a){return this.a4.length!==0},
+G:function(a){var t=this.a4
 return t.charCodeAt(0)==0?t:t},
-ga3:function(){return this.a3},
-sa3:function(a){return this.a3=a}}
+ga4:function(){return this.a4},
+sa4:function(a){return this.a4=a}}
 P.jq.prototype={}
 P.jt.prototype={}
 P.A2.prototype={
 $2:function(a,b){var t,s,r,q
 t=J.aO(b)
 s=t.b1(b,"=")
-if(s===-1){if(!t.P(b,""))J.hI(a,P.ie(b,0,t.gu(b),this.a,!0),"")}else if(s!==0){r=t.ay(b,0,s)
+if(s===-1){if(!t.P(b,""))J.hI(a,P.ie(b,0,t.gu(b),this.a,!0),"")}else if(s!==0){r=t.ax(b,0,s)
 q=t.d6(b,s+1)
 t=this.a
 J.hI(a,P.ie(r,0,r.length,t,!0),P.ie(q,0,q.length,t,!0))}return a},
@@ -25003,7 +25005,7 @@ $S:function(){return{func:1,v:true,args:[P.q],opt:[,]}}}
 P.A1.prototype={
 $2:function(a,b){var t,s
 if(b-a>4)this.b.$2("an IPv6 part can only contain a maximum of 4 hex digits",a)
-t=H.fQ(C.c.ay(this.a,a,b),16,null)
+t=H.fQ(C.c.ax(this.a,a,b),16,null)
 s=J.aN(t)
 if(s.aQ(t,0)||s.bk(t,65535))this.b.$2("each part must be in the range of `0x0..0xFFFF`",a)
 return t},
@@ -25012,7 +25014,7 @@ P.qV.prototype={
 gu2:function(){return this.b},
 gnK:function(a){var t=this.c
 if(t==null)return""
-if(C.c.d5(t,"["))return C.c.ay(t,1,t.length-1)
+if(C.c.d5(t,"["))return C.c.ax(t,1,t.length-1)
 return t},
 gob:function(a){var t=this.d
 if(t==null)return P.Lj(this.a)
@@ -25097,14 +25099,14 @@ if(0>=t.length)return H.b(t,0)
 s=this.a
 t=t[0]+1
 r=J.aO(s)
-q=r.hR(s,"?",t)
+q=r.hS(s,"?",t)
 p=r.gu(s)
 if(q>=0){o=q+1
 n=P.kX(s,o,p,C.F,!1)
-if(n==null)n=r.ay(s,o,p)
+if(n==null)n=r.ax(s,o,p)
 p=q}else n=null
 m=P.kX(s,t,p,C.aa,!1)
-t=new P.Bk(this,"data",null,null,null,m==null?r.ay(s,t,p):m,n,null,null,null,null,null,null)
+t=new P.Bk(this,"data",null,null,null,m==null?r.ax(s,t,p):m,n,null,null,null,null,null,null)
 this.c=t
 return t},
 G:function(a){var t,s
@@ -25143,7 +25145,7 @@ if(typeof t!=="number")return t.aQ()
 return t<this.a.length},
 goV:function(){var t,s
 t=this.b
-if(typeof t!=="number")return t.eo()
+if(typeof t!=="number")return t.ep()
 if(t<=0)return""
 s=this.x
 if(s!=null)return s
@@ -25152,16 +25154,16 @@ if(s&&C.c.d5(this.a,"http")){this.x="http"
 t="http"}else if(t===5&&C.c.d5(this.a,"https")){this.x="https"
 t="https"}else if(s&&C.c.d5(this.a,"file")){this.x="file"
 t="file"}else if(t===7&&C.c.d5(this.a,"package")){this.x="package"
-t="package"}else{t=C.c.ay(this.a,0,t)
+t="package"}else{t=C.c.ax(this.a,0,t)
 this.x=t}return t},
 gu2:function(){var t,s
 t=this.c
 s=this.b
 if(typeof s!=="number")return s.k()
 s+=3
-return t>s?C.c.ay(this.a,s,t-1):""},
+return t>s?C.c.ax(this.a,s,t-1):""},
 gnK:function(a){var t=this.c
-return t>0?C.c.ay(this.a,t,this.d):""},
+return t>0?C.c.ax(this.a,t,this.d):""},
 gob:function(a){var t,s
 if(this.c>0){t=this.d
 if(typeof t!=="number")return t.k()
@@ -25171,17 +25173,17 @@ s=t+1<s
 t=s}else t=!1
 if(t){t=this.d
 if(typeof t!=="number")return t.k()
-return H.fQ(C.c.ay(this.a,t+1,this.e),null,null)}t=this.b
+return H.fQ(C.c.ax(this.a,t+1,this.e),null,null)}t=this.b
 if(t===4&&C.c.d5(this.a,"http"))return 80
 if(t===5&&C.c.d5(this.a,"https"))return 443
 return 0},
-gtm:function(a){return C.c.ay(this.a,this.e,this.f)},
+gtm:function(a){return C.c.ax(this.a,this.e,this.f)},
 gog:function(a){var t,s
 t=this.f
 s=this.r
 if(typeof t!=="number")return t.aQ()
 if(typeof s!=="number")return H.w(s)
-return t<s?C.c.ay(this.a,t+1,s):""},
+return t<s?C.c.ax(this.a,t+1,s):""},
 grH:function(){var t,s
 t=this.r
 s=this.a
@@ -25217,7 +25219,7 @@ gb3:function(a){return a.type},
 gcv:function(a){return a.href},
 scv:function(a,b){return a.href=b}}
 W.rk.prototype={
-eb:function(a){return a.cancel()},
+ec:function(a){return a.cancel()},
 grD:function(a){return a.finished},
 gbe:function(a){return a.id},
 sbe:function(a,b){return a.id=b}}
@@ -25237,7 +25239,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -25282,9 +25284,9 @@ W.iQ.prototype={$isiQ:1,
 ar:function(a){return a.type.$0()},
 gW:function(a){return a.name},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.f3.prototype={
 ue:function(a,b,c){return a.getContext(b)},
 T:function(a,b){return this.ue(a,b,null)},
@@ -25299,12 +25301,12 @@ W.jV.prototype={$isjV:1,$isaJ:1}
 W.iR.prototype={
 ym:function(a){return a.beginPath()},
 zk:function(a,b,c,d,e,f,g){return a.createRadialGradient(b,c,d,e,f,g)},
-io:function(a,b,c,d,e){return a.fillRect(b,c,d,e)},
+ip:function(a,b,c,d,e){return a.fillRect(b,c,d,e)},
 jE:function(a,b,c,d,e){return P.hE(a.getImageData(b,c,d,e))},
 lA:function(a,b){return a.measureText(b)},
 CX:function(a,b,c,d,e,f,g,h){a.putImageData(P.WE(b),c,d)
 return},
-hk:function(a,b,c,d){return this.CX(a,b,c,d,null,null,null,null)},
+hl:function(a,b,c,d){return this.CX(a,b,c,d,null,null,null,null)},
 or:function(a,b){return a.rotate(b)},
 kC:function(a,b,c){return a.scale(b,c)},
 lX:function(a,b,c){return a.translate(b,c)},
@@ -25329,7 +25331,7 @@ gbe:function(a){return a.id}}
 W.t4.prototype={$isbL:1,$ist:1}
 W.nm.prototype={
 nx:function(a,b){return typeof console!="undefined"?console.error(b):null},
-hz:function(a){return typeof console!="undefined"?console.group(a):null},
+hA:function(a){return typeof console!="undefined"?console.group(a):null},
 Br:function(a){return typeof console!="undefined"?console.info(a):null},
 DI:function(a,b){return typeof console!="undefined"?console.time(b):null},
 E8:function(a){return typeof console!="undefined"?console.warn(a):null}}
@@ -25381,7 +25383,7 @@ W.jY.prototype={$isjY:1,$isaJ:1,
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
 W.nn.prototype={
-f1:function(a,b,c){return a.add(b,c)},
+f2:function(a,b,c){return a.add(b,c)},
 h:function(a,b){return a.add(b)},
 aR:function(a,b){return a.item(b)},
 aW:function(a,b){return a.remove(b)},
@@ -25391,7 +25393,7 @@ W.to.prototype={
 gbn:function(a){return a.x},
 gbo:function(a){return a.y}}
 W.tp.prototype={
-ga2:function(a){return a.value}}
+ga3:function(a){return a.value}}
 W.nr.prototype={}
 W.iW.prototype={
 gjn:function(a){return new W.jA(a,"click",!1,[W.ep])},
@@ -25452,7 +25454,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -25490,8 +25492,8 @@ aE:function(a,b){return a.contains(b)},
 aR:function(a,b){return a.item(b)},
 aW:function(a,b){return a.remove(b)},
 gu:function(a){return a.length},
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.Bh.prototype={
 aE:function(a,b){return J.r6(this.b,b)},
 gb_:function(a){return this.a.firstElementChild==null},
@@ -25505,17 +25507,17 @@ this.a.replaceChild(c,t[b])},
 su:function(a,b){throw H.j(new P.a9("Cannot resize element lists"))},
 h:function(a,b){this.a.appendChild(b)
 return b},
-gaw:function(a){var t=this.d2(this)
+gav:function(a){var t=this.d2(this)
 return new J.fE(t,t.length,0,null,[H.L(t,0)])},
 bR:function(a,b,c,d,e){throw H.j(new P.hz(null))},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-eE:function(a,b,c,d){throw H.j(new P.hz(null))},
-im:function(a,b,c,d){throw H.j(new P.hz(null))},
+eF:function(a,b,c,d){throw H.j(new P.hz(null))},
+io:function(a,b,c,d){throw H.j(new P.hz(null))},
 aW:function(a,b){return!1},
 gah:function(a){var t=this.a.firstElementChild
 if(t==null)throw H.j(new P.aE("No elements"))
 return t},
-gax:function(a){var t=this.a.lastElementChild
+gaw:function(a){var t=this.a.lastElementChild
 if(t==null)throw H.j(new P.aE("No elements"))
 return t},
 $asje:function(){return[W.bK]},
@@ -25532,7 +25534,7 @@ return t[b]},
 i:function(a,b,c){throw H.j(new P.a9("Cannot modify list"))},
 su:function(a,b){throw H.j(new P.a9("Cannot modify list"))},
 gah:function(a){return C.ac.gah(this.a)},
-gax:function(a){return C.ac.gax(this.a)},
+gaw:function(a){return C.ac.gaw(this.a)},
 gjZ:function(a){return W.VV(this)},
 gjn:function(a){return new W.Bs(this,!1,"click",[W.ep])},
 $isy:1,
@@ -25542,14 +25544,14 @@ $asC:null,
 $isv:1,
 $asv:null}
 W.bK.prototype={
-gh1:function(a){return new W.Bq(a)},
+gh2:function(a){return new W.Bq(a)},
 gdH:function(a){return new W.Bh(a,a.children)},
 gjZ:function(a){return new W.Br(a)},
 gko:function(a){return P.V6(C.i.bF(a.offsetLeft),C.i.bF(a.offsetTop),C.i.bF(a.offsetWidth),C.i.bF(a.offsetHeight),null)},
-xQ:function(a,b,c,d){this.eW(a,"beforeend",b,c,d)},
+xQ:function(a,b,c,d){this.eX(a,"beforeend",b,c,d)},
 N:function(a,b,c){return this.xQ(a,b,c,null)},
 G:function(a){return a.localName},
-eW:function(a,b,c,d,e){var t,s
+eX:function(a,b,c,d,e){var t,s
 if(d instanceof W.mH)a.insertAdjacentHTML(b,c)
 else{t=this.dZ(a,c,d,e)
 switch(b.toLowerCase()){case"beforebegin":a.parentNode.insertBefore(t,a)
@@ -25602,7 +25604,7 @@ zg:function(a,b,c){return this.dZ(a,b,c,null)},
 jH:function(a,b,c,d){a.textContent=null
 if(c instanceof W.mH)a.innerHTML=b
 else a.appendChild(this.dZ(a,b,c,d))},
-fl:function(a,b){return this.jH(a,b,null,null)},
+fm:function(a,b){return this.jH(a,b,null,null)},
 mk:function(a,b,c){return this.jH(a,b,c,null)},
 oH:function(a){return a.getBoundingClientRect()},
 gjn:function(a){return new W.jz(a,"click",!1,[W.ep])},
@@ -25611,7 +25613,7 @@ $isbb:1,
 $isaJ:1,
 $ist:1,
 $isbL:1,
-ek:function(a){return a.title.$0()},
+el:function(a){return a.title.$0()},
 gbe:function(a){return a.id},
 gpQ:function(a){return a.namespaceURI},
 gtQ:function(a){return a.tagName},
@@ -25646,7 +25648,7 @@ $1:function(a){this.a.l8(a)},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 W.lu.prototype={$islu:1,
-gee:function(a){return a.error}}
+gef:function(a){return a.error}}
 W.au.prototype={
 gak:function(a){return W.qY(a.target)},
 $isau:1,
@@ -25677,7 +25679,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -25710,19 +25712,19 @@ $isC:1,
 $isv:1}
 W.ux.prototype={
 gcS:function(a){var t=a.result
-if(!!J.a6(t).$iscZ)return C.p.fp(t,0,null)
+if(!!J.a6(t).$iscZ)return C.p.fq(t,0,null)
 return t},
-gee:function(a){return a.error}}
+gef:function(a){return a.error}}
 W.uy.prototype={
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
 W.uz.prototype={
 gW:function(a){return a.name}}
 W.uA.prototype={
-gee:function(a){return a.error},
+gef:function(a){return a.error},
 gu:function(a){return a.length}}
 W.uG.prototype={
-gfK:function(a){return a.weight}}
+gfL:function(a){return a.weight}}
 W.uH.prototype={
 h:function(a,b){return a.add(b)},
 Eo:function(a,b,c){return a.forEach(H.fX(b,3),c)},
@@ -25737,7 +25739,7 @@ sW:function(a,b){return a.name=b}}
 W.en.prototype={$isen:1,$isaJ:1,
 gbe:function(a){return a.id}}
 W.uP.prototype={
-ga2:function(a){return a.value}}
+ga3:function(a){return a.value}}
 W.uQ.prototype={
 gbe:function(a){return a.id}}
 W.o0.prototype={
@@ -25752,7 +25754,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -25784,7 +25786,7 @@ $isC:1,
 $isv:1}
 W.v3.prototype={
 gDJ:function(a){return a.title},
-ek:function(a){return this.gDJ(a).$0()},
+el:function(a){return this.gDJ(a).$0()},
 gnb:function(a){return a.body}}
 W.o9.prototype={
 aR:function(a,b){return a.item(b)}}
@@ -25792,7 +25794,7 @@ W.is.prototype={
 Er:function(a,b,c,d,e,f){return a.open(b,c,!0,f,e)},
 Cu:function(a,b,c,d){return a.open(b,c,d)},
 gDp:function(a){return W.Wd(a.response)},
-i_:function(a,b){return a.send(b)},
+i0:function(a,b){return a.send(b)},
 $isis:1,
 $isaJ:1,
 gDr:function(a){return a.responseText}}
@@ -25810,7 +25812,7 @@ r=s>=200&&s<300
 q=s>307&&s<400
 s=r||s===0||s===304||q
 p=this.a
-if(s)p.ft(0,t)
+if(s)p.fu(0,t)
 else p.l8(a)},
 $S:function(){return{func:1,args:[,]}}}
 W.lK.prototype={}
@@ -25827,21 +25829,21 @@ gaP:function(a){return a.data},
 gK:function(a){return a.height},
 gH:function(a){return a.width}}
 W.j6.prototype={$isj6:1,$isbK:1,$isbb:1,$isaJ:1,
-ft:function(a,b){return a.complete.$1(b)},
+fu:function(a,b){return a.complete.$1(b)},
 gK:function(a){return a.height},
 gH:function(a){return a.width}}
 W.lM.prototype={$islM:1,$isbK:1,$ist:1,$isbL:1,$isbb:1,
-e9:function(a,b){return a.accept.$1(b)},
+ea:function(a,b){return a.accept.$1(b)},
 ar:function(a){return a.type.$0()},
 gnf:function(a){return a.checked},
 gjc:function(a){return a.files},
 gK:function(a){return a.height},
 gW:function(a){return a.name},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 gH:function(a){return a.width},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.vh.prototype={
 gak:function(a){return a.target},
 glW:function(a){return a.time}}
@@ -25851,8 +25853,8 @@ gW:function(a){return a.name},
 gb3:function(a){return a.type},
 sW:function(a,b){return a.name=b}}
 W.vP.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.lU.prototype={
 h:function(a,b){return a.add(b)}}
 W.lV.prototype={$islV:1,
@@ -25867,7 +25869,7 @@ W.wc.prototype={
 gW:function(a){return a.name},
 sW:function(a,b){return a.name=b}}
 W.lX.prototype={
-gee:function(a){return a.error},
+gef:function(a){return a.error},
 ga9:function(a){return a.session},
 sa9:function(a,b){return a.session=b}}
 W.wh.prototype={
@@ -25876,17 +25878,17 @@ W.p6.prototype={
 aR:function(a,b){return a.item(b)},
 gu:function(a){return a.length}}
 W.wi.prototype={
-ek:function(a){return a.title.$0()}}
+el:function(a){return a.title.$0()}}
 W.p7.prototype={
-fP:function(a,b){return a.start(b)},
-f0:function(a){return a.start()},
-fQ:function(a){return a.stop()}}
+fQ:function(a,b){return a.start(b)},
+f1:function(a){return a.start()},
+fR:function(a){return a.stop()}}
 W.wj.prototype={
 cU:function(a){return a.clone()},
 gbe:function(a){return a.id}}
 W.lY.prototype={
 cU:function(a){return a.clone()},
-fQ:function(a){return a.stop()},
+fR:function(a){return a.stop()},
 gbe:function(a){return a.id}}
 W.wk.prototype={
 ar:function(a){return a.type.$0()},
@@ -25898,17 +25900,17 @@ gb3:function(a){return a.type}}
 W.wm.prototype={
 gdU:function(a){return W.qY(a.source)}}
 W.p8.prototype={
-f0:function(a){return a.start()}}
+f1:function(a){return a.start()}}
 W.wn.prototype={
 gbc:function(a){return a.content},
 gW:function(a){return a.name},
 sW:function(a,b){return a.name=b}}
 W.wp.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.wq.prototype={
 Ei:function(a,b,c){return a.send(b,c)},
-i_:function(a,b){return a.send(b)}}
+i0:function(a,b){return a.send(b)}}
 W.lZ.prototype={
 ar:function(a){return a.type.$0()},
 gbe:function(a){return a.id},
@@ -25926,7 +25928,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -25978,7 +25980,7 @@ W.eX.prototype={
 gah:function(a){var t=this.a.firstChild
 if(t==null)throw H.j(new P.aE("No elements"))
 return t},
-gax:function(a){var t=this.a.lastChild
+gaw:function(a){var t=this.a.lastChild
 if(t==null)throw H.j(new P.aE("No elements"))
 return t},
 giQ:function(a){var t,s
@@ -25999,11 +26001,11 @@ t=this.a
 s=t.childNodes
 if(b>>>0!==b||b>=s.length)return H.b(s,b)
 t.replaceChild(c,s[b])},
-gaw:function(a){var t=this.a.childNodes
+gav:function(a){var t=this.a.childNodes
 return new W.nW(t,t.length,-1,null,[H.as(t,"d_",0)])},
 bR:function(a,b,c,d,e){throw H.j(new P.a9("Cannot setRange on Node list"))},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-im:function(a,b,c,d){throw H.j(new P.a9("Cannot fillRange on Node list"))},
+io:function(a,b,c,d){throw H.j(new P.a9("Cannot fillRange on Node list"))},
 gu:function(a){return this.a.childNodes.length},
 su:function(a,b){throw H.j(new P.a9("Cannot set length on immutable List."))},
 p:function(a,b){var t=this.a.childNodes
@@ -26042,7 +26044,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26073,10 +26075,10 @@ $isC:1,
 $isv:1}
 W.wS.prototype={
 gjn:function(a){return new W.jA(a,"click",!1,[W.au])},
-ek:function(a){return a.title.$0()},
+el:function(a){return a.title.$0()},
 gnb:function(a){return a.body}}
 W.wU.prototype={
-ga2:function(a){return a.value}}
+ga3:function(a){return a.value}}
 W.wV.prototype={
 ar:function(a){return a.type.$0()},
 glT:function(a){return a.reversed},
@@ -26093,20 +26095,20 @@ W.wZ.prototype={
 gK:function(a){return a.height},
 gH:function(a){return a.width}}
 W.x_.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.x1.prototype={
 ar:function(a){return a.type.$0()},
 gW:function(a){return a.name},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.x3.prototype={
 gW:function(a){return a.name},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.x8.prototype={$ist:1}
 W.iz.prototype={
 gW:function(a){return a.name}}
@@ -26130,7 +26132,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26167,35 +26169,35 @@ W.xq.prototype={
 gbn:function(a){return a.x},
 gbo:function(a){return a.y}}
 W.xr.prototype={
-ga2:function(a){return a.value}}
+ga3:function(a){return a.value}}
 W.xs.prototype={
-i_:function(a,b){return a.send(b)},
+i0:function(a,b){return a.send(b)},
 gbe:function(a){return a.id}}
 W.pA.prototype={
-f0:function(a){return a.start()}}
+f1:function(a){return a.start()}}
 W.xz.prototype={
 gak:function(a){return a.target}}
 W.xA.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.pB.prototype={
 ow:function(a){return a.text()}}
 W.xG.prototype={
 oH:function(a){return a.getBoundingClientRect()}}
 W.xI.prototype={
 qA:function(a,b){return a.cancel(b)},
-eb:function(a){return a.cancel()}}
+ec:function(a){return a.cancel()}}
 W.xJ.prototype={
 qA:function(a,b){return a.cancel(b)},
-eb:function(a){return a.cancel()}}
+ec:function(a){return a.cancel()}}
 W.xK.prototype={
 qA:function(a,b){return a.cancel(b)},
-eb:function(a){return a.cancel()}}
+ec:function(a){return a.cancel()}}
 W.xX.prototype={
 gbn:function(a){return a.x},
 gbo:function(a){return a.y}}
 W.pO.prototype={
-i_:function(a,b){return a.send(b)},
+i0:function(a,b){return a.send(b)},
 gbe:function(a){return a.id}}
 W.pP.prototype={
 ar:function(a){return a.type.$0()},
@@ -26224,9 +26226,9 @@ ar:function(a){return a.type.$0()},
 gu:function(a){return a.length},
 gW:function(a){return a.name},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.ye.prototype={
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
@@ -26243,8 +26245,8 @@ gW:function(a){return a.name}}
 W.yx.prototype={
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.yA.prototype={
 gW:function(a){return a.name},
 sW:function(a,b){return a.name=b}}
@@ -26257,7 +26259,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26293,7 +26295,7 @@ gb3:function(a){return a.type}}
 W.yE.prototype={
 gbe:function(a){return a.id}}
 W.es.prototype={$ises:1,$isaJ:1,
-gfK:function(a){return a.weight}}
+gfL:function(a){return a.weight}}
 W.q2.prototype={
 gu:function(a){return a.length},
 p:function(a,b){if(b>>>0!==b||b>=a.length)throw H.j(P.cL(b,a,null,null,null))
@@ -26302,7 +26304,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26333,18 +26335,18 @@ $isy:1,
 $isC:1,
 $isv:1}
 W.q3.prototype={
-f0:function(a){return a.start()},
-fQ:function(a){return a.stop()}}
+f1:function(a){return a.start()},
+fR:function(a){return a.stop()}}
 W.kF.prototype={$iskF:1,$isaJ:1}
 W.yH.prototype={
-gee:function(a){return a.error}}
+gef:function(a){return a.error}}
 W.eb.prototype={
 aR:function(a,b){return a.item(b)},
 $iseb:1,
 $isaJ:1,
 gu:function(a){return a.length}}
 W.yI.prototype={
-eb:function(a){return a.cancel()}}
+ec:function(a){return a.cancel()}}
 W.yJ.prototype={
 gW:function(a){return a.name}}
 W.yK.prototype={
@@ -26373,7 +26375,7 @@ W.zr.prototype={
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
 W.ec.prototype={$isec:1,$isaJ:1,
-ek:function(a){return a.title.$0()},
+el:function(a){return a.title.$0()},
 ar:function(a){return a.type.$0()},
 gcv:function(a){return a.href},
 gb3:function(a){return a.type}}
@@ -26420,7 +26422,7 @@ jH:function(a,b,c,d){var t
 a.textContent=null
 t=this.dZ(a,b,c,d)
 a.content.appendChild(t)},
-fl:function(a,b){return this.jH(a,b,null,null)},
+fm:function(a,b){return this.jH(a,b,null,null)},
 mk:function(a,b,c){return this.jH(a,b,c,null)},
 $ismq:1,
 gbc:function(a){return a.content}}
@@ -26428,9 +26430,9 @@ W.zH.prototype={
 ar:function(a){return a.type.$0()},
 gW:function(a){return a.name},
 gb3:function(a){return a.type},
-ga2:function(a){return a.value},
+ga3:function(a){return a.value},
 sW:function(a,b){return a.name=b},
-sa2:function(a,b){return a.value=b}}
+sa3:function(a,b){return a.value=b}}
 W.zI.prototype={
 gH:function(a){return a.width}}
 W.fd.prototype={$isaJ:1,
@@ -26446,7 +26448,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26483,7 +26485,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26513,7 +26515,7 @@ $isy:1,
 $isC:1,
 $isv:1}
 W.qd.prototype={
-fP:function(a,b){return a.start(b)},
+fQ:function(a,b){return a.start(b)},
 gu:function(a){return a.length}}
 W.et.prototype={
 gak:function(a){return W.qY(a.target)},
@@ -26527,7 +26529,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26573,7 +26575,7 @@ od:function(a){return a.previousNode()},
 glj:function(a){return a.filter}}
 W.hy.prototype={}
 W.ql.prototype={
-fP:function(a,b){return a.start(b)}}
+fQ:function(a,b){return a.start(b)}}
 W.A3.prototype={
 G:function(a){return String(a)},
 $ist:1,
@@ -26596,7 +26598,7 @@ W.qo.prototype={
 aR:function(a,b){return a.item(b)},
 gu:function(a){return a.length}}
 W.Ag.prototype={
-i_:function(a,b){return a.send(b)}}
+i0:function(a,b){return a.send(b)}}
 W.kO.prototype={
 mT:function(a,b){return a.requestAnimationFrame(H.fX(b,1))},
 mE:function(a){if(!!(a.requestAnimationFrame&&a.cancelAnimationFrame))return;(function(b){var t=['ms','moz','webkit','o']
@@ -26608,7 +26610,7 @@ gjp:function(a){return W.Wc(a.parent)},
 uK:function(a,b,c,d){a.scrollTo(b,c)
 return},
 kD:function(a,b,c){return this.uK(a,b,c,null)},
-fQ:function(a){return a.stop()},
+fR:function(a){return a.stop()},
 gjn:function(a){return new W.jA(a,"click",!1,[W.ep])},
 $ist:1,
 $isbL:1,
@@ -26619,8 +26621,8 @@ W.jv.prototype={$ist:1}
 W.kT.prototype={$iskT:1,$isbb:1,$isaJ:1,
 gW:function(a){return a.name},
 gpQ:function(a){return a.namespaceURI},
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 W.Bi.prototype={
 G:function(a){return"Rectangle ("+H.h(a.left)+", "+H.h(a.top)+") "+H.h(a.width)+" x "+H.h(a.height)},
 P:function(a,b){var t,s,r
@@ -26660,7 +26662,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26698,7 +26700,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26742,7 +26744,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26781,7 +26783,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26822,7 +26824,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26860,7 +26862,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){if(b>>>0!==b||b>=a.length)return H.b(a,b)
@@ -26979,7 +26981,7 @@ return new P.Bd(t,[H.L(t,0)]).dr(a,b,c,d)},
 lw:function(a,b,c){return this.dr(a,null,b,c)},
 nT:function(a){return this.dr(a,null,null,null)}}
 W.Bv.prototype={
-eb:function(a){if(this.b==null)return
+ec:function(a){if(this.b==null)return
 this.q7()
 this.b=null
 this.d=null
@@ -27008,13 +27010,13 @@ s=this.a
 t.i(0,b,W.dH(b.a,b.b,s.gqc(s),!1,H.L(b,0)))},
 aW:function(a,b){var t=this.b.aW(0,b)
 if(t!=null)J.HY(t)},
-f6:function(a){var t,s
-for(t=this.b,s=t.gd3(t),s=s.gaw(s);s.M();)J.HY(s.ga_())
-t.fq(0)
-this.a.f6(0)}}
+f7:function(a){var t,s
+for(t=this.b,s=t.gd3(t),s=s.gav(s);s.M();)J.HY(s.ga0())
+t.fs(0)
+this.a.f7(0)}}
 W.my.prototype={
 j_:function(a){return $.$get$Lc().aE(0,W.lr(a))},
-hI:function(a,b,c){var t,s,r
+hJ:function(a,b,c){var t,s,r
 t=W.lr(a)
 s=$.$get$GZ()
 r=s.p(0,H.h(t)+"::"+b)
@@ -27028,13 +27030,13 @@ for(s=0;s<12;++s)t.i(0,C.R[s],W.X6())}},
 $isiw:1,
 gu0:function(){return this.a}}
 W.d_.prototype={
-gaw:function(a){return new W.nW(a,this.gu(a),-1,null,[H.as(a,"d_",0)])},
+gav:function(a){return new W.nW(a,this.gu(a),-1,null,[H.as(a,"d_",0)])},
 h:function(a,b){throw H.j(new P.a9("Cannot add to immutable List."))},
 aW:function(a,b){throw H.j(new P.a9("Cannot remove from immutable List."))},
 bR:function(a,b,c,d,e){throw H.j(new P.a9("Cannot setRange on immutable List."))},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-eE:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an immutable List."))},
-im:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an immutable List."))},
+eF:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an immutable List."))},
+io:function(a,b,c,d){throw H.j(new P.a9("Cannot modify an immutable List."))},
 $isy:1,
 $asy:null,
 $isC:1,
@@ -27044,17 +27046,17 @@ $asv:null}
 W.pe.prototype={
 h:function(a,b){this.a.push(b)},
 j_:function(a){return C.a.qi(this.a,new W.wP(a))},
-hI:function(a,b,c){return C.a.qi(this.a,new W.wO(a,b,c))},
+hJ:function(a,b,c){return C.a.qi(this.a,new W.wO(a,b,c))},
 $isiw:1}
 W.wP.prototype={
 $1:function(a){return a.j_(this.a)},
 $S:function(){return{func:1,args:[,]}}}
 W.wO.prototype={
-$1:function(a){return a.hI(this.a,this.b,this.c)},
+$1:function(a){return a.hJ(this.a,this.b,this.c)},
 $S:function(){return{func:1,args:[,]}}}
 W.mE.prototype={
 j_:function(a){return this.a.aE(0,W.lr(a))},
-hI:function(a,b,c){var t,s
+hJ:function(a,b,c){var t,s
 t=W.lr(a)
 s=this.c
 if(s.aE(0,H.h(t)+"::"+b))return this.d.xL(c)
@@ -27066,8 +27068,8 @@ else if(s.aE(0,H.h(t)+"::*"))return!0
 else if(s.aE(0,"*::*"))return!0}return!1},
 wb:function(a,b,c,d){var t,s,r
 this.a.V(0,c)
-t=b.em(0,new W.Ch())
-s=b.em(0,new W.Ci())
+t=b.en(0,new W.Ch())
+s=b.en(0,new W.Ci())
 this.b.V(0,t)
 r=this.c
 r.V(0,C.x)
@@ -27081,7 +27083,7 @@ W.Ci.prototype={
 $1:function(a){return C.a.aE(C.R,a)},
 $S:function(){return{func:1,args:[,]}}}
 W.Cy.prototype={
-hI:function(a,b,c){if(this.vA(a,b,c))return!0
+hJ:function(a,b,c){if(this.vA(a,b,c))return!0
 if(b==="template"&&c==="")return!0
 if(J.I1(a).a.getAttribute("template")==="")return this.e.aE(0,b)
 return!1}}
@@ -27097,7 +27099,7 @@ t=!!t.$ised
 if(t&&W.lr(a)==="foreignObject")return!1
 if(t)return!0
 return!1},
-hI:function(a,b,c){if(b==="is"||C.c.d5(b,"on"))return!1
+hJ:function(a,b,c){if(b==="is"||C.c.d5(b,"on"))return!1
 return this.j_(a)},
 $isiw:1}
 W.nW.prototype={
@@ -27109,7 +27111,7 @@ this.c=t
 return!0}this.d=null
 this.c=s
 return!1},
-ga_:function(){return this.d}}
+ga0:function(){return this.d}}
 W.Bj.prototype={
 gjp:function(a){return W.GW(this.a.parent)},
 qf:function(a,b,c,d){return H.aG(new P.a9("You can only attach EventListeners to your own window."))},
@@ -27155,7 +27157,7 @@ return}if(!this.a.j_(a)){this.jQ(a,b)
 window
 t="Removing disallowed element <"+H.h(e)+"> from "+J.bS(b)
 if(typeof console!="undefined")console.warn(t)
-return}if(g!=null)if(!this.a.hI(a,"is",g)){this.jQ(a,b)
+return}if(g!=null)if(!this.a.hJ(a,"is",g)){this.jQ(a,b)
 window
 t="Removing disallowed type extension <"+H.h(e)+' is="'+g+'">'
 if(typeof console!="undefined")console.warn(t)
@@ -27163,7 +27165,7 @@ return}t=f.gcL(f)
 s=H.a(t.slice(0),[H.L(t,0)])
 for(r=f.gcL(f).length-1,t=f.a;r>=0;--r){if(r>=s.length)return H.b(s,r)
 q=s[r]
-if(!this.a.hI(a,J.jN(q),t.getAttribute(q))){window
+if(!this.a.hJ(a,J.jN(q),t.getAttribute(q))){window
 p="Removing disallowed attribute <"+H.h(e)+" "+H.h(q)+'="'+H.h(t.getAttribute(q))+'">'
 if(typeof console!="undefined")console.warn(p)
 t.getAttribute(q)
@@ -27193,7 +27195,7 @@ for(r=0;r<s;++r)if(t[r]===a)return r
 t.push(a)
 this.b.push(null)
 return s},
-fJ:function(a){var t,s,r,q,p,o
+fK:function(a){var t,s,r,q,p,o
 t={}
 if(a==null)return a
 if(typeof a==="boolean")return a
@@ -27234,11 +27236,11 @@ if(b>=q.length)return H.b(q,b)
 q[b]=r
 if(typeof s!=="number")return H.w(s)
 p=0
-for(;p<s;++p){q=this.fJ(t.p(a,p))
+for(;p<s;++p){q=this.fK(t.p(a,p))
 if(p>=r.length)return H.b(r,p)
 r[p]=q}return r}}
 P.Cu.prototype={
-$2:function(a,b){this.a.a[a]=this.b.fJ(b)},
+$2:function(a,b){this.a.a[a]=this.b.fK(b)},
 "call*":"$2",
 $R:2,
 $S:function(){return{func:1,args:[,,]}}}
@@ -27250,7 +27252,7 @@ for(r=0;r<s;++r){q=t[r]
 if(q==null?a==null:q===a)return r}t.push(a)
 this.b.push(null)
 return s},
-fJ:function(a){var t,s,r,q,p,o,n,m,l
+fK:function(a){var t,s,r,q,p,o,n,m,l
 t={}
 if(a==null)return a
 if(typeof a==="boolean")return a
@@ -27287,12 +27289,12 @@ r[p]=n
 if(typeof m!=="number")return H.w(m)
 r=J.dz(n)
 l=0
-for(;l<m;++l)r.i(n,l,this.fJ(o.p(a,l)))
+for(;l<m;++l)r.i(n,l,this.fK(o.p(a,l)))
 return n}return a}}
 P.B2.prototype={
 $2:function(a,b){var t,s
 t=this.a.a
-s=this.b.fJ(b)
+s=this.b.fK(b)
 J.hI(t,a,s)
 return s},
 $S:function(){return{func:1,args:[,,]}}}
@@ -27306,7 +27308,7 @@ AR:function(a,b){var t,s,r,q
 for(t=Object.keys(a),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r]
 b.$2(q,a[q])}}}
 P.Dj.prototype={
-$1:function(a){return this.a.ft(0,a)},
+$1:function(a){return this.a.fu(0,a)},
 "call*":"$1",
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
@@ -27319,7 +27321,7 @@ P.jX.prototype={
 mY:function(a){if($.$get$Iw().b.test(H.ex(a)))return a
 throw H.j(P.f0(a,"value","Not a valid class token"))},
 G:function(a){return this.df().bP(0," ")},
-gaw:function(a){var t,s
+gav:function(a){var t,s
 t=this.df()
 s=new P.eL(t,t.r,null,null,[null])
 s.c=t.e
@@ -27327,7 +27329,7 @@ return s},
 bE:function(a,b){this.df().bE(0,b)},
 dd:function(a,b){var t=this.df()
 return new H.lq(t,b,[H.L(t,0),null])},
-em:function(a,b){var t=this.df()
+en:function(a,b){var t=this.df()
 return new H.cG(t,b,[H.L(t,0)])},
 gb_:function(a){return this.df().a===0},
 gdc:function(a){return this.df().a!==0},
@@ -27346,11 +27348,11 @@ this.m1(t)
 return s},
 gah:function(a){var t=this.df()
 return t.gah(t)},
-gax:function(a){var t=this.df()
-return t.gax(t)},
+gaw:function(a){var t=this.df()
+return t.gaw(t)},
 bX:function(a,b){return this.df().bX(0,b)},
 d2:function(a){return this.bX(a,!0)},
-ep:function(a,b){var t=this.df()
+eq:function(a,b){var t=this.df()
 return H.q_(t,b,H.L(t,0))},
 aV:function(a,b){return this.df().aV(0,b)},
 o_:function(a,b){var t,s
@@ -27368,15 +27370,15 @@ P.tb.prototype={
 $1:function(a){return a.h(0,this.a)},
 $S:function(){return{func:1,args:[,]}}}
 P.nU.prototype={
-ghD:function(){var t,s
+ghE:function(){var t,s
 t=this.b
 s=H.as(t,"bU",0)
 return new H.jf(new H.cG(t,new P.uC(),[s]),new P.uD(),[s,null])},
-bE:function(a,b){C.a.bE(P.an(this.ghD(),!1,W.bK),b)},
-i:function(a,b,c){var t=this.ghD()
+bE:function(a,b){C.a.bE(P.an(this.ghE(),!1,W.bK),b)},
+i:function(a,b,c){var t=this.ghE()
 J.NQ(t.b.$1(J.mZ(t.a,b)),c)},
 su:function(a,b){var t,s
-t=J.c6(this.ghD().a)
+t=J.c6(this.ghE().a)
 s=J.aN(b)
 if(s.c4(b,t))return
 else if(s.aQ(b,0))throw H.j(P.ds("Invalid list length"))
@@ -27384,20 +27386,20 @@ this.ok(0,b,t)},
 h:function(a,b){this.b.a.appendChild(b)},
 aE:function(a,b){if(!J.a6(b).$isbK)return!1
 return b.parentNode===this.a},
-glT:function(a){var t=P.an(this.ghD(),!1,W.bK)
+glT:function(a){var t=P.an(this.ghE(),!1,W.bK)
 return new H.iE(t,[H.L(t,0)])},
 bR:function(a,b,c,d,e){throw H.j(new P.a9("Cannot setRange on filtered list"))},
 dS:function(a,b,c,d){return this.bR(a,b,c,d,0)},
-im:function(a,b,c,d){throw H.j(new P.a9("Cannot fillRange on filtered list"))},
-eE:function(a,b,c,d){throw H.j(new P.a9("Cannot replaceRange on filtered list"))},
-ok:function(a,b,c){var t=this.ghD()
+io:function(a,b,c,d){throw H.j(new P.a9("Cannot fillRange on filtered list"))},
+eF:function(a,b,c,d){throw H.j(new P.a9("Cannot replaceRange on filtered list"))},
+ok:function(a,b,c){var t=this.ghE()
 t=H.q_(t,b,H.as(t,"v",0))
 C.a.bE(P.an(H.Vq(t,J.cc(c,b),H.as(t,"v",0)),!0,null),new P.uE())},
 aW:function(a,b){return!1},
-gu:function(a){return J.c6(this.ghD().a)},
-p:function(a,b){var t=this.ghD()
+gu:function(a){return J.c6(this.ghE().a)},
+p:function(a,b){var t=this.ghE()
 return t.b.$1(J.mZ(t.a,b))},
-gaw:function(a){var t=P.an(this.ghD(),!1,W.bK)
+gav:function(a){var t=P.an(this.ghE(),!1,W.bK)
 return new J.fE(t,t.length,0,null,[H.L(t,0)])},
 $asje:function(){return[W.bK]},
 $asix:function(){return[W.bK]},
@@ -27420,16 +27422,16 @@ lC:function(a,b){a.continue(b)},
 o4:function(a){return this.lC(a,null)},
 gdU:function(a){return a.source}}
 P.tg.prototype={
-ga2:function(a){return new P.kS([],[],!1).fJ(a.value)}}
+ga3:function(a){return new P.kS([],[],!1).fK(a.value)}}
 P.tl.prototype={
 gW:function(a){return a.name}}
 P.CV.prototype={
-$1:function(a){this.b.ft(0,new P.kS([],[],!1).fJ(this.a.result))},
+$1:function(a){this.b.fu(0,new P.kS([],[],!1).fK(this.a.result))},
 $S:function(){return{func:1,args:[,]}}}
 P.vb.prototype={
 gW:function(a){return a.name}}
 P.wY.prototype={
-f1:function(a,b,c){var t,s,r,q,p
+f2:function(a,b,c){var t,s,r,q,p
 try{t=null
 t=this.wM(a,b,c)
 q=P.Wb(t)
@@ -27437,23 +27439,23 @@ return q}catch(p){s=H.dq(p)
 r=H.ee(p)
 q=P.Pc(s,r,null)
 return q}},
-h:function(a,b){return this.f1(a,b,null)},
-wM:function(a,b,c){return a.add(new P.Ct([],[]).fJ(b))},
+h:function(a,b){return this.f2(a,b,null)},
+wM:function(a,b,c){return a.add(new P.Ct([],[]).fK(b))},
 gW:function(a){return a.name}}
 P.mf.prototype={
-gcS:function(a){return new P.kS([],[],!1).fJ(a.result)},
-gee:function(a){return a.error},
+gcS:function(a){return new P.kS([],[],!1).fK(a.result)},
+gef:function(a){return a.error},
 gdU:function(a){return a.source}}
 P.zT.prototype={
-gee:function(a){return a.error}}
+gef:function(a){return a.error}}
 P.BT.prototype={
 ac:function(a){var t=J.aN(a)
-if(t.eo(a,0)||t.bk(a,4294967296))throw H.j(P.Kp("max must be in range 0 < max \u2264 2^32, was "+H.h(a)))
+if(t.ep(a,0)||t.bk(a,4294967296))throw H.j(P.Kp("max must be in range 0 < max \u2264 2^32, was "+H.h(a)))
 return Math.random()*a>>>0},
 E:function(){return Math.random()},
 dN:function(){return Math.random()<0.5}}
 P.C5.prototype={
-fY:function(){var t,s,r,q,p,o
+fZ:function(){var t,s,r,q,p,o
 t=this.a
 s=4294901760*t
 r=(s&4294967295)>>>0
@@ -27465,23 +27467,23 @@ this.a=t
 this.b=(C.b.d7(q-p+(s-r)+(o-t),4294967296)&4294967295)>>>0},
 ac:function(a){var t,s,r,q
 t=J.aN(a)
-if(t.eo(a,0)||t.bk(a,4294967296))throw H.j(P.Kp("max must be in range 0 < max \u2264 2^32, was "+H.h(a)))
-if(t.bw(a,t.aa(a,1))===0){this.fY()
+if(t.ep(a,0)||t.bk(a,4294967296))throw H.j(P.Kp("max must be in range 0 < max \u2264 2^32, was "+H.h(a)))
+if(t.bw(a,t.aa(a,1))===0){this.fZ()
 s=this.a
 t=t.aa(a,1)
 if(typeof t!=="number")return H.w(t)
 return(s&t)>>>0}t=typeof a!=="number"
-do{this.fY()
+do{this.fZ()
 r=this.a
 if(t)H.aG(H.c1(a))
 q=r%a
 if(typeof a!=="number")return H.w(a)}while(r-q+a>=4294967296)
 return q},
-E:function(){this.fY()
+E:function(){this.fZ()
 var t=this.a
-this.fY()
+this.fZ()
 return((t&67108863)*134217728+(this.a&134217727))/9007199254740992},
-dN:function(){this.fY()
+dN:function(){this.fZ()
 return(this.a&1)===0},
 wa:function(a){var t,s,r,q,p,o,n,m
 t=a<0?-1:0
@@ -27513,10 +27515,10 @@ this.a=n
 o=(m^r+((r<<31|s>>>1)>>>0)+o&4294967295)>>>0
 this.b=o}while(a!==t)
 if(o===0&&n===0)this.a=23063
-this.fY()
-this.fY()
-this.fY()
-this.fY()}}
+this.fZ()
+this.fZ()
+this.fZ()
+this.fZ()}}
 P.fP.prototype={
 G:function(a){return"Point("+H.h(this.a)+", "+H.h(this.b)+")"},
 P:function(a,b){var t,s
@@ -27616,8 +27618,8 @@ P.re.prototype={$ist:1,
 gak:function(a){return a.target},
 gcv:function(a){return a.href}}
 P.rj.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 P.iN.prototype={$ist:1}
 P.tT.prototype={$ist:1,
 gK:function(a){return a.height},
@@ -27746,8 +27748,8 @@ gbn:function(a){return a.x},
 gbo:function(a){return a.y},
 gcv:function(a){return a.href}}
 P.fM.prototype={$isaJ:1,
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 P.vV.prototype={
 gu:function(a){return a.length},
 p:function(a,b){if(b>>>0!==b||b>=a.length)throw H.j(P.cL(b,a,null,null,null))
@@ -27756,7 +27758,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){return this.p(a,b)},
@@ -27787,8 +27789,8 @@ gH:function(a){return a.width},
 gbn:function(a){return a.x},
 gbo:function(a){return a.y}}
 P.fO.prototype={$isaJ:1,
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 P.wT.prototype={
 gu:function(a){return a.length},
 p:function(a,b){if(b>>>0!==b||b>=a.length)throw H.j(P.cL(b,a,null,null,null))
@@ -27797,7 +27799,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){return this.p(a,b)},
@@ -27854,7 +27856,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){return this.p(a,b)},
@@ -27907,7 +27909,7 @@ t=new W.eX(q)
 o=t.giQ(t)
 for(;t=o.firstChild,t!=null;)p.appendChild(t)
 return p},
-eW:function(a,b,c,d,e){throw H.j(new P.a9("Cannot invoke insertAdjacentHtml on SVG."))},
+eX:function(a,b,c,d,e){throw H.j(new P.a9("Cannot invoke insertAdjacentHtml on SVG."))},
 gjn:function(a){return new W.jz(a,"click",!1,[W.ep])},
 $ised:1,
 $isbL:1,
@@ -27935,7 +27937,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){return this.p(a,b)},
@@ -27988,26 +27990,26 @@ else a.start(b)
 else if(d!=null)a.noteOn(b,c,d)
 else if(c!=null)a.noteOn(b,c)
 else a.noteOn(b)},
-fP:function(a,b){return this.mo(a,b,null,null)},
+fQ:function(a,b){return this.mo(a,b,null,null)},
 vh:function(a,b,c){return this.mo(a,b,c,null)},
 mr:function(a,b){if(!!a.stop)a.stop(b)
 else a.noteOff(b)},
-gi7:function(a){return a.buffer}}
+gi8:function(a){return a.buffer}}
 P.dc.prototype={}
 P.ry.prototype={
-ga2:function(a){return a.value},
-sa2:function(a,b){return a.value=b}}
+ga3:function(a){return a.value},
+sa3:function(a,b){return a.value=b}}
 P.jQ.prototype={}
 P.rH.prototype={
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
 P.t8.prototype={
-gi7:function(a){return a.buffer}}
+gi8:function(a){return a.buffer}}
 P.m6.prototype={
-fP:function(a,b){return a.start(b)},
-f0:function(a){return a.start()},
+fQ:function(a,b){return a.start(b)},
+f1:function(a){return a.start()},
 mr:function(a,b){return a.stop(b)},
-fQ:function(a){return a.stop()},
+fR:function(a){return a.stop()},
 ar:function(a){return a.type.$0()},
 gb3:function(a){return a.type}}
 P.rg.prototype={
@@ -28024,7 +28026,7 @@ i:function(a,b,c){throw H.j(new P.a9("Cannot assign element of immutable List.")
 su:function(a,b){throw H.j(new P.a9("Cannot resize immutable List."))},
 gah:function(a){if(a.length>0)return a[0]
 throw H.j(new P.aE("No elements"))},
-gax:function(a){var t=a.length
+gaw:function(a){var t=a.length
 if(t>0)return a[t-1]
 throw H.j(new P.aE("No elements"))},
 aV:function(a,b){return this.p(a,b)},
@@ -28055,10 +28057,10 @@ p:function(a,b){var t=this.a
 if(b>>>0!==b||b>=t.length)return H.b(t,b)
 return t[b]},
 gah:function(a){return C.a.gah(this.a)},
-gax:function(a){return C.a.gax(this.a)},
+gaw:function(a){return C.a.gaw(this.a)},
 gb_:function(a){return this.a.length===0},
 gdc:function(a){return this.a.length!==0},
-gaw:function(a){var t=this.a
+gav:function(a){var t=this.a
 return new J.fE(t,t.length,0,null,[H.L(t,0)])},
 $askn:function(){return[T.lb]},
 $asv:function(){return[T.lb]},
@@ -28073,7 +28075,7 @@ q=T.kf(C.a4)
 t=T.FU(0,t)
 new T.ob(s,t,0,0,0,r,q).pL()
 q=t.c.buffer
-t=(q&&C.p).fp(q,0,t.a)
+t=(q&&C.p).fq(q,0,t.a)
 this.cy=t}else{t=s.jA()
 this.cy=t}this.ch=0}}return t},
 G:function(a){return this.a},
@@ -28097,7 +28099,7 @@ if(typeof b!=="number")return H.w(b)
 s+=b
 if(s>>>0!==s||s>=t.length)return H.b(t,s)
 return t[s]},
-fR:function(a,b){var t,s
+fS:function(a,b){var t,s
 if(a==null)a=this.b
 else{t=this.c
 if(typeof t!=="number")return H.w(t)
@@ -28106,7 +28108,7 @@ s=this.c
 if(typeof a!=="number")return a.aa()
 if(typeof s!=="number")return H.w(s)
 b=t-(a-s)}return T.lO(this.a,this.d,b,a)},
-hR:function(a,b,c){var t,s,r,q,p
+hS:function(a,b,c){var t,s,r,q,p
 t=this.b
 if(typeof t!=="number")return t.k()
 s=t+c
@@ -28117,8 +28119,8 @@ p=t+(r-(t-q))
 q=this.a
 for(;s<p;++s){if(s>>>0!==s||s>=q.length)return H.b(q,s)
 q[s]}return-1},
-b1:function(a,b){return this.hR(a,b,0)},
-ep:function(a,b){var t=this.b
+b1:function(a,b){return this.hS(a,b,0)},
+eq:function(a,b){var t=this.b
 if(typeof t!=="number")return t.k()
 if(typeof b!=="number")return H.w(b)
 this.b=t+b},
@@ -28127,7 +28129,7 @@ t=this.b
 s=this.c
 if(typeof t!=="number")return t.aa()
 if(typeof s!=="number")return H.w(s)
-r=this.fR(t-s,a)
+r=this.fS(t-s,a)
 s=this.b
 t=r.e
 q=r.b
@@ -28174,7 +28176,7 @@ if(r>>>0!==r||r>=q)return H.b(t,r)
 m=t[r]&255
 if(this.d===1)return(p<<24|o<<16|n<<8|m)>>>0
 return(m<<24|n<<16|o<<8|p)>>>0},
-hm:function(){var t,s,r,q,p,o,n,m,l,k,j,i
+hn:function(){var t,s,r,q,p,o,n,m,l,k,j,i
 t=this.a
 s=this.b
 if(typeof s!=="number")return s.k()
@@ -28224,16 +28226,16 @@ r=J.a6(t)
 if(!!r.$isfv){r=t.length
 if(s+q>r)q=r-s
 t=t.buffer
-return(t&&C.p).fp(t,s,q)}p=s+q
+return(t&&C.p).fq(t,s,q)}p=s+q
 o=t.length
 return new Uint8Array(H.Lw(r.c5(t,s,p>o?o:p)))},
 vP:function(a,b,c,d){this.e=c==null?this.a.length:c
 this.b=d},
-gi7:function(a){return this.a},
+gi8:function(a){return this.a},
 gko:function(a){return this.b},
 gcf:function(a){return this.c}}
 T.pr.prototype={
-eZ:function(a){var t,s,r
+f_:function(a){var t,s,r
 if(this.a===this.c.length)this.pF()
 t=this.c
 s=this.a++
@@ -28245,7 +28247,7 @@ if(b==null)b=J.c6(a)
 for(;t=this.a,s=t+b,r=this.c,q=r.length,s>q;)this.mH(s-q)
 C.u.dS(r,t,s,a)
 this.a+=b},
-hs:function(a){return this.u6(a,null)},
+ht:function(a){return this.u6(a,null)},
 u7:function(a){var t,s,r,q
 t=J.aO(a)
 while(!0){s=this.a
@@ -28259,36 +28261,36 @@ if(typeof r!=="number")return H.w(r)
 this.mH(s+r-this.c.length)}s=this.a
 r=t.gu(a)
 if(typeof r!=="number")return H.w(r)
-C.u.bR(q,s,s+r,t.gi7(a),t.gko(a))
+C.u.bR(q,s,s+r,t.gi8(a),t.gko(a))
 r=this.a
 t=t.gu(a)
 if(typeof t!=="number")return H.w(t)
 this.a=r+t},
 cF:function(a){var t
 if(this.b===1){t=J.aN(a)
-this.eZ(t.dT(a,8)&255)
-this.eZ(t.bw(a,255))
+this.f_(t.dT(a,8)&255)
+this.f_(t.bw(a,255))
 return}t=J.aN(a)
-this.eZ(t.bw(a,255))
-this.eZ(t.dT(a,8)&255)},
-eF:function(a){var t
+this.f_(t.bw(a,255))
+this.f_(t.dT(a,8)&255)},
+eG:function(a){var t
 if(this.b===1){t=J.aN(a)
-this.eZ(t.dT(a,24)&255)
-this.eZ(t.dT(a,16)&255)
-this.eZ(t.dT(a,8)&255)
-this.eZ(t.bw(a,255))
+this.f_(t.dT(a,24)&255)
+this.f_(t.dT(a,16)&255)
+this.f_(t.dT(a,8)&255)
+this.f_(t.bw(a,255))
 return}t=J.aN(a)
-this.eZ(t.bw(a,255))
-this.eZ(t.dT(a,8)&255)
-this.eZ(t.dT(a,16)&255)
-this.eZ(t.dT(a,24)&255)},
-fR:function(a,b){var t
+this.f_(t.bw(a,255))
+this.f_(t.dT(a,8)&255)
+this.f_(t.dT(a,16)&255)
+this.f_(t.dT(a,24)&255)},
+fS:function(a,b){var t
 if(a<0)a=this.a+a
 if(b==null)b=this.a
 else if(b<0)b=this.a+b
 t=this.c.buffer
-return(t&&C.p).fp(t,a,b-a)},
-pa:function(a){return this.fR(a,null)},
+return(t&&C.p).fq(t,a,b-a)},
+pa:function(a){return this.fS(a,null)},
 mH:function(a){var t,s,r,q
 t=a!=null?a>32768?a:32768:32768
 s=(this.c.length+t)*2
@@ -28302,22 +28304,22 @@ gu:function(a){return this.a}}
 T.AY.prototype={
 x5:function(a){var t,s,r,q,p,o,n,m,l
 t=a.b
-s=a.fR(this.a-20,20)
+s=a.fS(this.a-20,20)
 if(s.cn()!==117853008){a.b=t
 return}s.cn()
-r=s.hm()
+r=s.hn()
 s.cn()
 a.b=r
 if(a.cn()!==101075792){a.b=t
-return}a.hm()
+return}a.hn()
 a.c9()
 a.c9()
 q=a.cn()
 p=a.cn()
-o=a.hm()
-n=a.hm()
-m=a.hm()
-l=a.hm()
+o=a.hn()
+n=a.hn()
+m=a.hn()
+l=a.hn()
 this.b=q
 this.c=p
 this.d=o
@@ -28348,7 +28350,7 @@ this.r=a.cn()
 s=a.c9()
 if(s>0)this.x=a.lM(s)
 this.x5(a)
-r=a.fR(this.r,this.f)
+r=a.fS(this.r,this.f)
 t=r.c
 if(typeof t!=="number")return t.k()
 q=this.y
@@ -28378,7 +28380,7 @@ p.cx=o
 if(n>0)p.cy=r.lM(n)
 if(m>0){k=r.b
 if(typeof k!=="number")return k.aa()
-j=r.fR(k-t,m)
+j=r.fS(k-t,m)
 k=r.b
 i=j.e
 h=j.b
@@ -28390,9 +28392,9 @@ r.b=k+(i-(h-g))
 p.db=j.jA()
 f=j.c9()
 e=j.c9()
-if(f===1){if(e>=8)p.y=j.hm()
-if(e>=16)p.x=j.hm()
-if(e>=24){o=j.hm()
+if(f===1){if(e>=8)p.y=j.hn()
+if(e>=16)p.x=j.hn()
+if(e>=24){o=j.hn()
 p.cx=o}if(e>=28)p.z=j.cn()}}if(l>0)p.dx=r.lM(l)
 a.b=o
 p.dy=T.VD(a,p)
@@ -28408,7 +28410,7 @@ q=T.kf(C.a4)
 t=T.FU(0,t)
 new T.ob(s,t,0,0,0,r,q).pL()
 q=t.c.buffer
-t=(q&&C.p).fp(q,0,t.a)
+t=(q&&C.p).fq(q,0,t.a)
 this.cy=t
 this.d=0}else{t=s.jA()
 this.cy=t}}return t},
@@ -28435,7 +28437,7 @@ if(q===134695760)this.r=a.cn()
 else this.r=q
 this.x=a.cn()
 this.y=a.cn()}},
-gfz:function(){return this.ch}}
+gfA:function(){return this.ch}}
 T.B0.prototype={
 G:function(a){return this.cy}}
 T.AX.prototype={
@@ -28469,7 +28471,7 @@ t=new P.fJ(Date.now(),!1)
 s=((H.Ga(t)<<3|H.xu(t)>>>3)&255)<<8|((H.xu(t)&7)<<5|H.xw(t)/2|0)&255
 r=(((H.Gc(t)-1980&127)<<1|H.xv(t)>>>3)&255)<<8|((H.xv(t)&7)<<5|H.G9(t))&255
 q=P.hq()
-for(p=C.a.gjc(a3),p=p.gaw(p),o=0,n=0;p.M();){m=p.ga_()
+for(p=C.a.gjc(a3),p=p.gav(p),o=0,n=0;p.M();){m=p.ga0()
 q.i(0,m,P.hq())
 J.hI(q.p(0,m),"time",s)
 J.hI(q.p(0,m),"date",r)
@@ -28491,9 +28493,9 @@ g=new T.tm(null,0,j,f,null,null,null,null,null,null,null,null,null,null,null,nul
 g.a=0
 g.wN(a4)
 g.wp(4)
-g.fW()
+g.fX()
 g=f.c.buffer
-l=T.lO((g&&C.p).fp(g,0,f.a),0,null,0)}}j=m.gW(m)
+l=T.lO((g&&C.p).fq(g,0,f.a),0,null,0)}}j=m.gW(m)
 j=C.b.k(30,j.gu(j))
 i=l.e
 h=l.b
@@ -28503,8 +28505,8 @@ if(typeof g!=="number")return H.w(g)
 o+=j+(i-(h-g))
 h=m.gW(m)
 h=C.b.k(46,h.gu(h))
-m.gfs()
-j=m.gfs()
+m.gft()
+j=m.gft()
 j=j.gu(j)
 n+=h+j
 J.hI(q.p(0,m),"crc",k)
@@ -28513,13 +28515,13 @@ i=l.e
 h=l.b
 if(typeof h!=="number")return h.aa()
 J.hI(j,"size",i-(h-g))
-J.hI(q.p(0,m),"data",l)}a3.gfs()
-p=a3.gfs()
+J.hI(q.p(0,m),"data",l)}a3.gft()
+p=a3.gft()
 p=p.gu(p)
 e=T.FU(0,o+n+(46+p))
-for(p=C.a.gjc(a3),p=p.gaw(p);p.M();){m=p.ga_()
+for(p=C.a.gjc(a3),p=p.gav(p);p.M();){m=p.ga0()
 J.hI(q.p(0,m),"pos",e.a)
-e.eF(67324752)
+e.eG(67324752)
 d=m.gni(m)?8:0
 c=J.cx(q.p(0,m),"time")
 b=J.cx(q.p(0,m),"date")
@@ -28534,20 +28536,20 @@ e.cF(0)
 e.cF(d)
 e.cF(c)
 e.cF(b)
-e.eF(k)
-e.eF(a)
-e.eF(a0)
+e.eG(k)
+e.eG(a)
+e.eG(a0)
 e.cF(a1.gu(a1))
 e.cF(a2.length)
-e.hs(a1.gj4(a1))
-e.hs(a2)
+e.ht(a1.gj4(a1))
+e.ht(a2)
 e.u7(l)}this.xs(a3,q,e)
 p=e.c.buffer
-return(p&&C.p).fp(p,0,e.a)},
+return(p&&C.p).fq(p,0,e.a)},
 Ag:function(a){return this.Ah(a,1)},
 xs:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e
 t=c.a
-for(s=C.a.gjc(a),s=s.gaw(s);s.M();){r=s.ga_()
+for(s=C.a.gjc(a),s=s.gav(s);s.M();){r=s.ga0()
 q=r.gni(r)?8:0
 p=b.p(0,r).p(0,"time")
 o=b.p(0,r).p(0,"date")
@@ -28557,41 +28559,41 @@ l=r.gv2(r)
 k=b.p(0,r).p(0,"pos")
 j=r.gW(r)
 i=[]
-r.gfs()
-h=r.gfs()
-c.eF(33639248)
+r.gft()
+h=r.gft()
+c.eG(33639248)
 c.cF(20)
 c.cF(20)
 c.cF(0)
 c.cF(q)
 c.cF(p)
 c.cF(o)
-c.eF(n)
-c.eF(m)
-c.eF(l)
+c.eG(n)
+c.eG(m)
+c.eG(l)
 c.cF(j.gu(j))
 c.cF(i.length)
 c.cF(h.length)
 c.cF(0)
 c.cF(0)
-c.eF(0)
-c.eF(k)
-c.hs(j.gj4(j))
-c.hs(i)
-c.hs(new H.hQ(h))}g=a.Cr()
+c.eG(0)
+c.eG(k)
+c.ht(j.gj4(j))
+c.ht(i)
+c.ht(new H.hQ(h))}g=a.Cr()
 f=a.Cr()
 s=c.a
-a.gfs()
-e=a.gfs()
-c.eF(101010256)
+a.gft()
+e=a.gft()
+c.eG(101010256)
 c.cF(0)
 c.cF(0)
 c.cF(g)
 c.cF(f)
-c.eF(s-t)
-c.eF(t)
+c.eG(s-t)
+c.eG(t)
 c.cF(e.length)
-c.hs(new H.hQ(e))}}
+c.ht(new H.hQ(e))}}
 T.tm.prototype={
 gBP:function(a){return this.y1},
 wO:function(a,b,c,d,e){var t,s,r
@@ -28606,8 +28608,8 @@ else t=!0
 else t=!0
 if(t)throw H.j(new T.fg("Invalid Deflate parameter"))
 this.L=new Uint16Array(H.ci(1146))
-this.a1=new Uint16Array(H.ci(122))
-this.a0=new Uint16Array(H.ci(78))
+this.a2=new Uint16Array(H.ci(122))
+this.a1=new Uint16Array(H.ci(78))
 this.cy=e
 t=C.b.cB(1,e)
 this.cx=t
@@ -28622,9 +28624,9 @@ this.dx=new Uint8Array(H.ci(t*2))
 this.fr=new Uint16Array(H.ci(this.cx))
 this.fx=new Uint16Array(H.ci(this.go))
 t=C.b.cB(1,b+6)
-this.ef=t
+this.eg=t
 this.f=new Uint8Array(H.ci(t*4))
-t=this.ef
+t=this.eg
 if(typeof t!=="number")return t.bs()
 this.r=t*4
 this.c6=t
@@ -28641,13 +28643,13 @@ t=this.ag
 t.a=this.L
 t.c=$.$get$Lh()
 t=this.Y
-t.a=this.a1
+t.a=this.a2
 t.c=$.$get$Lg()
-t=this.au
-t.a=this.a0
+t=this.at
+t.a=this.a1
 t.c=$.$get$Lf()
-this.as=0
 this.aA=0
+this.az=0
 this.bI=8
 this.pM()
 this.wS()},
@@ -28655,7 +28657,7 @@ wN:function(a){return this.wO(a,8,8,0,15)},
 wp:function(a){var t,s,r,q,p
 if(a>4||!1)throw H.j(new T.fg("Invalid Deflate Parameter"))
 this.ch=a
-if(this.y!==0)this.fW()
+if(this.y!==0)this.fX()
 t=this.c
 s=t.b
 r=t.c
@@ -28680,7 +28682,7 @@ this.mU(256,C.H)
 this.qs()
 t=this.bI
 if(typeof t!=="number")return H.w(t)
-s=this.aA
+s=this.az
 if(typeof s!=="number")return H.w(s)
 if(1+t+10-s<9){this.cA(2,3)
 this.mU(256,C.H)
@@ -28690,7 +28692,7 @@ if(typeof t!=="number")return H.w(t)
 s=this.fx
 p=0
 for(;p<t;++p){if(p>=s.length)return H.b(s,p)
-s[p]=0}}}this.fW()}}if(a!==4)return 0
+s[p]=0}}}this.fX()}}if(a!==4)return 0
 return 1},
 wS:function(){var t,s,r,q
 t=this.cx
@@ -28713,9 +28715,9 @@ this.fy=0},
 pM:function(){var t,s,r,q
 for(t=this.L,s=0;s<286;++s){r=s*2
 if(r>=t.length)return H.b(t,r)
-t[r]=0}for(r=this.a1,s=0;s<30;++s){q=s*2
+t[r]=0}for(r=this.a2,s=0;s<30;++s){q=s*2
 if(q>=r.length)return H.b(r,q)
-r[q]=0}for(r=this.a0,s=0;s<19;++s){q=s*2
+r[q]=0}for(r=this.a1,s=0;s<19;++s){q=s*2
 if(q>=r.length)return H.b(r,q)
 r[q]=0}if(512>=t.length)return H.b(t,512)
 t[512]=1
@@ -28758,7 +28760,7 @@ q=4}if(typeof b!=="number")return b.k()
 p=(b+1)*2+1
 if(p<0||p>=t)return H.b(a,p)
 a[p]=65535
-for(p=this.a0,o=0,n=-1,m=0;o<=b;s=k){++o
+for(p=this.a1,o=0,n=-1,m=0;o<=b;s=k){++o
 l=o*2+1
 if(l>=t)return H.b(a,l)
 k=a[l];++m
@@ -28777,9 +28779,9 @@ q=4}n=s
 m=0}},
 wg:function(){var t,s,r
 this.pY(this.L,this.ag.b)
-this.pY(this.a1,this.Y.b)
-this.au.mw(this)
-for(t=this.a0,s=18;s>=3;--s){r=C.C[s]*2+1
+this.pY(this.a2,this.Y.b)
+this.at.mw(this)
+for(t=this.a1,s=18;s>=3;--s){r=C.C[s]*2+1
 if(r>=t.length)return H.b(t,r)
 if(t[r]!==0)break}t=this.bS
 if(typeof t!=="number")return t.k()
@@ -28790,12 +28792,12 @@ this.cA(a-257,5)
 t=b-1
 this.cA(t,5)
 this.cA(c-4,4)
-for(s=0;s<c;++s){r=this.a0
+for(s=0;s<c;++s){r=this.a1
 if(s>=19)return H.b(C.C,s)
 q=C.C[s]*2+1
 if(q>=r.length)return H.b(r,q)
 this.cA(r[q],3)}this.q0(this.L,a-1)
-this.q0(this.a1,t)},
+this.q0(this.a2,t)},
 q0:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i,h
 t=a.length
 if(1>=t)return H.b(a,1)
@@ -28809,24 +28811,24 @@ l=a[m];++n
 if(n<r&&s===l)continue
 else if(n<q){m=s*2
 k=m+1
-do{j=this.a0
+do{j=this.a1
 i=j.length
 if(m<0||m>=i)return H.b(j,m)
 h=j[m]
 if(k<0||k>=i)return H.b(j,k)
-this.cA(h&65535,j[k]&65535)}while(--n,n!==0)}else if(s!==0){if(s!==o){m=this.a0
+this.cA(h&65535,j[k]&65535)}while(--n,n!==0)}else if(s!==0){if(s!==o){m=this.a1
 k=s*2
 j=m.length
 if(k<0||k>=j)return H.b(m,k)
 i=m[k];++k
 if(k>=j)return H.b(m,k)
-this.cA(i&65535,m[k]&65535);--n}m=this.a0
+this.cA(i&65535,m[k]&65535);--n}m=this.a1
 k=m.length
 if(32>=k)return H.b(m,32)
 j=m[32]
 if(33>=k)return H.b(m,33)
 this.cA(j&65535,m[33]&65535)
-this.cA(n-3,2)}else{m=this.a0
+this.cA(n-3,2)}else{m=this.a1
 if(n<=10){k=m.length
 if(34>=k)return H.b(m,34)
 j=m[34]
@@ -28858,13 +28860,13 @@ r=b[t];++t
 if(t>=s)return H.b(b,t)
 this.cA(r&65535,b[t]&65535)},
 cA:function(a,b){var t,s,r
-t=this.aA
+t=this.az
 if(typeof t!=="number")return t.bk()
-s=this.as
+s=this.aA
 if(t>16-b){t=C.b.cz(a,t)
 if(typeof s!=="number")return s.uI()
 t=(s|t&65535)>>>0
-this.as=t
+this.aA=t
 s=this.f
 r=this.y
 if(typeof r!=="number")return r.k()
@@ -28878,15 +28880,15 @@ if(typeof s!=="number")return s.k()
 this.y=s+1
 if(s>>>0!==s||s>=r.length)return H.b(r,s)
 r[s]=t
-t=this.aA
+t=this.az
 if(typeof t!=="number")return H.w(t)
-this.as=T.eY(a,16-t)
-t=this.aA
+this.aA=T.eY(a,16-t)
+t=this.az
 if(typeof t!=="number")return t.k()
-this.aA=t+(b-16)}else{r=C.b.cz(a,t)
+this.az=t+(b-16)}else{r=C.b.cz(a,t)
 if(typeof s!=="number")return s.uI()
-this.as=(s|r&65535)>>>0
-this.aA=t+b}},
+this.aA=(s|r&65535)>>>0
+this.az=t+b}},
 jR:function(a,b){var t,s,r,q,p,o
 t=this.f
 s=this.c6
@@ -28923,7 +28925,7 @@ if(b>>>0!==b||b>=256)return H.b(C.N,b)
 s=(C.N[b]+256+1)*2
 if(s>=t.length)return H.b(t,s)
 t[s]=t[s]+1
-s=this.a1
+s=this.a2
 if(a<256){if(a>>>0!==a||a>=512)return H.b(C.t,a)
 t=C.t[a]}else{t=256+T.eY(a,7)
 if(t>=512)return H.b(C.t,t)
@@ -28939,7 +28941,7 @@ t=this.rx
 s=this.k3
 if(typeof t!=="number")return t.aa()
 if(typeof s!=="number")return H.w(s)
-for(r=this.a1,o=0;o<30;++o){q=o*2
+for(r=this.a2,o=0;o<30;++o){q=o*2
 if(q>=r.length)return H.b(r,q)
 p+=r[q]*(5+C.B[o])}p=T.eY(p,3)
 r=this.bH
@@ -28947,7 +28949,7 @@ q=this.cW
 if(typeof q!=="number")return q.bG()
 if(typeof r!=="number")return r.aQ()
 if(r<q/2&&p<(t-s)/2)return!0
-t=q}s=this.ef
+t=q}s=this.eg
 if(typeof s!=="number")return s.aa()
 return t===s-1},
 pw:function(a,b){var t,s,r,q,p,o,n,m,l
@@ -29007,8 +29009,8 @@ p+=t[q];++s}for(;s<256;){q=s*2
 if(q>=t.length)return H.b(t,q)
 r+=t[q];++s}this.z=r>T.eY(p,2)?0:1},
 qs:function(){var t,s,r
-t=this.aA
-if(t===16){t=this.as
+t=this.az
+if(t===16){t=this.aA
 s=this.f
 r=this.y
 if(typeof r!=="number")return r.k()
@@ -29022,23 +29024,23 @@ if(typeof s!=="number")return s.k()
 this.y=s+1
 if(s>>>0!==s||s>=r.length)return H.b(r,s)
 r[s]=t
-this.as=0
-this.aA=0}else{if(typeof t!=="number")return t.c4()
-if(t>=8){t=this.as
+this.aA=0
+this.az=0}else{if(typeof t!=="number")return t.c4()
+if(t>=8){t=this.aA
 s=this.f
 r=this.y
 if(typeof r!=="number")return r.k()
 this.y=r+1
 if(r>>>0!==r||r>=s.length)return H.b(s,r)
 s[r]=t
-this.as=T.eY(t,8)
-t=this.aA
+this.aA=T.eY(t,8)
+t=this.az
 if(typeof t!=="number")return t.aa()
-this.aA=t-8}}},
+this.az=t-8}}},
 pp:function(){var t,s,r
-t=this.aA
+t=this.az
 if(typeof t!=="number")return t.bk()
-if(t>8){t=this.as
+if(t>8){t=this.aA
 s=this.f
 r=this.y
 if(typeof r!=="number")return r.k()
@@ -29051,14 +29053,14 @@ s=this.y
 if(typeof s!=="number")return s.k()
 this.y=s+1
 if(s>>>0!==s||s>=r.length)return H.b(r,s)
-r[s]=t}else if(t>0){t=this.as
+r[s]=t}else if(t>0){t=this.aA
 s=this.f
 r=this.y
 if(typeof r!=="number")return r.k()
 this.y=r+1
 if(r>>>0!==r||r>=s.length)return H.b(s,r)
-s[r]=t}this.as=0
-this.aA=0},
+s[r]=t}this.aA=0
+this.az=0},
 mJ:function(a){var t,s,r
 t=this.k3
 if(typeof t!=="number")return t.c4()
@@ -29068,14 +29070,14 @@ r=this.rx
 if(typeof r!=="number")return r.aa()
 this.iY(s,r-t,a)
 this.k3=this.rx
-this.fW()},
+this.fX()},
 ws:function(a){var t,s,r,q,p,o
 t=this.r
 if(typeof t!=="number")return t.aa()
 s=t-5
 s=65535>s?s:65535
 for(t=a===0;!0;){r=this.x1
-if(typeof r!=="number")return r.eo()
+if(typeof r!=="number")return r.ep()
 if(r<=1){this.mI()
 r=this.x1
 q=r===0
@@ -29095,7 +29097,7 @@ if(q>=0)r=q
 else r=-1
 this.iY(r,p-q,!1)
 this.k3=this.rx
-this.fW()}r=this.rx
+this.fX()}r=this.rx
 q=this.k3
 if(typeof r!=="number")return r.aa()
 if(typeof q!=="number")return H.w(q)
@@ -29105,7 +29107,7 @@ if(typeof o!=="number")return o.aa()
 if(r>=o-262){if(!(q>=0))q=-1
 this.iY(q,r,!1)
 this.k3=this.rx
-this.fW()}}t=a===4
+this.fX()}}t=a===4
 this.mJ(t)
 return t?3:1},
 q4:function(a,b,c){var t,s,r,q,p
@@ -29162,7 +29164,7 @@ if(typeof t!=="number")return t.k()
 p=this.Y.b
 if(typeof p!=="number")return p.k()
 this.xf(t+1,p+1,s+1)
-this.pw(this.L,this.a1)}this.pM()
+this.pw(this.L,this.a2)}this.pM()
 if(c)this.pp()},
 mI:function(){var t,s,r,q,p,o,n,m,l,k,j,i
 t=this.c
@@ -29357,7 +29359,7 @@ if(q>=0)p=q
 else p=-1
 this.iY(p,r-q,!1)
 this.k3=this.rx
-this.fW()}}t=a===4
+this.fX()}}t=a===4
 this.mJ(t)
 return t?3:1},
 wr:function(a){var t,s,r,q,p,o,n,m,l,k,j
@@ -29407,7 +29409,7 @@ p=(q-s&65535)<=p-262
 q=p}else q=!1}else q=!1
 if(q){if(this.y2!==2){q=this.pP(s)
 this.k4=q}else q=2
-if(typeof q!=="number")return q.eo()
+if(typeof q!=="number")return q.ep()
 if(q<=5)if(this.y2!==1)if(q===3){p=this.rx
 o=this.ry
 if(typeof p!=="number")return p.aa()
@@ -29473,7 +29475,7 @@ if(p>=0)o=p
 else o=-1
 this.iY(o,q-p,!1)
 this.k3=this.rx
-this.fW()}}else if(this.r2!==0){q=this.dx
+this.fX()}}else if(this.r2!==0){q=this.dx
 p=this.rx
 if(typeof p!=="number")return p.aa();--p
 if(p>>>0!==p||p>=q.length)return H.b(q,p)
@@ -29486,7 +29488,7 @@ o=this.rx
 if(typeof o!=="number")return o.aa()
 this.iY(p,o-q,!1)
 this.k3=this.rx
-this.fW()}q=this.rx
+this.fX()}q=this.rx
 if(typeof q!=="number")return q.k()
 this.rx=q+1
 q=this.x1
@@ -29624,7 +29626,7 @@ s=t.b
 r=t.c
 if(typeof s!=="number")return s.aa()
 if(typeof r!=="number")return H.w(r)
-q=t.fR(s-r,c)
+q=t.fS(s-r,c)
 r=t.b
 s=q.e
 p=q.b
@@ -29643,7 +29645,7 @@ if(n>m)n=m;(a&&C.u).dS(a,b,b+n,q)
 this.b+=n
 this.a=T.Ms(q,this.a)
 return n},
-fW:function(){var t,s
+fX:function(){var t,s
 t=this.y
 this.d.u6(this.f,t)
 s=this.x
@@ -29873,19 +29875,19 @@ q=t.e
 if(typeof r!=="number")return r.k()
 if(typeof s!=="number")return s.c4()
 if(s>=r+q)return!1
-p=this.eP(3)
+p=this.eQ(3)
 o=p>>>1
 switch(o){case 0:this.c=0
 this.d=0
-n=this.eP(16)
-s=this.eP(16)
+n=this.eQ(16)
+s=this.eQ(16)
 if(n!==0&&n!==(s^65535)>>>0)H.aG(new T.fg("Invalid uncompressed block header"))
 s=t.e
 q=t.b
 if(typeof q!=="number")return q.aa()
 r=q-r
 if(n>s-r)H.aG(new T.fg("Input buffer is broken"))
-m=t.fR(r,n)
+m=t.fS(r,n)
 s=t.b
 r=m.e
 q=m.b
@@ -29901,7 +29903,7 @@ break
 case 2:this.x_()
 break
 default:throw H.j(new T.fg("unknown BTYPE: "+o))}return(p&1)===0},
-eP:function(a){var t,s,r,q,p,o
+eQ:function(a){var t,s,r,q,p,o
 if(a===0)return 0
 for(t=this.a;s=this.d,s<a;){r=t.b
 q=t.c
@@ -29942,14 +29944,14 @@ this.c=C.b.q2(r,k)
 this.d=q-k
 return l&65535},
 x_:function(){var t,s,r,q,p,o,n,m,l,k,j,i,h
-t=this.eP(5)+257
-s=this.eP(5)+1
-r=this.eP(4)+4
+t=this.eQ(5)+257
+s=this.eQ(5)+1
+r=this.eQ(4)+4
 q=H.ci(19)
 p=new Uint8Array(q)
 for(o=0;o<r;++o){if(o>=19)return H.b(C.C,o)
 n=C.C[o]
-m=this.eP(3)
+m=this.eQ(3)
 if(n>=q)return H.b(p,n)
 p[n]=m}l=T.kf(p)
 k=new Uint8Array(H.ci(t))
@@ -29968,29 +29970,29 @@ if(q>>>0!==q||q>=r.length)return H.b(r,q)
 r[q]=s&255&255
 continue}p=s-257
 if(p<0||p>=29)return H.b(C.a9,p)
-o=C.a9[p]+this.eP(C.aE[p])
+o=C.a9[p]+this.eQ(C.aE[p])
 n=this.mS(b)
 if(n<=29){if(n>=30)return H.b(C.a5,n)
-m=C.a5[n]+this.eP(C.B[n])
-for(r=-m;o>m;){t.hs(t.pa(r))
-o-=m}if(o===m)t.hs(t.pa(r))
-else t.hs(t.fR(r,o-m))}else throw H.j(new T.fg("Illegal unused distance symbol"))}for(t=this.a;r=this.d,r>=8;){this.d=r-8
+m=C.a5[n]+this.eQ(C.B[n])
+for(r=-m;o>m;){t.ht(t.pa(r))
+o-=m}if(o===m)t.ht(t.pa(r))
+else t.ht(t.fS(r,o-m))}else throw H.j(new T.fg("Illegal unused distance symbol"))}for(t=this.a;r=this.d,r>=8;){this.d=r-8
 r=t.b
 if(typeof r!=="number")return r.aa();--r
 t.b=r
 if(r<0)t.b=0}},
 pA:function(a,b,c){var t,s,r,q,p,o,n
 for(t=c.length,s=0,r=0;r<a;){q=this.mS(b)
-switch(q){case 16:p=3+this.eP(2)
+switch(q){case 16:p=3+this.eQ(2)
 for(;o=p-1,p>0;p=o,r=n){n=r+1
 if(r<0||r>=t)return H.b(c,r)
 c[r]=s}break
-case 17:p=3+this.eP(3)
+case 17:p=3+this.eQ(3)
 for(;o=p-1,p>0;p=o,r=n){n=r+1
 if(r<0||r>=t)return H.b(c,r)
 c[r]=0}s=0
 break
-case 18:p=11+this.eP(7)
+case 18:p=11+this.eQ(7)
 for(;o=p-1,p>0;p=o,r=n){n=r+1
 if(r<0||r>=t)return H.b(c,r)
 c[r]=0}s=0
@@ -30005,28 +30007,28 @@ break}}return c}}
 L.db.prototype={
 bz:function(a){var t,s,r,q
 t=this.a.bz(a)
-if(t.gfe()){s=this.b.$1(t.ga2(t))
+if(t.gff()){s=this.b.$1(t.ga3(t))
 r=t.a
 q=t.b
 return new E.eK(s,r,q)}else return t},
 bi:function(){return new L.db(this.b,this.a)},
-ha:function(a){var t
-if(a instanceof L.db){this.i1(a)
+hb:function(a){var t
+if(a instanceof L.db){this.i2(a)
 t=J.c(this.b,a.b)}else t=!1
 return t}}
 O.hm.prototype={
 bz:function(a){var t,s,r,q
 t=this.a.bz(a)
-if(t.gfe()){s=a.a
+if(t.gff()){s=a.a
 r=t.b
-q=typeof s==="string"?C.c.ay(s,a.b,r):J.NV(s,a.b,r)
+q=typeof s==="string"?C.c.ax(s,a.b,r):J.NV(s,a.b,r)
 s=t.a
 return new E.eK(q,s,r)}else return t},
 bi:function(){return new O.hm(this.a)}}
 S.qf.prototype={
 bz:function(a){var t,s,r,q,p,o
 t=this.a.bz(a)
-if(t.gfe()){s=t.ga2(t)
+if(t.gff()){s=t.ga3(t)
 r=a.a
 q=a.b
 p=t.b
@@ -30037,34 +30039,34 @@ E.qk.prototype={
 bz:function(a){var t,s,r,q,p
 t=a
 do t=this.b.bz(t)
-while(t.gfe())
+while(t.gff())
 s=this.a.bz(t)
-if(s.ghf())return s
+if(s.ghg())return s
 t=s
 do t=this.c.bz(t)
-while(t.gfe())
-r=s.ga2(s)
+while(t.gff())
+r=s.ga3(s)
 q=t.a
 p=t.b
 return new E.eK(r,q,p)},
 bi:function(){var t=this.a
 return new E.qk(this.b,this.c,t)},
 gdH:function(a){return[this.a,this.b,this.c]},
-iA:function(a,b,c){this.pd(0,b,c)
+iB:function(a,b,c){this.pd(0,b,c)
 if(J.c(this.b,b))this.b=c
 if(J.c(this.c,b))this.c=c}}
 D.pZ.prototype={
-hX:function(a){return this.a===a},
-ga2:function(a){return this.a}}
+hY:function(a){return this.a===a},
+ga3:function(a){return this.a}}
 F.tq.prototype={
-hX:function(a){return 48<=a&&a<=57}}
+hY:function(a){return 48<=a&&a<=57}}
 Q.wR.prototype={
-hX:function(a){return!this.a.hX(a)}}
+hY:function(a){return!this.a.hY(a)}}
 E.DW.prototype={
 $2:function(a,b){var t,s
 t=J.n(a)
 s=J.n(b)
-return!J.c(t.gcf(a),s.gcf(b))?J.cc(t.gcf(a),s.gcf(b)):J.cc(t.ge8(a),s.ge8(b))},
+return!J.c(t.gcf(a),s.gcf(b))?J.cc(t.gcf(a),s.gcf(b)):J.cc(t.ge9(a),s.ge9(b))},
 $S:function(){return{func:1,args:[,,]}}}
 E.DX.prototype={
 $1:function(a){return J.Eb(a)},
@@ -30083,12 +30085,12 @@ s=a.b
 r=J.aO(t)
 q=r.gu(t)
 if(typeof q!=="number")return H.w(q)
-if(s<q&&this.a.hX(r.az(t,s))){r=r.p(t,s)
+if(s<q&&this.a.hY(r.ay(t,s))){r=r.p(t,s)
 return new E.eK(r,t,s+1)}return new B.iZ(this.b,t,s)},
 G:function(a){return this.kH(0)+"["+this.b+"]"},
 bi:function(){return new D.h0(this.a,this.b)},
-ha:function(a){var t
-if(a instanceof D.h0){this.i1(a)
+hb:function(a){var t
+if(a instanceof D.h0){this.i2(a)
 t=J.c(this.a,a.a)&&this.b===a.b}else t=!1
 return t}}
 D.CX.prototype={
@@ -30114,7 +30116,7 @@ return t.p(a,0)==null?t.p(a,1):new Q.wR(t.p(a,1))},
 $R:1,
 $S:function(){return{func:1,args:[P.y]}}}
 V.md.prototype={
-hX:function(a){var t
+hY:function(a){var t
 if(J.eA(this.a,a)){t=this.b
 if(typeof t!=="number")return H.w(t)
 t=a<=t}else t=!1
@@ -30124,11 +30126,11 @@ t=this.a
 s=this.b
 if(J.P(t,s))throw H.j(P.ds("Invalid range: "+H.h(t)+"-"+H.h(s)))},
 gcf:function(a){return this.a},
-ge8:function(a){return this.b}}
+ge9:function(a){return this.b}}
 Z.xH.prototype={
-hX:function(a){var t,s,r,q,p,o
+hY:function(a){var t,s,r,q,p,o
 t=this.a
-for(s=this.b,r=0;r<t;){q=r+C.b.hG(t-r,1)
+for(s=this.b,r=0;r<t;){q=r+C.b.hH(t-r,1)
 if(q<0||q>=s.length)return H.b(s,q)
 p=J.cc(s[q],a)
 o=J.a6(p)
@@ -30144,11 +30146,11 @@ s=o}else s=!1
 return s},
 gu:function(a){return this.a}}
 S.An.prototype={
-hX:function(a){if(a<256)switch(a){case 9:case 10:case 11:case 12:case 13:case 32:case 133:case 160:return!0
+hY:function(a){if(a<256)switch(a){case 9:case 10:case 11:case 12:case 13:case 32:case 133:case 160:return!0
 default:return!1}else switch(a){case 5760:case 8192:case 8193:case 8194:case 8195:case 8196:case 8197:case 8198:case 8199:case 8200:case 8201:case 8202:case 8232:case 8233:case 8239:case 8287:case 12288:case 65279:return!0
 default:return!1}}}
 O.CK.prototype={
-hX:function(a){var t
+hY:function(a){var t
 if(!(65<=a&&a<=90))if(!(97<=a&&a<=122))t=48<=a&&a<=57||a===95
 else t=!0
 else t=!0
@@ -30156,8 +30158,8 @@ return t}}
 Y.fH.prototype={
 bz:function(a){var t,s,r
 for(t=this.a,s=null,r=0;r<t.length;++r){s=t[r].bz(a)
-if(s.gfe())return s}return s},
-hi:function(a){var t=[]
+if(s.gff())return s}return s},
+hj:function(a){var t=[]
 C.a.V(t,this.a)
 t.push(a)
 return new Y.fH(P.an(t,!1,null))},
@@ -30165,24 +30167,24 @@ bi:function(){return new Y.fH(P.an(this.a,!1,null))}}
 R.jZ.prototype={
 bz:function(a){return this.a.bz(a)},
 gdH:function(a){return[this.a]},
-iA:function(a,b,c){this.pf(0,b,c)
+iB:function(a,b,c){this.pf(0,b,c)
 if(J.c(this.a,b))this.a=c},
 bi:function(){return new R.jZ(this.a)}}
 A.ls.prototype={
 bz:function(a){var t,s,r
 t=this.a.bz(a)
-if(t.ghf()||t.b===J.c6(t.a))return t
+if(t.ghg()||t.b===J.c6(t.a))return t
 s=t.b
 r=t.a
 return new B.iZ(this.b,r,s)},
 G:function(a){return this.kH(0)+"["+this.b+"]"},
 bi:function(){return new A.ls(this.b,this.a)},
-ha:function(a){var t
-if(a instanceof A.ls){this.i1(a)
+hb:function(a){var t
+if(a instanceof A.ls){this.i2(a)
 t=this.b===a.b}else t=!1
 return t}}
 S.w3.prototype={
-iA:function(a,b,c){var t,s
+iB:function(a,b,c){var t,s
 this.pf(0,b,c)
 for(t=this.a,s=0;s<t.length;++s)if(J.c(t[s],b)){if(s>=t.length)return H.b(t,s)
 t[s]=c}},
@@ -30190,13 +30192,13 @@ gdH:function(a){return this.a}}
 K.iy.prototype={
 bz:function(a){var t,s,r
 t=this.a.bz(a)
-if(t.gfe())return t
+if(t.gff())return t
 else{s=a.a
 r=a.b
 return new E.eK(this.b,s,r)}},
 bi:function(){return new K.iy(this.b,this.a)},
-ha:function(a){var t
-if(a instanceof K.iy){this.i1(a)
+hb:function(a){var t
+if(a instanceof K.iy){this.i2(a)
 t=J.c(this.b,a.b)}else t=!1
 return t}}
 L.dn.prototype={
@@ -30206,8 +30208,8 @@ s=t.length
 r=new Array(s)
 r.fixed$length=Array
 for(q=a,p=0;p<t.length;++p,q=o){o=t[p].bz(q)
-if(o.ghf())return o
-n=o.ga2(o)
+if(o.ghg())return o
+n=o.ga3(o)
 if(p>=s)return H.b(r,p)
 r[p]=n}t=q.a
 s=q.b
@@ -30219,23 +30221,23 @@ return new L.dn(P.an(t,!1,null))},
 bi:function(){return new L.dn(P.an(this.a,!1,null))}}
 A.iU.prototype={
 G:function(a){return"Context["+K.qg(this.a,this.b)+"]"},
-gi7:function(a){return this.a}}
+gi8:function(a){return this.a}}
 D.pt.prototype={
 G:function(a){var t=this.a
 return H.h(t.gtc(t))+" at "+K.qg(t.a,t.b)}}
 B.iZ.prototype={
-ghf:function(){return!0},
-ga2:function(a){return H.aG(new D.pt(this))},
+ghg:function(){return!0},
+ga3:function(a){return H.aG(new D.pt(this))},
 G:function(a){return"Failure["+K.qg(this.a,this.b)+"]: "+this.c},
 gtc:function(a){return this.c}}
 V.xT.prototype={
-gfe:function(){return!1},
-ghf:function(){return!1}}
+gff:function(){return!1},
+ghg:function(){return!1}}
 E.eK.prototype={
-gfe:function(){return!0},
+gff:function(){return!0},
 gtc:function(a){return},
 G:function(a){return"Success["+K.qg(this.a,this.b)+"]: "+H.h(this.c)},
-ga2:function(a){return this.c}}
+ga3:function(a){return this.c}}
 N.uV.prototype={
 D9:function(a,b,c,d,e,f,g){var t,s
 t=[b,c,d,e,f,g]
@@ -30249,9 +30251,9 @@ r=[s.$1(a)]
 q=P.jd(r,null)
 for(;p=r.length,p!==0;){if(0>=p)return H.b(r,-1)
 o=r.pop()
-for(p=J.n(o),n=J.bj(p.gdH(o));n.M();){m=n.ga_()
+for(p=J.n(o),n=J.bj(p.gdH(o));n.M();){m=n.ga0()
 if(m instanceof L.hu){l=s.$1(m)
-p.iA(o,m,l)
+p.iB(o,m,l)
 m=l}if(!q.aE(0,m)){q.h(0,m)
 r.push(m)}}}return t.p(0,a)}}
 N.uX.prototype={
@@ -30286,7 +30288,7 @@ bi:function(){return H.aG(new P.a9("References cannot be copied."))},
 bz:function(a){return H.aG(new P.a9("References cannot be parsed."))}}
 Q.ht.prototype={
 Cz:function(a,b){return this.bz(new A.iU(b,0))},
-e9:function(a,b){return this.bz(new A.iU(b,0)).gfe()},
+ea:function(a,b){return this.bz(new A.iU(b,0)).gff()},
 C4:function(a){var t,s,r
 t=[]
 s=new Y.fH(P.an([new L.db(new Q.x4(t),this),new N.ff("input expected")],!1,null))
@@ -30301,11 +30303,11 @@ t.dt(this,1,-1)
 return t},
 bQ:function(a){return new L.dn(P.an([this,a],!1,null))},
 bw:function(a,b){return this.bQ(b)},
-hi:function(a){return new Y.fH(P.an([this,a],!1,null))},
+hj:function(a){return new Y.fH(P.an([this,a],!1,null))},
 nE:function(){return new O.hm(this)},
 DT:function(a,b,c){b=new D.h0(C.M,"whitespace expected")
 return new E.qk(b,b,this)},
-fh:function(a){return this.DT(a,null,null)},
+fi:function(a){return this.DT(a,null,null)},
 dd:function(a,b){return new L.db(b,this)},
 kq:function(a){return new L.db(new Q.x5(a),this)},
 uN:function(a,b,c){var t,s
@@ -30317,9 +30319,9 @@ uM:function(a){return this.uN(a,!0,!1)},
 t2:function(a,b){if(b==null)b=P.a5(null,null,null,null)
 if(this.P(0,a)||b.aE(0,this))return!0
 b.h(0,this)
-return new H.eu(H.fx(this),null).P(0,J.r9(a))&&this.ha(a)&&this.Ba(a,b)},
+return new H.eu(H.fx(this),null).P(0,J.r9(a))&&this.hb(a)&&this.Ba(a,b)},
 BB:function(a){return this.t2(a,null)},
-ha:function(a){return!0},
+hb:function(a){return!0},
 Ba:function(a,b){var t,s,r,q
 t=this.gdH(this)
 s=J.Nu(a)
@@ -30328,7 +30330,7 @@ if(t.length!==r.gu(s))return!1
 for(q=0;q<t.length;++q)if(!t[q].t2(r.p(s,q),b))return!1
 return!0},
 gdH:function(a){return C.x},
-iA:function(a,b,c){}}
+iB:function(a,b,c){}}
 Q.x4.prototype={
 $1:function(a){return this.a.push(a)},
 "call*":"$1",
@@ -30344,7 +30346,7 @@ $1:function(a){var t,s,r,q,p
 t=[]
 s=J.aO(a)
 t.push(s.p(a,0))
-for(r=J.bj(s.p(a,1)),q=this.b;r.M();){p=r.ga_()
+for(r=J.bj(s.p(a,1)),q=this.b;r.M();){p=r.ga0()
 if(q)t.push(J.cx(p,0))
 t.push(J.cx(p,1))}if(q&&this.c&&s.p(a,2)!==this.a)t.push(s.p(a,2))
 return t},
@@ -30362,8 +30364,8 @@ if(t<q){r=r.p(s,t)
 r=new E.eK(r,s,t+1)}else r=new B.iZ(this.a,s,t)
 return r},
 bi:function(){return new N.ff(this.a)},
-ha:function(a){var t
-if(a instanceof N.ff){this.i1(a)
+hb:function(a){var t
+if(a instanceof N.ff){this.i2(a)
 t=this.a===a.a}else t=!1
 return t}}
 B.ma.prototype={
@@ -30374,12 +30376,12 @@ r=a.a
 q=J.aO(r)
 p=q.gu(r)
 if(typeof p!=="number")return H.w(p)
-if(s<=p){o=typeof r==="string"?C.c.ay(r,t,s):q.c5(r,t,s)
+if(s<=p){o=typeof r==="string"?C.c.ax(r,t,s):q.c5(r,t,s)
 if(this.b.$1(o)===!0)return new E.eK(o,r,s)}return new B.iZ(this.c,r,t)},
 G:function(a){return this.kH(0)+"["+this.c+"]"},
 bi:function(){return new B.ma(this.a,this.b,this.c)},
-ha:function(a){var t
-if(a instanceof B.ma){this.i1(a)
+hb:function(a){var t
+if(a instanceof B.ma){this.i2(a)
 t=this.a===a.a&&J.c(this.b,a.b)&&this.c===a.c}else t=!1
 return t}}
 Q.E5.prototype={
@@ -30391,14 +30393,14 @@ E.it.prototype={
 bz:function(a){var t,s,r,q,p,o
 t=[]
 for(s=this.b,r=a;t.length<s;r=q){q=this.a.bz(r)
-if(q.ghf())return q
-t.push(q.ga2(q))}for(s=this.c,p=s!==-1;!0;r=q){o=this.d.bz(r)
-if(o.gfe()){s=r.a
+if(q.ghg())return q
+t.push(q.ga3(q))}for(s=this.c,p=s!==-1;!0;r=q){o=this.d.bz(r)
+if(o.gff()){s=r.a
 p=r.b
 return new E.eK(t,s,p)}else{if(p&&t.length>=s)return o
 q=this.a.bz(r)
-if(q.ghf())return o
-t.push(q.ga2(q))}}},
+if(q.ghg())return o
+t.push(q.ga3(q))}}},
 bi:function(){var t,s,r,q
 t=this.a
 s=this.b
@@ -30408,20 +30410,20 @@ q.dt(t,s,r)
 return q}}
 D.w_.prototype={
 gdH:function(a){return[this.a,this.d]},
-iA:function(a,b,c){this.pd(0,b,c)
+iB:function(a,b,c){this.pd(0,b,c)
 if(J.c(this.d,b))this.d=c}}
 S.fr.prototype={
 bz:function(a){var t,s,r,q,p
 t=[]
 for(s=this.b,r=a;t.length<s;r=q){q=this.a.bz(r)
-if(q.ghf())return q
-t.push(q.ga2(q))}s=this.c
+if(q.ghg())return q
+t.push(q.ga3(q))}s=this.c
 p=s!==-1
 while(!0){if(!(!p||t.length<s))break
 q=this.a.bz(r)
-if(q.ghf()){s=r.a
+if(q.ghg()){s=r.a
 p=r.b
-return new E.eK(t,s,p)}t.push(q.ga2(q))
+return new E.eK(t,s,p)}t.push(q.ga3(q))
 r=q}s=r.a
 p=r.b
 return new E.eK(t,s,p)},
@@ -30437,8 +30439,8 @@ G:function(a){var t,s
 t=this.kH(0)+"["+this.b+".."
 s=this.c
 return t+H.h(s===-1?"*":s)+"]"},
-ha:function(a){var t
-if(a instanceof G.pM){this.i1(a)
+hb:function(a){var t
+if(a instanceof G.pM){this.i2(a)
 t=this.b===a.b&&this.c===a.c}else t=!1
 return t},
 dt:function(a,b,c){var t,s
@@ -30451,14 +30453,14 @@ G:function(a){return"Token["+K.qg(this.b,this.c)+"]: "+H.h(this.a)},
 P:function(a,b){if(b==null)return!1
 return b instanceof K.qe&&J.c(this.a,b.a)&&this.c===b.c&&this.d===b.d},
 gbV:function(a){return J.aa(J.aa(J.eg(this.a),this.c&0x1FFFFFFF),this.d&0x1FFFFFFF)},
-ga2:function(a){return this.a},
-gi7:function(a){return this.b},
+ga3:function(a){return this.a},
+gi8:function(a){return this.b},
 gcf:function(a){return this.c},
-ge8:function(a){return this.d}}
+ge9:function(a){return this.d}}
 B.hA.prototype={
-f0:function(a){return new A.ls("end of input expected",this.bq(this.gzL(this)))},
+f1:function(a){return new A.ls("end of input expected",this.bq(this.gzL(this)))},
 y5:function(){var t=this.gmn()
-return new L.db(new B.AC(this),new L.dn(P.an([this.bq(this.giy()),this.bq(t)],!1,null)).bQ(D.dQ("=",null)).bQ(this.bq(t)).bQ(this.bq(this.gqp())))},
+return new L.db(new B.AC(this),new L.dn(P.an([this.bq(this.giz()),this.bq(t)],!1,null)).bQ(D.dQ("=",null)).bQ(this.bq(t)).bQ(this.bq(this.gqp())))},
 y6:function(){return new Y.fH(P.an([this.bq(this.gy7()),this.bq(this.gy9())],!1,null))},
 y8:function(){return new L.db(new B.AA(),new L.dn(P.an([D.dQ('"',null),new T.kP('"',34,0)],!1,null)).bQ(D.dQ('"',null)))},
 ya:function(){return new L.db(new B.AB(),new L.dn(P.an([D.dQ("'",null),new T.kP("'",39,0)],!1,null)).bQ(D.dQ("'",null)))},
@@ -30480,7 +30482,7 @@ r=new E.it(Q.hc("]]>",null),0,-1,s)
 r.dt(s,0,-1)
 return new L.db(new B.AD(this),new L.dn(P.an([t,new O.hm(r)],!1,null)).bQ(Q.hc("]]>",null)))},
 ad:function(a){var t,s
-t=new Y.fH(P.an([this.bq(this.gl3()),this.bq(this.grn())],!1,null)).hi(this.bq(this.gtr())).hi(this.bq(this.gfs())).hi(this.bq(this.gyy()))
+t=new Y.fH(P.an([this.bq(this.gl3()),this.bq(this.grn())],!1,null)).hj(this.bq(this.gtr())).hj(this.bq(this.gft())).hj(this.bq(this.gyy()))
 s=new S.fr(0,-1,t)
 s.dt(t,0,-1)
 return s},
@@ -30495,13 +30497,13 @@ p=P.an([p,D.dQ("[",null)],!1,null)
 q=new N.ff("input expected")
 o=new E.it(D.dQ("]",null),0,-1,q)
 o.dt(q,0,-1)
-return new L.db(new B.AF(this),new L.dn(s).bQ(new O.hm(new Y.fH(r).hi(new L.dn(p).bQ(o).bQ(D.dQ("]",null))).uM(this.bq(t)))).bQ(this.bq(this.gmn())).bQ(D.dQ(">",null)))},
+return new L.db(new B.AF(this),new L.dn(s).bQ(new O.hm(new Y.fH(r).hj(new L.dn(p).bQ(o).bQ(D.dQ("]",null))).uM(this.bq(t)))).bQ(this.bq(this.gmn())).bQ(D.dQ(">",null)))},
 zM:function(a){var t=this.gCd()
 return new L.db(new B.AG(this),new L.dn(P.an([this.bq(t),new K.iy(null,this.bq(this.gzJ()))],!1,null)).bQ(this.bq(t)).bQ(this.bq(this.grn())).bQ(this.bq(t)))},
 Ae:function(){var t,s
-t=this.giy()
+t=this.giz()
 s=this.gmn()
-return new L.db(new B.AH(this),new L.dn(P.an([D.dQ("<",null),this.bq(t)],!1,null)).bQ(this.bq(this.gh1(this))).bQ(this.bq(s)).bQ(new Y.fH(P.an([Q.hc("/>",null),new L.dn(P.an([D.dQ(">",null),this.bq(this.gbc(this))],!1,null)).bQ(Q.hc("</",null)).bQ(this.bq(t)).bQ(this.bq(s)).bQ(D.dQ(">",null))],!1,null))))},
+return new L.db(new B.AH(this),new L.dn(P.an([D.dQ("<",null),this.bq(t)],!1,null)).bQ(this.bq(this.gh2(this))).bQ(this.bq(s)).bQ(new Y.fH(P.an([Q.hc("/>",null),new L.dn(P.an([D.dQ(">",null),this.bq(this.gbc(this))],!1,null)).bQ(Q.hc("</",null)).bQ(this.bq(t)).bQ(this.bq(s)).bQ(D.dQ(">",null))],!1,null))))},
 CU:function(){var t,s,r,q
 t=P.an([Q.hc("<?",null),this.bq(this.go1())],!1,null)
 s=this.bq(this.gkF())
@@ -30512,7 +30514,7 @@ return new L.db(new B.AI(this),new L.dn(t).bQ(new K.iy("",new L.dn(P.an([s,new O
 CY:function(){return new L.db(this.gzh(),this.bq(this.go1()))},
 yD:function(){return new L.db(this.gr_(),new T.kP("<",60,1))},
 Ce:function(){var t,s
-t=new Y.fH(P.an([this.bq(this.gv9()),this.bq(this.gfs())],!1,null)).hi(this.bq(this.gtr()))
+t=new Y.fH(P.an([this.bq(this.gv9()),this.bq(this.gft())],!1,null)).hj(this.bq(this.gtr()))
 s=new S.fr(0,-1,t)
 s.dt(t,0,-1)
 return s},
@@ -30604,7 +30606,7 @@ return new S.AP(t.p(a,1),t.p(a,2),null)},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 M.Aw.prototype={
-gaw:function(a){var t=new M.Ax([],null)
+gav:function(a){var t=new M.Ax([],null)
 t.ts(this.a)
 return t},
 $askn:function(){return[V.hB]},
@@ -30615,7 +30617,7 @@ ts:function(a){var t,s
 t=this.a
 s=J.n(a)
 C.a.V(t,J.I7(s.gdH(a)))
-C.a.V(t,J.I7(s.gh1(a)))},
+C.a.V(t,J.I7(s.gh2(a)))},
 M:function(){var t,s
 t=this.a
 s=t.length
@@ -30626,41 +30628,41 @@ this.b=t
 this.ts(t)
 return!0}},
 $aslR:function(){return[V.hB]},
-ga_:function(){return this.b}}
+ga0:function(){return this.b}}
 A.At.prototype={
-e9:function(a,b){var t,s,r
+ea:function(a,b){var t,s,r
 J.E8(this.a,b)
 t=b.a
-t.a3+="="
+t.a4+="="
 s=this.c
 r=$.$get$LY().p(0,s)
-t.a3+=H.h(r)
-t.a3+=J.Ec(this.b,$.$get$Lr().p(0,s),$.$get$Ls().p(0,s))
-t.a3+=H.h(r)
+t.a4+=H.h(r)
+t.a4+=J.Ec(this.b,$.$get$Lr().p(0,s),$.$get$Ls().p(0,s))
+t.a4+=H.h(r)
 return},
 gW:function(a){return this.a},
-ga2:function(a){return this.b}}
+ga3:function(a){return this.b}}
 G.qu.prototype={
-e9:function(a,b){return b.E_(this)}}
+ea:function(a,b){return b.E_(this)}}
 B.Au.prototype={
-e9:function(a,b){return b.E0(this)}}
+ea:function(a,b){return b.E0(this)}}
 V.Av.prototype={
 ge7:function(a){return this.a}}
 S.Ay.prototype={
-e9:function(a,b){return b.E1(this)}}
+ea:function(a,b){return b.E1(this)}}
 K.Az.prototype={
 ge7:function(a){return},
-e9:function(a,b){J.I0(this.a,b.gu3())
+ea:function(a,b){J.I0(this.a,b.gu3())
 return}}
 U.jw.prototype={
-e9:function(a,b){return b.E2(this)},
+ea:function(a,b){return b.E2(this)},
 w4:function(a,b,c){var t
 this.b.kV(this)
-for(t=J.bj(this.c);t.M();)t.ga_().kV(this)},
+for(t=J.bj(this.c);t.M();)t.ga0().kV(this)},
 gW:function(a){return this.b},
-gh1:function(a){return this.c}}
+gh2:function(a){return this.c}}
 V.hB.prototype={
-gh1:function(a){return C.x},
+gh2:function(a){return C.x},
 gdH:function(a){return C.x},
 ge7:function(a){var t=V.hB
 return new H.jf(new H.cG(new M.Aw(this),new V.AJ(),[t]),new V.AK(),[t,null]).BI(0)},
@@ -30682,7 +30684,7 @@ AC:function(a,b){return this.wx(this.a,a,b)},
 lk:function(a){return this.AC(a,null)},
 wx:function(a,b,c){return J.l8(a,new R.AM(R.WH(b,c))).dd(0,new R.AN())},
 pi:function(a){var t
-for(t=J.bj(this.a);t.M();)t.ga_().kV(this)},
+for(t=J.bj(this.a);t.M();)t.ga0().kV(this)},
 gdH:function(a){return this.a}}
 R.AM.prototype={
 $1:function(a){return a instanceof U.jw&&this.a.$1(a)===!0},
@@ -30693,10 +30695,10 @@ $1:function(a){return H.dj(a,"$isjw")},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 S.AP.prototype={
-e9:function(a,b){return b.E3(this)},
+ea:function(a,b){return b.E3(this)},
 gak:function(a){return this.b}}
 V.kQ.prototype={
-e9:function(a,b){return b.E4(this)},
+ea:function(a,b){return b.E4(this)},
 $isiG:1}
 V.qw.prototype={
 zi:function(a){return L.VB(a)},
@@ -30729,14 +30731,14 @@ t=H.XO(a.a)
 s=t.length
 r=new P.cN("")
 q=a.b
-for(p=this.b,o=J.di(t),n=q,m=n;m<s;){l=o.az(t,m)
+for(p=this.b,o=J.di(t),n=q,m=n;m<s;){l=o.ay(t,m)
 if(l===p)break
 else if(l===38){k=$.$get$H0()
 j=k.bz(new E.eK(null,t,m))
-if(j.gfe()&&j.ga2(j)!=null){k=r.a3+=C.c.ay(t,n,m)
-r.a3=k+H.h(j.ga2(j))
+if(j.gff()&&j.ga3(j)!=null){k=r.a4+=C.c.ax(t,n,m)
+r.a4=k+H.h(j.ga3(j))
 m=j.b
-n=m}else ++m}else ++m}p=r.a3+=o.ay(t,n,m)
+n=m}else ++m}else ++m}p=r.a4+=o.ax(t,n,m)
 if(p.length<this.c)p=new B.iZ("Unable to parse chracter data.",t,q)
 else{o=m
 o=new E.eK(p.charCodeAt(0)==0?p:p,t,o)
@@ -30745,7 +30747,7 @@ gdH:function(a){return[$.$get$H0()]},
 bi:function(){var t=this.a
 return new T.kP(t,C.c.bx(t,0),this.c)}}
 T.Dg.prototype={
-$1:function(a){switch(a.hz(0)){case"'":return"&apos;"
+$1:function(a){switch(a.hA(0)){case"'":return"&apos;"
 case"&":return"&amp;"
 case"<":return"&lt;"
 case"\n":return"&#xA;"
@@ -30753,7 +30755,7 @@ case"\r":return"&#xD;"
 case"\t":return"&#x9;"}throw H.j(new P.lc(null))},
 $S:function(){return{func:1,args:[,]}}}
 T.Dh.prototype={
-$1:function(a){switch(a.hz(0)){case'"':return"&quot;"
+$1:function(a){switch(a.hA(0)){case'"':return"&quot;"
 case"&":return"&amp;"
 case"<":return"&lt;"
 case"\n":return"&#xA;"
@@ -30761,13 +30763,13 @@ case"\r":return"&#xD;"
 case"\t":return"&#x9;"}throw H.j(new P.lc(null))},
 $S:function(){return{func:1,args:[,]}}}
 L.jx.prototype={
-e9:function(a,b){b.a.a3+=H.h(this.giy())
+ea:function(a,b){b.a.a4+=H.h(this.giz())
 return},
 P:function(a,b){var t
 if(b==null)return!1
 t=J.a6(b)
-return!!t.$isjx&&J.c(b.gis(),this.gis())&&J.c(t.go2(b),this.go2(this))},
-gbV:function(a){return J.eg(this.giy())},
+return!!t.$isjx&&J.c(b.git(),this.git())&&J.c(t.go2(b),this.go2(this))},
+gbV:function(a){return J.eg(this.giz())},
 $isiG:1}
 L.pm.prototype={}
 L.po.prototype={}
@@ -30776,29 +30778,29 @@ R.Dm.prototype={
 $1:function(a){return!0},
 $S:function(){return{func:1,args:[,]}}}
 R.Dn.prototype={
-$1:function(a){return J.c(J.ag(a).giy(),this.a)},
+$1:function(a){return J.c(J.ag(a).giz(),this.a)},
 $S:function(){return{func:1,args:[,]}}}
 A.AO.prototype={
 go2:function(a){var t,s,r,q,p
-for(t=this.x$,s=this.a;t!=null;t=t.x$)for(r=J.bj(t.gh1(t));r.M();){q=r.ga_()
+for(t=this.x$,s=this.a;t!=null;t=t.x$)for(r=J.bj(t.gh2(t));r.M();){q=r.ga0()
 p=J.n(q)
-if(J.c(J.I6(p.gW(q)),"xmlns")&&J.c(p.gW(q).gis(),s))return p.ga2(q)}return},
+if(J.c(J.I6(p.gW(q)),"xmlns")&&J.c(p.gW(q).git(),s))return p.ga3(q)}return},
 glI:function(a){return this.a},
-gis:function(){return this.b},
-giy:function(){return this.c}}
+git:function(){return this.b},
+giz:function(){return this.c}}
 U.AQ.prototype={
 glI:function(a){return},
-giy:function(){return this.a},
+giz:function(){return this.a},
 go2:function(a){var t,s,r,q
-for(t=this.x$;t!=null;t=t.x$)for(s=J.bj(t.gh1(t));s.M();){r=s.ga_()
+for(t=this.x$;t!=null;t=t.x$)for(s=J.bj(t.gh2(t));s.M();){r=s.ga0()
 q=J.n(r)
-if(J.I6(q.gW(r))==null&&J.c(q.gW(r).gis(),"xmlns"))return q.ga2(r)}return},
-gis:function(){return this.a}}
+if(J.I6(q.gW(r))==null&&J.c(q.gW(r).git(),"xmlns"))return q.ga3(r)}return},
+git:function(){return this.a}}
 A.qx.prototype={
 G:function(a){var t,s
 t=new P.cN("")
-this.e9(0,new K.AR(t))
-s=t.a3
+this.ea(0,new K.AR(t))
+s=t.a4
 return s.charCodeAt(0)==0?s:s}}
 X.iG.prototype={}
 K.kR.prototype={
@@ -30806,52 +30808,52 @@ DZ:function(a){return J.E8(a,this)}}
 K.AR.prototype={
 E_:function(a){var t,s
 t=this.a
-t.a3+="<![CDATA["
-s=t.a3+=H.h(a.a)
-t.a3=s+"]]>"},
+t.a4+="<![CDATA["
+s=t.a4+=H.h(a.a)
+t.a4=s+"]]>"},
 E0:function(a){var t,s
 t=this.a
-t.a3+="<!--"
-s=t.a3+=H.h(a.a)
-t.a3=s+"-->"},
+t.a4+="<!--"
+s=t.a4+=H.h(a.a)
+t.a4=s+"-->"},
 E1:function(a){var t,s
 t=this.a
-s=t.a3+="<!DOCTYPE"
-t.a3=s+" "
-s=t.a3+=H.h(a.a)
-t.a3=s+">"},
+s=t.a4+="<!DOCTYPE"
+t.a4=s+" "
+s=t.a4+=H.h(a.a)
+t.a4=s+">"},
 E2:function(a){var t,s,r,q,p,o,n
 t=this.a
-t.a3+="<"
+t.a4+="<"
 s=a.b
 r=J.n(s)
-r.e9(s,this)
+r.ea(s,this)
 this.Ec(a)
 q=a.a
 p=J.aO(q)
 o=p.gb_(q)
-n=t.a3
+n=t.a4
 if(o){s=n+" "
-t.a3=s
-t.a3=s+"/>"}else{t.a3=n+">"
+t.a4=s
+t.a4=s+"/>"}else{t.a4=n+">"
 p.bE(q,this.gu3())
-t.a3+="</"
-r.e9(s,this)
-t.a3+=">"}},
+t.a4+="</"
+r.ea(s,this)
+t.a4+=">"}},
 E3:function(a){var t,s
 t=this.a
-t.a3+="<?"
-t.a3+=H.h(a.b)
+t.a4+="<?"
+t.a4+=H.h(a.b)
 s=a.a
-if(J.r8(s)){t.a3+=" "
-t.a3+=H.h(s)}t.a3+="?>"},
-E4:function(a){this.a.a3+=J.Ec(a.a,$.$get$LM(),T.WJ())},
+if(J.r8(s)){t.a4+=" "
+t.a4+=H.h(s)}t.a4+="?>"},
+E4:function(a){this.a.a4+=J.Ec(a.a,$.$get$LM(),T.WJ())},
 Ec:function(a){var t,s,r
-for(t=J.bj(a.c),s=this.a;t.M();){r=t.ga_()
-s.a3+=" "
+for(t=J.bj(a.c),s=this.a;t.M();){r=t.ga0()
+s.a4+=" "
 J.E8(r,this)}},
 $askR:function(){},
-gi7:function(a){return this.a}}
+gi8:function(a){return this.a}}
 S.rf.prototype={
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
@@ -30959,38 +30961,38 @@ a.db=!1
 this.b.push(a)},
 Ay:function(a){var t,s,r,q,p,o
 t=[]
-s=a.eI()
-r=a.eH()
+s=a.eJ()
+r=a.eI()
 q=a.uh()
 p=H.a([],[N.aF])
 C.a.V(p,s)
 C.a.V(p,r)
 C.a.V(p,q)
-for(o=0;o<p.length;++o)C.a.V(t,this.h9(J.bc(p[o])))
+for(o=0;o<p.length;++o)C.a.V(t,this.ha(J.bc(p[o])))
 return t},
 Ax:function(a){var t,s,r,q,p,o
 t=[]
 s=a.m6()
-r=a.en()
+r=a.eo()
 q=a.ua()
 p=H.a([],[N.aF])
 C.a.V(p,s)
 C.a.V(p,r)
 C.a.V(p,q)
-for(o=0;o<p.length;++o)C.a.V(t,this.h9(J.bc(p[o])))
+for(o=0;o<p.length;++o)C.a.V(t,this.ha(J.bc(p[o])))
 return t},
 Aw:function(a){var t,s,r
 t=[]
-s=a.iH()
-for(r=0;r<s.length;++r)C.a.V(t,this.h9(s[r]))
+s=a.iI()
+for(r=0;r<s.length;++r)C.a.V(t,this.ha(s[r]))
 return t},
 Av:function(a){var t,s,r
 t=[]
-s=a.iF()
-for(r=0;r<s.length;++r)C.a.V(t,this.h9(s[r]))
+s=a.iG()
+for(r=0;r<s.length;++r)C.a.V(t,this.ha(s[r]))
 return t},
 nA:function(a){var t,s,r,q,p,o,n
-t=this.h9(a)
+t=this.ha(a)
 s=t.length
 if(s===0)return
 if(0>=s)return H.b(t,0)
@@ -30999,7 +31001,7 @@ for(q=9999999,p=0;p<t.length;++p){o=t[p]
 if(o.gbL()===a.gbL()&&J.c(o.gbf(),a.gbf())){n=J.mY(J.cc(o.R($.l),a.R($.l)))
 if(J.af(n,q)){r=o
 q=n}}}return r},
-h9:function(a){var t,s,r,q,p,o
+ha:function(a){var t,s,r,q,p,o
 t=[]
 for(s=J.n(a),r=0;q=this.b,r<q.length;++r){p=q[r]
 q=J.bs(p)
@@ -31019,7 +31021,7 @@ F.n1.prototype={
 BS:function(){var t,s
 t=$.p
 t.r=R.Mu(t)
-for(s=0;t=$.p.r,s<t.length;++s)t[s].shx(!0)},
+for(s=0;t=$.p.r,s<t.length;++s)t[s].shy(!0)},
 Df:function(){var t,s,r,q,p,o,n,m,l,k
 for(t=0;s=$.p.r,t<s.length;++t){r=s[t]
 s=document
@@ -31048,7 +31050,7 @@ for(r=t.length,q="",p=0;p<t.length;t.length===r||(0,H.Q)(t),++p){o=t[p]
 if(o.gc_().ge6()>5){n=this.b.gap()
 m="At aftermath, "+H.h(o)+" specibus rank is: "+H.h(o.gc_().ge6())
 n.toString
-F.ao(C.h).$1("("+n.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+m)}if(o.gbZ()<3){s.push(o)
+F.ao(C.h).$1("("+n.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+m)}if(o.gbZ()<3){s.push(o)
 q+="The "+o.lm()+" enters the door to the new Universe.<Br><Br>"}else{if(o.gbZ()===3){n=this.b.gn()
 m=n.b
 if(typeof m!=="number")return m.k()
@@ -31064,13 +31066,13 @@ s=C.a.gah(t)
 r="The "+s.w()+" rules the new Universe absolutely, with no fellow players to challenge them. "
 if(J.P(s.R($.bw),100))r+="The people flourish under their loving guidance. "
 else r=J.af(s.R($.bw),-100)?r+"The people wither under their iron fist. ":r+" They do their best, but ultimately allow the people to make their own decisions."
-return r}if(J.P(J.dT($.bw.hq(0,t,!1),t.length),20)){this.b.gA().sBU(!0)
+return r}if(J.P(J.dT($.bw.hr(0,t,!1),t.length),20)){this.b.gA().sBU(!0)
 q=R.b9(this.b.gF())
 p=$.bw.ta(0,q)
 o=$.bw.nZ(0,q)
 r="The "+p.w()+" organizes everyone and makes sure everybody gets along and treats the people of the new Universe right. "
 if(J.af(o.R($.bw),-10)){r+="The "+o.w()+" stirs up trouble "
-r=J.P(J.aa(p.R($.l),p.R($.bw)),o.R($.l))?r+("but it's nothing the "+p.w()+" can't handle with their friends by their side."):r+" and it becomes a constant thorn in everyone's side."}return r}if(J.af(J.dT($.bw.hq(0,t,!1),t.length),-20)){this.b.gA().sBi(!0)
+r=J.P(J.aa(p.R($.l),p.R($.bw)),o.R($.l))?r+("but it's nothing the "+p.w()+" can't handle with their friends by their side."):r+" and it becomes a constant thorn in everyone's side."}return r}if(J.af(J.dT($.bw.hr(0,t,!1),t.length),-20)){this.b.gA().sBi(!0)
 q=R.b9(this.b.gF())
 n=$.bw.nZ(0,q)
 m=$.bw.ta(0,q)
@@ -31082,7 +31084,7 @@ t=this.b.gJ().r.a$
 s=$.l
 t=t.a
 t=t.bh(0,s)?t.p(0,s):0
-if(typeof t!=="number")return t.eo()
+if(typeof t!=="number")return t.ep()
 if(t<=0)return""
 t=this.b.gJ().r
 s=$.X
@@ -31133,7 +31135,7 @@ J.Z(C.j.T(r,"2d"),o,-100,0)
 J.Z(C.j.T(r,"2d"),n,100,0)},
 yM:function(a,b,c){if(this.b.gA().gjx()){this.b.gA().sji(!1)
 b+="<br>With Skaia's destruction, there is nowhere to deploy the frog to. It doesn't matter how much frog breeding the Space Player did. If it's any consolation, it really does suck to fight so hard only to fail at the last minute. <Br><Br>Game Over. Or is it? "
-this.b.gA().shA(!0)
+this.b.gA().shB(!0)
 $.bR.on(this.b)
 this.ld(a,b,!0)
 return!0}return!1},
@@ -31150,14 +31152,14 @@ if(J.c(this.b.gA().gcj(),!0)){t=this.b.gap()
 s="AB: this session might be able to combo. MVP is "+H.h(R.hH(this.b.gF()).gcq())+" amount of grist"
 t.toString
 F.ao(C.h).$1(t.aG(C.h,s))
-this.b.gA().sji(!0)}this.b.gA().shA(!1)}else{b=b+this.r7()+" <Br><br> The door to the new universe is revealed. <br><Br>"+this.Eb()+"<Br><Br>"
+this.b.gA().sji(!0)}this.b.gA().shB(!1)}else{b=b+this.r7()+" <Br><br> The door to the new universe is revealed. <br><Br>"+this.Eb()+"<Br><Br>"
 this.b.gA().sm0(!0)
 b+="You get a brief glance of the future of the new Universe. "+this.Cc()+"<br><br>"}this.ld(a,b,!1)
 return!0}return!1},
 ld:function(a,b,c){var t,s,r,q,p,o,n,m,l
 t=R.Mn(this.b.gF())
 b=b+("<br> The MVP of the session was: "+t.je()+(" with a grist level  of: "+H.h(t.gcq())))+"<br>Thanks for Playing!<br>"
-s=R.Pe(this.b.gF().length,t.eG(),this.b.gn())
+s=R.Pe(this.b.gF().length,t.eH(),this.b.gn())
 b+=s.zF(0)
 r=C.c.k("<br><canvas id='canvas",a.id)+"' width='"+C.b.G($.aC)+"' height="+C.b.G($.ay)+"'>  </canvas>"
 C.f.N(a,b,C.d)
@@ -31174,7 +31176,7 @@ if(o.length>=p.length&&m!=null||this.b.gnR()){m=R.bE(this.b.gF(),$.ap)
 l=new L.qy(null,!1,this.b,H.a([],[Q.O]))
 l.d=m
 l.c=null
-l.aY(a)}}this.b.ga6().tG(a)
+l.aY(a)}}this.b.ga_().tG(a)
 return},
 CP:function(a,b,c){var t,s
 t=this.b.AA()
@@ -31186,7 +31188,7 @@ else{if(this.b.gA().gjx())b+="<br>With Skaia's destruction, there is nowhere to 
 else if(this.b.o5(t)&&this.b.lh()){b=b+("<br>Unfortunately, the "+t.w()+" was unable to complete frog breeding duties. ")+(" They only got "+C.m.bU(t.gc3()/this.b.gkl()*100)+"% of the way through. ")
 b=(t.gc3()<0?b+" Stupid lousy goddamned GrimDark players fucking with the frog breeding. Somehow you ended up with less of a frog than when you got into the medium. ":b)+" Who knew that such a pointless mini-game was actually crucial to the ending?  No universe frog, no new universe to live in. Thems the breaks. "}else b=!this.b.lh()?b+("<br>Unfortunately, the players did not collect enough grist to even BEGIN to nurture the battlefield. They only got "+this.b.uH()+"% of the needed amount. ")+"Apparently it wasn't enough to focus on beating the game, you had to actually PLAY it, too.":b+"<br> Whoa.  Tell JR that this shouldn't happen. There's apparently no Universe Frog, but there IS a frog and also enough grist."
 b+=" If it's any consolation, it really does suck to fight so hard only to fail at the last minute. <Br><Br>Game Over. Or is it? "
-this.b.gA().shA(!0)
+this.b.gA().shB(!0)
 $.bR.on(this.b)
 this.ld(a,b,!0)
 return}},
@@ -31207,7 +31209,7 @@ this.ld(a,"<Br>"+this.r7()+" <br>The players have failed. No new universe is cre
 uk:function(a){var t,s,r,q
 t=this.b.gF()
 s=this.b.gF()
-for(r=t&&C.a,q=0;q<s.length;++q)r.V(t,s[q].geS())
+for(r=t&&C.a,q=0;q<s.length;++q)r.V(t,s[q].geT())
 return t},
 CW:function(a,b){var t,s,r,q,p,o,n,m,l
 t=U.It().tn(["b=%00%00%00%C2%91%C3%B0%15%10VDD%20&s=,,Rap-Rock,Riches,bawitdaBastard"])
@@ -31301,7 +31303,7 @@ q.f="The "+E.lJ(r)
 q.dO()
 s.r=!1
 q.r=!1
-new V.ia([s,q],0,this.b,!1,null,null,99999999).hB(a)
+new V.ia([s,q],0,this.b,!1,null,null,99999999).hC(a)
 t=$.X
 t=c.a$.X(t)
 if(t<=0||c.db){this.b.gA().sm0(!0)
@@ -31329,7 +31331,7 @@ $0:function(){this.a.rC(this.b,this.e,this.d,this.f,this.c)},
 $S:function(){return{func:1}}}
 D.f_.prototype={
 k_:function(a,b,c){var t=J.n(b)
-C.a.V(c,H.a(["The "+H.h(b.b0())+" uses Alchemy to combine "+Y.hd(this.a)+" to get "+this.b.ge1()+". "+H.h(this.b.hl(t.ga9(b).gn()))],[P.q]))
+C.a.V(c,H.a(["The "+H.h(b.b0())+" uses Alchemy to combine "+Y.hd(this.a)+" to get "+this.b.ge1()+". "+H.h(this.b.hm(t.ga9(b).gn()))],[P.q]))
 return t.ga9(b).gn().v(c)},
 ql:function(a,b){var t,s,r,q,p,o,n,m,l
 t=a.gdV().a
@@ -31341,14 +31343,14 @@ s=q.b1(t,s[0])
 if(s<0||s>=t.length)return H.b(t,s)
 n=t[s]
 P.dp("modified is from sylladex, is "+P.h8(n.gcT(),"{","}")+", result is "+P.h8(this.b.gcT(),"{","}"))}s=this.b
-s.siu(s.giu()+1)
+s.siv(s.giv()+1)
 m=this.k_(0,a,[])
 n.scT(P.jd(this.b.gcT(),G.aj))
-n.siu(n.giu()+1)
-if(!J.dk(a).ga6().cy)for(l=1;s=this.a,l<s.length;++l)q.aW(t,s[l])
+n.siv(n.giv()+1)
+if(!J.dk(a).ga_().cy)for(l=1;s=this.a,l<s.length;++l)q.aW(t,s[l])
 return m},
 xS:function(a){return this.ql(a,!1)},
-ec:function(a,b){var t=J.Ea(b).ge6()-this.b.ge6()
+ed:function(a,b){var t=J.Ea(b).ge6()-this.b.ge6()
 if(t>0)t=1
 else if(t<0)t=-1
 return C.i.bF(t)},
@@ -31357,40 +31359,40 @@ $ascS:function(){return[D.f_]},
 gjg:function(a){return this.a},
 gcS:function(a){return this.b}}
 D.jO.prototype={
-k_:function(a,b,c){C.a.V(c,H.a([H.h(b.b0())+" overlaps the punched cards for "+Y.hd(this.a)+" to get "+this.b.ge1()+". "+H.h(this.b.hl(J.dk(b).gn()))],[P.q]))
+k_:function(a,b,c){C.a.V(c,H.a([H.h(b.b0())+" overlaps the punched cards for "+Y.hd(this.a)+" to get "+this.b.ge1()+". "+H.h(this.b.hm(J.dk(b).gn()))],[P.q]))
 return this.ms(0,b,c)},
-f7:function(){var t,s,r,q,p
+f8:function(){var t,s,r,q,p
 t=this.a
 if(0>=t.length)return H.b(t,0)
 this.b=t[0].bi()
 for(t=[null],s=1;r=this.a,s<r.length;++s)for(r=r[s].gcT(),q=new P.eL(r,r.r,null,null,t),q.c=r.e;q.M();){p=q.d
 this.b.gcT().h(0,p)}}}
 D.l9.prototype={
-k_:function(a,b,c){C.a.V(c,H.a([H.h(b.b0())+" carefully punches all holes from "+Y.hd(this.a)+" into one card to get "+this.b.ge1()+". "+H.h(this.b.hl(J.dk(b).gn()))],[P.q]))
+k_:function(a,b,c){C.a.V(c,H.a([H.h(b.b0())+" carefully punches all holes from "+Y.hd(this.a)+" into one card to get "+this.b.ge1()+". "+H.h(this.b.hm(J.dk(b).gn()))],[P.q]))
 return this.ms(0,b,c)},
-f7:function(){var t,s,r
+f8:function(){var t,s,r
 t=this.a
 if(0>=t.length)return H.b(t,0)
 t=t[0].bi()
 this.b=t
-t.gcT().fq(0)
+t.gcT().fs(0)
 t=this.a
 if(0>=t.length)return H.b(t,0)
 t=t[0].gAW()
 s=J.bj(t.a)
 t=new H.ev(s,t.b,[H.L(t,0)])
-for(;t.M();){r=s.ga_()
+for(;t.M();){r=s.ga0()
 this.b.gcT().h(0,r)}t=this.a
 if(1>=t.length)return H.b(t,1)
 t=t[1].gxO()
 s=J.bj(t.a)
 t=new H.ev(s,t.b,[H.L(t,0)])
-for(;t.M();){r=s.ga_()
+for(;t.M();){r=s.ga0()
 this.b.gcT().h(0,r)}}}
 D.n3.prototype={
-k_:function(a,b,c){C.a.V(c,H.a(["Wait. What the fuck? Is this cheating? The "+H.h(b.b0())+" figures out how to use a XOR operation to turn "+Y.hd(this.a)+" into a "+this.b.ge1()+". "+H.h(this.b.hl(J.dk(b).gn()))],[P.q]))
+k_:function(a,b,c){C.a.V(c,H.a(["Wait. What the fuck? Is this cheating? The "+H.h(b.b0())+" figures out how to use a XOR operation to turn "+Y.hd(this.a)+" into a "+this.b.ge1()+". "+H.h(this.b.hm(J.dk(b).gn()))],[P.q]))
 return this.ms(0,b,c)},
-f7:function(){var t,s,r
+f8:function(){var t,s,r
 t=this.a
 if(0>=t.length)return H.b(t,0)
 t=t[0].bi()
@@ -31413,10 +31415,10 @@ L.ro.prototype={
 $1:function(a){return!a.gkh()},
 $S:function(){return{func:1,args:[L.ej]}}}
 L.rp.prototype={
-$1:function(a){return a.giq()},
+$1:function(a){return a.gir()},
 $S:function(){return{func:1,args:[L.ej]}}}
 L.rq.prototype={
-$1:function(a){return!a.giq()},
+$1:function(a){return!a.gir()},
 $S:function(){return{func:1,args:[L.ej]}}}
 L.rr.prototype={
 $1:function(a){return J.ag(a)},
@@ -31431,9 +31433,9 @@ C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),[H.L(t,0)]))
 this.r2=t},
 lo:function(a){var t
 for(t=J.bj(this.gA());t.M();)t.d.kX(a)},
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
-e0:function(){return"<font color='"+this.gb8().p(0,$.bk).hp()+"'> "},
+e0:function(){return"<font color='"+this.gb8().p(0,$.bk).hq()+"'> "},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i,h
 t=[P.q]
 s=H.a(["Decay","Rot","Death"],t)
@@ -31525,15 +31527,15 @@ this.aD()
 t=this.b
 if($.$get$h_().bh(0,t))H.aG("Duplicate aspect id for "+H.h(this)+": "+t+" is already registered for "+H.h($.$get$h_().p(0,t))+".")
 $.$get$h_().i(0,t,this)},
-geR:function(){return this.a},
+geS:function(){return this.a},
 gbe:function(a){return this.b},
-geY:function(){return this.c},
+geZ:function(){return this.c},
 gny:function(){return this.d},
 gvC:function(){return this.e},
 gn9:function(){return this.f},
 gW:function(a){return this.x},
 gmi:function(){return this.y},
-giq:function(){return this.z},
+gir:function(){return this.z},
 gkh:function(){return this.Q},
 gla:function(){return this.ch},
 goA:function(){return this.cx},
@@ -31564,10 +31566,10 @@ soZ:function(a){return this.j(0,$.aU,L.f(a),!0)},
 sl6:function(a){return this.j(0,$.b_,L.f(a),!0)},
 sl7:function(a){return this.j(0,$.b0,L.f(a),!0)},
 sl5:function(a){return this.j(0,$.aZ,L.f(a),!0)},
-gfN:function(){return this.p(0,$.aT)},
-sfN:function(a){return this.j(0,$.aT,L.f(a),!0)},
-gi0:function(){return this.p(0,$.aS)},
-si0:function(a){return this.j(0,$.aS,L.f(a),!0)},
+gfO:function(){return this.p(0,$.aT)},
+sfO:function(a){return this.j(0,$.aT,L.f(a),!0)},
+gi1:function(){return this.p(0,$.aS)},
+si1:function(a){return this.j(0,$.aS,L.f(a),!0)},
 slF:function(a){return this.j(0,$.aR,L.f(a),!0)},
 slE:function(a){return this.j(0,$.aQ,L.f(a),!0)}}
 M.rv.prototype={
@@ -31654,8 +31656,8 @@ gdw:function(){return this.dy},
 sA:function(a){return this.cx=a}}
 O.rA.prototype={
 cw:function(a,b){return b.gde()>0?a*-0.5:a*-2},
-eU:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" appears to be destroying "+H.h(c.v(a.ab.gdj()))+" in everyone. "},
+eV:function(){return!0},
+hf:function(a,b,c){return" The "+a.w()+" appears to be destroying "+H.h(c.v(a.ab.gdj()))+" in everyone. "},
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
 s=[G.aj]
@@ -31669,8 +31671,8 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Snare Trap",H.a([$.ah,$.bG,$.ak,$.cs],s),"I guess CodTier is okay. But still. The actual codpiece. You fleshy meatbags and your weird shit.",!1,"The Perfect Trap")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.db=t},
-hj:function(a,b,c){var t=this.cw(a.hw()/20,c)
-b.d1(a.c.ga6().r?t*a.c.ga6().ry:t,c)},
+hk:function(a,b,c){var t=this.cw(a.hx()/20,c)
+b.d1(a.c.ga_().r?t*a.c.ga_().x1:t,c)},
 dC:function(){return 2},
 dD:function(){return 0.5},
 dE:function(){return 3},
@@ -31733,7 +31735,7 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$dg,s)},
-ey:function(){return""},
+ez:function(){return""},
 $asmm:function(){return[P.q]},
 $asfo:function(){return[P.q,P.q]}}
 L.rE.prototype={
@@ -31745,7 +31747,7 @@ if(this.e==null){t=this.jG(a,this.k1)
 this.e=t
 if(!t.gd8()){t=this.k1
 t.aW(t,this.e)}}},
-nv:function(a,b,c){var t=this.e.ij(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
+nv:function(a,b,c){var t=this.e.ik(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
 if(J.jK(this.e)===!0)this.e=null
 return t},
 gk7:function(){return this.id}}
@@ -31804,7 +31806,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Friendship Stairs",H.a([$.aq,$.Fh,$.d0,$.c_,$.av,$.aD],s),"You push your friends down these, dunkass.",!1,"Bloodstained Stairs")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().yo(a,b)},
+ci:function(a,b){return a.ga_().yo(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i
 t=[P.q]
 s=H.a(["Pulse","Clots","Ichor","Veins","Chambers","Arteries","Flow"],t)
@@ -31933,21 +31935,21 @@ q="The "+n+" lies slain by the "+p+"'s "+$.ea+". The "+p+" shows the proof to th
 t.i(0,new R.ar("Stop the Feud",!1,[new U.e(r),new U.e(s),new U.e(o),new U.aW(m,"The deception of "+n+" continues with the defeat of the "+p+".",q)],H.a([],k),R.V(),!1,!1,new Y.aH("Rewards/sweetLoot.png","Rewards/sweetGrist.png","Rewards/no_reward.png",null),1,null,null),$.S)
 k=$.bC
 this.c.i(0,new X.a1(i,t,null),k)},
-geR:function(){return this.rx},
+geS:function(){return this.rx},
 gb8:function(){return this.ry},
 gaK:function(){return this.x2},
 gb6:function(){return this.y1},
 gcZ:function(){return this.y2},
 gd9:function(){return this.L},
-gcV:function(){return this.a1},
-gdj:function(){return this.a0},
+gcV:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gdl:function(){return this.Y},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 Q.nd.prototype={
 b2:function(a){var t,s,r
-if(this.b.ga6().d)return!1
+if(this.b.ga_().d)return!1
 this.d=null
 this.e=null
 for(t=0;t<this.b.bY().length;++t){s=this.b.bY()
@@ -31959,28 +31961,28 @@ return!1},
 yp:function(){var t,s,r,q,p
 t=this.m8()+this.m9()+this.up()
 if(J.c(this.d.gaq(),"Prospit"))++t
-s=this.d.eI()
+s=this.d.eJ()
 if(s.length>1)if(this.b.gn().a.E()*3<t){r=this.b.gn().v(s)
 this.e=r
 this.r=r.gO()
 J.bc(this.e).af($.H,-10)
-J.bc(this.e).ew("getting cheated on by their Matesprit, the  "+this.d.w())
+J.bc(this.e).ex("getting cheated on by their Matesprit, the  "+this.d.w())
 J.b5(J.bc(this.e).I(this.d),5)
 this.f="me_cheat"
-return!0}q=this.d.en()
+return!0}q=this.d.eo()
 if(q.length>1)if(this.b.gn().a.E()*3<t){r=this.b.gn().v(q)
 this.e=r
 this.r=r.gO()
 J.bc(this.e).af($.H,-10)
-J.bc(this.e).ew("getting cheated on by their Kismesis, the  "+this.d.w())
+J.bc(this.e).ex("getting cheated on by their Kismesis, the  "+this.d.w())
 J.b5(J.bc(this.e).I(this.d),5)
 this.f="me_cheat"
-return!0}p=this.d.eH()
+return!0}p=this.d.eI()
 if(p.length>1)if(this.b.gn().a.E()*3<t){r=this.b.gn().v(p)
 this.e=r
 this.r=r.gO()
 J.bc(this.e).af($.H,-100)
-J.bc(this.e).ew("getting cheated on by their Moirail, the  "+this.d.w())
+J.bc(this.e).ex("getting cheated on by their Moirail, the  "+this.d.w())
 J.b5(J.bc(this.e).I(this.d),-1)
 this.f="me_cheat"
 return!0}return!1},
@@ -31991,25 +31993,25 @@ for(s=0;s<this.d.gb9().length;++s){r=this.d.gb9()
 if(s>=r.length)return H.b(r,s)
 q=r[s]
 if(J.c(q.gO(),q.gcH())){r=J.n(q)
-if(r.gak(q).eI().length>1)if(this.b.gn().a.E()*3<t){this.e=q
+if(r.gak(q).eJ().length>1)if(this.b.gn().a.E()*3<t){this.e=q
 this.r=q.gO()
 this.d.af($.H,-100)
-this.d.ew("having to confront their Matesprit, the  "+J.bc(this.e).w()+" about their cheating")
-r.sa2(q,-10)
+this.d.ex("having to confront their Matesprit, the  "+J.bc(this.e).w()+" about their cheating")
+r.sa3(q,-10)
 this.f="you_cheat"
 return!0}}if(J.c(q.gO(),q.gd4())){r=J.n(q)
-if(r.gak(q).en().length>1)if(this.b.gn().a.E()*3<t){this.e=q
+if(r.gak(q).eo().length>1)if(this.b.gn().a.E()*3<t){this.e=q
 this.r=q.gO()
 this.d.af($.H,-100)
-this.d.ew("having to confront their Kismesis, the  "+J.bc(this.e).w()+" about their cheating")
-r.sa2(q,-10)
+this.d.ex("having to confront their Kismesis, the  "+J.bc(this.e).w()+" about their cheating")
+r.sa3(q,-10)
 this.f="you_cheat"
 return!0}}if(J.c(q.gO(),q.gcM())){r=J.n(q)
-if(r.gak(q).eH().length>1)if(this.b.gn().a.E()*3<t){this.e=q
+if(r.gak(q).eI().length>1)if(this.b.gn().a.E()*3<t){this.e=q
 this.r=q.gO()
 this.d.af($.H,-1000)
-J.bc(this.e).ew("having to confront their trusted FUCKING Moirail, the  "+J.bc(this.e).w()+" about their cheating")
-r.sa2(q,-50)
+J.bc(this.e).ex("having to confront their trusted FUCKING Moirail, the  "+J.bc(this.e).w()+" about their cheating")
+r.sa3(q,-50)
 this.f="you_cheat"
 return!0}}}return!1},
 yq:function(){var t,s,r,q,p
@@ -32044,31 +32046,31 @@ else if($.dA.ds(this.d)||$.f6.ds(this.d))return 1
 return 0.1},
 m5:function(a,b){var t,s,r,q,p
 t=this.f
-if(t==="me_cheat"){s=a.a5()+": "
-r=b.cD(a.a5())+": "
+if(t==="me_cheat"){s=a.a6()+": "
+r=b.cD(a.a6())+": "
 q=Y.k(s,a,"Um. Hey.")+Y.k(r,b,"Hey?")+Y.k(s,a,"Fuck. Why's this so hard?")+Y.k(s,a,"How do I say this?")+Y.k(r,b,"?")+Y.k(s,a,"We need to break up.")+Y.k(r,b,"What!?")
-if(J.c(this.r,this.e.gcH())){t=a.eI()
+if(J.c(this.r,this.e.gcH())){t=a.eJ()
 if(0>=t.length)return H.b(t,0)
-p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gcM())){t=a.eH()
+p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gcM())){t=a.eI()
 if(0>=t.length)return H.b(t,0)
-p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gd4())){t=a.en()
+p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gd4())){t=a.eo()
 if(0>=t.length)return H.b(t,0)
 p=J.bc(t[0]).gam()}else p=""
-return q+Y.k(s,a,C.c.k("I didn't mean to hurt you. It just happened. But... I'm with ",p)+" now. And I didn't want to keep stringing you along.")+Y.k(r,b,"How could you!? I thought we were special!")+Y.k(s,a,"I'm sorry.")}else if(t==="you_cheat"){s=a.a5()+": "
-r=b.cD(a.a5())+": "
+return q+Y.k(s,a,C.c.k("I didn't mean to hurt you. It just happened. But... I'm with ",p)+" now. And I didn't want to keep stringing you along.")+Y.k(r,b,"How could you!? I thought we were special!")+Y.k(s,a,"I'm sorry.")}else if(t==="you_cheat"){s=a.a6()+": "
+r=b.cD(a.a6())+": "
 q=Y.k(s,a,"You. Asshole!")+Y.k(r,b,"Hey?")+Y.k(s,a,C.c.k("Don't '",b.gm().ku(0,"Hey"))+"' me. I know what you did. ")+Y.k(r,b,"I have no idea what you are talking about!")
-if(J.c(this.r,this.e.gcH())){t=b.eI()
+if(J.c(this.r,this.e.gcH())){t=b.eJ()
 if(0>=t.length)return H.b(t,0)
-p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gcM())){t=b.eH()
+p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gcM())){t=b.eI()
 if(0>=t.length)return H.b(t,0)
-p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gd4())){t=b.en()
+p=J.bc(t[0]).gam()}else if(J.c(this.r,this.e.gd4())){t=b.eo()
 if(0>=t.length)return H.b(t,0)
 p=J.bc(t[0]).gam()}else p=""
-return q+Y.k(s,a,C.c.k("I know what you've been doing with ",p)+". ")+Y.k(r,b,"Fuck.")+Y.k(s,a,"It's over.")}else{s=a.a5()+": "
-r=b.cD(a.a5())+": "
+return q+Y.k(s,a,C.c.k("I know what you've been doing with ",p)+". ")+Y.k(r,b,"Fuck.")+Y.k(s,a,"It's over.")}else{s=a.a6()+": "
+r=b.cD(a.a6())+": "
 return Y.k(s,a,"Um. Hey.")+Y.k(r,b,"Hey?")+Y.k(s,a,"Fuck. Why's this so hard?")+Y.k(r,b,"?")+Y.k(s,a,"We need to break up.")+Y.k(r,b,"What!?")+Y.k(s,a,"I just... don't feel the same way about you anymore. Maybe we changed too much.")+Y.k(s,a,"I'm sorry. I can't keep pretending.")+Y.k(r,b,"Wait! No! Let's talk about this!")+Y.k(s,a,"I've made up my mind. I'm sorry. Goodbye.")}},
 aY:function(a){var t,s,r,q
-C.f.eW(a,"beforeend","<br>"+this.ad(0),C.d,null)
+C.f.eX(a,"beforeend","<br>"+this.ad(0),C.d,null)
 this.b.ai(this.d)
 this.b.ai(J.bc(this.e))
 if(!J.bc(this.e).ga7()){t=$.aC
@@ -32092,7 +32094,7 @@ return""},
 gbb:function(){return this.d},
 sbb:function(a){return this.d=a}}
 T.rN.prototype={
-ci:function(a,b){return a.ga6().ys(a,b)},
+ci:function(a,b){return a.ga_().ys(a,b)},
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
 s=[G.aj]
@@ -32173,18 +32175,18 @@ m="The "+q+" lies slain by the "+s+"'s "+$.ea+". The "+s+" has become the storm 
 t.i(0,new R.ar("The Winds of Change",!1,[new U.e(r),new U.e(p),new U.e(o),new U.aW(n,"The storm supremacy of "+q+" continues with the defeat of the "+s+".",m)],H.a([],i),R.V(),!1,!1,new Y.aH("Rewards/sweetLoot.png","Rewards/sweetGrist.png","Rewards/no_reward.png",null),1,null,null),$.S)
 i=$.bC
 this.c.i(0,new X.a1(j,t,null),i)},
-geR:function(){return this.rx},
+geS:function(){return this.rx},
 gb8:function(){return this.ry},
 gaK:function(){return this.x2},
 gb6:function(){return this.y1},
 gcZ:function(){return this.y2},
 gd9:function(){return this.L},
-gcV:function(){return this.a1},
-gdj:function(){return this.a0},
+gcV:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gdl:function(){return this.Y},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 Z.rO.prototype={
 aD:function(){var t,s,r,q,p,o,n,m,l
 t=[P.q]
@@ -32249,11 +32251,11 @@ o=P.cF(p,p)
 n=P.cF(p,[P.jo,P.q])
 for(m=null,l=1;l<q.length;++l){k=q[l]
 j=J.di(k)
-if(J.he(j.fh(k)))m=null
-else if(m==null)m=j.fh(k)
-else{j=j.fh(k)
+if(J.he(j.fi(k)))m=null
+else if(m==null)m=j.fi(k)
+else{j=j.fi(k)
 i=J.aO(m)
-h=i.ay(m,0,i.t5(m,$.$get$Is())+1)+H.h(j)
+h=i.ax(m,0,i.t5(m,$.$get$Is())+1)+H.h(j)
 o.i(0,h,m)
 if(!n.bh(0,m))n.i(0,m,P.a5(null,null,null,p))
 J.Nl(n.p(0,m),h)}}r=new M.lh(o,n)
@@ -32263,15 +32265,15 @@ case 1:return P.cP(r,s)}})
 return P.cQ($async$cm,s)},
 dg:function(a,b){var t=0,s=P.cI(),r,q,p,o,n
 var $async$dg=P.cR(function(c,d){if(c===1)return P.cO(d,s)
-while(true)switch(t){case 0:for(q=b.gEj(),q=q.gaw(q),p="SBURBSim Bundle Manifest\n\n";q.M();){o=q.ga_()
+while(true)switch(t){case 0:for(q=b.gEj(),q=q.gav(q),p="SBURBSim Bundle Manifest\n\n";q.M();){o=q.ga0()
 p+=H.h(o)+"\n"
-for(n=b.Eh(o),n=n.gaw(n);n.M();)p+="\t"+H.h(n.ga_())+"\n"
+for(n=b.Eh(o),n=n.gav(n);n.M();)p+="\t"+H.h(n.ga0())+"\n"
 p+="\n"}r=p.charCodeAt(0)==0?p:p
 t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$dg,s)},
-ey:function(){return"SBURBSim Bundle Manifest"},
+ez:function(){return"SBURBSim Bundle Manifest"},
 $asmm:function(){return[M.lh]},
 $asfo:function(){return[M.lh,P.q]}}
 A.t3.prototype={
@@ -32379,7 +32381,7 @@ q=[t.gJ().d]
 p=new V.dP(t,!1,q,H.a([],s),H.a([],s),"",!0)
 p.f="The "+E.lJ(q)
 p.dO()
-new V.ia([r,p],0,this.b,!1,null,null,99999999).hB(a)
+new V.ia([r,p],0,this.b,!1,null,null,99999999).hC(a)
 t=this.b.gJ().d
 s=$.X
 t=t.a$.X(s)
@@ -32428,7 +32430,7 @@ this.d.push(r)}q=R.b9(this.b.gF())
 return this.d.length>0&&q.length>0},
 aY:function(a){var t,s
 this.e=0
-C.f.eW(a,"beforeend","<br>"+this.nl(a),C.d,null)
+C.f.eX(a,"beforeend","<br>"+this.nl(a),C.d,null)
 if(this.e>1){if(T.bT())return
 if($.p.dy)a.appendChild(O.Vc(""+this.e+"x COPRSSMOOCH COMBOB"+C.c.bs("!!",this.e),50,O.XA()))
 else{t=A.hh(255,0,0,255)
@@ -32473,10 +32475,10 @@ l=W.N($.ay,m)
 a.appendChild(l)
 T.IQ(l,r,o)
 this.b.ai(o);++this.e}else{k=this.dG(q)
-if(!(k!=null&&k.ea(a))){t=t+("<Br><Br><img src = 'images/sceneIcons/death_icon.png'>"+q.w()+"'s waits patiently for the kiss of life. But nobody came. ")+" Their dream self dies as well. "
+if(!(k!=null&&k.eb(a))){t=t+("<Br><Br><img src = 'images/sceneIcons/death_icon.png'>"+q.w()+"'s waits patiently for the kiss of life. But nobody came. ")+" Their dream self dies as well. "
 q.scc(!1)
 q.sa7(!0)}}}else if(q.gbL()&&q.gaS()===!1&&J.c(q.gbf(),!1)&&q.ga7()){k=this.dG(q)
-if(k!=null)k.ea(a)}}r=this.e
+if(k!=null)k.eb(a)}}r=this.e
 return r>1?t+(""+r+"X CORPSEMOOCH COMBO!!!"):t},
 dG:function(a){var t,s
 t=R.hH(this.b.gF())
@@ -32596,10 +32598,10 @@ b2:function(a){var t
 this.d=a
 t=this.b.oJ()
 this.e=t
-if(t!=null&&!t.ga7()&&J.c(this.b.gA().gcj(),!1))return J.P(this.e.R($.l),this.b.gn().a.E()*200)&&this.e.i8()
+if(t!=null&&!t.ga7()&&J.c(this.b.gA().gcj(),!1))return J.P(this.e.R($.l),this.b.gn().a.E()*200)&&this.e.i9()
 return!1},
 aY:function(a){var t,s,r
-C.f.eW(a,"beforeend","<br><img src = 'images/sceneIcons/ectobiology_icon.png'>"+this.ad(0),C.d,null)
+C.f.eX(a,"beforeend","<br><img src = 'images/sceneIcons/ectobiology_icon.png'>"+this.ad(0),C.d,null)
 t=a.id
 if(t==null)return t.k()
 t+"_babies"
@@ -32616,13 +32618,13 @@ t=R.Mo(this.b.gF())
 this.f=t
 R.E0(t,this.b.gdR())
 s=" Through a series of wacky, yet inevitable in hindsight, coincidences, the "+this.e.w()+" finds themselves in the veil of meteors surrounding the Medium. "+C.c.k(" A button is pushed, and suddenly there are little tiny baby version of ",R.jH(this.f))
-s=this.b.gA().gfM()?s+" Plus baby versions of all the players from the pre-scratch session? No wonder that session went so poorly: It was always destined to be scratched or nobody would be born in the first place.":s+". Plus a bunch of superfluous extra babies.  What is even going on here? "
+s=this.b.gA().gfN()?s+" Plus baby versions of all the players from the pre-scratch session? No wonder that session went so poorly: It was always destined to be scratched or nobody would be born in the first place.":s+". Plus a bunch of superfluous extra babies.  What is even going on here? "
 this.e.aH()
-this.e.sei(!0)
+this.e.sej(!0)
 t=this.e
 t.scQ(t.gcQ()+3)
 this.b.ai(this.e)
-this.e.ew(" how the Ultimate Goddamned Riddle means that if they didn't play this bullshit game in the first place they never would have been born at all")
+this.e.ex(" how the Ultimate Goddamned Riddle means that if they didn't play this bullshit game in the first place they never would have been born at all")
 return s},
 gdz:function(){return this.e},
 sdz:function(a){return this.e=a}}
@@ -32727,7 +32729,7 @@ gaK:function(){return this.dx},
 gdw:function(){return this.dy},
 sA:function(a){return this.cx=a}}
 U.tu.prototype={
-ci:function(a,b){return a.ga6().zQ(a,b)},
+ci:function(a,b){return a.ga_().zQ(a,b)},
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
 s=[G.aj]
@@ -32843,17 +32845,17 @@ r="The "+m+" lies slain by the "+l+"'s "+$.ea+". The "+l+" has won! "
 t.i(0,new R.ar("Learn the Prophecy",!1,[new U.e(q),new U.e(n),new U.e(s),new U.aW(o,"The tyranny of "+m+" continues with the defeat of the "+l+".",r)],H.a([],i),R.V(),!1,!1,new Y.aH("Rewards/sweetLoot.png","Rewards/sweetGrist.png","Rewards/no_reward.png",null),1,null,null),$.S)
 i=$.bC
 this.c.i(0,new X.a1(p,t,null),i)},
-geR:function(){return this.rx},
+geS:function(){return this.rx},
 gb8:function(){return this.ry},
 gaK:function(){return this.x2},
 gb6:function(){return this.y1},
 gcZ:function(){return this.y2},
 gd9:function(){return this.L},
-gcV:function(){return this.a1},
-gdj:function(){return this.a0},
+gcV:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gla:function(){return this.Y},
-goA:function(){return this.au},
+goA:function(){return this.at},
 gdl:function(){return this.ae},
 gA:function(){return this.b4},
 sA:function(a){return this.b4=a}}
@@ -32869,7 +32871,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Art Supplies",H.a([$.bM,$.d0,$.av],s),null,!1,"The Tools For Smithing Pieces of Art That I Stole From KR")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().rl(a,b)},
+ci:function(a,b){return a.ga_().rl(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k
 t=[P.q]
 s=H.a(["Arts","Craft","Crafting","Making","Creating","Building","Creation"],t)
@@ -32932,12 +32934,12 @@ gaK:function(){return this.x1},
 gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 ge4:function(){return this.L},
-gd9:function(){return this.a1},
-gcV:function(){return this.a0},
+gd9:function(){return this.a2},
+gcV:function(){return this.a1},
 gla:function(){return this.ag},
 gdl:function(){return this.Y},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 Q.cU.prototype={
 lx:function(a){var t,s,r,q,p,o,n,m,l
 t=this.d
@@ -32949,10 +32951,10 @@ q=[Z.bu]
 p=new F.il(null,C.e,r,t,"provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],q),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D(t,r)
 o=H.a([],q)
-o.push(s.ga9(a).gex().nV(a,this.c))
+o.push(s.ga9(a).gey().nV(a,this.c))
 p.fy=o
 p.d=this.c
-p.a$.i9(a.gA())
+p.a$.ia(a.gA())
 s=$.X
 q=$.a7
 t=p.a$.X(q)
@@ -32975,10 +32977,10 @@ q=[Z.bu]
 p=new F.o8(null,C.e,r,t,"provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],q),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D(t,r)
 o=H.a([],q)
-o.push(s.ga9(a).gex().nV(a,this.c))
+o.push(s.ga9(a).gey().nV(a,this.c))
 p.fy=o
 p.d=this.c
-p.a$.i9(a.gA())
+p.a$.ia(a.gA())
 s=$.X
 q=$.a7
 t=p.a$.X(q)
@@ -32996,10 +32998,10 @@ q=[Z.bu]
 p=new F.il(null,C.e,r,t,"provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],q),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 p.D(t,r)
 o=H.a([],q)
-o.push(s.ga9(a).gex().nV(a,this.c))
+o.push(s.ga9(a).gey().nV(a,this.c))
 p.fy=o
 p.d=this.c
-p.a$.i9(a.gA())
+p.a$.ia(a.gA())
 n=$.$get$cX()
 for(t=n.length,m=0;m<n.length;n.length===t||(0,H.Q)(n),++m){l=n[m]
 if(l!==$.hx&&l!==$.l){s=p.a$.X(l)
@@ -33015,7 +33017,7 @@ this.c=a
 t=this.b.bY()
 if(t.length!==0)this.d=this.b.gn().v(t)
 s=this.d
-if(s!=null){if(!s.gbM())if(this.d.iF().length>0){r=this.d.rN()
+if(s!=null){if(!s.gbM())if(this.d.iG().length>0){r=this.d.rN()
 if(r!=null){s=J.bt(this.d.I(r))
 if(typeof s!=="number")return H.w(s)
 q=-275+-1*s}else q=-275
@@ -33027,7 +33029,7 @@ s=s*p<q&&!J.c(this.d.gt(),$.rm)}else s=!1
 else s=!1
 return s}return!1},
 uf:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
-if(a.gbm()&&J.c(a.gav(),"#99004d")&&b.gbm()&&J.c(b.gav(),"#99004d")){t=H.a([],[A.I])
+if(a.gbm()&&J.c(a.gau(),"#99004d")&&b.gbm()&&J.c(b.gau(),"#99004d")){t=H.a([],[A.I])
 s=a.I(b)
 r=b.I(a)
 q=[P.q]
@@ -33089,7 +33091,7 @@ t.push(new A.I(H.a(["See you soon!","...",":)"],q),H.a([":)"],q),H.a([":)"],q),n
 q=this.b.gap()
 q.toString
 F.ao(C.h).$1(q.aG(C.h,"Engage Murder: killing buddies"))
-return A.fi(t)}else if(J.c(b.gt(),$.bY)&&b.fw()){t=H.a([],[A.I])
+return A.fi(t)}else if(J.c(b.gt(),$.bY)&&b.fz()){t=H.a([],[A.I])
 s=a.I(b)
 r=b.I(a)
 b.aH()
@@ -33113,7 +33115,7 @@ t.push(new A.I(H.a(["What?","Wait. What?","What did you say?"],q),H.a(["Nope. Yo
 t.push(new A.I(H.a(["...WHAT!?","What the fuck?","What am I feeling..."],q),H.a(["Alright. There you go. Fixed.","Good as new. Sort of"],q),H.a(["You're welcome, asshole."],q),null))}else{a.af($.bw,10)
 t.push(new A.I(p,H.a(["Whoa, friend. What's going on?","Let's talk about this. What made you so mad at me?"],q),H.a(["Lol, are you really weak enough to give in to anger?","Wow, I never knew you were lame enough to just snap."],q),null))
 t.push(new A.I(H.a(["You don't know me.","You don't know what I'm going through."],q),H.a(["Yeah, the more I play this game the more I realize how different everybody is. But I think we can still understand each other. We're friends.","Come on, it's ME. You remember how I helped you with that exam a year ago? We're friends!"],q),H.a(["I don't care what you're going through. You're the fucking biggest asshole in all of Paradox Space, and you're still better than THIS.","Really, a little death game is all it takes for you to flip your fucking shit? You're better than this."],q),null))
-t.push(new A.I(H.a(["... Maybe you're right. Maybe you're wrong. But I still can't stop.","I don't KNOW! Everything is wrong!","ARGGG, stop, stop making sense!"],q),H.a(["I believe in our friendship, friend."],q),H.a([""],q),null))}}return A.fi(t)}else if(J.c(b.gt(),$.cz)&&b.fw()){t=H.a([],[A.I])
+t.push(new A.I(H.a(["... Maybe you're right. Maybe you're wrong. But I still can't stop.","I don't KNOW! Everything is wrong!","ARGGG, stop, stop making sense!"],q),H.a(["I believe in our friendship, friend."],q),H.a([""],q),null))}}return A.fi(t)}else if(J.c(b.gt(),$.cz)&&b.fz()){t=H.a([],[A.I])
 s=a.I(b)
 r=b.I(a)
 b.aH()
@@ -33140,14 +33142,14 @@ q.toString
 F.ao(C.h).$1(q.aG(C.h,"Engage Murder: rage convo"))
 return A.fi(t)}else{q=[P.q]
 p=[A.I]
-if(J.af(J.ct(b.R($.l),b.hv("Defender")),J.ct(a.R($.l),a.hv("Murderer")))){t=H.a([],p)
+if(J.af(J.ct(b.R($.l),b.hw("Defender")),J.ct(a.R($.l),a.hw("Murderer")))){t=H.a([],p)
 s=a.I(b)
 r=b.I(a)
 t.push(new A.I(H.a(["..."],q),H.a([N.cb(r,s,b,a)],q),H.a([N.cb(r,s,b,a)],q),null))
-if(b.fC($.h6)){t.push(new A.I(this.e,H.a(["I thought you were better than this. Do you really want my death hanging over you?","You're better than this. Don't become a common criminal."],q),H.a(["I didn't think even YOU would stoop this low.","Wow, way to prove my intuition was right. You're a criminal. Congratulations.","I wouldn't have thought you'd be clever enough to target a master detective such as myself first. But here we are."],q),null))
-t.push(new A.I(H.a(["See you soon!"],q),H.a(["Fuck."],q),H.a(["Fuck."],q),null))}else if(b.fC($.dA)){t.push(new A.I(this.e,H.a(["No. You can't. You're. You're one of the GOOD GUYS. Why?","I. But. I trusted you. You were my hero. Why would you say that..."],q),H.a(["I always knew you had the capacity to be a villain, but this is low even for you.","What the hell man, don't you know bad guys never win?"],q),null))
+if(b.fD($.h6)){t.push(new A.I(this.e,H.a(["I thought you were better than this. Do you really want my death hanging over you?","You're better than this. Don't become a common criminal."],q),H.a(["I didn't think even YOU would stoop this low.","Wow, way to prove my intuition was right. You're a criminal. Congratulations.","I wouldn't have thought you'd be clever enough to target a master detective such as myself first. But here we are."],q),null))
+t.push(new A.I(H.a(["See you soon!"],q),H.a(["Fuck."],q),H.a(["Fuck."],q),null))}else if(b.fD($.dA)){t.push(new A.I(this.e,H.a(["No. You can't. You're. You're one of the GOOD GUYS. Why?","I. But. I trusted you. You were my hero. Why would you say that..."],q),H.a(["I always knew you had the capacity to be a villain, but this is low even for you.","What the hell man, don't you know bad guys never win?"],q),null))
 t.push(new A.I(H.a(["See you soon!"],q),H.a(["Fuck.","..."],q),H.a(["Fuck.","..."],q),null))}else{p=this.e
-if(b.fC($.kj)){t.push(new A.I(p,H.a(["Oh god. Tell me you're joking.","This isn't funny. ","You're normally funnier than this."],q),H.a(["Is another one of your bad jokes?","You're joking right?","Haha, not."],q),null))
+if(b.fD($.kj)){t.push(new A.I(p,H.a(["Oh god. Tell me you're joking.","This isn't funny. ","You're normally funnier than this."],q),H.a(["Is another one of your bad jokes?","You're joking right?","Haha, not."],q),null))
 t.push(new A.I(H.a(["...",":)"],q),H.a(["... It's just a joke.","Haha you almost got me! Good joke, man!","It's just a joke. Right?"],q),H.a(["Fuck. You're not joking.","Just drop it okay. It's not funny.","You never know when to drop a joke."],q),null))
 t.push(new A.I(H.a(["I think it's fucking hilarious. See you soon. You won't see me."],q),H.a(["Fuck.","Oh fuck oh god you weren't joking."],q),H.a(["Fuck.","I should have known you couldn't joke to save your life. Fuck."],q),null))}else{t.push(new A.I(p,H.a(["Oh god.","Oh fuck. oh fuck oh fuck.","...I. Really?","What the hell? Why did you snap NOW? Why ME?","Oh god. Tell me you're joking."],q),H.a(["Oh, fuck. I always knew you were an asshole, but THIS!? ","Oh fuck, I didn't mean any of those things I said. I swear it!","....You. You're kidding. Right? Even you aren't this big of an asshole...","Oh god.","Oh fuck. oh fuck oh fuck.","Why ME?","What the hell? Why did you snap NOW? Why ME?","Oh god. Tell me you're joking."],q),null))
 t.push(new A.I(H.a(["...",":)"],q),H.a(["Oh god.","Oh fuck. oh fuck oh fuck.","Why ME?","Why did you snap NOW?","It's a joke, right?"],q),H.a(["Oh, fuck. ","You have to listen to me, I didn't mean any of those things I said!","...","Fuck."],q),null))
@@ -33162,7 +33164,7 @@ n=H.a([N.cb(r,s,b,a)],q)
 m=H.a([N.cb(r,s,b,a)],q)
 l=this.e
 k=new A.I(l,H.a(["Hey. Uh. I'm sure you mean that and all. But. Aren't you. Like. WAY weaker than me?","Hey, it's okay, let it all out.","I'm sorry you feel that way. "],q),H.a(["Lol, you and what army?","Aww, how cute. It's like you think you can take me.","Doubtful."],q),null)
-if(b.fC($.dt))k=new A.I(l,H.a(["Man. On the one hand I actually like you. But on the other... no way am I going to let you kill me. Guess you're going to die!","Man, I always wanted to kill someone in self defense. Too bad it's you."],q),H.a(["Man, I always wanted to kill someone in self defense. You're PERFECT.","Is it my birthday!? Already!?","A present! For me?","Best. Day. Ever. I can't wait to cut you up in 'self defense'."],q),null)
+if(b.fD($.dt))k=new A.I(l,H.a(["Man. On the one hand I actually like you. But on the other... no way am I going to let you kill me. Guess you're going to die!","Man, I always wanted to kill someone in self defense. Too bad it's you."],q),H.a(["Man, I always wanted to kill someone in self defense. You're PERFECT.","Is it my birthday!? Already!?","A present! For me?","Best. Day. Ever. I can't wait to cut you up in 'self defense'."],q),null)
 else if(b.gC().gck())k=new A.I(l,H.a(["I really don't recomend that if you want to live.","You're only going to get yourself killed. "],q),H.a(["Your funeral."],q),null)
 else if(b.gC().gcl())k=new A.I(l,H.a(["But...why? I LIKE you! I've been nice to you! Why ME?","I. Where is this even coming from? I LIKE you. Why do this?"],q),H.a(["Look, I get it. I've been a flaming asshole to you. But am I really the best target here? Think about it.","Lol, you really think I'm the worst person in this session? How dumb can you get."],q),null)
 else if(b.gC().gcE())k=new A.I(l,H.a(["Okay. Well. Better you target me than someone else.","I don't want to hurt you, but I'm not going to let you hurt anyone else."],q),H.a(["Come at me, bro.","If I have to put you down like a mad dog to save everyone, I will."],q),null)
@@ -33180,17 +33182,17 @@ return A.fi(t)}}},
 yE:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 t=R.b9(this.b.gF())
 s=this.d
-r=s.fi(t)
+r=s.fj(t)
 q=r!=null
 if(q&&!r.ga7()){p=r.I(s)
 o=J.n(p)
-if(J.af(o.ga2(p),-2)&&J.P(o.ga2(p),-12)||$.h7.ds(s)){q=this.b.gap()
+if(J.af(o.ga3(p),-2)&&J.P(o.ga3(p),-12)||$.h7.ds(s)){q=this.b.gap()
 q.toString
 F.ao(C.h).$1(q.aG(C.h,"Engage Murder:   murder rap battles "))
 this.b.gA().stu(!0)
 C.f.N(a,"The "+s.w()+" is contemplating murder. Can their rage be soothed by a good old-fashioned rap battle?<Br>",C.d)
-n=s.a5()+": "
-m=r.cD(s.a5())+": "
+n=s.a6()+": "
+m=r.cD(s.a6())+": "
 q=$.aC
 l=W.N($.ay,q)
 a.appendChild(l)
@@ -33201,7 +33203,7 @@ i=j[1]
 k=C.c.k(k,V.l3(r,"",0)[0])
 h=j[1]
 T.f4(l,s,r,k,"discuss_raps.png")
-if(J.P(J.aa(i,h),6)){C.f.eW(a,"beforeend","<img class = 'sickFiresCentered' src = 'images/sick_fires.gif'><br> It seems that the "+s.w()+" has been calmed down, for now.",C.d,null)
+if(J.P(J.aa(i,h),6)){C.f.eX(a,"beforeend","<img class = 'sickFiresCentered' src = 'images/sick_fires.gif'><br> It seems that the "+s.w()+" has been calmed down, for now.",C.d,null)
 if(s.gbM())s.dB()
 if(r.gbM())r.dB()
 s.aH()
@@ -33213,25 +33215,25 @@ T.f4(g,s,r,Y.k(n,s,"Fuck. That was LAME! It makes me so FUCKING ANGRY!")+Y.k(m,r
 q=$.aC
 l=W.N($.ay,q)
 a.appendChild(l)
-n=s.a5()+": "
-m=r.cD(s.a5())+": "
+n=s.a6()+": "
+m=r.cD(s.a6())+": "
 T.f4(l,s,r,this.uf(s,r).lS(s,r,n,m,J.P(J.bt(r.I(s)),0)),"discuss_murder.png")},
 aY:function(a){var t,s,r,q
 t=R.hH(this.b.gF())
 s=this.b
 r=t.R($.l)
 q=s.dG(new Z.xk(7,s,this.d,r,1,null,0,null))
-if(q!=null&&q.ea(a))return
+if(q!=null&&q.eb(a))return
 this.d.gm().f=this.b.gn().ac(6)+0
-C.f.eW(a,"beforeend","<br>"+this.ad(0),C.d,null)
+C.f.eX(a,"beforeend","<br>"+this.ad(0),C.d,null)
 this.yE(a)},
 ad:function(a){var t,s
 this.d.aH()
 this.b.ai(this.d)
-t="The "+this.d.w()+" has taken an acrobatic fucking pirouette off the handle and into a giant pile of crazy.  "+(" They engage Murder Mode while thinking of their enemies "+R.Du(this.d.iF())+". ")+" This is completely terrifying. "
+t="The "+this.d.w()+" has taken an acrobatic fucking pirouette off the handle and into a giant pile of crazy.  "+(" They engage Murder Mode while thinking of their enemies "+R.Du(this.d.iG())+". ")+" This is completely terrifying. "
 s=this.d.rN()
 if(s!=null)t+=" I guess their Moirail, the "+s.w()+" is not on the ball. "
-this.d.it()
+this.d.iu()
 return t},
 gbb:function(){return this.d},
 sbb:function(a){return this.d=a}}
@@ -33267,12 +33269,12 @@ t=this.b.gJ().c
 s=$.X
 t=t.a$.X(s)
 if(t>0&&this.b.gJ().c.ry!=null){r=" The plan has been performed flawlessly.  The Black Queen has been exiled to the post-Apocalyptic version of Earth, never to be heard from again. "+(" Her RING OF ORBS "+this.b.dX()+"FOLD is destroyed before her exile in a daring mission. ")
-this.b.ii()}else{if(this.b.gJ().c.ry!=null){t=this.b.gJ().c
+this.b.ij()}else{if(this.b.gJ().c.ry!=null){t=this.b.gJ().c
 s=$.X
 t=t.a$.X(s)
 t=t<=0}else t=!1
 if(t){r="There were some hitches in the plan, and the Black Queen is now a corpse rather than an exile. "+(" Her RING OF ORBS "+this.b.dX()+"FOLD is recovered and destroyed in a daring mission. ")
-this.b.ii()}else{t=this.b.gJ().c
+this.b.ij()}else{t=this.b.gJ().c
 s=$.X
 t=t.a$.X(s)
 s=this.b
@@ -33289,7 +33291,7 @@ uu:function(a,b,c){this.wD(new X.jU(a,b,c))},
 wD:function(a){var t=this.f
 if(t.length===0){this.e.push(a)
 if(!this.d&&!$.Md){this.d=!0
-W.F5(this.a+this.c,null,null).fH(this.gxE())
+W.F5(this.a+this.c,null,null).fI(this.gxE())
 return}}else a.$1(t)},
 uC:function(a){var t,s,r,q
 for(t=this.e,s=t.length,r=this.f,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q)t[q].$1(r)
@@ -33302,7 +33304,7 @@ s=t.gah(t).lk("section").d2(0)
 t=L.MP(a).lk("faq")
 r=t.gah(t).lk("ascii")
 this.b=!r.gb_(r)?J.ra(r.gah(r)):""
-for(t=J.bj(s),q=this.f;t.M();)q.push(M.P2(t.ga_(),this.b))}}
+for(t=J.bj(s),q=this.f;t.M();)q.push(M.P2(t.ga0(),this.b))}}
 X.jU.prototype={
 $1:function(a){var t,s
 t=this.c
@@ -33316,14 +33318,14 @@ s=J.l8(t.gdH(a),new M.tR())
 this.a=J.ra(s.gah(s))
 t=J.l8(t.gdH(a),new M.tS())
 this.b=J.ra(t.gah(t))},
-gfz:function(){return this.a},
+gfA:function(){return this.a},
 gnb:function(a){return this.b},
 gqn:function(){return this.c}}
 M.tR.prototype={
-$1:function(a){return a instanceof U.jw&&J.c(a.b.gis(),"header")},
+$1:function(a){return a instanceof U.jw&&J.c(a.b.git(),"header")},
 $S:function(){return{func:1,args:[V.hB]}}}
 M.tS.prototype={
-$1:function(a){return a instanceof U.jw&&J.c(a.b.gis(),"body")},
+$1:function(a){return a instanceof U.jw&&J.c(a.b.git(),"body")},
 $S:function(){return{func:1,args:[V.hB]}}}
 U.ua.prototype={
 aF:function(){var t,s,r,q
@@ -33414,12 +33416,12 @@ gaK:function(){return this.dx},
 gdw:function(){return this.dy},
 sA:function(a){return this.cx=a}}
 L.ub.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx}}
 N.az.prototype={
 G:function(a){return H.h(new H.eu(H.fx(this),null))+": "+H.h(this.b)},
-giz:function(){return this.a},
+giA:function(){return this.a},
 giP:function(){return this.b}}
 A.uf.prototype={
 $5:function(a,b,c,d,e){var t,s
@@ -33427,12 +33429,12 @@ for(t=this.a,s=0;s<2;++s)t[s].$5(a,b,c,d,e)},
 $S:function(){return{func:1,args:[D.hk,[Q.d7,N.az],E.cr,L.fU,A.ca]}}}
 A.ud.prototype={
 $5:function(a,b,c,d,e){var t,s
-if(!b.gaw(b).M()){t=a.f$
+if(!b.gav(b).M()){t=a.f$
 s=this.a
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(this.b)),[H.L(t,0)]))}},
 $S:function(){return{func:1,args:[D.hk,[Q.d7,N.az],E.cr,L.fU,A.ca]}}}
 A.ue.prototype={
-$5:function(a,b,c,d,e){if(J.he(b)===!0)a.gk8().f1(0,e.v(this.a),this.b)},
+$5:function(a,b,c,d,e){if(J.he(b)===!0)a.gk8().f2(0,e.v(this.a),this.b)},
 "call*":"$5",
 $R:5,
 $S:function(){return{func:1,args:[D.hk,[Q.d7,N.az],E.cr,L.fU,A.ca]}}}
@@ -33441,12 +33443,12 @@ of:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h
 for(t=this.e$.b,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r]
 p=J.n(q)
 o=p.gby(q)
-for(n=o.gk8(),n=n.gcL(n),n=n.gaw(n);n.M();){m=n.ga_()
-l=J.ct(o.gk8().p(0,m),p.gfK(q))
+for(n=o.gk8(),n=n.gcL(n),n=n.gav(n);n.M();){m=n.ga0()
+l=J.ct(o.gk8().p(0,m),p.gfL(q))
 k=this.f$
 C.a.h(k.b,new Q.m(m,k.q(m,J.iM(l)),[H.L(k,0)]))}}this.f$.qV()
 this.gk7()
-for(t=this.gk7().a,t=t.gcL(t),t=t.gaw(t),s=this.r$,p=this.b$;t.M();){j=t.ga_()
+for(t=this.gk7().a,t=t.gcL(t),t=t.gav(t),s=this.r$,p=this.b$;t.M();){j=t.ga0()
 i=this.gk7().a.p(0,j)
 n=this.f$
 h=Q.Al(n,J.Nx(i),H.L(n,0))
@@ -33456,19 +33458,19 @@ this.zp()},
 D8:function(a,b){var t,s,r,q
 t=P.a5(null,null,null,N.az)
 s=b.v(a)
-for(r=J.bj(a);r.M();){q=r.ga_()
+for(r=J.bj(a);r.M();){q=r.ga0()
 if(!J.c(q,s))t.h(0,q)}this.f$.Dd(0,t.gnj(t))},
 zp:function(){var t,s
 t=P.a5(null,null,null,N.az)
-for(s=this.r$,s=s.gd3(s),s=s.gaw(s);s.M();)t.V(0,s.ga_())
+for(s=this.r$,s=s.gd3(s),s=s.gav(s);s.M();)t.V(0,s.ga0())
 this.f$.Dt(0,t.gnj(t))},
 dQ:function(a){return Q.Vp(this.r$.p(0,a.a).b,null,N.az)},
 ga9:function(a){return this.c$},
-geY:function(){return this.e$},
+geZ:function(){return this.e$},
 gk8:function(){return this.f$},
 sa9:function(a,b){return this.c$=b}}
 D.nQ.prototype={
-er:function(a){this.a.i(0,a.a,a)}}
+es:function(a){this.a.i(0,a.a,a)}}
 D.lH.prototype={
 xD:function(a,b,c,d,e){return this.c.$5(a,b,c,d,e)},
 gW:function(a){return this.a},
@@ -33493,10 +33495,10 @@ return t},
 jD:function(){var t,s,r
 t=R.b9(this.b.gF())
 s=this.b.gF()
-for(r=0;r<s.length;++r)C.a.V(t,s[r].geS())
+for(r=0;r<s.length;++r)C.a.V(t,s[r].geT())
 return t},
 aY:function(a){var t,s,r,q,p,o,n,m,l,k
-this.b.gJ().b.a$.i9(R.hH(this.b.gF()).gA())
+this.b.gJ().b.a$.ia(R.hH(this.b.gF()).gA())
 t=this.b.gJ().b
 s=$.X
 r=this.b.gJ().b
@@ -33530,7 +33532,7 @@ l.dO()
 l.r=!1
 k=new V.ia([m,l],0,this.b,!1,null,null,99999999)
 k.r=10
-k.hB(a)},
+k.hC(a)},
 ad:function(a){var t=R.Dr(R.mP(this.c,this.b.gdR()))
 return t!=null?" It is time for the final opponent, the Black King. "+(" He is made especially terrifying with the addition of the "+t+". "):" It is time for the final opponent, the Black King. "}}
 K.nT.prototype={
@@ -33543,13 +33545,13 @@ return t>0&&!this.b.gJ().c.db&&R.b9(this.b.gF()).length!==0},
 jD:function(){var t,s,r
 t=R.b9(this.b.gF())
 s=this.b.gF()
-for(r=0;r<s.length;++r)C.a.V(t,s[r].geS())
+for(r=0;r<s.length;++r)C.a.V(t,s[r].geT())
 return t},
 aY:function(a){var t,s,r,q,p,o,n,m,l,k
 t=this.b.gJ().c
 s=$.l
 t=t.a$.X(s)
-if(t<0)this.b.gJ().c.a$.i9(R.hH(this.b.gF()).gA())
+if(t<0)this.b.gJ().c.a$.ia(R.hH(this.b.gF()).gA())
 t=this.b.gJ().c
 s=$.X
 r=this.b.gJ().c
@@ -33583,7 +33585,7 @@ l.dO()
 l.r=!1
 k=new V.ia([m,l],0,this.b,!1,null,null,99999999)
 k.r=10
-k.hB(a)},
+k.hC(a)},
 ml:function(a){var t
 for(t=0;t<a.length;++t)this.b.ai(a[t])},
 ad:function(a){var t,s,r
@@ -33599,21 +33601,21 @@ var $async$lD=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:p=q
 t=3
 return P.fw(q.dg(0,a),$async$lD)
-case 3:r=p.ib(c)
+case 3:r=p.ic(c)
 t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$lD,s)},
-hW:function(a){var t=0,s=P.cI(),r,q=this,p
-var $async$hW=P.cR(function(b,c){if(b===1)return P.cO(c,s)
+hX:function(a){var t=0,s=P.cI(),r,q=this,p
+var $async$hX=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:p=q
 t=3
-return P.fw(q.jw(a),$async$hW)
+return P.fw(q.jw(a),$async$hX)
 case 3:r=p.cm(0,c)
 t=1
 break
 case 1:return P.cP(r,s)}})
-return P.cQ($async$hW,s)}}
+return P.cQ($async$hX,s)}}
 O.ii.prototype={
 jd:function(a){var t=0,s=P.cI(),r
 var $async$jd=P.cR(function(b,c){if(b===1)return P.cO(c,s)
@@ -33622,18 +33624,18 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$jd,s)},
-ib:function(a){var t=0,s=P.cI(),r,q=this
-var $async$ib=P.cR(function(b,c){if(b===1)return P.cO(c,s)
+ic:function(a){var t=0,s=P.cI(),r,q=this
+var $async$ic=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:r=(self.URL||self.webkitURL).createObjectURL(W.Oa([J.hK(a)],q.jk(0),null))
 t=1
 break
 case 1:return P.cP(r,s)}})
-return P.cQ($async$ib,s)},
+return P.cQ($async$ic,s)},
 jw:function(a){var t=0,s=P.cI(),r,q=this,p,o
 var $async$jw=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:p=P.cZ
 o=new P.cH(0,$.bf,null,[p])
-W.Ji(a,null,q.jk(0),null,null,"arraybuffer",null,null).fH(new O.rG(new P.id(o,[p])))
+W.Ji(a,null,q.jk(0),null,null,"arraybuffer",null,null).fI(new O.rG(new P.id(o,[p])))
 r=o
 t=1
 break
@@ -33641,7 +33643,7 @@ case 1:return P.cP(r,s)}})
 return P.cQ($async$jw,s)},
 $asfo:function(a){return[a,P.cZ]}}
 O.rG.prototype={
-$1:function(a){this.a.ft(0,H.dj(J.NC(a),"$iscZ"))},
+$1:function(a){this.a.fu(0,H.dj(J.NC(a),"$iscZ"))},
 "call*":"$1",
 $R:1,
 $S:function(){return{func:1,args:[W.is]}}}
@@ -33657,21 +33659,21 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$jd,s)},
-ib:function(a){var t=0,s=P.cI(),r,q,p,o,n
-var $async$ib=P.cR(function(b,c){if(b===1)return P.cO(c,s)
+ic:function(a){var t=0,s=P.cI(),r,q,p,o,n
+var $async$ic=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:q=new P.cN("")
 p=[-1]
 o=C.n
 P.L2(null,"utf-8",null,q,p)
-p.push(q.a3.length)
-n=q.a3+=";base64,"
+p.push(q.a4.length)
+n=q.a4+=";base64,"
 p.push(n.length-1)
-n=q.a3+=H.h(new P.By(o,C.X,[H.as(o,"ij",0),H.as(o,"ij",1),null]).geu().ed(a))
+n=q.a4+=H.h(new P.By(o,C.X,[H.as(o,"ij",0),H.as(o,"ij",1),null]).gev().ee(a))
 r=J.bS(new P.mt(n.charCodeAt(0)==0?n:n,p,null).glZ())
 t=1
 break
 case 1:return P.cP(r,s)}})
-return P.cQ($async$ib,s)},
+return P.cQ($async$ic,s)},
 jw:function(a){var t=0,s=P.cI(),r
 var $async$jw=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:r=W.F5(a,null,null)
@@ -33681,7 +33683,7 @@ case 1:return P.cP(r,s)}})
 return P.cQ($async$jw,s)},
 $asfo:function(a){return[a,P.q]}}
 O.uF.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
@@ -33689,8 +33691,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gA:function(){return this.a1},
-sA:function(a){return this.a1=a}}
+gA:function(){return this.a2},
+sA:function(a){return this.a2=a}}
 V.nY.prototype={
 jk:function(a){return"font/opentype"},
 cm:function(a,b){var t=0,s=P.cI(),r
@@ -33709,7 +33711,7 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$dg,s)},
-ey:function(){return""},
+ez:function(){return""},
 $asii:function(){return[R.lI]},
 $asfo:function(){return[R.lI,P.cZ]}}
 Z.nG.prototype={}
@@ -33727,7 +33729,7 @@ for(r=0;r<s.length;++r){q=s[r]
 p=this.z2(q)
 if(p!=null){this.f=q
 this.d=p
-return!0}if(q.gB()!=null)t=q.gB()!=null&&q.fw()||q.qz()!=null
+return!0}if(q.gB()!=null)t=q.gB()!=null&&q.fz()||q.qz()!=null
 else t=!0
 if(t&&J.P(q.R($.aA),200)){o=this.z6(q)
 if(o==null)o=this.z3(q)
@@ -33740,7 +33742,7 @@ if(o==null)o=this.z5(q)
 if(o!=null){this.f=q
 this.d=o
 return!0}}}t=this.f
-if(t!=null&&!t.i8()){this.f=null
+if(t!=null&&!t.i9()){this.f=null
 this.d=null}return this.d!=null},
 aY:function(a){var t,s,r,q,p,o,n,m,l,k
 t=this.f.qz()
@@ -33757,7 +33759,7 @@ s=this.y
 if(s!=null){q=a.id
 H.h(J.bs(s))
 if(q==null)return q.k()
-p=this.b.gex().hg(this.b.gn(),[this.y],3)
+p=this.b.gey().hh(this.b.gn(),[this.y],3)
 C.a.h(this.y.gaC(),p)
 C.f.N(a,C.c.k(" They learn ",J.ag(p))+". ",C.d)
 q=$.aC
@@ -33784,14 +33786,14 @@ k=W.N(q.gK(s),n)
 T.bl(k,this.x,null,!1)
 J.Z(C.j.T(o,"2d"),k,200,0)}}}},
 z4:function(a){var t,s,r,q
-if(a.gbM()){t=a.iG(R.b9(this.b.gF()))
+if(a.gbM()){t=a.iH(R.b9(this.b.gF()))
 s=R.bE(t,$.aI)
-r=this.b.hu(t)
+r=this.b.hv(t)
 if(this.b.gA().gcj()!==!0&&r!=null&&a.gbZ()>=2&&J.af(a.gaI(),2)){q="With a conscious act of will, the "+a.w()+" settles their shit. If this keeps up, they are going to end up killing the "+r.w()+" and then they will NEVER do ectobiology.  No matter HOW much of an asshole they are, it's not worth dooming the timeline. "
 a.dB()
 a.bO($.H,10)
 this.b.ai(a)
-return q}if(s!=null&&s.gc3()<this.b.geJ()&&a.gbZ()>=2&&J.af(a.gaI(),2)){q="With a conscious act of will, the "+a.w()+" settles their shit. If this keeps up, they are going to end up killing the "+s.w()+" and then they will NEVER have frog breeding done. They can always kill them AFTER they've escaped to the new Universe, right? "
+return q}if(s!=null&&s.gc3()<this.b.geK()&&a.gbZ()>=2&&J.af(a.gaI(),2)){q="With a conscious act of will, the "+a.w()+" settles their shit. If this keeps up, they are going to end up killing the "+s.w()+" and then they will NEVER have frog breeding done. They can always kill them AFTER they've escaped to the new Universe, right? "
 a.dB()
 a.bO($.H,10)
 this.b.ai(a)
@@ -33802,25 +33804,25 @@ this.b.ai(a)
 return q}}return},
 nP:function(a,b){var t,s
 t=R.bE(a,$.aI)
-s=this.b.hu(a)
-if(t!=null&&t.gc3()<this.b.geJ()&&b.gbZ()>=2&&J.af(b.gaI(),2))return!1
+s=this.b.hv(a)
+if(t!=null&&t.gc3()<this.b.geK()&&b.gbZ()>=2&&J.af(b.gaI(),2))return!1
 if(this.b.gA().gcj()!==!0&&s!=null&&b.gbZ()>=2&&J.af(b.gaI(),2))return!1
 return!0},
-z5:function(a){var t=a.iG(R.b9(this.b.gF()))
+z5:function(a){var t=a.iH(R.b9(this.b.gF()))
 if(a.c2()===!0&&t.length>2&&J.af(a.R($.H),0)&&!a.gbM()&&this.b.gn().a.E()>0.98)return this.yl(a)
 else if(t.length>0&&J.af(a.R($.H),0)&&this.b.gn().a.E()>0.98)return this.AT(a)
 return},
-yl:function(a){if(!a.gbM())if(this.nP(a.iG(R.b9(this.b.gF())),a)){a.it()
+yl:function(a){if(!a.gbM())if(this.nP(a.iH(R.b9(this.b.gF())),a)){a.iu()
 a.bO($.H,-10)
 this.b.ai(a)
 this.r=a
 return C.c.k("The ",a.U())+" has thought things through. They are not crazy. To the contrary, they feel so sane it burns like ice. It's SBURB that's crazy.  Surely anyone can see this? The only logical thing left to do is kill everyone to save them from their terrible fates. And if they happen to start with the assholes...well, baby steps. It's not every day they extinguish an entire species. "}return},
 rX:function(a,b){var t,s,r
-t=b.iG(R.b9(this.b.gF()))
+t=b.iH(R.b9(this.b.gF()))
 for(s=0,r=0;r<a.length;++r)if(C.a.b1(t,a[r])!==-1)++s
 return s},
 Bo:function(a,b){var t,s,r
-t=b.iG(R.b9(this.b.gF()))
+t=b.iH(R.b9(this.b.gF()))
 for(s=0,r=0;r<a.length;++r)if(C.a.b1(t,a[r])!==-1)++s
 return s},
 rw:function(a){var t,s,r,q,p,o
@@ -33835,14 +33837,14 @@ for(t=null,s=0,r=0;r<a.gb9().length;++r){q=a.gb9()
 if(r>=q.length)return H.b(q,r)
 p=q[r]
 q=J.n(p)
-o=J.mY(q.ga2(p))
+o=J.mY(q.ga3(p))
 if(t!=null)q=J.af(o,s)&&!q.gak(p).ga7()&&q.gak(p).gbf()!==!0
 else q=!0
 if(q){s=o
 t=p}}return J.bc(J.c(J.bc(t),a)&&!J.c(a.gt(),$.ap)?null:t)},
 Az:function(a,b){var t,s,r,q,p,o,n
 t=R.b9(this.b.gF())
-s=a.iI(t)
+s=a.iJ(t)
 for(r=null,q=0;q<t.length;++q){p=t[q]
 if(!J.c(p,a)||J.c(a.gt(),$.ap))if(r==null)r=[p,this.rX(b,p)]
 else if(!p.gbM()){o=this.rX(b,p)-this.Bo(s,p)
@@ -33855,7 +33857,7 @@ return!1},
 yv:function(a){if(J.c(a.gt(),$.cd)||J.c(a.gt(),$.cq)||J.c(a.gt(),$.cy)||J.c(a.gt(),$.bW))if(J.c(a.gC(),$.eI)||J.c(a.gC(),$.cM))return!0
 if(J.c(a.gt(),$.bo))if(J.c(a.gC(),$.fu)||J.c(a.gC(),$.eq)||J.c(a.gC(),$.eI)||J.c(a.gC(),$.cM))return!0
 return!1},
-iJ:function(a){var t=J.c(a.gt(),$.cy)?"identity":""
+iK:function(a){var t=J.c(a.gt(),$.cy)?"identity":""
 if(J.c(a.gt(),$.bY))t="relationships"
 if(J.c(a.gt(),$.bW))t="mind"
 if(J.c(a.gt(),$.cz))t="sanity"
@@ -33873,11 +33875,11 @@ if(J.c(a.gt(),$.bY))return"blood_forehead.png"
 if(J.c(a.gt(),$.cy))return"heart_forehead.png"
 return},
 AT:function(a){var t,s,r,q,p,o,n,m
-t=a.iG(R.b9(this.b.gF()))
+t=a.iH(R.b9(this.b.gF()))
 s=this.Az(a,t)
 if(s==null){r=null
 q=0}else{r=s[0]
-q=s[1]}if(this.nP(t,a)&&r!=null)if(J.P(q,t.length/2)&&J.af(r.R($.H),1)){r.it()
+q=s[1]}if(this.nP(t,a)&&r!=null)if(J.P(q,t.length/2)&&J.af(r.R($.H),1)){r.iu()
 r.bO($.H,-10)
 this.b.ai(a)
 this.b.ai(r)
@@ -33887,13 +33889,13 @@ if(J.c(a,r)){p="You get dizzy trying to follow the time logic that must have cau
 o=""}else{o=J.c(a.gt(),$.ap)&&this.b.gn().a.E()>0.25?" from the future":""
 p=""}return C.c.k(C.c.k("The ",a.U())+o+" has thought things through. They are not crazy. To the contrary, they feel so sane it burns like ice. It's SBURB that's crazy.  Surely anyone can see this? The only logical thing left to do is kill everyone to save them from their terrible fates. They use clever words to convince the ",r.U())+" of the righteousness of their plan. They agree to carry out the bloody work. "+p}else{r=this.b.gn().v(t)
 if(r==null)return
-if(this.nc(a)&&J.af(r.R($.aA),a.R($.aA))&&!J.c(r.gfB(),a)){r.it()
+if(this.nc(a)&&J.af(r.R($.aA),a.R($.aA))&&!J.c(r.gfC(),a)){r.iu()
 r.bO($.H,-10)
-r.ew(" about how they are being forced into MurderMode")
-r.shd(this.m7(a))
-r.sfB(a)
+r.ex(" about how they are being forced into MurderMode")
+r.she(this.m7(a))
+r.sfC(a)
 n=this.xM(r,t,a)
-m=this.iJ(a)
+m=this.iK(a)
 this.b.ai(a)
 this.b.ai(r)
 this.r=a
@@ -33904,9 +33906,9 @@ t=a.I(c)
 s=J.P(a.R($.aA),0)?-3:0
 if(J.P(a.R($.aA),50))s=-9
 r=J.n(t)
-r.sa2(t,J.aa(r.ga2(t),s))
+r.sa3(t,J.aa(r.ga3(t),s))
 q=s<-3?"The "+a.w()+" seems to be upset about this, underneath the control.":""
-if(a.geM()==null)a.seM(R.FQ(a))
+if(a.geN()==null)a.seN(R.FQ(a))
 for(p=0;p<b.length;++p)if(!J.c(b[p],a)){if(p>=b.length)return H.b(b,p)
 o=c.I(b[p])
 if(p>=b.length)return H.b(b,p)
@@ -33923,9 +33925,9 @@ if(t)return this.yk(a)
 else if(J.P(a.R($.H),0)||a.gbM())return this.AS(a)
 return},
 AS:function(a){var t,s,r,q,p,o,n
-this.b.gap().ic(" Debugging gnosis: trying to force someone else to be a god. in session: "+H.h(this.b.gdR()))
+this.b.gap().ie(" Debugging gnosis: trying to force someone else to be a god. in session: "+H.h(this.b.gdR()))
 t=this.AL(a)
-if(t!=null&&!t.ga7()&&t.gbf()!==!0){this.b.gap().ic("Debugging gnosis: sacrifice might work "+H.h(this.b.gdR()))
+if(t!=null&&!t.ga7()&&t.gbf()!==!0){this.b.gap().ie("Debugging gnosis: sacrifice might work "+H.h(this.b.gdR()))
 if(J.c(a,t)){s="You get dizzy trying to follow the time logic that must have caused this to happen. Did they try to god tier because their future self told them to? But the future self only told them to because THEIR future self told them... Or wait, is this a doomed time clone...? Fuck. Time is the shittiest aspect."
 r=""}else{r=J.c(a.gt(),$.ap)&&this.b.gn().a.E()>0.25?" from the future":""
 s=""}q=C.c.k("The ",a.U())+r+" knows how the god tiering mechanic works"
@@ -33935,25 +33937,25 @@ p=t.gbL()?"slab":"bed"
 if(J.eA(t.R($.aA),a.R($.aA))&&J.af(a.R($.l),200))if(t.gaS()===!0){o=this.jF(t)
 this.b.ai(a)
 this.b.ai(t)
-return C.c.k(q+". They conjole and wheedle and bug and fuss and meddle until the ",t.U())+" agrees to go along with the plan and be killed on their "+p+". "+o+" It is not a very big deal at all. "+s}else if(t.fG()+a.fG()>200){o=this.jF(t)
+return C.c.k(q+". They conjole and wheedle and bug and fuss and meddle until the ",t.U())+" agrees to go along with the plan and be killed on their "+p+". "+o+" It is not a very big deal at all. "+s}else if(t.fH()+a.fH()>200){o=this.jF(t)
 return C.c.k(C.c.k(q+". They conjole and wheedle and bug and fuss and meddle until the ",t.U())+" agrees to go along with the plan and be killed on their "+p+". "+o+" It is a stupidly huge deal, since the ",t.U())+" was never destined to God Tier at all. But I guess the luck of both players was enough to make things work out, in the end."+s}else{this.b.ai(a)
 this.b.ai(t)
 a.af($.H,-1000)
-a.ew(C.c.k(" how stupid they could have been to force the ",t.U())+" to commit suicide")
+a.ex(C.c.k(" how stupid they could have been to force the ",t.U())+" to commit suicide")
 this.r=a
 this.x=t
 o=C.c.k(q+". They conjole and wheedle and bug and fuss and meddle until the ",t.U())+" agrees to go along with the plan and be killed on their "+p
 return(t.gaS()!==!0?C.c.k(o,t.cd("trying to go God Tier against destiny."))+(C.c.k(C.c.k(". A frankly ridiculous series of events causes the ",t.U())+"'s dying body to fall off their "+p+". They were never destined to GodTier, and SBURB neurotically enforces such things. The ",a.U())+r+" tries desparately to get them to their "+p+" in time, but in vain. They are massively triggered by their own astonishing amount of hubris. "):o)+s}else if(J.P(a.R($.l),200)&&this.yv(a)){o=this.jF(t)
 this.b.ai(a)
 this.b.ai(t)
-n=this.iJ(a)
+n=this.iK(a)
 return C.c.k(C.c.k("The ",a.U())+r+" knows how the god tiering mechanic works. They don't leave anything to chance and use their game powers to influence the  ",t.U())+"'s "+n+" until they are killed on their "+p+". "+o}}return},
 yk:function(a){var t,s,r
 if(a.gbf()!==!0){t=C.c.k("The ",a.U())+" knows how the god tiering mechanic works"
 if(a.gbM())t+=" and they are too far gone to care about the consequences of failure"
 if(a.gaS()===!0){this.b.ai(a)
 s=this.jF(a)
-return t+". They steel their will and prepare to commit a trivial act of self suicide. "+s+" It is not a very big deal at all. "}else if(a.fG()>100){this.b.ai(a)
+return t+". They steel their will and prepare to commit a trivial act of self suicide. "+s+" It is not a very big deal at all. "}else if(a.fH()>100){this.b.ai(a)
 s=this.jF(a)
 return t+". They steel their will and prepare to commit a trivial act of self suicide. "+s+" It is probably for the best that they don't know how huge a deal this is. If they hadn't caught a LUCKY BREAK, they would have died here forever. They were never destined to go God Tier, even if they commited suicide.  "}else{a.sa7(!0)
 r=a.gbL()?"slab":"bed"
@@ -33971,18 +33973,18 @@ this.y=a
 return t},
 z3:function(a){var t,s,r,q
 t=this.rw(a)
-if(t!=null&&!t.ga7()&&this.nc(a)&&J.P(a.R($.l),25)&&a.iH().length>a.iF().length){this.b.ai(a)
+if(t!=null&&!t.ga7()&&this.nc(a)&&J.P(a.R($.l),25)&&a.iI().length>a.iG().length){this.b.ai(a)
 this.b.ai(t)
-if(t.geM()==null)t.seM(R.FQ(t))
+if(t.geN()==null)t.seN(R.FQ(t))
 t.o6()
 t.dB()
 t.bO($.H,100)
-t.shd(this.m7(a))
-t.sfB(a)
+t.she(this.m7(a))
+t.sfC(a)
 s=t.I(a)
 r=J.n(s)
-r.sa2(s,J.aa(r.ga2(s),J.cc(a.R($.aA),J.ct(t.R($.aA),2))))
-q=this.iJ(a)
+r.sa3(s,J.aa(r.ga3(s),J.cc(a.R($.aA),J.ct(t.R($.aA),2))))
+q=this.iK(a)
 this.r=a
 this.x=t
 return"The "+a.w()+" has had enough of the "+t.w()+"'s murderous ways.  They manipulate their "+q+" until they are basically little more than an empty shell. They are such an asshole before they are finally controlled. Oh, wow. No. They are never going to be allowed to be free again. Never, never, never again. Never. Wow.  "}return},
@@ -33993,46 +33995,46 @@ if(s&&a.c2()!==!0&&!t.ga7()&&this.nP([t],a)&&J.P(a.R($.l),25)&&this.nc(a))return
 else if(s&&!t.ga7()&&C.c.b1(a.gdk(),J.ag(t.gC()))===-1)return this.BL(a,t)
 return},
 BL:function(a,b){var t
-if(J.P(a.R($.l),b.R($.l)))if(J.P(J.ct(a.R($.l),a.hv("Attacker")),J.ct(b.R($.l),b.hv("Defender")))){a.sfI(b.gav())
+if(J.P(a.R($.l),b.R($.l)))if(J.P(J.ct(a.R($.l),a.hw("Attacker")),J.ct(b.R($.l),b.hw("Defender")))){a.sfJ(b.gau())
 this.b.ai(a)
 this.b.ai(b)
 this.r=a
 this.x=b
-t=b.cd("being put down like a rabid dog by the "+a.hY())
-a.seB(a.geB()+1)
+t=b.cd("being put down like a rabid dog by the "+a.e8())
+a.seC(a.geC()+1)
 this.b.gA().skm(!0)
 if(t==null)return t.k()
-return C.c.k(C.c.k(C.c.k(t+"The ",a.U())+" cannot let this continue any further. The ",b.U())+" is a threat to everyone. They corner them, and have a brief, bloody duel that ends in the death of the ",b.U())+". "+R.Dt(b,a,"Defender","Attacker")+" Everyone is a little bit safer."}else{b.sfI(a.gav())
+return C.c.k(C.c.k(C.c.k(t+"The ",a.U())+" cannot let this continue any further. The ",b.U())+" is a threat to everyone. They corner them, and have a brief, bloody duel that ends in the death of the ",b.U())+". "+R.Dt(b,a,"Defender","Attacker")+" Everyone is a little bit safer."}else{b.sfJ(a.gau())
 this.b.ai(b)
 this.b.ai(a)
-t=a.cd("fighting against the crazy "+b.hY())
-b.seB(b.geB()+1)
+t=a.cd("fighting against the crazy "+b.e8())
+b.seC(b.geC()+1)
 this.b.gA().skm(!0)
 this.r=a
 this.x=b
 if(t==null)return t.k()
 return C.c.k(C.c.k(C.c.k(t+"The ",a.U())+" cannot let this continue any further. The ",b.U())+" is a threat to everyone. They corner them, and have a brief, bloody duel that ends in the death of the ",a.U())+".  "+R.Dt(a,b,"Attacker","Defender")+" Everyone is a little bit less safe."}return},
 uL:function(a,b){var t,s,r,q,p
-t=a.fi(this.e)
-if(t!=null&&!t.ga7()&&!J.c(t,b)&&J.af(t.R($.aA),a.R($.aA))){if(t.geM()==null)t.seM(R.FQ(t))
+t=a.fj(this.e)
+if(t!=null&&!t.ga7()&&!J.c(t,b)&&J.af(t.R($.aA),a.R($.aA))){if(t.geN()==null)t.seN(R.FQ(t))
 t.o6()
 s=t.I(b)
 J.b5(s,-100)
 s.sO(s.gcb())
 s.sdA(s.gO())
-t.it()
+t.iu()
 this.b.ai(a)
 this.b.ai(t)
 t.bO($.H,-100)
-t.ew(" how they are being forced to try to kill the "+H.h(b.U()))
-t.shd(this.m7(a))
-t.sfB(a)
+t.ex(" how they are being forced to try to kill the "+H.h(b.U()))
+t.she(this.m7(a))
+t.sfC(a)
 r=t.I(a)
 q=J.n(r)
-q.sa2(r,J.aa(q.ga2(r),J.cc(a.R($.aA),J.ct(t.R($.aA),2))))
+q.sa3(r,J.aa(q.ga3(r),J.cc(a.R($.aA),J.ct(t.R($.aA),2))))
 this.r=a
 this.x=t
-p=this.iJ(a)
+p=this.iK(a)
 return C.c.k(C.c.k("The "+b.w()+" needs to die. They are a threat to everyone. The ",a.U())+" manipulates the ",t.U())+"'s "+p+" until they focus only on their hate for the "+b.w()+" and how they need to die."}return},
 z8:function(a){var t,s,r,q,p
 if(this.b.gA().gcj()!==!0&&a.gbZ()>0&&J.af(a.gaI(),2)){t=J.c(a.gt(),$.ap)&&this.b.gn().a.E()>0.25?" from the future":""
@@ -34040,43 +34042,43 @@ s=a.gdz()
 r=this.b
 if(s===!0){r.ai(a)
 a.jq(this.b)
-return"The "+a.w()+t+" is not going to play by SBURB's rules. Yes, they could wait to do Ectobiology until they are 'supposed' to. But. Just. Fuck that shit. That's how doomed timelines get made. They create baby versions of everybody. Don't worry about it."}else{q=r.hu(this.e)
+return"The "+a.w()+t+" is not going to play by SBURB's rules. Yes, they could wait to do Ectobiology until they are 'supposed' to. But. Just. Fuck that shit. That's how doomed timelines get made. They create baby versions of everybody. Don't worry about it."}else{q=r.hv(this.e)
 if(q!=null&&!q.ga7()&&J.af(q.gaI(),2))if(J.af(q.R($.aA),a.R($.aA))){this.b.ai(a)
 this.b.ai(q)
 a.jq(this.b)
 return"The "+a.w()+t+" is not going to play by SBURB's rules. They pester the "+q.w()+" to do Ectobiology. That's why they're the leader. They bug and fuss and meddle and finally the "+q.w()+" agrees to ...just FUCKING DO IT.  Baby versions of everybody are created. Don't worry about it."}else if(J.P(a.R($.l),50)){a.jq(this.b)
 this.b.ai(a)
 this.b.ai(q)
-p=this.iJ(a)
+p=this.iK(a)
 return"The "+a.w()+t+" is not going to play by SBURB's rules.  When bugging and fussing and meddling doesn't work, they decide to rely on game powers. They straight up manipulate the recalcitrant "+q.w()+"'s "+p+" until they just FUCKING DO ectobiology.  Baby versions of everybody are created. The "+a.w()+t+" immediatley drops the effect. It's like it never happened. Other than one major source of failure being removed from the game. "}}}return},
 z9:function(a){var t,s,r
 t=R.bE(this.e,$.aI)
-if(t!=null&&t.gc3()<this.b.geJ()&&a.gbZ()>0&&J.af(a.gaI(),2))if(J.c(a,t)){t.hc(10)
+if(t!=null&&t.gc3()<this.b.geK()&&a.gbZ()>0&&J.af(a.gaI(),2))if(J.c(a,t)){t.hd(10)
 this.b.ai(a)
 return"The "+a.w()+" is not going to fall into SBURB's trap. They know why frog breeding is important, and they are going to fucking DO it. "}else{s=J.c(a.gt(),$.ap)&&this.b.gn().a.E()>0.25?" from the future":""
 if(!t.ga7())if(J.af(t.R($.aA),a.R($.aA))&&J.af(t.gaI(),2)){this.b.ai(a)
 this.b.ai(t)
-t.hc(10)
-return"The "+a.w()+s+" is not going to to fall into SBURB's trap. They pester the "+t.w()+" to do frog breeding, even if it seems useless. They bug and fuss and meddle and finally the "+t.w()+" agrees to ...just FUCKING DO IT."}else if(J.P(a.R($.l),50)){t.hc(10)
+t.hd(10)
+return"The "+a.w()+s+" is not going to to fall into SBURB's trap. They pester the "+t.w()+" to do frog breeding, even if it seems useless. They bug and fuss and meddle and finally the "+t.w()+" agrees to ...just FUCKING DO IT."}else if(J.P(a.R($.l),50)){t.hd(10)
 this.b.ai(a)
 this.b.ai(t)
-r=this.iJ(a)
+r=this.iK(a)
 return"The "+a.w()+" is not going to to fall into SBURB's trap. When bugging and fussing and meddling doesn't work, they decide to rely on game powers. They straight up manipulate the recalcitrant "+t.w()+"'s "+r+" until they just FUCKING DO frog breeding for awhile. The "+a.w()+" drops the effect before it can change something permanent. "}}return},
-z2:function(a){var t=a.gfB()
+z2:function(a){var t=a.gfC()
 if(t!=null)if(t.ga7()){this.b.ai(a)
-a.sfB(null)
-a.shd(null)
-a.geM().lR(a)
+a.sfC(null)
+a.she(null)
+a.geN().lR(a)
 this.r=a
 return C.c.k("With the death of the ",t.U())+", the "+a.w()+" is finally free of their control. "}else if(a.ga7()){this.b.ai(a)
-a.sfB(null)
-a.shd(null)
-a.geM().lR(a)
+a.sfC(null)
+a.she(null)
+a.geN().lR(a)
 this.r=a
 return"In death, the "+a.w()+" is finally free of the "+t.w()+"'s control."}else if(J.P(a.R($.aA),t.R($.aA))){this.b.ai(a)
-a.sfB(null)
-a.shd(null)
-a.geM().lR(a)
+a.sfC(null)
+a.she(null)
+a.geN().lR(a)
 this.r=a
 return"The "+a.w()+" manages to wrench themselves free of the "+t.w()+"'s control."}else return
 return},
@@ -34102,7 +34104,7 @@ for(t=s.length,p=0;p<s.length;s.length===t||(0,H.Q)(s),++p){o=s[p]
 r=this.b.gap()
 n=H.h(o)+" died out of nowhere. Specibus is "+o.gc_().ge1()+" with rank "+H.h(o.gc_().ge6())+". Health was "+H.h(o.R($.a7))+", buffs are "+H.h(o.gqv())
 r.toString
-F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+n)
+F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+n)
 q.push(o.U())
 o.cd("Probably Doom Shit, I don't even know.")}C.f.N(a,"Holy shit, the "+Y.hd(q)+" just died out of fucking nowhere. I can't even tell what happened? Was it game shit? A glitch? A Doom player? We are all confused and upset that this happened and vow to pester JR until it stops from keep hapening so often. You guess it happening occasionally might be kind of funny, though.",C.d)},
 gd8:function(){return this.d}}
@@ -34111,8 +34113,8 @@ G:function(a){return this.b}}
 E.cr.prototype={
 gj3:function(){var t=this.k2
 return new H.cG(t,new E.uM(),[H.L(t,0)])},
-G:function(a){return H.a8(J.fY(this.ek(0),P.al("\\s",!0,!0),""),P.al("'",!0,!0),"")},
-h2:function(){return new E.ky(this,P.cF(D.bg,P.ad),H.a([],[A.dV]),[E.cr])},
+G:function(a){return H.a8(J.fY(this.el(0),P.al("\\s",!0,!0),""),P.al("'",!0,!0),"")},
+h3:function(){return new E.ky(this,P.cF(D.bg,P.ad),H.a([],[A.dV]),[E.cr])},
 bC:function(a){var t,s,r,q
 t=J.n(a)
 this.d=H.h(t.gW(a))+H.h(this.d)
@@ -34122,13 +34124,13 @@ r=s.r
 r.push(new Z.A($.l,2,!0,0,1,2,3,""))
 r.push(new Z.A($.a7,1,!0,0,1,2,3,""))
 s.e=" An appropriately themed beam of light damages enemies and heals allies. "
-C.a.h(this.fy,s)}this.fx=a.ghK()
-if(!!this.$iskG&&!!t.$isM){this.shQ(a.x2)
+C.a.h(this.fy,s)}this.fx=a.ghL()
+if(!!this.$iskG&&!!t.$isM){this.shR(a.x2)
 this.skb(a.x1)
 this.scq(this.gcq()+a.cy)
 this.st8(a.L)
-this.shb(a.a0)
-this.sbb(a.a1)}for(t=J.bj(a.gA());t.M();){q=t.ga_()
+this.shc(a.a1)
+this.sbb(a.a2)}for(t=J.bj(a.gA());t.M();){q=t.ga0()
 r=a.gA().u9(q)
 this.a$.bg(q,J.iM(r))}},
 cU:function(a){var t=E.kc(this.d,this.c)
@@ -34136,19 +34138,19 @@ this.j6(t)
 return t},
 j6:function(a){a.sA(this)
 a.sAQ(this.ch)
-a.shx(this.cx)
+a.shy(this.cx)
 a.scq(this.gcq())
 a.sa7(this.db)
 a.siO(this.fr)
-a.shK(this.fx)
+a.shL(this.fx)
 a.saC(this.fy)
 a.soC(this.go)
 a.sb9(N.V9(this.id))
 a.sDk(this.k1)
-a.shJ(this.k2)
+a.shK(this.k2)
 a.sjJ(this.k3)
 a.sle(this.r1)
-a.seS(this.r2)
+a.seT(this.r2)
 a.sdk(this.rx)
 a.szo(this.ry)},
 tH:function(){return!1},
@@ -34163,7 +34165,7 @@ else if(r!=null)q="fighting the Black King"
 this.cd(q)
 return this.cP()+" has died. "}return""},
 tJ:function(){var t,s
-if(!this.c.ga6().z)this.a$.Cs()
+if(!this.c.ga_().z)this.a$.Cs()
 for(t=0;s=this.fy,t<s.length;++t)s[t].su1(!0)
 s=this.ry
 if(s!=null)s.tJ()},
@@ -34183,7 +34185,7 @@ if(J.c(t[0].b,$.cq)){s=$.X
 this.a$.bg(s,C.b.l(100))}else{if(0>=t.length)return H.b(t,0)
 if(J.c(t[0].b,$.bo)){s=$.co
 this.a$.bg(s,C.b.l(100))
-C.f.eW(a,"beforeend","The prophecy is fulfilled. ",C.d,null)}}}return}(a&&C.f).N(a,this.r9(),C.d)
+C.f.eX(a,"beforeend","The prophecy is fulfilled. ",C.d,null)}}}return}(a&&C.f).N(a,this.r9(),C.d)
 if(this.yG(a,b,c))return
 p=this.c.gn().v(c)
 if(p==null)return
@@ -34199,29 +34201,29 @@ oB:function(a,b,c,d){var t,s,r,q,p,o,n,m,l,k
 t=d.hZ()
 s=b.hZ()
 if(this.c.gn().a.E()>0.5&&!this.$isO)return!1
-r=this.c.gex().oR(this,s,t)
-if(this.ry!=null)C.a.V(r,this.c.gex().oR(this.ry,s,t))
+r=this.c.gey().oR(this,s,t)
+if(this.ry!=null)C.a.V(r,this.c.gey().oR(this.ry,s,t))
 if(r.length===0)return!1
 q=$.H
 p=this.a$.X(q)
-o=J.dT($.H.hq(0,t,!1),t.length)
+o=J.dT($.H.hr(0,t,!1),t.length)
 if(typeof o!=="number")return H.w(o)
 if(p+200<o&&this.c.gn().a.E()<0.5){J.cu(a," The "+this.cP()+" wants to use a Fraymotif, but they are too crazy to focus. ",C.d)
 return!1}q=$.aA
 p=this.a$.X(q)
-o=J.dT($.aA.hq(0,t,!1),t.length)
+o=J.dT($.aA.hr(0,t,!1),t.length)
 if(typeof o!=="number")return H.w(o)
 if(p+200<o&&this.c.gn().a.E()<0.5){J.cu(a," The "+this.cP()+" wants to use a Fraymotif, but Fate dictates otherwise. ",C.d)
 return!1}if(0>=r.length)return H.b(r,0)
 n=r[0]
 for(m=0;m<r.length;++m){l=r[m]
-q=l.giC()
-k=n.giC()
+q=l.giD()
+k=n.giD()
 if(typeof q!=="number")return q.bk()
 if(typeof k!=="number")return H.w(k)
 if(q>k)n=l
-else{q=l.giC()
-k=n.giC()
+else{q=l.giD()
+k=n.giD()
 if((q==null?k==null:q===k)&&l.gn8().length>n.gn8().length)n=l}}J.cu(a,"<Br><br>"+H.h(n.oB(this,s,c,t))+"<br><Br>",C.d)
 n.su1(!1)
 return!0},
@@ -34229,9 +34231,9 @@ yG:function(a,b,c){var t,s,r,q,p,o,n,m
 if(!b.gyu())return!1
 if(this.r1)return!1
 t=b.hZ()
-s=2+this.iI(t).length
-r=this.eI()
-q=this.eH()
+s=2+this.iJ(t).length
+r=this.eJ()
+q=this.eI()
 for(p=r.length,o=0;o<r.length;r.length===p||(0,H.Q)(r),++o)if(C.a.aE(t,J.bc(r[o])))++s
 for(p=q.length,o=0;o<q.length;q.length===p||(0,H.Q)(q),++o)if(C.a.aE(t,J.bc(q[o])))++s
 p=$.l
@@ -34243,7 +34245,7 @@ n=this.a$.X(n)
 m=0+p/n
 if(m>s*2){p=$.H
 this.a$.bg(p,C.b.l(-10))
-this.ew("how terrifying "+C.a.bP(c,",")+" were")
+this.ex("how terrifying "+C.a.bP(c,",")+" were")
 p=$.l
 p=this.a$.X(p)
 n=a&&C.f
@@ -34262,17 +34264,17 @@ return!1}}return!1},
 xG:function(a,b){var t,s,r,q,p,o,n
 t="<br><Br> The "+this.cP()+" targets the "+b.cP()+" with their "+this.a.ge1()+". "
 if(this.a.gcT().aE(0,$.cl)){t+=" Uh. Wow. Should they be using that?"
-if(!!this.$isO){this.h7+=10
+if(!!this.$isO){this.h8+=10
 s=this.c.gap()
-r="corrupt specibus for player "+this.ek(0)+", it's a "+this.a.ge1()
+r="corrupt specibus for player "+this.el(0)+", it's a "+this.a.ge1()
 s.toString
 F.ao(C.h).$1(s.aG(C.h,r))}}if(b.ga7())t+=" Apparently their corpse sure is distracting? How luuuuuuuucky for the remaining players!";(a&&C.f).N(a,t,C.d)
-if(b.iB($.co)>this.iB($.co)*10+200){C.f.N(a,"The attack backfires and causes unlucky damage. The "+b.cP()+" sure is lucky!!!!!!!!",C.d)
+if(b.iC($.co)>this.iC($.co)*10+200){C.f.N(a,"The attack backfires and causes unlucky damage. The "+b.cP()+" sure is lucky!!!!!!!!",C.d)
 s=$.X
 r=$.l
 r=this.a$.X(r)
 this.a$.bg(s,C.m.l(-1*r/10))
-return}else if(b.iB($.c0)>this.iB($.c0)*5+100){C.f.N(a,"The attack misses completely after an unlucky distraction.",C.d)
+return}else if(b.iC($.c0)>this.iC($.c0)*5+100){C.f.N(a,"The attack misses completely after an unlucky distraction.",C.d)
 return}q=this.c.gn().ac(100)+1
 s=b.R($.l)
 r=$.l
@@ -34291,8 +34293,8 @@ if(J.P(s,r*5+100)&&q>25){C.f.N(a," The "+b.cP()+" dodges the attack completely. 
 return}}s=$.l
 s=this.a$.X(s)
 p=Math.max(1,s)
-o=this.fG()
-n=b.fG()
+o=this.fH()
+n=b.fH()
 if(n>o*2){p/=2
 C.f.N(a," The attack manages to not hit anything too vital. ",C.d)}else if(o>n*2){p*=2
 C.f.N(a," Ouch. That's gonna leave a mark. ",C.d)}else C.f.N(a," A hit! ",C.d)
@@ -34328,7 +34330,7 @@ d1:function(a,b){var t,s,r
 t=J.n(b)
 if(J.c(t.gdi(b),$.bw))for(s=0;t=this.id,s<t.length;++s){t=t[s]
 r=J.n(t)
-r.sa2(t,J.aa(r.ga2(t),a*b.gde()))}else{t=t.gdi(b)
+r.sa3(t,J.aa(r.ga3(t),a*b.gde()))}else{t=t.gdi(b)
 r=b.gde()
 this.a$.bg(t,C.i.l(a*r))}},
 nJ:function(){var t,s
@@ -34337,20 +34339,22 @@ s=$.a7
 s=this.a$.X(s)
 this.a$.aJ(t,C.i.l(s))},
 je:function(){var t,s,r
+if(this.c.ga_().db)return this.i_()+"The Mist</span>"
 t=this.ry!=null?"Crowned ":""
 s=this.d
 if(J.c(s,"Yaldabaoth")){r=H.a(["Yaldobob","Yolobroth","Yodelbooger","Yaldabruh","Yogertboner","Yodelboth"],[P.q])
 s=this.c.gn().v(r)}if(this.fx)s=Y.cY(this.d)
-return this.iM()+t+H.h(s)+"</span>"},
+return this.i_()+t+H.h(s)+"</span>"},
 w:function(){var t,s,r
+if(this.c.ga_().db)return"The Mist"
 t=this.ry!=null?"Crowned ":""
 s=this.d
 if(J.c(s,"Yaldabaoth")){r=H.a(["Yaldobob","Yolobroth","Yodelbooger","Yaldabruh","Yogertboner","Yodelboth"],[P.q])
 s=this.c.gn().v(r)}return t+H.h(this.fx?Y.cY(this.d):s)},
-iM:function(){var t,s,r,q,p,o,n
+i_:function(){var t,s,r,q,p,o,n
 if(T.bT())return"<span>"
 t="<span class = 'tooltip'><span class='tooltiptext'><table>"+("<tr><td class = 'toolTipSection'>"+H.h(this.d)+"<hr>")+("<br><Br>Prophecy Status: "+this.b.b)+"</td><td class = 'toolTipSection'>Stats<hr>"
-for(s=D.KL(),r=J.bj(s.a),s=new H.ev(r,s.b,[H.L(s,0)]);s.M();){q=r.ga_()
+for(s=D.KL(),r=J.bj(s.a),s=new H.ev(r,s.b,[H.L(s,0)]);s.M();){q=r.ga0()
 p=H.h(q)+": "
 o=this.a$.X(q)
 t+=p+C.i.bF(o)+"<br>"}t+="</td><tr></tr><td class = 'toolTipSection'>Fraymotifs<hr>"
@@ -34363,16 +34367,19 @@ t="<font color ='"+this.ch+"'>"
 if(this.ry!=null)t+="Crowned "
 s=this.d
 if(this.fx)s=Y.cY(s)
-r=this.iM()+t+H.h(s)+" ("
+if(this.c.ga_().db)s="The Mist"
+r=this.i_()+t+H.h(s)+" ("
 q=$.X
 q=this.a$.X(q)
 r=r+C.i.bF(q)+" hp, "
 q=$.l
 q=this.a$.X(q)
 return r+C.i.bF(q)+" power)</font></span>"},
-ew:function(a){},
-U:function(){return this.d},
-b0:function(){return this.d},
+ex:function(a){},
+U:function(){if(this.c.ga_().db)return"The Mist"
+return this.d},
+b0:function(){if(this.c.ga_().db)return"The Mist"
+return this.d},
 d0:function(){var t,s
 this.db=!1
 t=$.X
@@ -34380,11 +34387,11 @@ s=$.a7
 s=this.a$.X(s)
 this.a$.aJ(t,C.i.l(s))},
 I:function(a){return},
-cd:function(a){if(this.c.ga6().x)return
+cd:function(a){if(this.c.ga_().x)return
 this.db=!0
 this.rx=a},
 dL:function(a){},
-iB:function(a){var t,s,r
+iC:function(a){var t,s,r
 t=this.c
 if(a==null){t=t.gn()
 s=$.co
@@ -34394,14 +34401,15 @@ r=this.a$.X(r)
 return t.a.E()*(r-s)+s}else{t=t.gn()
 s=this.a$.X(a)
 return t.a.E()*s}},
-fG:function(){return this.iB(null)},
-iI:function(a){return H.a([],[E.cr])},
+fH:function(){return this.iC(null)},
+iJ:function(a){return H.a([],[E.cr])},
+eJ:function(){return H.a([],[N.aF])},
 eI:function(){return H.a([],[N.aF])},
-eH:function(){return H.a([],[N.aF])},
 gn:function(){return this.c.gn()},
-ek:function(a){return this.d},
+el:function(a){if(this.c.ga_().db)return"The Mist"
+return this.d},
 D:function(a,b){var t,s,r
-this.a$=this.h2()
+this.a$=this.h3()
 t=$.eS+1
 $.eS=t
 this.k4=t
@@ -34411,57 +34419,57 @@ s=P.a5(null,null,null,D.bg)
 r=new A.hN(this,null,null,!1,!1,!1,s,0,0,!0,!1)
 s.V(0,t)
 r.e=!0
-this.a$.eq(r,null,null)},
+this.a$.er(r,null,null)},
 $ish9:1,
 gc_:function(){return this.a},
-gfE:function(){return this.b},
+gfF:function(){return this.b},
 ga9:function(a){return this.c},
 gW:function(a){return this.d},
-ghQ:function(){return this.f},
+ghR:function(){return this.f},
 gjT:function(){return this.r},
 gj7:function(){return this.x},
 gbb:function(){return this.z},
-ghb:function(){return this.Q},
-ghx:function(){return this.cx},
+ghc:function(){return this.Q},
+ghy:function(){return this.cx},
 gcq:function(){return this.cy},
 ga7:function(){return this.db},
 gc7:function(){return this.dx},
 giO:function(){return this.fr},
-ghK:function(){return this.fx},
+ghL:function(){return this.fx},
 gaC:function(){return this.fy},
 gb9:function(){return this.id},
-ghJ:function(){return this.k2},
+ghK:function(){return this.k2},
 gjJ:function(){return this.k3},
 gbe:function(a){return this.k4},
 gle:function(){return this.r1},
-geS:function(){return this.r2},
+geT:function(){return this.r2},
 gdk:function(){return this.rx},
 sc_:function(a){return this.a=a},
-sfE:function(a){return this.b=a},
+sfF:function(a){return this.b=a},
 sa9:function(a,b){return this.c=b},
 sW:function(a,b){return this.d=b},
 skb:function(a){return this.e=a},
-shQ:function(a){return this.f=a},
+shR:function(a){return this.f=a},
 sj7:function(a){return this.x=a},
 st8:function(a){return this.y=a},
 sbb:function(a){return this.z=a},
-shb:function(a){return this.Q=a},
+shc:function(a){return this.Q=a},
 sAQ:function(a){return this.ch=a},
-shx:function(a){return this.cx=a},
+shy:function(a){return this.cx=a},
 scq:function(a){return this.cy=a},
 sa7:function(a){return this.db=a},
 sc7:function(a){return this.dx=a},
 siO:function(a){return this.fr=a},
-shK:function(a){return this.fx=a},
+shL:function(a){return this.fx=a},
 saC:function(a){return this.fy=a},
 soC:function(a){return this.go=a},
 sb9:function(a){return this.id=a},
 sDk:function(a){return this.k1=a},
-shJ:function(a){return this.k2=a},
+shK:function(a){return this.k2=a},
 sjJ:function(a){return this.k3=a},
 sbe:function(a,b){return this.k4=b},
 sle:function(a){return this.r1=a},
-seS:function(a){return this.r2=a},
+seT:function(a){return this.r2=a},
 sdk:function(a){return this.rx=a},
 szo:function(a){return this.ry=a}}
 E.pk.prototype={$ismk:1}
@@ -34477,21 +34485,21 @@ $1:function(a){return J.d8(a)},
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 E.R.prototype={
-kX:function(a){a.ghJ().push(new E.R(this.a,this.b,this.c))},
+kX:function(a){a.ghK().push(new E.R(this.a,this.b,this.c))},
 G:function(a){var t="["+H.h(this.a)+" x "+H.h(this.b)
 return t+(this.c?" (from Aspect)":"")+"]"},
 gdi:function(a){return this.a},
 gde:function(){return this.b},
 glq:function(){return this.c}}
 E.ld.prototype={
-kX:function(a){a.ghJ().push(new E.R(a.gn().v(this.d),this.b,this.c))},
+kX:function(a){a.ghK().push(new E.R(a.gn().v(this.d),this.b,this.c))},
 G:function(a){var t="[(Random from "+this.d.G(0)+") x "+H.h(this.b)
 return t+(this.c?" (from Aspect)":"")+"]"},
 gA:function(){return this.d},
 sA:function(a){return this.d=a}}
 E.rs.prototype={
-kX:function(a){C.a.V(a.ghJ(),J.rb(a.gaj().ga8().gA(),new E.rt(this)))
-C.a.V(a.ghJ(),J.rb(a.gan().ga8().gA(),new E.ru(this)))},
+kX:function(a){C.a.V(a.ghK(),J.rb(a.gaj().ga8().gA(),new E.rt(this)))
+C.a.V(a.ghK(),J.rb(a.gan().ga8().gA(),new E.ru(this)))},
 G:function(a){return"[Stats assigned from player Interests x"+H.h(this.b)+"]"}}
 E.rt.prototype={
 $1:function(a){var t=this.a
@@ -34516,16 +34524,16 @@ p=this.ch
 this.a=U.Pd(this.x,p)
 o=t.createElement("button")
 this.d=o
-C.z.fl(o,"X")
+C.z.fm(o,"X")
 this.d.classList.add("red_x")
 n=t.createElement("div")
 n.classList.add("innerFAQ")
 m=t.createElement("div")
 m.classList.add("ascii")
 l="<Br><Br><center>By "+H.h(r.gam())+"</center>"
-C.f.fl(m,this.a)
+C.f.fm(m,this.a)
 for(t=p.length,k=0;k<p.length;p.length===t||(0,H.Q)(p),++k){j=p[k]
-i=H.h(J.ct(this.f,10))+H.h(q.ku(0,j.gfz()))
+i=H.h(J.ct(this.f,10))+H.h(q.ku(0,j.gfA()))
 H.a8(i,"\n","")
 h=q.ku(0,J.Nt(j))
 if(this.b===!0){r=this.x
@@ -34534,7 +34542,7 @@ if(typeof o!=="number")return o.k()
 r.b=o+1
 r=r.a.dN()}else r=!1
 if(r)h=Y.cY(h)
-l=l+" <br><Br>"+i+H.h(J.ct(this.f,10))+"<br><br>"+H.h(h)+"<br><Br>"}C.f.fl(n,l)
+l=l+" <br><Br>"+i+H.h(J.ct(this.f,10))+"<br><br>"+H.h(h)+"<br><Br>"}C.f.fm(n,l)
 s.appendChild(this.d)
 s.appendChild(n)
 return s},
@@ -34573,11 +34581,11 @@ q=R.MQ(s)
 if(q>25)for(p=0;p<s.length;++p){o=s[p]
 o.bO($.X,o.R($.a7))
 t=t+(C.c.k(" Upon being laid to rest on their QUEST BED on the ",o.gB().dy)+", the "+o.w()+"'s body glows, and rises Skaiaward. ")+("On "+H.h(o.gaq())+", their dream self takes over and gets a sweet new outfit to boot.  ")
-n=this.b.gex().hg(this.b.gn(),[o],3)
+n=this.b.gey().hh(this.b.gn(),[o],3)
 C.a.h(o.gaC(),n)
 t+=C.c.k(" They learn ",J.ag(n))+"."
 this.b.gA().soh(!0)}else{q=s.length
-if(q>0){this.b.gap().ic("We COULD have been on my quest bed, but random chance said no. ")
+if(q>0){this.b.gap().ie("We COULD have been on my quest bed, but random chance said no. ")
 return""}}for(p=0;p<r.length;++p){o=r[p]
 if(o.gbL()){o.bO($.X,o.R($.a7))
 q=this.b.gca().nA(o)
@@ -34586,7 +34594,7 @@ l=C.a.b1(m,q)
 if(l!==-1){if(l<0||l>=m.length)H.aG(P.e0(l,null,null))
 m.splice(l,1)[0]}t+=" Upon a wacky series of events leaving their corpse on their SACRIFICIAL SLAB on "+H.h(o.gaq())+", the "+o.w()+" glows and ascends to the God Tiers with a sweet new outfit."
 this.b.gA().smg(!0)
-n=this.b.gex().hg(this.b.gn(),[o],3)
+n=this.b.gey().hh(this.b.gn(),[o],3)
 C.a.h(o.gaC(),n)
 t+=C.c.k(" They learn ",J.ag(n))+"."}}this.b.gA().sbf(!0)
 t+=" They are now extremely powerful. "
@@ -34635,7 +34643,7 @@ if(this.b.gn().a.E()<0.1)o.cN=!0
 if(this.b.gn().a.E()<0.01)o.c6=!0
 if(this.b.gn().a.E()<0.01)o.bH=!0
 if(this.b.gn().a.E()<0.1)o.bD=4
-o.aM=Y.Hh(r,o.as,o.ab,o.bt,o.bu)
+o.aM=Y.Hh(r,o.aA,o.ab,o.bt,o.bu)
 s=[M.h1]
 n=H.a([],s)
 m=H.a(["*","@","#","!","~",".","=","-","%","$"],[P.q])
@@ -34668,8 +34676,8 @@ r=s.gC().gny()
 C.a.h(t.b,new Q.m(r,t.q(r,C.m.l(0.5)),q))
 t.V(0,this.r)
 if(s.gbM()){r=this.x
-C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))}if(s.ghr()){r=this.y
-C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))}if(s.ghn()){r=this.z
+C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))}if(s.ghs()){r=this.y
+C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))}if(s.gho()){r=this.z
 C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))}if(J.P(s.gaI(),3)){s=this.Q
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))}p=b.x.v(t)
 s=J.a6(p)
@@ -34686,9 +34694,9 @@ t=b.c
 s=J.c(b.e,t)?"The "+H.h(t.b0())+"has been trying to explain to anyone who will listen how this bullshit game works. They finally just write a goddamned FAQ so they don't have to keep repeating themselves. I wonder what it says?":"The "+H.h(b.e.b0())+" seems to understand how this bullshit game works. They are reading a FAQ? Huh, I wonder where they found that?"
 t=document
 r=t.createElement("div")
-C.f.fl(r,s)
+C.f.fm(r,s)
 q=t.createElement("button")
-C.z.fl(q,"Read FAQ?")
+C.z.fm(q,"Read FAQ?")
 p=t.createElement("div")
 p.appendChild(b.C1())
 a.appendChild(r)
@@ -34735,7 +34743,7 @@ this.e.w()
 if(J.c(this.e.gt(),$.cp))t="They alchemize a series of game breaking as fuck flying items and pass them out to everyone , allowing all players to basically ignore their gates entirely and skip all the boring walking parts of their land quests. "
 else t=J.c(this.e.gt(),$.ap)?" They set up a frankly scandalous series of time shenanigans , allowing all players to basically spam multiple quests 'at the same time'. ":""
 for(s=0;s<5;++s)for(r=this.b.gF(),q=r.length,p=0;p<r.length;r.length===q||(0,H.Q)(r),++p){o=r[p]
-if(o.gB()!=null&&J.af(o.gaI(),2)){if(!o.ga7())t+="<Br>The "+o.w()+" does quests at "+o.fm()+". "
+if(o.gB()!=null&&J.af(o.gaI(),2)){if(!o.ga7())t+="<Br>The "+o.w()+" does quests at "+o.fn()+". "
 o.jf()}else if(!o.ga7())t+="The "+o.w()+" grinds against random enemies. "
 o.aH()
 o.jf()}return t},
@@ -34782,11 +34790,11 @@ o="Skaian Magicant Hidden Track: "+H.h(J.ag(p.gt()))+" Edition"
 if(!p.ga7())t+="<br> The "+p.w()+" collects the fraymotif "+o+", as well as a sizeable hoard of grist."
 n=Z.K(o,2,null,"")
 m=p.gj3()
-for(l=J.bj(m.a),k=new H.ev(l,m.b,[H.L(m,0)]),j=n.r;k.M();){i=l.ga_()
+for(l=J.bj(m.a),k=new H.ev(l,m.b,[H.L(m,0)]),j=n.r;k.M();){i=l.ga0()
 h=J.n(i)
 j.push(new Z.A(h.gdi(i),0,!0,0,1,2,3,""))
 j.push(new Z.A(h.gdi(i),0,!1,0,1,2,3,""))}g=p.gj3()
-for(l=J.bj(g.a),k=new H.ev(l,g.b,[H.L(g,0)]);k.M();){f=l.ga_()
+for(l=J.bj(g.a),k=new H.ev(l,g.b,[H.L(g,0)]);k.M();){f=l.ga0()
 h=J.n(f)
 j.push(new Z.A(h.gdi(f),2,!0,0,1,2,3,""))
 j.push(new Z.A(h.gdi(f),2,!1,0,1,2,3,""))}n.e="An unfinished secret track begins to play.  You don't think anybody meant for this to be unlockable. The OWNER is strengthened and healed. The ENEMY is weakened and hurt. And that is all there is to say on the matter.  "
@@ -34809,7 +34817,7 @@ o.aH()}}}return s},
 Al:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 t="The "+this.e.w()+" exploits the rules of SBURB."
 for(s=this.b.gF(),r=s.length,q=this.d,p=this.gzT(),o=this.gzW(),n=this.gzR(),m=0;m<s.length;s.length===r||(0,H.Q)(s),++m){l=s[m]
-if(!l.ga7()&&l.gfE()!==C.I){k=this.b.gca().rv(this.b.gn())
+if(!l.ga7()&&l.gfF()!==C.I){k=this.b.gca().rv(this.b.gn())
 j="They curse the "+l.w()+" with a prophecy of doom, only to kill them instantly and then revive them. The bonus the "+l.w()+" gets from subverting their fate is verging on cheating."
 if(J.c(this.e.gt(),$.cq))j="They kill the "+l.w()+" then revive them with a huge bonus from absorbing their own ghost."
 H.h(a.id)
@@ -34818,11 +34826,11 @@ H.h(i.gbe(l))
 h=$.aC
 g=W.N($.ay,h)
 a.appendChild(g)
-if(l.gcc()&&!l.gbL()&&!i.P(l,this.e)){l.sfE(C.v)
+if(l.gcc()&&!l.gbL()&&!i.P(l,this.e)){l.sfF(C.v)
 l.cd("exploiting SBURB mechanics")
 q.push(new Z.hR(n,g,[l,this.e]))
 l.d0()
-t+=j}else if(l.gbf()===!0){l.sfE(C.v)
+t+=j}else if(l.gbf()===!0){l.sfF(C.v)
 l.cd("exploiting SBURB mechanics")
 q.push(new Z.hR(o,g,[l,this.e]))
 l.d0()
@@ -34830,7 +34838,7 @@ t+=j}else{i=this.e
 if(!J.c(i,i))if(k!=null)i=J.c(this.e.gC(),$.eq)||J.c(this.e.gC(),$.eI)
 else i=!1
 else i=!1
-if(i){l.sfE(C.v)
+if(i){l.sfF(C.v)
 l.cd("exploiting SBURB mechanics")
 q.push(new Z.hR(p,g,[l,k,this.e]))
 l.d0()
@@ -34877,17 +34885,17 @@ o.e=s
 this.mb(a,o)
 n=R.bE(this.b.gF(),$.aI)
 if(n==null)return
-n.hc(5)
+n.hd(5)
 m="<Br><br>Holy shit, the "+this.e.w()+" just figured out how important Frogs are to beating this game. "
 if(J.c(n,this.e)){m+=" They waste no time and just fucking DO it. "
 if(J.c(this.e.gC(),$.kC))m+=" They DO waste some space though. It's only natural. "}else m+=" They bug and fuss and meddle until the "+n.w()+" just fucking DOES it. "
 C.f.N(a,m+"<br><br>",C.d)},
 DH:function(a){var t,s,r
-if(this.e.ghr()){C.f.N(a,"Haha. No. Never ever ever again will I let a trickster into my code. Wow. No. Tier4 is locked to this asshole.  Sure I'll let the "+this.e.w()+" have the stat, but like HELL are they allowed to do anything with it.",C.d)
+if(this.e.ghs()){C.f.N(a,"Haha. No. Never ever ever again will I let a trickster into my code. Wow. No. Tier4 is locked to this asshole.  Sure I'll let the "+this.e.w()+" have the stat, but like HELL are they allowed to do anything with it.",C.d)
 return}this.b.gA().sBh(!0)
 t=J.c(this.e.gC(),$.y_)?"Bluh.  I don't trust that Grace in my code one bit. But I guess they ARE supposed to be more subtle than us Wastes....so....Maybe things WON'T crash?":"<Br><Br>Wait. What? Oh my fuck. Some asshole waste is fucking around in my code. Don't they know how dangerous that is??? God, if shit crashes, it's on them."
 C.f.N(a,!J.c(this.e.gC(),$.y_)&&!J.c(this.e.gC(),$.kC)?"... Oh. Fuck.  What the hell is a "+J.fZ(J.ag(this.e.gC()))+" doing in my code. How did this even happen. Don't come crying to me when they fuck things up.":t,C.d)
-this.b.ga6().yL(this.b)
+this.b.ga_().yL(this.b)
 s=$.aC
 r=W.N($.ay,s)
 a.appendChild(r)
@@ -34900,12 +34908,12 @@ C.a.su(t,0)},
 gbb:function(){return this.e},
 sbb:function(a){return this.e=a}}
 Z.D9.prototype={
-$2:function(a,b){return J.ct(b,a.giq()?1:0.1)},
+$2:function(a,b){return J.ct(b,a.gir()?1:0.1)},
 "call*":"$2",
 $R:2,
 $S:function(){return{func:1,args:[L.ej,P.ad]}}}
 Z.Da.prototype={
-$2:function(a,b){return J.ct(b,a.giq()?1:0.1)},
+$2:function(a,b){return J.ct(b,a.gir()?1:0.1)},
 "call*":"$2",
 $R:2,
 $S:function(){return{func:1,args:[T.f9,P.ad]}}}
@@ -34928,7 +34936,7 @@ F.o4.prototype={
 b2:function(a){var t,s,r,q
 this.c=a
 t=R.MQ(this.b.gF())
-s=this.b.gJ().d.fG()
+s=this.b.gJ().d.fH()
 if(!this.b.gJ().c.dy&&!this.b.gJ().d.dy&&this.b.gJ().d.ry==null){r=this.b.gJ().d
 q=$.X
 r=r.a$.X(q)
@@ -34938,7 +34946,7 @@ ad:function(a){var t,s
 this.b.gA().sBF(!0)
 this.b.gJ().d.a.gcT().h(0,$.aD)
 t=this.b.gJ().d.a
-t.siu(t.giu()+1)
+t.siv(t.giv()+1)
 t=this.b.gJ().c
 s=$.X
 t.a$.aJ(s,C.b.l(-9999999999))
@@ -34961,7 +34969,7 @@ q=this.e
 r=new Z.xj(7,s,q,r,1,null,0,null)
 r.b=Q.dZ(q)
 p=s.dG(r)
-if(p!=null&&p.ea(a))return
+if(p!=null&&p.eb(a))return
 C.f.N(a,"<br><img src = 'images/sceneIcons/grimdark_black_icon.png'>"+this.ad(0),C.d)
 if(this.e.gaI()===4){s=a.id
 if(s==null)return s.k()
@@ -35000,7 +35008,7 @@ this.c=a
 this.d=H.a([],[Q.O])
 t=R.hG(a)
 for(s=0;s<t.length;++s){r=t[s]
-if(r.gbf()===!0&&r.gf4())this.d.push(r)}return this.d.length!==0},
+if(r.gbf()===!0&&r.gf5())this.d.push(r)}return this.d.length!==0},
 aY:function(a){var t,s,r,q,p,o,n
 C.f.N(a,"<br>"+this.ad(0),C.d)
 t=a.id
@@ -35023,21 +35031,21 @@ for(s=0;r=this.d,s<r.length;++s){q=r[s]
 t+=" The "+q.w()+"'s death is judged to be "
 if(q.glY()){r=this.b.gap()
 r.toString
-F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: AB: Found an unconditionally immortal ass hat.")
+F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: AB: Found an unconditionally immortal ass hat.")
 t+="... Lol, what clock?  "+q.w()+" is fucking unconditionally immortal. "
-q.sf4(!0)
+q.sf5(!0)
 q.aH()
-q.d0()}else{p=q.fG()
+q.d0()}else{p=q.fH()
 if(q.t4()===!0){r=this.b
 if(p>400){r=r.gap()
 r.toString
-F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]:  lucky break for god tier revival in")
+F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]:  lucky break for god tier revival in")
 t+=" ... a LUCKY BREAK!!!!!!!! The Judgement Clock narrowly avoids ruling a JUST death. "
-q.sf4(!0)
+q.sf5(!0)
 q.aH()
 q.d0()}else{t+=" JUST.  They do not revive. "
 r.gA().sBJ(!0)
-q.sf4(!1)
+q.sf5(!1)
 if(q.nu())q.sdk(q.gdk()+" (it was a JUST judgement because they were corrupt)")
 else q.sdk(q.gdk()+" (it was a JUST judgement)")
 r=this.b.gca()
@@ -35047,13 +35055,13 @@ o.db=!1
 r.b.push(o)}}else if(q.rW()===!0){r=this.b
 if(p>400){r=r.gap()
 r.toString
-F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]:  lucky break for god tier revival in")
+F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]:  lucky break for god tier revival in")
 t+=" ... a LUCKY BREAK!!!!!!!! The Judgement Clock narrowly avoids ruling a HEROIC death. "
-q.sf4(!0)
+q.sf5(!0)
 q.aH()
 q.d0()}else{r.gA().sBm(!0)
 t+=" HEROIC. They do not revive. "
-q.sf4(!1)
+q.sf5(!1)
 q.sdk(q.gdk()+" (it was HEROIC judgement)")
 r=this.b.gca()
 o=Q.dZ(q)
@@ -35061,16 +35069,16 @@ o.cx=!0
 o.db=!1
 r.b.push(o)}}else if(p<-400){r=this.b.gap()
 r.toString
-F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]:  unlucky break for god tier revival in")
+F.ao(C.h).$1("("+r.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]:  unlucky break for god tier revival in")
 t+=" ... Huh. Should the clock be DOING that? It's on both HEROIC and JUST at the same time, somehow? Not neither of them. Talk about a BAD BREAK. They do not revive.  "
-q.sf4(!1)
+q.sf5(!1)
 q.sdk(q.gdk()+" (it was an unlucky judgement) ")
 r=this.b.gca()
 o=Q.dZ(q)
 o.cx=!0
 o.db=!1
 r.b.push(o)}else{t+=" neither HEROIC nor JUST.  They revive in a rainbow glow, stronger than ever. "
-q.sf4(!0)
+q.sf5(!0)
 q.aH()
 q.d0()
 if(J.c(q.gt(),$.bo)){q.af($.l,500)
@@ -35154,7 +35162,7 @@ t=R.b9(a)
 for(s=0;s<t.length;++s){r=t[s]
 if(r instanceof Q.O)if(J.P(r.bD,2))this.d.push(r)
 else if(J.P(r.bD,1)&&this.b.gn().a.E()>0.5)this.d.push(r)}q=this.d
-if(q.length>0&&q[0].ghr()&&this.b.gn().a.E()>0.01)return!1
+if(q.length>0&&q[0].ghs()&&this.b.gn().a.E()>0.01)return!1
 return this.d.length>0},
 yO:function(a){var t,s
 t=a.kw()
@@ -35222,7 +35230,7 @@ zH:function(){var t,s,r,q,p,o,n
 t=H.a([],[D.f_])
 for(s=this.r.gdV().a,s=new J.fE(s,s.length,0,null,[H.L(s,0)]),r=[A.at];s.M();){q=s.d
 for(p=this.r.gdV().a,p=new J.fE(p,p.length,0,null,[H.L(p,0)]),o=J.a6(q);p.M();){n=p.d
-if(!o.P(q,n))if(q.jU(this.x===3)||this.b.ga6().cy)C.a.V(t,D.Ih(H.a([q,n],r),this.b,this.x))}}return t},
+if(!o.P(q,n))if(q.jU(this.x===3)||this.b.ga_().cy)C.a.V(t,D.Ih(H.a([q,n],r),this.b,this.x))}}return t},
 DW:function(){var t,s,r,q
 t=H.a([],[D.f_])
 for(s=this.r.gdV().a,s=new J.fE(s,s.length,0,null,[H.L(s,0)]),r=[A.at];s.M();){q=s.d
@@ -35234,14 +35242,14 @@ s=$.e1.p3(t)
 r=P.an(new H.iE(s,[H.L(s,0)]),!0,Q.O)
 this.r=null
 for(s=r.length,q=0;q<r.length;r.length===s||(0,H.Q)(r),++q){p=r[q]
-if(this.r==null&&J.P(p.R($.e1),0))if(p.gc_().jU(this.x===3)||this.b.ga6().cy){o=p.gdV().a
+if(this.r==null&&J.P(p.R($.e1),0))if(p.gc_().jU(this.x===3)||this.b.ga_().cy){o=p.gdV().a
 o.toString
 if(typeof o!=="object"||o===null||!!o.immutable$list)H.aG(new P.a9("sort"))
 n=o.length-1
 if(n-0<=32)H.KH(o,0,n,P.Ha())
 else H.KG(o,0,n,P.Ha())
 for(o=p.gdV().a,o=new J.fE(o,o.length,0,null,[H.L(o,0)]),m=!1,l=!1;o.M();l=!0){k=o.d
-if(k.jU(this.x===3)||this.b.ga6().cy)m=!0
+if(k.jU(this.x===3)||this.b.ga_().cy)m=!0
 this.C8(p,k)}if(m&&l){this.r=p
 this.x=this.oE(p)}}}return this.r!=null},
 oE:function(a){var t,s
@@ -35300,7 +35308,7 @@ gcl:function(){return this.r1},
 gck:function(){return this.r2},
 gcI:function(){return this.rx}}
 T.uZ.prototype={
-ci:function(a,b){return a.ga6().rV(a,b)},
+ci:function(a,b){return a.ga_().rV(a,b)},
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
 s=[G.aj]
@@ -35441,12 +35449,12 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdj:function(){return this.a1},
-ge4:function(){return this.a0},
+gdj:function(){return this.a2},
+ge4:function(){return this.a1},
 gla:function(){return this.ag},
 gdl:function(){return this.Y},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 B.v_.prototype={
 da:function(){return!1},
 bj:function(a){return!0},
@@ -35486,7 +35494,7 @@ p=$.x
 t.i(0,new R.d9("Inherit the Frogs",!1,[new U.e(r+p+"'s care. The land becomes a lot more frantic feeling with all that croaking. The "+p+" collects all sorts of frogs. Various "+$.G+"s 'help' by "+$.ac+"ing up a storm. "),new U.e("The "+p+" begins combining frogs into ever cooler frogs. They begin to realize that an important feature is somehow missing from all frogs. Where could the frog with this trait be?  "),new U.e("The "+p+" has found the final frog.      ")],H.a([],o),R.dF(),!1,!1,new Y.df("Rewards/sweetFrog.png","Rewards/holyShitFrogs.png",null,null,"Rewards/sweetLoot.png","Rewards/fraymotifBG.png","Rewards/no_reward.png",null),1,null,null),$.b6)
 o=$.dy
 this.c.i(0,new X.a1(s,t,null),o)},
-geR:function(){return this.k1},
+geS:function(){return this.k1},
 gaK:function(){return this.k2},
 gb6:function(){return this.r1},
 gcE:function(){return this.r2},
@@ -35511,7 +35519,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Fairy Figurine",H.a([$.bM,$.c8,$.av,$.cE],s),null,!1,"Tiny Petrified Tinkerbell")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().Bn(a,b)},
+ci:function(a,b){return a.ga_().Bn(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i,h
 t=[P.q]
 s=H.a(["Meditation","Altars","Hymns","Chapels","Priests","Angels","Belief","Hope","Faith","Determination"],t)
@@ -35591,8 +35599,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdj:function(){return this.a1},
-ge4:function(){return this.a0},
+gdj:function(){return this.a2},
+ge4:function(){return this.a1},
 gdl:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
@@ -35635,7 +35643,7 @@ this.b=4
 this.d=b
 this.a=C.m.jW(a/4)
 P.dp("building house with "+C.b.G(a)+"players.")
-if(C.b.fL(a,this.b)>0){t=this.a
+if(C.b.fM(a,this.b)>0){t=this.a
 if(typeof t!=="number")return t.k()
 this.a=t+1}s=[]
 for(r=0;r<this.b;++r){s.push([])
@@ -35705,17 +35713,17 @@ t[l]=!0;++o
 H.eO("adding a player. this is player number "+C.b.G(o)+" out of"+C.b.G(a)+", and there are "+C.b.G(i)+" left.")
 H.eO(P.h8(s,"[","]"))}}H.eO("completed a loop.");++r}this.c=s}}
 Q.va.prototype={
-hW:function(a){var t=0,s=P.cI(),r,q,p
-var $async$hW=P.cR(function(b,c){if(b===1)return P.cO(c,s)
+hX:function(a){var t=0,s=P.cI(),r,q,p
+var $async$hX=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:q=W.oa(null,a,null)
 p=new W.jz(q,"load",!1,[W.au])
 t=3
-return P.fw(p.gah(p),$async$hW)
+return P.fw(p.gah(p),$async$hX)
 case 3:r=q
 t=1
 break
 case 1:return P.cP(r,s)}})
-return P.cQ($async$hW,s)},
+return P.cQ($async$hX,s)},
 $asii:function(){return[W.j6]},
 $asfo:function(){return[W.j6,P.cZ]}}
 Q.py.prototype={
@@ -35724,7 +35732,7 @@ cm:function(a,b){var t=0,s=P.cI(),r,q=this,p,o,n
 var $async$cm=P.cR(function(c,d){if(c===1)return P.cO(d,s)
 while(true)switch(t){case 0:n=W
 t=3
-return P.fw(q.ib(b),$async$cm)
+return P.fw(q.ic(b),$async$cm)
 case 3:p=n.oa(null,d,null)
 o=new W.jz(p,"load",!1,[W.au])
 t=4
@@ -35735,15 +35743,15 @@ break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$cm,s)},
 dg:function(a,b){return H.aG("Write not supported")},
-ey:function(){return P.kH(H.a([137,80,78,71,13,10,26,10],[P.J]),0,null)}}
+ez:function(){return P.kH(H.a([137,80,78,71,13,10,26,10],[P.J]),0,null)}}
 Z.lL.prototype={
 ga9:function(a){return this.a},
 gbb:function(){return this.b},
 sa9:function(a,b){return this.a=b},
 sbb:function(a){return this.b=a}}
 Z.pv.prototype={
-fA:function(){return C.c.k("Have the ",this.b.b0())+" go God Tier instead of dying forever. "},
-ea:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h;++this.f
+fB:function(){return C.c.k("Have the ",this.b.b0())+" go God Tier instead of dying forever. "},
+eb:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35795,9 +35803,9 @@ h.push(k)
 T.ln(i,h)
 return!0}}
 Z.xf.prototype={
-fA:function(){var t=C.c.k("Make the ",this.b.b0())+" not permanently dead."
-return this.a.ga6().Q?C.c.k("Make the ",this.b.b0())+" NEVER permanently dead, lol.":t},
-ea:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
+fB:function(){var t=C.c.k("Make the ",this.b.b0())+" not permanently dead."
+return this.a.ga_().Q?C.c.k("Make the ",this.b.b0())+" NEVER permanently dead, lol.":t},
+eb:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35840,13 +35848,13 @@ s=J.n(o)
 J.Z(s.T(o,"2d"),m,-100,0)
 J.Z(s.T(o,"2d"),l,100,0)
 k=R.bE(this.a.gF(),$.ap)
-Y.fA(this.e,k.geS())
+Y.fA(this.e,k.geT())
 this.a.gca().n0(this.e)
 return!0}}
 Z.xj.prototype={
-fA:function(){var t=C.c.k("Prevent the ",this.b.b0())+" from going Grimdark."
-return this.a.ga6().Q?C.c.k("Prevent the ",this.b.b0())+" from EVER going Grimdark.":t},
-ea:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
+fB:function(){var t=C.c.k("Prevent the ",this.b.b0())+" from going Grimdark."
+return this.a.ga_().Q?C.c.k("Prevent the ",this.b.b0())+" from EVER going Grimdark.":t},
+eb:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35889,9 +35897,9 @@ J.Z(s.T(n,"2d"),l,-100,0)
 J.Z(s.T(n,"2d"),k,100,0)
 return!0}}
 Z.xk.prototype={
-fA:function(){var t=C.c.k("Prevent the ",this.b.b0())+" from going into Murder Mode."
-return this.a.ga6().Q?C.c.k("Prevent the ",this.b.b0())+" from EVER going into MurderMode.":t},
-ea:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
+fB:function(){var t=C.c.k("Prevent the ",this.b.b0())+" from going into Murder Mode."
+return this.a.ga_().Q?C.c.k("Prevent the ",this.b.b0())+" from EVER going into MurderMode.":t},
+eb:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35934,9 +35942,9 @@ J.Z(s.T(n,"2d"),l,-100,0)
 J.Z(s.T(n,"2d"),k,100,0)
 return!0}}
 Z.vH.prototype={
-fA:function(){var t="Prevent Jack from obtaining the Black Queen's RING OF ORBS "+this.a.dX()+"FOLD."
-return this.a.ga6().Q?"Prevent Jack from obtaining the Black Queen's RING OF ORBS "+this.a.dX()+"FOLD.":t},
-ea:function(a){var t,s,r,q,p,o;++this.f
+fB:function(){var t="Prevent Jack from obtaining the Black Queen's RING OF ORBS "+this.a.dX()+"FOLD."
+return this.a.ga_().Q?"Prevent Jack from obtaining the Black Queen's RING OF ORBS "+this.a.dX()+"FOLD.":t},
+eb:function(a){var t,s,r,q,p,o;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35951,7 +35959,7 @@ r=t.a$.X(r)
 t.a$.aJ(s,C.i.l(r))
 Z.kg(a,this.a,this,this.e,this.r)
 return!1}C.f.N(a,"<br>A "+this.e.U()+" suddenly warps in from the future.  They come with a dire warning of a doomed timeline. "+(" Something seems...off...about them. But they are adamant that the Black Queen's RING OF ORBS "+this.a.dX()+"FOLD needs to be destroyed. Immediately.")+" No matter what 'fate' says. Jack Noir immediately begins flipping out, but the RING is stolen before he can do anything. "+("The doomed "+this.e.U()+" vanishes with the RING in a cloud of gears to join the final battle."),C.d)
-this.a.ii()
+this.a.ij()
 t=a.id
 if(t==null)return t.k()
 q=t+"_alt_jack_promotion"
@@ -35968,9 +35976,9 @@ T.fK(p)
 J.Z(J.eh(p,"2d"),o,-100,0)
 return!0}}
 Z.xg.prototype={
-fA:function(){var t=C.c.k("Kill the ",this.b.b0())+" before they enter the session."
-return this.a.ga6().Q?C.c.k("Kill the ",this.b.b0())+" as much as you can. Fuck that guy!":t},
-ea:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
+fB:function(){var t=C.c.k("Kill the ",this.b.b0())+" before they enter the session."
+return this.a.ga_().Q?C.c.k("Kill the ",this.b.b0())+" as much as you can. Fuck that guy!":t},
+eb:function(a){var t,s,r,q,p,o,n,m,l,k;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -35988,7 +35996,7 @@ return!1}q=this.a.iN(this.b)
 p="<br>A "+this.e.U()+" suddenly warps in from the future.  They come with a dire warning of a doomed timeline. "+(C.c.k(C.c.k(" Something seems...off...about them. But they are adamant that the ",q.U())+" needs to die.  You do not even want to know how long it took them to get back to earth, and then time-travel to before the",q.U())+" entered the session. They are commited to this. ")+" No matter what 'fate' says. "+("After a brief struggle, the doomed "+this.e.U()+" vanishes in a cloud of gears to join the final battle.")
 q.sa7(!0)
 C.f.N(a,C.c.k(p,q.cd("apparantly displeasing the Observer.")),C.d)
-this.e.e_=q.gav()
+this.e.e_=q.gau()
 t=a.id
 s="_alt_"+H.h(J.bs(q))
 if(t==null)return t.k()
@@ -36013,8 +36021,8 @@ J.Z(s.T(n,"2d"),l,-100,0)
 J.Z(s.T(n,"2d"),k,100,0)
 return!1}}
 Z.zP.prototype={
-fA:function(){return C.c.k("Make the ",this.b.b0())+" prototype a frog before entering the session. "},
-ea:function(a){var t,s,r,q,p,o,n;++this.f
+fB:function(){return C.c.k("Make the ",this.b.b0())+" prototype a frog before entering the session. "},
+eb:function(a){var t,s,r,q,p,o,n;++this.f
 t=this.e
 t.db=!1
 s=$.X
@@ -36030,10 +36038,10 @@ t.a$.aJ(s,C.i.l(r))
 Z.kg(a,this.a,this,this.e,this.r)
 return!1}q=this.a.iN(this.b)
 C.f.N(a,"<br>A "+this.e.U()+" suddenly warps in from the future.  They come with a dire warning of a doomed timeline. "+(C.c.k(" Something seems...off...about them. But they are adamant that their past-selves kernel sprite needs to be prototyped with this FROG. You do not even want to know how long it took them to get back to earth, and then time-travel to before the",q.U())+" entered the session. They are commited to this. ")+" No matter what 'fate' says.  They don't even care how illegal this is. "+("The doomed "+this.e.U()+" vanishes with in a cloud of gears to join the final battle."),C.d)
-q.sa4(E.kc("Frog",this.e.c))
-q.ga4().bO($.l,20)
-q.ga4().shb(!0)
-q.ga4().bO($.aB,100)
+q.sa5(E.kc("Frog",this.e.c))
+q.ga5().bO($.l,20)
+q.ga5().shc(!0)
+q.ga5().bO($.aB,100)
 t=a.id
 if(t==null)return t.k()
 p=t+"_alt_jack_promotion"
@@ -36058,7 +36066,7 @@ t=Q.Y(null,null,A.at)
 s=A.r("Perfectly Generic Object",H.a([],[G.aj]),null,!1,"The Third Entry for This Fucking Block")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),[H.L(t,0)]))
 this.y=t},
-gia:function(){return P.an(this.gdw(),!0,P.q)},
+gib:function(){return P.an(this.gdw(),!0,P.q)},
 Z:function(a){if(C.a.aE(this.gdw(),a))return
 this.gdw().push(J.fY(a,P.al("<(?:.|\\n)*?>",!0,!0),""))},
 ds:function(a){return J.c(a.gaj().ga8(),this)||J.c(a.gan().ga8(),this)},
@@ -36120,7 +36128,7 @@ gA:function(){return this.c},
 gdK:function(){return this.d},
 gaK:function(){return this.e},
 gbe:function(a){return this.f},
-geY:function(){return this.r},
+geZ:function(){return this.r},
 gdw:function(){return this.x},
 gjg:function(a){return this.y},
 gCn:function(){return this.z},
@@ -36130,7 +36138,7 @@ sA:function(a){return this.c=a},
 sbe:function(a,b){return this.f=b},
 sW:function(a,b){return this.ch=b}}
 B.a2.prototype={
-vQ:function(a,b){var t=a.v(b.gia())
+vQ:function(a,b){var t=a.v(b.gib())
 this.a=b
 this.b=t},
 ga8:function(){return this.a},
@@ -36138,18 +36146,18 @@ gW:function(a){return this.b},
 sW:function(a,b){return this.b=b}}
 V.vi.prototype={
 zI:function(a,b){var t,s,r,q,p,o,n,m,l,k,j
-this.b.ga6().Dm(a,this.d)
+this.b.ga_().Dm(a,this.d)
 t=W.N(1000,800)
 T.IN(t,this.d)
 this.d.sll(t)
 s=this.xB()
-if(s!=null&&s.ea(a))return
+if(s!=null&&s.eb(a))return
 this.d.gB()
 if(!this.d.AV(this.b)||this.d.gB()==null){r="<br>The "+this.d.w()+" has been in contact with the native players of this session for most of their lives. It's weird how time flows differently between universes. Now, after inumerable shenanigans, they will finally be able to meet up face to face."
 if(this.d.ga7()){C.f.N(a,r+"Wait. What?  They are DEAD!? How did that happen? Shenenigans, probably. I...I guess time flowing differently between universes is still a thing that is true, and they were able to contact them even before they died.  Shit, this is extra tragic.  <br>",C.d)
 this.b.qd(this.d)
-return}}else{if(J.P(this.d.ga4().R($.l),100*$.l.r)&&this.b.gn().a.E()>0.8){q=this.b.gap()
-p="replacing prototyping for "+H.h(this.d.ga4())+" with power "+H.h(this.d.ga4().R($.l))
+return}}else{if(J.P(this.d.ga5().R($.l),100*$.l.r)&&this.b.gn().a.E()>0.8){q=this.b.gap()
+p="replacing prototyping for "+H.h(this.d.ga5())+" with power "+H.h(this.d.ga5().R($.l))
 q.toString
 F.ao(C.h).$1(q.aG(C.h,p))
 p=$.aC
@@ -36160,58 +36168,58 @@ m=this.b.gn().v(n)
 T.fK(o)
 T.k_(o,m)
 l=C.c.k("A ",m.U())+" suddenly warps in from the future. "
-l=(m.ga7()?l+"It's a little alarming how much they are bleeding. ":l)+" They come with a dire warning of a doomed timeline. "+(C.c.k("They dropkick the "+this.d.ga4().w()+" out of the way and jump into the ",this.d.U())+"'s kernel sprite instead. <br> ")
-this.d.sa4(J.ig(m))
-J.ih(this.d.ga4(),m.gam())
-this.d.ga4().shQ(1)
-this.d.ga4().sbb(!0)
-this.d.ga4().skb(" used to be a Player like you, until they took a splinter to the timeline, so they know how all this shit works. Super helpful.")}else if((this.d.ga7()||this.d.gbL()||!this.d.gcc())&&this.b.gn().a.E()>0.1){l="Through outrageous shenanigans, one of the "+this.d.w()+"'s superfluous corpses ends up prototyped into their kernel sprite. <br>"
+l=(m.ga7()?l+"It's a little alarming how much they are bleeding. ":l)+" They come with a dire warning of a doomed timeline. "+(C.c.k("They dropkick the "+this.d.ga5().w()+" out of the way and jump into the ",this.d.U())+"'s kernel sprite instead. <br> ")
+this.d.sa5(J.ig(m))
+J.ih(this.d.ga5(),m.gam())
+this.d.ga5().shR(1)
+this.d.ga5().sbb(!0)
+this.d.ga5().skb(" used to be a Player like you, until they took a splinter to the timeline, so they know how all this shit works. Super helpful.")}else if((this.d.ga7()||this.d.gbL()||!this.d.gcc())&&this.b.gn().a.E()>0.1){l="Through outrageous shenanigans, one of the "+this.d.w()+"'s superfluous corpses ends up prototyped into their kernel sprite. <br>"
 q=this.d
-q.sa4(J.ig(q))
-J.ih(this.d.ga4(),this.d.gam())
-this.d.ga4().shQ(1)
-this.d.ga4().sbb(!0)
-this.d.ga4().skb(" is interested in trying to figure out how to play the game, since but for shenanigans they would be playing it themselves.")}else l=""
+q.sa5(J.ig(q))
+J.ih(this.d.ga5(),this.d.gam())
+this.d.ga5().shR(1)
+this.d.ga5().sbb(!0)
+this.d.ga5().skb(" is interested in trying to figure out how to play the game, since but for shenanigans they would be playing it themselves.")}else l=""
 C.f.N(a,l,C.d)
 r="<br>The "+this.d.je()+" enters the game "+Y.X7(b)+". "
 if(J.c(this.d.gt(),$.b2))r+="They are "+this.d.E5()+". "
-r=r+(" They manage to prototype their kernel sprite with a "+this.d.ga4().w()+" pre-entry. ")+this.zd()+(C.c.k(C.c.k(" They have many INTERESTS, including ",J.ag(this.d.gaj()))+" and ",J.ag(this.d.gan()))+". ")+(C.c.k(" Their chat handle is ",this.d.gam())+". ")+("They wield "+H.h(J.ag(this.d.gc_()))+". "+H.h(this.d.gc_().hl(this.b.gn()))+" ")
+r=r+(" They manage to prototype their kernel sprite with a "+this.d.ga5().w()+" pre-entry. ")+this.zd()+(C.c.k(C.c.k(" They have many INTERESTS, including ",J.ag(this.d.gaj()))+" and ",J.ag(this.d.gan()))+". ")+(C.c.k(" Their chat handle is ",this.d.gam())+". ")+("They wield "+H.h(J.ag(this.d.gc_()))+". "+H.h(this.d.gc_().hm(this.b.gn()))+" ")
 if(this.d.gdz()===!0)r+="They are definitely the leader."
 if(this.d.gaS()===!0)r+=" They appear to be destined for greatness. "
 if(J.P(J.aa(this.d.R($.co),this.d.R($.c0)),25))r+=" They have aaaaaaaall the luck. All of it."
 if(J.af(this.d.R($.c0),-25))r+=" They have an insurmountable stockpile of TERRIBLE LUCK."
 if(this.d.gaC().length>0)r+=" They have special powers, including "+Y.hd(this.d.gaC())+". "
-if(this.d.ga7()){r+="Wait. What?  They are DEAD!? How did that happen? Shenenigans, probably. I...I guess their GHOST or something is making sure their house and corpse makes it into the medium? And their client player, as appropriate. Their kernel somehow gets prototyped with a "+this.d.ga4().w()+". "
+if(this.d.ga7()){r+="Wait. What?  They are DEAD!? How did that happen? Shenenigans, probably. I...I guess their GHOST or something is making sure their house and corpse makes it into the medium? And their client player, as appropriate. Their kernel somehow gets prototyped with a "+this.d.ga5().w()+". "
 q=this.d
 q.skt(q.gkt()+1)
-this.d.gc0().bC(this.d.ga4())
-if(this.b.gJ().f!=null)this.b.gJ().f.bC(this.d.ga4())
-if(this.d.ga4().gjT()){q=this.b.gap()
+this.d.gc0().bC(this.d.ga5())
+if(this.b.gJ().f!=null)this.b.gJ().f.bC(this.d.ga5())
+if(this.d.ga5().gjT()){q=this.b.gap()
 q.toString
 F.ao(C.h).$1(q.aG(C.h,"armless prototyping in session: "))
-r+=C.c.k("Huh. Of all the things to take from prototyping a ",J.ag(this.d.ga4()))+", why did it have to be its fingerless attribute? The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD is now useless. If any carapacian attempts to put it on, they lose the finger it was on, which makes it fall off.  She destroys the RING in a fit of vexation. "
-this.b.ii()}if(this.b.gJ().e!=null){this.b.gJ().e.bC(this.d.ga4())
-r+=C.c.k("The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD grows stronger from prototyping the ",J.ag(this.d.ga4()))+". "}C.f.N(a,r+(C.c.k("The Black King's SCEPTER grows stronger from prototyping the ",J.ag(this.d.ga4()))+". "),C.d)
+r+=C.c.k("Huh. Of all the things to take from prototyping a ",J.ag(this.d.ga5()))+", why did it have to be its fingerless attribute? The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD is now useless. If any carapacian attempts to put it on, they lose the finger it was on, which makes it fall off.  She destroys the RING in a fit of vexation. "
+this.b.ij()}if(this.b.gJ().e!=null){this.b.gJ().e.bC(this.d.ga5())
+r+=C.c.k("The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD grows stronger from prototyping the ",J.ag(this.d.ga5()))+". "}C.f.N(a,r+(C.c.k("The Black King's SCEPTER grows stronger from prototyping the ",J.ag(this.d.ga5()))+". "),C.d)
 return}r=r+this.yA()+this.zc()
 for(k=0;k<this.d.gb9().length;++k){q=this.d.gb9()
 if(k>=q.length)return H.b(q,k)
 j=q[k]
 q=J.n(j)
-if(!J.c(q.ar(j),"Friends")&&!J.c(q.ar(j),"Rivals"))r+=C.c.k("They are ",q.nt(j))+". "}if(this.d.ghr())r+="They immediately heal their land in an explosion of bullshit candy giggle-magic. "
-this.d.gc0().bC(this.d.ga4())
-if(this.b.gJ().f!=null)this.b.gJ().f.bC(this.d.ga4())
-if(this.d.ga4().gjT()&&this.b.gn().a.E()>0.93){q=this.b.gap()
+if(!J.c(q.ar(j),"Friends")&&!J.c(q.ar(j),"Rivals"))r+=C.c.k("They are ",q.nt(j))+". "}if(this.d.ghs())r+="They immediately heal their land in an explosion of bullshit candy giggle-magic. "
+this.d.gc0().bC(this.d.ga5())
+if(this.b.gJ().f!=null)this.b.gJ().f.bC(this.d.ga5())
+if(this.d.ga5().gjT()&&this.b.gn().a.E()>0.93){q=this.b.gap()
 q.toString
 F.ao(C.h).$1(q.aG(C.h,"armless prototyping in session: "))
-r+=C.c.k("Huh. Of all the things to take from prototyping a ",J.ag(this.d.ga4()))+", why did it have to be its fingerless attribute? The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD is now useless. If any carapacian attempts to put it on, they lose the finger it was on, which makes it fall off.  She destroys the RING in a fit of vexation. "
-this.b.ii()}if(this.b.gJ().e!=null){this.b.gJ().e.bC(this.d.ga4())
-r+=C.c.k("The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD grows stronger from prototyping the ",J.ag(this.d.ga4()))+". "}r+=C.c.k("The Black King's SCEPTER grows stronger from prototyping the ",J.ag(this.d.ga4()))+". "}C.f.N(a,r,C.d)
+r+=C.c.k("Huh. Of all the things to take from prototyping a ",J.ag(this.d.ga5()))+", why did it have to be its fingerless attribute? The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD is now useless. If any carapacian attempts to put it on, they lose the finger it was on, which makes it fall off.  She destroys the RING in a fit of vexation. "
+this.b.ij()}if(this.b.gJ().e!=null){this.b.gJ().e.bC(this.d.ga5())
+r+=C.c.k("The Black Queen's RING OF ORBS "+this.b.dX()+"FOLD grows stronger from prototyping the ",J.ag(this.d.ga5()))+". "}r+=C.c.k("The Black King's SCEPTER grows stronger from prototyping the ",J.ag(this.d.ga5()))+". "}C.f.N(a,r,C.d)
 this.b.qd(this.d)},
 ug:function(){var t,s,r,q,p,o,n,m,l,k
 t=[A.I]
 if(this.d.gB()==null){s=H.a([],t)
 r=this.d.kx(this.b.gF(),"intro chat")
-if(r!=null&&r.ga7()&&r.ges()!==this.b.gdR()){this.e=r
+if(r!=null&&r.ga7()&&r.geu()!==this.b.gdR()){this.e=r
 t=this.b.gap()
 t.toString
 F.ao(C.h).$1(t.aG(C.h,"AB: Sad stuck alert."))
@@ -36219,7 +36227,7 @@ s.push(new A.I(["So. Uh. Hey, I'm finally in the new session I was telling you a
 s.push(new A.I(["You would have loved it."],[],[],null))
 s.push(new A.I(["Don't worry. I'll make sure it will all have been worth it. A whole new universe, a second chance."],[],[],null))
 s.push(new A.I(["..."],[],[],null))
-s.push(new A.I(["Goodbye."],[],[],null))}else if(this.e.ges()===this.b.gdR()||this.e.ges()==null){q=this.d.I(this.e)
+s.push(new A.I(["Goodbye."],[],[],null))}else if(this.e.geu()===this.b.gdR()||this.e.geu()==null){q=this.d.I(this.e)
 if(J.c(q.gO(),q.gbB())||J.c(q.gO(),q.gcH())||J.c(q.gO(),q.gcM())){t=this.b.gap()
 t.toString
 F.ao(C.h).$1(t.aG(C.h,"Today is finally the day they make everything better."))
@@ -36245,31 +36253,31 @@ s.push(new A.I(["Hey, I am finally in the medium!","Hey, I'm in the medium!","He
 p.push(A.fi(H.a([this.b.gn().v(s)],t)))
 o=H.a([],t)
 n=H.a([],t)
-m=H.a(["The glowy thingy dodged everything I threw at it except for a "+H.h(J.ag(this.d.ga4()))+".","Would you believe that I did NOT mean for a "+H.h(J.ag(this.d.ga4()))+"  to fall into the seizure thingy?","Long story short, a "+H.h(J.ag(this.d.ga4()))+" fell into the kernel thingy.","I prototyped my kernelsprite with a "+H.h(J.ag(this.d.ga4()))+".","I chucked a "+H.h(J.ag(this.d.ga4()))+" into the seizure kernel."],[P.q])
+m=H.a(["The glowy thingy dodged everything I threw at it except for a "+H.h(J.ag(this.d.ga5()))+".","Would you believe that I did NOT mean for a "+H.h(J.ag(this.d.ga5()))+"  to fall into the seizure thingy?","Long story short, a "+H.h(J.ag(this.d.ga5()))+" fell into the kernel thingy.","I prototyped my kernelsprite with a "+H.h(J.ag(this.d.ga5()))+".","I chucked a "+H.h(J.ag(this.d.ga5()))+" into the seizure kernel."],[P.q])
 if(this.d.gbZ()>0||this.b.gxH().length!==0){o.push(new A.I(["So."],[],[],null))
-if(this.d.ga4().ghb())n.push(new A.I(["A "+H.h(J.ag(this.d.ga4()))+" is very illegal to posses. I think we will find it to work as a 'good luck' charm, later on. "],["Okay, well, now that you're in, what's it like?","What's it like in your land?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
-else if(this.d.ga4().gbb()===!0)n.push(new A.I(["I had this whole thing planned, and then "+H.h(J.ag(this.d.ga4()))+" jumped the fuck into my sprite."],["Not gonna ask. Okay, well, now that you're in, what's it like?","Okay then. Moving on. What's your land like?","Okay then. No further questions about your sprite. What about your land?","How's the land?"],["...Yeah, I think I'm better off not knowing. Is your land at least okay?","Not even gonna ask. Well, how's your land?"],null))
-else if(this.d.ga4().gjT())n.push(new A.I(["I had hoped that the armlessness of a "+H.h(J.ag(this.d.ga4()))+" would prove useful in the coming battles. "],["Well, here's hoping. Okay, well, now that you're in, what's it like?","I don't want to know. What's your land like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
-else if(this.d.ga4().ghK())n.push(new A.I(["I think I will gain a lot of knowledge from having a "+H.h(J.ag(this.d.ga4()))+" as my sprite. "],["Oh god I hope that's worth it. So. Uh. now that you're in, what's your land like?","You are terrifying. It's on you if it's not worth it. What's your land like?","This just doesn't seem like a good idea. What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
-else{l=this.d.ga4().gj7()
+if(this.d.ga5().ghc())n.push(new A.I(["A "+H.h(J.ag(this.d.ga5()))+" is very illegal to posses. I think we will find it to work as a 'good luck' charm, later on. "],["Okay, well, now that you're in, what's it like?","What's it like in your land?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
+else if(this.d.ga5().gbb()===!0)n.push(new A.I(["I had this whole thing planned, and then "+H.h(J.ag(this.d.ga5()))+" jumped the fuck into my sprite."],["Not gonna ask. Okay, well, now that you're in, what's it like?","Okay then. Moving on. What's your land like?","Okay then. No further questions about your sprite. What about your land?","How's the land?"],["...Yeah, I think I'm better off not knowing. Is your land at least okay?","Not even gonna ask. Well, how's your land?"],null))
+else if(this.d.ga5().gjT())n.push(new A.I(["I had hoped that the armlessness of a "+H.h(J.ag(this.d.ga5()))+" would prove useful in the coming battles. "],["Well, here's hoping. Okay, well, now that you're in, what's it like?","I don't want to know. What's your land like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
+else if(this.d.ga5().ghL())n.push(new A.I(["I think I will gain a lot of knowledge from having a "+H.h(J.ag(this.d.ga5()))+" as my sprite. "],["Oh god I hope that's worth it. So. Uh. now that you're in, what's your land like?","You are terrifying. It's on you if it's not worth it. What's your land like?","This just doesn't seem like a good idea. What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
+else{l=this.d.ga5().gj7()
 k=this.d
-if(l)n.push(new A.I(["I weighed the consequences and decided that having a "+H.h(J.ag(k.ga4()))+" familiar was worth having to fight enemies that are sort of like one. "],["Okay, well. Completely ignoring your god beast sprite,  what's your land like?","What's your land like?","What about your land?","Your choices are terrifying. How's the land?"],["How are you so irresponsible? Is your land at least okay?","You are so fucking crazy. Well, how's your land?"],null))
-else n.push(new A.I(["I think i made a fairly safe choice, given that it would make all enemies more like a "+H.h(J.ag(k.ga4()))+"."],["Good job! Okay, well, now that you're in, what's it like?","Makes sense. What's your land like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}}else{o.push(new A.I(m,["Huh, cool! What did that do?","What do you think that did?"],["That sounds ominous.","That doesn't sound good."],null))
-if(this.d.ga4().ghb())n.push(new A.I(["I'm really not sure what is with SBURB and reptiles and amphibians."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
-else if(this.d.ga4().gjT())n.push(new A.I(["It probably doesn't mean anything. ","I don't think it did anything though."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
-else if(this.d.ga4().gbb()===!0)n.push(new A.I(["Yeah, shit got really weird.","It's a really long story."],["Not gonna ask. Okay, well, now that you're in, what's it like?","Okay then. Moving on. What's your land like?","Okay then. No further questions about your sprite. What about your land?","How's the land?"],["...Yeah, I think I'm better off not knowing. Is your land at least okay?","Not even gonna ask. Well, how's your land?"],null))
-else if(this.d.ga4().ghK())n.push(new A.I(["I THINK it was probably a really bad idea.","Holy shit do I already regret doing that.","Probably not worth how bad ass it looks."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Wow. Sorry to hear that. Is your land at least okay?","Suck. Well, how's your land?"],null))
-else if(this.d.ga4().gj7())n.push(new A.I(["The enemies are fucking TERRIFYING now. I regret everything. ","I have just.... just ALL the regrets.","It was a really fucking bad idea."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["That really fucking sucks. Is your land at least okay?","Sucks. Well, how's your land?"],null))
-else if(this.d.ga4().ghQ()>0){l=this.b.gap()
+if(l)n.push(new A.I(["I weighed the consequences and decided that having a "+H.h(J.ag(k.ga5()))+" familiar was worth having to fight enemies that are sort of like one. "],["Okay, well. Completely ignoring your god beast sprite,  what's your land like?","What's your land like?","What about your land?","Your choices are terrifying. How's the land?"],["How are you so irresponsible? Is your land at least okay?","You are so fucking crazy. Well, how's your land?"],null))
+else n.push(new A.I(["I think i made a fairly safe choice, given that it would make all enemies more like a "+H.h(J.ag(k.ga5()))+"."],["Good job! Okay, well, now that you're in, what's it like?","Makes sense. What's your land like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}}else{o.push(new A.I(m,["Huh, cool! What did that do?","What do you think that did?"],["That sounds ominous.","That doesn't sound good."],null))
+if(this.d.ga5().ghc())n.push(new A.I(["I'm really not sure what is with SBURB and reptiles and amphibians."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
+else if(this.d.ga5().gjT())n.push(new A.I(["It probably doesn't mean anything. ","I don't think it did anything though."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))
+else if(this.d.ga5().gbb()===!0)n.push(new A.I(["Yeah, shit got really weird.","It's a really long story."],["Not gonna ask. Okay, well, now that you're in, what's it like?","Okay then. Moving on. What's your land like?","Okay then. No further questions about your sprite. What about your land?","How's the land?"],["...Yeah, I think I'm better off not knowing. Is your land at least okay?","Not even gonna ask. Well, how's your land?"],null))
+else if(this.d.ga5().ghL())n.push(new A.I(["I THINK it was probably a really bad idea.","Holy shit do I already regret doing that.","Probably not worth how bad ass it looks."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Wow. Sorry to hear that. Is your land at least okay?","Suck. Well, how's your land?"],null))
+else if(this.d.ga5().gj7())n.push(new A.I(["The enemies are fucking TERRIFYING now. I regret everything. ","I have just.... just ALL the regrets.","It was a really fucking bad idea."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["That really fucking sucks. Is your land at least okay?","Sucks. Well, how's your land?"],null))
+else if(this.d.ga5().ghR()>0){l=this.b.gap()
 l.toString
 F.ao(C.h).$1(l.aG(C.h,"helpful sprite"))
-n.push(new A.I(["Apparently it made it made my sprite into a kick ass guide.","Made my sprite super helpful","Made my sprite dope as fuck."],["Cool. Okay, well, now that you're in, what's it like?","Awesome, is your land cool, too?","Awesome. What about your land?","Cool. How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}else if(this.d.ga4().ghQ()<0){l=this.b.gap()
+n.push(new A.I(["Apparently it made it made my sprite into a kick ass guide.","Made my sprite super helpful","Made my sprite dope as fuck."],["Cool. Okay, well, now that you're in, what's it like?","Awesome, is your land cool, too?","Awesome. What about your land?","Cool. How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}else if(this.d.ga5().ghR()<0){l=this.b.gap()
 l.toString
 F.ao(C.h).$1(l.aG(C.h,"unhelpful sprite"))
-n.push(new A.I(["Apparently it made my sprite into the most useless asshole in Paradox Space.","Oh god, it made my sprite so fucking annoying.","I hate "+H.h(this.d.ga4())+"s so fucking much now."],["That sucks. Okay, well, now that you're in, what's your land like?","Sux. What about your land?","Lame. What about your land?","That sucks. How's the land?"],["You probably deserved it. I hope your land sucks, too.","Well, how's your land?"],null))}else n.push(new A.I(["I think it just made the enemies look like a "+H.h(J.ag(this.d.ga4()))+".","I have absolutely no idea.","Dunno."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}p.push(A.fi(H.a([this.b.gn().v(o),this.b.gn().v(n)],t)))
+n.push(new A.I(["Apparently it made my sprite into the most useless asshole in Paradox Space.","Oh god, it made my sprite so fucking annoying.","I hate "+H.h(this.d.ga5())+"s so fucking much now."],["That sucks. Okay, well, now that you're in, what's your land like?","Sux. What about your land?","Lame. What about your land?","That sucks. How's the land?"],["You probably deserved it. I hope your land sucks, too.","Well, how's your land?"],null))}else n.push(new A.I(["I think it just made the enemies look like a "+H.h(J.ag(this.d.ga5()))+".","I have absolutely no idea.","Dunno."],["Okay, well, now that you're in, what's it like?","What's it like?","What about your land?","How's the land?"],["Is your land at least okay?","Well, how's your land?"],null))}p.push(A.fi(H.a([this.b.gn().v(o),this.b.gn().v(n)],t)))
 p.push(A.fi(this.um()))
 return p}},
-hH:function(a,b){var t,s
+hI:function(a,b){var t,s
 for(t=0;t<b.length;++t){s=H.h(b[t])+" "+a
 if(t>=b.length)return H.b(b,t)
 b[t]=s}return b},
@@ -36277,13 +36285,13 @@ um:function(){var t,s,r,q,p,o,n,m,l,k
 t=H.a([],[A.I])
 s=this.d.gB().dy
 r=H.a(["Apparently it's the "+H.h(s)+"?","It's the "+H.h(s)+".","Some random "+H.h(this.d.gB().fx.c)+" said it was the "+H.h(s)+"?","There's this giant sign that says it's the "+H.h(s)+"."],[P.q])
-if($.i_.ds(this.d)||$.fL.ds(this.d)){r=this.b.gn().dN()?this.hH("It's so cool! Like something out of a story! I always KNEW I'd have an adventure like this one day!",r):this.hH("Do you think that this means magic is a real thing?",r)
+if($.i_.ds(this.d)||$.fL.ds(this.d)){r=this.b.gn().dN()?this.hI("It's so cool! Like something out of a story! I always KNEW I'd have an adventure like this one day!",r):this.hI("Do you think that this means magic is a real thing?",r)
 t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))}else if($.dA.ds(this.d)){q=this.b.gn().dN()
 p=this.d
-r=q?this.hH("This is so COOL! I am INSIDE A FUCKING VIDEO GAME! I finally get to use my "+p.gc_().gkZ()+"!",r):this.hH("It's just like a movie! I got to fight a monster with my "+p.gc_().gkZ()+" and everything!",r)
-t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))}else if($.h7.ds(this.d)){r=this.b.gn().dN()?this.hH("I think I'm going to make a remix of the background music here.",r):this.hH("I am really enjoying all this background music here.",r)
+r=q?this.hI("This is so COOL! I am INSIDE A FUCKING VIDEO GAME! I finally get to use my "+p.gc_().gkZ()+"!",r):this.hI("It's just like a movie! I got to fight a monster with my "+p.gc_().gkZ()+" and everything!",r)
+t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))}else if($.h7.ds(this.d)){r=this.b.gn().dN()?this.hI("I think I'm going to make a remix of the background music here.",r):this.hI("I am really enjoying all this background music here.",r)
 t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))}else if($.dt.ds(this.d)){C.a.V(r,["I am fucking finally in the Medium.","I have assumed my rightful place as the future ruler of the "+H.h(s)+"."])
-r=this.b.gn().dN()?this.hH("I am going to rule it with an iron fist! Or at least use my "+this.d.gc_().gkZ()+".",r):this.hH("I wonder how long it will take me to take it over?",r)
+r=this.b.gn().dN()?this.hI("I am going to rule it with an iron fist! Or at least use my "+this.d.gc_().gkZ()+".",r):this.hI("I wonder how long it will take me to take it over?",r)
 t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))}else if($.dM.ds(this.d))t.push(new A.I(["It is so weird! Where even are we compared to our solar system? There's no sun! How does this work!?","My brain is breaking trying to figure out how any of this is even working!"],["Through bullshit game magic. But what's it actually like there?","It's a magic fucking video game, it works through magic. I meant more, what is your land like?"],["It's a magic fucking video game, who fucking CARES how it works.","Yes, those sure are the questions we need to focus on right now.","..."],null))
 else t.push(new A.I(r,["Huh. What does that even mean?","What's it like?","Really? What's it like?"],["Wow. That sounds. Kinda weird.","Holy shit, what does that even mean?","That ... doesn't sound fun."],null))
 o=this.b.gn().a.E()
@@ -36335,7 +36343,7 @@ else if(J.c(this.d.gt(),$.bo))return C.c.k(" They stare with trepidation at the 
 return C.c.k("They boggle vacantly at the ",this.d.gB().dy)+". "},
 xB:function(){var t,s,r,q
 t=R.hH(this.b.gF())
-s=J.c(this.d.gt(),$.ap)&&this.d.ga4()!=null&&!this.d.ga4().ghb()
+s=J.c(this.d.gt(),$.ap)&&this.d.ga5()!=null&&!this.d.ga5().ghc()
 r=this.b
 q=$.l
 if(s){s=t.R(q)
@@ -36344,12 +36352,12 @@ return r.dG(new Z.xg(5,r,this.d,s,1,null,0,null))}},
 gbb:function(){return this.d},
 sbb:function(a){return this.d=a}}
 A.at.prototype={
-ec:function(a,b){var t=b.ge6()-this.ge6()
+ed:function(a,b){var t=b.ge6()-this.ge6()
 if(t>0)t=1
 else if(t<0)t=-1
 return C.i.bF(t)},
 te:function(a){var t,s,r,q
-for(t=a.ghJ(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r]
+for(t=a.ghK(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r]
 if(J.c(J.jM(q),$.e1))this.r=this.r+C.i.bF(q.gde())}},
 gzA:function(){var t,s,r,q,p,o
 t=H.a([],[P.q])
@@ -36359,7 +36367,7 @@ if(this.f===0)return t
 r=P.an(G.Og(this.e),!0,G.aj)
 C.a.iR(r,new A.vB())
 for(q=r.length,p=0;p<r.length;r.length===q||(0,H.Q)(r),++p){o=r[p]
-if(!(o instanceof G.bd||o.gih().length===0))t.push(" "+Y.H5(s.v(o.gih())))}return t},
+if(!(o instanceof G.bd||o.gii().length===0))t.push(" "+Y.H5(s.v(o.gii())))}return t},
 ge6:function(){var t,s,r
 for(t=this.e,s=new P.eL(t,t.r,null,null,[null]),s.c=t.e,r=0;s.M();)r+=s.d.ge6()
 return r},
@@ -36381,7 +36389,7 @@ return t},
 jU:function(a){var t=this.r
 if(t>0&&this.f<t){if(this.e.aE(0,$.aD))if(!a)return!1
 return!0}else return!1},
-hl:function(a){var t,s,r,q,p,o,n
+hm:function(a){var t,s,r,q,p,o,n
 t=this.e
 if(t.a===0)t.h(0,$.Fe)
 s=a.v(this.e)
@@ -36389,9 +36397,9 @@ r=a.v(this.e)
 q=a.v(this.e)
 if(J.c(s,r)&&this.e.a>1)r=this.kA(s)
 if(J.c(r,q)&&this.e.a>1)q=this.kA(r)
-p=s!=null?a.v(s.gih()):null
-o=r!=null?a.v(r.gih()):null
-n=q!=null?a.v(q.gih()):null
+p=s!=null?a.v(s.gii()):null
+o=r!=null?a.v(r.gii()):null
+n=q!=null?a.v(q.gii()):null
 if(p!=null&&o!=null&&n!=null)return a.v(H.a(["It's "+H.h(p)+" and it's "+H.h(o)+" and it's "+H.h(n)+". ","It's kind of "+H.h(p)+" but also sorta "+H.h(o)+". It's  "+H.h(n)+".","It's a "+H.h(n)+" but somehow also "+H.h(o)+" and actually maybe also "+H.h(p)+"?"],[P.q]))
 else if(o!=null&&n!=null)return"It's "+H.h(o)+" and it's "+H.h(n)+" and that is all there is to say on the matter."
 else if(n!=null)return"It is the platonic ideal of "+H.h(n)+"."
@@ -36412,9 +36420,9 @@ $iscS:1,
 $ascS:function(){return[A.at]},
 gkZ:function(){return this.c},
 gcT:function(){return this.e},
-giu:function(){return this.f},
+giv:function(){return this.f},
 scT:function(a){return this.e=a},
-siu:function(a){return this.f=a}}
+siv:function(a){return this.f=a}}
 A.vB.prototype={
 $2:function(a,b){return a.gtl()-C.b.bF(b.gtl())},
 $S:function(){return{func:1,args:[G.aj,G.aj]}}}
@@ -36439,7 +36447,7 @@ for(t=b.length,s=0;s<b.length;b.length===t||(0,H.Q)(b),++s)this.h(0,b[s])},
 gah:function(a){var t=this.a
 return(t&&C.a).gah(t)},
 aW:function(a,b){var t=this.a;(t&&C.a).aW(t,b)},
-gaw:function(a){var t=this.a
+gav:function(a){var t=this.a
 return new J.fE(t,t.length,0,null,[H.L(t,0)])},
 gbb:function(){return this.b},
 sbb:function(a){return this.b=a}}
@@ -36458,7 +36466,7 @@ this.e=s}else{s=this.e
 if(s==null||s.gB()==null){s=R.hF(t,$.eq)
 this.e=s}else{s=this.e
 if(s==null||s.gB()==null){s=R.bE(t,$.cj)
-this.e=s}else{s=this.b.gn().v(P.an($.p.a1,!0,Q.O))
+this.e=s}else{s=this.b.gn().v(P.an($.p.a2,!0,Q.O))
 this.e=s}}}}if(s==null||s.gB()==null)return
 return},
 b2:function(a){var t,s,r
@@ -36488,28 +36496,28 @@ t+s
 s=$.aC
 r=W.N($.ay,s)
 a.appendChild(r)
-b.a5()
-c.cD(b.a5())
+b.a6()
+c.cD(b.a6())
 b.I(c)
 c.I(b)
-if(J.P(b.gaI(),1)&&J.P(c.gaI(),1)){q=b.a5()+": "
-p=c.cD(b.a5())+": "
+if(J.P(b.gaI(),1)&&J.P(c.gaI(),1)){q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=Y.k(q,b,"In order to beat the Queen, we will be working with a Dersite named Jack to exile her. ")
 if(J.c(c.gt(),$.cd)||J.c(c.gC(),$.cM)){o+=Y.k(p,c,"I forsee problems.")
 o=this.dh(b)?o+Y.k(q,b,"The Queen needs exiled. Jack gaining power is a risk I am willing to take."):o+Y.k(q,b,"Beating this game is the only thing that matters. ")}else if(J.c(c.gt(),$.bo)||J.c(c.gt(),$.bW)){o+=Y.k(p,c,"This endeavor is doomed.")
 o=this.dh(b)?o+Y.k(q,b,"I commend your foresight. Jack is not to be trusted. But the Queen must be exiled."):o+Y.k(q,b,"Everything in this game is doomed. ")}else{o+=Y.k(p,c,"Yes.")
-o=this.dh(b)?o+Y.k(q,b,"I will monitor Jack for signs of treachery."):o+Y.k(q,b,"We shall win.")}}else if(J.P(b.gaI(),1)){q=b.a5()+": "
-p=c.cD(b.a5())+": "
+o=this.dh(b)?o+Y.k(q,b,"I will monitor Jack for signs of treachery."):o+Y.k(q,b,"We shall win.")}}else if(J.P(b.gaI(),1)){q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=Y.k(q,b,"In order to beat the Queen, we will be working with a Dersite named Jack to exile her. ")
 if(J.c(c.gt(),$.cd)||J.c(c.gC(),$.cM)){o+=Y.k(p,c,"... are you SURE that's a good idea?")
 o=this.dh(b)?o+Y.k(q,b,"The Queen needs exiled. Jack gaining power is a risk I am willing to take."):o+Y.k(q,b,"Beating this game is the only thing that matters. ")}else if(J.c(c.gt(),$.bo)||J.c(c.gt(),$.bW)){o+=Y.k(p,c,"Somehow, I'm getting a bad feeling from this.")
 o=this.dh(b)?o+Y.k(q,b,"I commend your foresight. Jack is not to be trusted. But the Queen must be exiled."):o+Y.k(q,b,"Your feelings are irrelevant. ")}else{o=o+Y.k(p,c,"Cool, side quests for the win.")+Y.k(p,c,"Anything's gotta be better than taking her head on. I hear she's a huge bitch.")
-o=this.dh(b)?o+Y.k(q,b,"You are a fool. "):o+Y.k(q,b,"We shall win.")}}else if(J.P(c.gaI(),1)){q=b.a5()+": "
-p=c.cD(b.a5())+": "
+o=this.dh(b)?o+Y.k(q,b,"You are a fool. "):o+Y.k(q,b,"We shall win.")}}else if(J.P(c.gaI(),1)){q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=Y.k(q,b,N.cb(b.I(c),c.I(b),b,c))+Y.k(q,b,"So, this Dersite named Jack showed up. Apparently he wants to help us exile the Black Queen?")+Y.k(q,b,"Something about a grudge?")+Y.k(q,b,"So I told him we'd see what we could do. ")
 if(this.dh(c)){o=o+Y.k(p,c,"You are a fool. Jack is more dangerous than the Queen.")+Y.k(p,c,"Empowering him will only make this game harder. ")
-o=this.dh(b)?o+Y.k(q,b,"Yes, and pissing him off will make the game impossible.")+Y.k(q,b,"We need to weaken the Queen anyways. ")+Y.k(q,b,"We just have to be careful not to let him take her ring. ")+Y.k(p,c,"I don't care.")+Y.k(q,b,"Yes, I know. Goodbye. "):o+Y.k(q,b,"Well, I'd like to see YOU say 'no' to Jack when he's stabbing you. ")+Y.k(p,c,"You are a fool.")}else o=o+Y.k(p,c,"I don't care.")+Y.k(q,b,"Yes. Well... If you ever do care, ping me and I'll bring you up to speed.")}else{q=b.a5()+": "
-p=c.cD(b.a5())+": "
+o=this.dh(b)?o+Y.k(q,b,"Yes, and pissing him off will make the game impossible.")+Y.k(q,b,"We need to weaken the Queen anyways. ")+Y.k(q,b,"We just have to be careful not to let him take her ring. ")+Y.k(p,c,"I don't care.")+Y.k(q,b,"Yes, I know. Goodbye. "):o+Y.k(q,b,"Well, I'd like to see YOU say 'no' to Jack when he's stabbing you. ")+Y.k(p,c,"You are a fool.")}else o=o+Y.k(p,c,"I don't care.")+Y.k(q,b,"Yes. Well... If you ever do care, ping me and I'll bring you up to speed.")}else{q=b.a6()+": "
+p=c.cD(b.a6())+": "
 n=b.I(c)
 m=c.I(b)
 o=Y.k(q,b,N.cb(n,m,b,c))+Y.k(p,c,N.cb(m,n,c,b))+Y.k(q,b,"So, this Dersite named Jack showed up. Apparently he wants to help us exile the Black Queen?")+Y.k(q,b,"Something about a grudge?")+Y.k(q,b,"So I told him we'd see what we could do. ")
@@ -36532,11 +36540,11 @@ C.a.d_(this.b.gdu(),0,new S.iY(!1,!1,this.b,H.a([],t)))
 C.a.d_(this.b.gdu(),0,new N.nl([],!1,null,!1,this.b,H.a([],t)))
 s=this.e
 t=this.b
-r=t.hu(R.b9(t.gF()))
+r=t.hv(R.b9(t.gF()))
 if(r!=null&&!J.c(r,s))this.jY(a,s,r)
 else if(J.c(r,s)){r=s.oG(R.b9(this.b.gF()))
-if(r==null){C.f.eW(a,"beforeend",this.ad(0),C.d,null)
-return}else this.jY(a,s,r)}else C.f.eW(a,"beforeend",this.ad(0),C.d,null)},
+if(r==null){C.f.eX(a,"beforeend",this.ad(0),C.d,null)
+return}else this.jY(a,s,r)}else C.f.eX(a,"beforeend",this.ad(0),C.d,null)},
 ad:function(a){var t=this.e
 if(t!=null){t.aH()
 this.b.ai(this.e)
@@ -36545,7 +36553,7 @@ C.a.d_(this.b.gdu(),0,new F.kw(null,!0,this.b,H.a([],t)))
 C.a.d_(this.b.gdu(),0,new R.m8(null,!1,!1,this.b,H.a([],t)))
 C.a.d_(this.b.gdu(),0,new S.iY(!1,!1,this.b,H.a([],t)))
 C.a.d_(this.b.gdu(),0,new N.nl([],!1,null,!1,this.b,H.a([],t)))
-return" Archagent Jack Noir has not let the Queen's relative weakness go unnoticed. "+(" He meets with the "+this.e.w()+" at "+this.e.fm()+" and begins scheming to exile her. ")+(" You can tell he likes the "+this.e.w()+" because he only stabbed them, like, three times, tops. ")+" And at least ONE of those was on accident. "}return""},
+return" Archagent Jack Noir has not let the Queen's relative weakness go unnoticed. "+(" He meets with the "+this.e.w()+" at "+this.e.fn()+" and begins scheming to exile her. ")+(" You can tell he likes the "+this.e.w()+" because he only stabbed them, like, three times, tops. ")+" And at least ONE of those was on accident. "}return""},
 gd8:function(){return this.f}}
 U.p0.prototype={
 b2:function(a){var t,s,r
@@ -36570,7 +36578,7 @@ if(t)return!0
 return!1},
 ad:function(a){var t,s,r,q,p,o
 t=" In a shocking turn of events, Jack Noir claims the Black Queen's RING OF ORBS "+this.b.dX()+"FOLD. "
-this.b.gJ().d.a$.i9(R.hH(this.b.gF()).gA())
+this.b.gJ().d.a$.ia(R.hH(this.b.gF()).gA())
 s=this.b.gJ().d
 r=$.X
 q=this.b.gJ().d
@@ -36610,7 +36618,7 @@ aY:function(a){var t,s,r
 t=R.hH(this.b.gF())
 s=this.b
 r=s.dG(new Z.vH(10,s,null,t.R($.l),1,null,0,null))
-if(r!=null&&r.ea(a))return
+if(r!=null&&r.eb(a))return
 C.f.N(a,"<br> <img src = 'images/sceneIcons/jack_icon.png'>"+this.ad(0),C.d)},
 gd8:function(){return this.e}}
 S.vI.prototype={
@@ -36628,7 +36636,7 @@ n=[]
 if(t.length===0)return n
 n.push(this.b.gn().v(t))
 if(0>=n.length)return H.b(n,0)
-m=n[0].iI(t)
+m=n[0].iJ(t)
 if(m.length===0)return n
 for(l=0;l<=o;++l){k=this.b.gn().v(m)
 if(this.yw(k))n.push(k)}j=P.jd(n,E.cr)
@@ -36654,7 +36662,7 @@ s=t.length
 if(s===0){if(this.b.gn().a.E()>0.5){C.f.N(a," Jack listlessly shows his stabs to a few Prospitian pawns. ",C.d)
 r=" Jack listlessly shows his stabs to a few Prospitian pawns. "}else{C.f.N(a," Jack listlessly shows his stabs to a few Dersite pawns. ",C.d)
 r=" Jack listlessly shows his stabs to a few Dersite pawns. "}r+=" Bored of this, he decides to show his stabs to BOTH the Black and White Kings.  The battle is over. The Reckoning will soon start."
-this.b.siD(0)
+this.b.siE(0)
 s=this.b.gJ().b
 q=$.X
 s.a$.aJ(q,C.b.l(-99999999))
@@ -36662,8 +36670,8 @@ this.b.gJ().b.db=!0
 C.f.N(a,r,C.d)}else{if(0>=s)return H.b(t,0)
 p=t[0]
 p=p instanceof Q.O?p:null
-if(p!=null&&p.eg&&!p.cY&&this.b.gn().a.E()>0.5){C.f.N(a,"Jack has found the dream self of the "+p.U()+". He shows the sleeping body his stabs. The dream self is no longer available for revival shenanigans. ",C.d)
-p.eg=!1
+if(p!=null&&p.eh&&!p.cY&&this.b.gn().a.E()>0.5){C.f.N(a,"Jack has found the dream self of the "+p.U()+". He shows the sleeping body his stabs. The dream self is no longer available for revival shenanigans. ",C.d)
+p.eh=!1
 o=Q.dZ(p)
 o.rx="after being sleep stabbed by Jack"
 o.cY=!0
@@ -36677,7 +36685,7 @@ m=[q.gJ().d]
 l=new V.dP(q,!1,m,H.a([],s),H.a([],s),"",!0)
 l.f="The "+E.lJ(m)
 l.dO()
-new V.ia([n,l],0,this.b,!1,null,null,99999999).hB(a)}return}},
+new V.ia([n,l],0,this.b,!1,null,null,99999999).hC(a)}return}},
 ml:function(a){var t
 for(t=0;t<a.length;++t)this.b.ai(a[t])},
 dG:function(a){return}}
@@ -36763,7 +36771,7 @@ this.c=a
 t=this.b.gJ().b
 s=$.l
 t=t.a$.X(s)
-s=this.b.ghO()
+s=this.b.ghP()
 if(typeof s!=="number")return H.w(s)
 return t>s},
 aY:function(a){C.f.N(a,"<br>"+this.ad(0),C.d)},
@@ -36829,7 +36837,7 @@ o=$.x
 t.i(0,new R.aX("Protect the Consorts",!1,[new U.e(r+o+" face palms, then begins wildly captchalogging everyone in order to get them to safety.  When they let everyone free, the village is destroyed, but at least it's people are safe."),new U.e("Another day, another volcano is erupting. After decaptchalogging the final rescued "+m+", the "+o+" thinks that there MUST be a better way."),new U.e("After a lot of false starts, the "+o+" has managed to rig a system where the rising heat of the lava itself will trigger entire "+m+" villages to just rise up out of harms way. Hell yes!")],H.a([],p),R.V(),!1,!1,new Y.ai(null,null,"Rewards/sweetLoot.png","Rewards/fraymotifBG.png","Rewards/no_reward.png",null),1,null,null),$.S)
 p=$.dy
 this.c.i(0,new X.a1(s,t,null),p)},
-geR:function(){return this.k1},
+geS:function(){return this.k1},
 gaK:function(){return this.k2},
 gb6:function(){return this.r1},
 gcE:function(){return this.r2},
@@ -36871,7 +36879,7 @@ this.e=null}}},
 G:function(a){return this.dy},
 gjI:function(){return J.fZ(A.Hr(P.al("\\b(\\w)",!0,!0).iZ(0,this.dy),""))},
 m4:function(){return"<h3>"+this.gjI()+" "+H.h(J.ag(this.e))+", Part "+this.e.gqC()+": </h3>"},
-nv:function(a,b,c){var t=this.e.ij(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
+nv:function(a,b,c){var t=this.e.ik(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
 if(J.jK(this.e)===!0)this.r3()
 return t},
 nr:function(a){this.cx=this.c$.gn().v(a.gt().gdj())
@@ -36888,7 +36896,7 @@ for(s=b.b,r=s.length,q=0;q<s.length;s.length===r||(0,H.Q)(s),++q){p=s[q]
 if(J.jL(p).z0(a)===!0)C.a.h(t.b,p)}return this.c$.gn().v(t)},
 CE:function(a){var t,s,r,q,p,o,n,m
 t=Q.Y(null,null,X.a1)
-for(s=a.gcL(a),s=s.gaw(s),r=[H.L(t,0)];s.M();){q=s.ga_()
+for(s=a.gcL(a),s=s.gav(s),r=[H.L(t,0)];s.M();){q=s.ga0()
 p=a.p(0,q)
 C.a.h(t.b,new Q.m(q,t.q(q,J.iM(p)),r))}o=this.c$.gn().v(t)
 this.db=o
@@ -36926,12 +36934,12 @@ CM:function(a,b){var t,s,r,q,p
 t=this.r$
 s=t.p(0,$.$get$EI().a)
 if(s==null)return
-if(s.gaw(s).M())this.fy=H.dj(this.c$.gn().v(t.p(0,"denizen")),"$iscU")
+if(s.gav(s).M())this.fy=H.dj(this.c$.gn().v(t.p(0,"denizen")),"$iscU")
 t=this.fy
 r=this.c$
 if(t==null){t=r.gn()
-r=a.geR()
-q=b.geR()
+r=a.geS()
+q=b.geS()
 p=t.a.E()*(r+q)
 if(p>0.95){t=this.c$.gap()
 r="strong denizen for "+H.h(b)+" of "+H.h(a)
@@ -36956,10 +36964,10 @@ p2:function(a,b){var t,s,r,q,p
 t=a.v(this.b)
 s=a.a.E()>0.75?a.v(this.b):null
 if(J.c(s,t))s=null
-r=t.giz()
+r=t.giA()
 q=t.giP()
 if(s!=null){q=H.h(q)+" and "+H.h(s.giP())
-p=s.giz()
+p=s.giA()
 if(typeof r!=="number")return r.k()
 if(typeof p!=="number")return H.w(p)
 r+=p}if(b!=null)this.o0(b,r)
@@ -36969,10 +36977,10 @@ rt:function(a,b){var t,s,r,q,p
 t=a.v(this.d)
 s=a.a.E()>0.75?a.v(this.d):null
 if(J.c(s,t))s=null
-r=t.giz()
+r=t.giA()
 q=t.giP()
 if(s!=null){q=H.h(q)+" and "+H.h(s.giP())
-p=s.giz()
+p=s.giA()
 if(typeof r!=="number")return r.k()
 if(typeof p!=="number")return H.w(p)
 r+=p}else q=H.h(q)
@@ -36983,10 +36991,10 @@ p4:function(a,b){var t,s,r,q,p
 t=a.v(this.c)
 s=a.a.E()>0.75?a.v(this.c):null
 if(J.c(s,t))s=null
-r=t.giz()
+r=t.giA()
 q=t.giP()
 if(s!=null){q=H.h(q)+" and "+H.h(s.giP())
-p=s.giz()
+p=s.giA()
 if(typeof r!=="number")return r.k()
 if(typeof p!=="number")return H.w(p)
 r+=p}else q=H.h(q)
@@ -37000,14 +37008,14 @@ this.of(b.gn())
 this.oW()
 this.CM(c,d)
 this.oe()},
-ghK:function(){return this.a},
+ghL:function(){return this.a},
 gW:function(a){return this.dy},
 gk7:function(){return this.go},
-shK:function(a){return this.a=a},
+shL:function(a){return this.a=a},
 sW:function(a,b){return this.dy=b}}
 M.pg.prototype={
 ga9:function(a){return this.c$},
-geY:function(){return this.e$},
+geZ:function(){return this.e$},
 gk8:function(){return this.f$},
 sa9:function(a,b){return this.c$=b}}
 M.vQ.prototype={
@@ -37023,10 +37031,10 @@ M.vT.prototype={
 $1:function(a){return J.ig(a)},
 $S:function(){return{func:1,args:[R.i3]}}}
 M.mj.prototype={
-giz:function(){return this.b},
+giA:function(){return this.b},
 slc:function(a){return this.a=a}}
 Q.vU.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx}}
 K.vX.prototype={
@@ -37047,7 +37055,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Homunculus",H.a([$.cD,$.av,$.br],s),"Ugh. It's like a robot, but made of flesh. WHY WOULD YOU DO THIS.",!1,"False Man")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().BQ(a,b)},
+ci:function(a,b){return a.ga_().BQ(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j
 t=[P.q]
 s=H.a(["Forests","Chlorophyll","Moss","Trees","Jungles","Wood","Tribes","Timber","Wilds","Thickets","Coppices","Copses"],t)
@@ -37122,32 +37130,32 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdj:function(){return this.a1},
-ge4:function(){return this.a0},
+gdj:function(){return this.a2},
+ge4:function(){return this.a1},
 gdl:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
 X.i1.prototype={
 go9:function(){return this.a}}
 X.by.prototype={
-ghx:function(){return this.a},
-shx:function(a){return this.a=a}}
+ghy:function(){return this.a},
+shy:function(a){return this.a=a}}
 X.p2.prototype={
 b2:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
 this.e=H.a([],[X.i1])
 if(this.b.gca().b.length===0)return!1
 t=R.hG(this.b.gF())
 for(s=0;s<t.length;++s){r=t[s]
-if((J.c(r.gt(),$.cq)||J.c(r.gt(),$.bo))&&r.fw())if(J.c(r.gC(),$.fS)||J.c(r.gC(),$.fa))this.e.push(new X.i1(r,null,!1))}q=this.AG()
+if((J.c(r.gt(),$.cq)||J.c(r.gt(),$.bo))&&r.fz())if(J.c(r.gC(),$.fS)||J.c(r.gC(),$.fa))this.e.push(new X.i1(r,null,!1))}q=this.AG()
 p=q[0]
 o=q[1]
 n=[Q.O]
 m=H.a([],n)
 for(s=0;s<o.length;++s){l=o[s]
-if(!J.c(l.gt(),$.cq))k=J.c(l.gt(),$.bo)&&l.fw()
+if(!J.c(l.gt(),$.cq))k=J.c(l.gt(),$.bo)&&l.fz()
 else k=!0
 if(k||l.l2()!=null)if(!J.c(l.gC(),$.fb)&&!J.c(l.gC(),$.hw)){this.e.push(new X.i1(l,null,!1))
-m.push(l)}else if(!this.b.gA().gf8()){this.e.push(new X.i1(l,null,!1))
+m.push(l)}else if(!this.b.gA().gf9()){this.e.push(new X.i1(l,null,!1))
 m.push(l)}}for(s=0;s<m.length;++s){j=C.a.b1(o,m[s])
 if(j!==-1){if(j<0||j>=o.length)H.aG(P.e0(j,null,null))
 o.splice(j,1)[0]}}C.a.V(o,R.hG(this.b.gF()))
@@ -37160,12 +37168,12 @@ o.splice(j,1)[0]}i.push(h)
 this.e.push(new X.i1(h,g,!1))}for(s=0;s<i.length;++s){j=C.a.b1(p,i[s])
 if(j!==-1){if(j<0||j>=p.length)H.aG(P.e0(j,null,null))
 p.splice(j,1)[0]}}C.a.V(o,p)
-if(this.b.gA().gf8())for(s=0;s<o.length;++s){f=this.b.gn().a.E()
+if(this.b.gA().gf9())for(s=0;s<o.length;++s){f=this.b.gn().a.E()
 if(s>=o.length)return H.b(o,s)
 l=o[s]
 if(!l.gcc()&&!l.ga7()&&f>0.5){n=this.b.gap()
 n.toString
-F.ao(C.h).$1("("+n.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: I think i should be making bubbles")
+F.ao(C.h).$1("("+n.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: I think i should be making bubbles")
 this.e.push(new X.i1(l,null,!0))}}return this.e.length!==0},
 AG:function(){var t,s,r,q,p,o
 t=[Q.O]
@@ -37188,8 +37196,8 @@ if(r.ga7()&&!o){if(J.c(r.gC(),$.fa)||J.c(r.gC(),$.fS))this.rg(a,"",r,r.gC(),q)}e
 else if((J.c(r.gC(),$.cM)||J.c(r.gC(),$.y2)||J.c(r.gC(),$.c4))&&p!=null&&!p.ga7()){s=document
 n=s.createElement("div")
 a.appendChild(n)
-if(J.c(r.gC(),$.cM))m=this.fj(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek knowledge from the dead. "
-else m=J.c(r.gC(),$.c4)?this.fj(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek aid from the dead. ":this.fj(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek knowledge from the dead. "
+if(J.c(r.gC(),$.cM))m=this.fk(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek knowledge from the dead. "
+else m=J.c(r.gC(),$.c4)?this.fk(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek aid from the dead. ":this.fk(r)+" The "+H.h(r.U())+" guides the "+H.h(p.U())+" to seek knowledge from the dead. "
 l=this.qW(n,m,p,r.gC(),r.gt())
 if(l!=null){this.b.ai(r)
 s=s.querySelector("#sprite_template")
@@ -37202,7 +37210,7 @@ C.f.N(a,C.c.k(C.c.k("",r.dL(p)),p.dL(r)),C.d)}}else if(J.c(r.gC(),$.i8))this.rf(
 else if(J.c(r.gC(),$.fu)&&p!=null&&!p.ga7()){s=document
 n=s.createElement("div")
 a.appendChild(n)
-l=this.rf(n,this.fj(r)+" The "+H.h(r.U())+" allows the "+H.h(p.U())+" to take power from the dead. ",p,!0)
+l=this.rf(n,this.fk(r)+" The "+H.h(r.U())+" allows the "+H.h(p.U())+" to take power from the dead. ",p,!0)
 if(l!=null){this.b.ai(r)
 s=s.querySelector("#sprite_template")
 k=J.n(s)
@@ -37213,7 +37221,7 @@ J.Z(C.j.T(l,"2d"),i,0,0)
 C.f.N(a,C.c.k(C.c.k("",r.dL(p)),p.dL(r)),C.d)}}else if((J.c(r.gC(),$.eq)||J.c(r.gC(),$.eI))&&p!=null&&p.ga7()){s=document
 n=s.createElement("div")
 a.appendChild(n)
-l=this.rg(n,this.fj(r)+" The "+H.h(r.U())+" assists the "+H.h(p.U())+". ",p,r.gC(),r.gt())
+l=this.rg(n,this.fk(r)+" The "+H.h(r.U())+" assists the "+H.h(p.U())+". ",p,r.gC(),r.gt())
 if(l!=null){this.b.ai(r)
 s=s.querySelector("#sprite_template")
 k=J.n(s)
@@ -37221,10 +37229,10 @@ j=k.gH(s)
 i=W.N(k.gK(s),j)
 T.bl(i,r,null,!1)
 J.Z(C.j.T(l,"2d"),i,0,0)
-C.f.N(a,C.c.k(C.c.k("",r.dL(p)),p.dL(r)),C.d)}}else if((J.c(r.gC(),$.fb)||J.c(r.gC(),$.hw))&&!this.b.gA().gf8()){s=this.b.gap()
+C.f.N(a,C.c.k(C.c.k("",r.dL(p)),p.dL(r)),C.d)}}else if((J.c(r.gC(),$.fb)||J.c(r.gC(),$.hw))&&!this.b.gA().gf9()){s=this.b.gap()
 s.toString
-F.ao(C.h).$1("("+s.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: Turning on dream bubble afterlife")
-this.b.gA().sf8(!0)
+F.ao(C.h).$1("("+s.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: Turning on dream bubble afterlife")
+this.b.gA().sf9(!0)
 s=$.aC
 l=W.N($.ay,s)
 a.appendChild(l)
@@ -37241,13 +37249,13 @@ g=W.N(h.gK(s),k)
 T.Ov(l)
 J.Z(C.j.T(l,"2d"),g,0,0)
 J.Z(C.j.T(l,"2d"),i,0,0)
-C.f.N(a,this.fj(r)+" What is the "+H.h(r.U())+" doing out near the furthest ring? Oh GOD, what are they DOING!?  Oh, wait, never mind. False alarm. Looks like they're just negotiating with the horrorterrors to give players without dreamselves access to the afterlife in Dream Bubbles. Carry on.",C.d)}}else if(this.b.gA().gf8())this.A6(a,r)}},
+C.f.N(a,this.fk(r)+" What is the "+H.h(r.U())+" doing out near the furthest ring? Oh GOD, what are they DOING!?  Oh, wait, never mind. False alarm. Looks like they're just negotiating with the horrorterrors to give players without dreamselves access to the afterlife in Dream Bubbles. Carry on.",C.d)}}else if(this.b.gA().gf9())this.A6(a,r)}},
 A6:function(a,b){var t,s,r,q,p,o,n,m
 t=this.b.gca()
-s=b.gn().v(t.h9(b.gaT()))
+s=b.gn().v(t.ha(b.gaT()))
 t=s!=null
-r=t&&!C.a.aE(b.giO(),s)&&!C.a.aE(b.gfk(),s)&&s.gc7()==null?"teen ghost version of their ancestor":""
-if(!t||C.a.aE(b.giO(),s)||C.a.aE(b.gfk(),s)||s.gc7()==null){t=this.b.gca()
+r=t&&!C.a.aE(b.giO(),s)&&!C.a.aE(b.gfl(),s)&&s.gc7()==null?"teen ghost version of their ancestor":""
+if(!t||C.a.aE(b.giO(),s)||C.a.aE(b.gfl(),s)||s.gc7()==null){t=this.b.gca()
 s=b.gn().v(t.b)
 r="dead player"}t=s!=null
 if(t){q=J.bs(b)
@@ -37255,8 +37263,8 @@ p=J.bs(s)
 p=q==null?p==null:q===p
 q=p}else q=!1
 if(q)r="less fortunate alternate self"
-if(t&&C.c.aE(s.gdk(),b.hY()))r="murder victim"
-if(t&&!C.a.aE(b.giO(),s)&&!C.a.aE(b.gfk(),s)&&s.gc7()==null){o="The "+b.w()+" wanders a shifting and confusing landscape. They think they see a "+r+"? They must be dreaming."
+if(t&&C.c.aE(s.gdk(),b.e8()))r="murder victim"
+if(t&&!C.a.aE(b.giO(),s)&&!C.a.aE(b.gfl(),s)&&s.gc7()==null){o="The "+b.w()+" wanders a shifting and confusing landscape. They think they see a "+r+"? They must be dreaming."
 n=B.vg(b,s,!0)
 if(r==="murder victim"){o=o+" It's kind of freaking the "+H.h(b.U())+" out a little. "
 b.af($.H,-10)
@@ -37273,24 +37281,24 @@ t=$.hx
 b.af(t,J.dT(J.aa(s.R(t),5),10))}}C.f.N(a,"<br><br>"+o,C.d)
 m=this.ri(a,b,s)
 this.b.ai(b)
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 return m}else{C.f.N(a,"<br><br>The "+b.w()+" wanders a shifting and confusing landscape. They must be dreaming. They never meet anyone before they wake up, though. ",C.d)
 this.ri(a,b,null)}return},
 qW:function(a,b,c,d,e){var t,s,r,q,p,o,n,m,l
 H.eO(H.h(c)+" is communing with dead.")
 t=this.b.gca()
-s=c.gn().v(t.h9(c.gaT()))
+s=c.gn().v(t.ha(c.gaT()))
 t=s!=null
-r=t&&c.iK(s)==null&&!C.a.aE(c.gfk(),s)&&s.gc7()==null?"teen ghost version of their ancestor":""
-if(!t||c.iK(s)==null||C.a.aE(c.gfk(),s)||s.gc7()!=null){t=this.b.gca()
+r=t&&c.iL(s)==null&&!C.a.aE(c.gfl(),s)&&s.gc7()==null?"teen ghost version of their ancestor":""
+if(!t||c.iL(s)==null||C.a.aE(c.gfl(),s)||s.gc7()!=null){t=this.b.gca()
 s=c.gn().v(t.Ay(c))
-r="ghost of a loved one"}if(s==null||c.iK(s)==null||C.a.aE(c.gfk(),s)||s.gc7()!=null){t=this.b.gca()
-s=c.gn().v(t.h9(c))
-r="less fortunate alternate self"}if(s==null||c.iK(s)==null||C.a.aE(c.gfk(),s)||s.gc7()!=null){t=this.b.gca()
+r="ghost of a loved one"}if(s==null||c.iL(s)==null||C.a.aE(c.gfl(),s)||s.gc7()!=null){t=this.b.gca()
+s=c.gn().v(t.ha(c))
+r="less fortunate alternate self"}if(s==null||c.iL(s)==null||C.a.aE(c.gfl(),s)||s.gc7()!=null){t=this.b.gca()
 s=c.gn().v(t.Aw(c))
-r="dead friend"}if(s==null||c.iK(s)==null||C.a.aE(c.gfk(),s)||s.gc7()!=null){t=this.b.gca()
+r="dead friend"}if(s==null||c.iL(s)==null||C.a.aE(c.gfl(),s)||s.gc7()!=null){t=this.b.gca()
 s=c.gn().v(t.b)
-r="dead player"}if(s!=null&&c.iK(s)==null&&!C.a.aE(c.gfk(),s)&&s.gc7()==null){C.f.N(a,"<br><br>"+this.fj(c)+b+this.yZ(d,c,s,r,e),C.d)
+r="dead player"}if(s!=null&&c.iL(s)==null&&!C.a.aE(c.gfl(),s)&&s.gc7()==null){C.f.N(a,"<br><br>"+this.fk(c)+b+this.yZ(d,c,s,r,e),C.d)
 H.h(a.id)
 H.h(J.bs(c))
 t=$.aC
@@ -37309,11 +37317,11 @@ l=W.N(n.gK(t),p)
 T.fj(l,s)
 J.Z(C.j.T(q,"2d"),m,200,0)
 J.Z(C.j.T(q,"2d"),l,500,0)
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 this.b.ai(c)
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 return q}else return},
-fj:function(a){var t=a.l2()
+fk:function(a){var t=a.l2()
 if(t!=null)return" The "+H.h(a.U())+" uses their "+H.h(t)+". "
 else return""},
 ri:function(a,b,c){var t,s,r,q,p,o,n,m
@@ -37338,12 +37346,12 @@ r=J.n(t)
 q=r.gH(t)
 m=W.N(r.gK(t),q)
 T.fj(m,c)
-J.Z(C.j.T(s,"2d"),m,400,0)}this.b.gA().sip(!0)
+J.Z(C.j.T(s,"2d"),m,400,0)}this.b.gA().siq(!0)
 return s},
 yZ:function(a,b,c,d,e){var t,s,r
 t=J.a6(a)
 if(t.P(a,$.eV)||t.P(a,$.c4)){b.giO().push(new X.by(c,e))
-return" The "+H.h(b.U())+" gains a promise of aid from the "+d+". "}else{b.gfk().push(c)
+return" The "+H.h(b.U())+" gains a promise of aid from the "+d+". "}else{b.gfl().push(c)
 if(J.c(b.gt(),c.gt()))if(c.gaC().length!==0){t=J.bs(b)
 s=J.bs(c)
 s=t==null?s!=null:t!==s
@@ -37352,7 +37360,7 @@ else t=!1
 if(t){C.a.V(b.gaC(),c.gaC())
 r="They learn "+Y.hd(c.gaC())+" from the "+d+". "}else{t=$.hx
 b.af(t,J.dT(J.aa(c.R(t),5),2))
-r=" The "+H.h(b.U())+" gains valuable wisdom from the "+d+". Their power grows much more quickly than merely doing quests. "}b.sei(!0)
+r=" The "+H.h(b.U())+" gains valuable wisdom from the "+d+". Their power grows much more quickly than merely doing quests. "}b.sej(!0)
 b.scQ(b.gcQ()+1)
 return r}},
 rf:function(a,b,c,d){var t,s,r,q,p,o,n,m,l
@@ -37363,14 +37371,14 @@ r=t?"ghost of a hated enemy":""
 if(!t||s.gc7()==null){t=this.b.gca()
 s=c.gn().v(t.Av(c))
 r="ghost of an asshole"}if(s==null||s.gc7()==null){t=this.b.gca()
-s=c.gn().v(t.h9(c))
+s=c.gn().v(t.ha(c))
 r="less fortunate alternate self"}if(s==null||s.gc7()==null){t=this.b.gca()
 s=c.gn().v(t.b)
-r="dead player"}if(s!=null&&s.gc7()==null){b=b+this.fj(c)+" The "+H.h(c.U())+" destroys the essence of the "+r+" for greater destructive power, it will be a while before the ghost recovers."
+r="dead player"}if(s!=null&&s.gc7()==null){b=b+this.fk(c)+" The "+H.h(c.U())+" destroys the essence of the "+r+" for greater destructive power, it will be a while before the ghost recovers."
 s.sc7(J.d8(c))
 t=$.hx
 c.af(t,J.aa(s.R(t),5))
-c.sei(!0)
+c.sej(!0)
 c.scQ(c.gcQ()+1)
 C.f.N(a,"<br><br>"+b,C.d)
 t=$.aC
@@ -37392,28 +37400,28 @@ else T.dK(q,"drain_lightning.png")
 J.Z(C.j.T(q,"2d"),m,200,0)
 J.Z(C.j.T(q,"2d"),l,500,0)
 T.dK(q,"drain_halo.png")
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 this.b.ai(c)
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 return q}else return},
 rg:function(a,b,c,d,e){var t,s,r,q,p
 t=this.b.gca().rv(c.gn())
 s=this.b.gca().nA(c)
 if(t!=null&&!J.c(t.gc7(),"")&&!J.c(s,t)){r=J.a6(d)
-if(r.P(d,$.fS)||r.P(d,$.eq))b=b+this.fj(c)+" The "+H.h(c.U())+" steals the essence of the dead player in order to revive. It will be a while before the ghost recovers."
-else if(r.P(d,$.fa)||r.P(d,$.eI))b=b+this.fj(c)+" The "+H.h(c.U())+" inherits the essence and duties of the dead player in order to revive and continue their work. It will be a while before the ghost recovers."
+if(r.P(d,$.fS)||r.P(d,$.eq))b=b+this.fk(c)+" The "+H.h(c.U())+" steals the essence of the dead player in order to revive. It will be a while before the ghost recovers."
+else if(r.P(d,$.fa)||r.P(d,$.eI))b=b+this.fk(c)+" The "+H.h(c.U())+" inherits the essence and duties of the dead player in order to revive and continue their work. It will be a while before the ghost recovers."
 C.f.N(a,"<br><br>"+b,C.d)
 t.sc7(J.d8(c))
 q=T.IV(a,c,t,e)
 c.d0()
 r=J.a6(e)
 if(r.P(e,$.cq)){c.af($.X,100*$.a7.r)
-c.af($.a7,100)}else if(r.P(e,$.bo)||c.gfE()===C.I)c.af($.co,100)
+c.af($.a7,100)}else if(r.P(e,$.bo)||c.gfF()===C.I)c.af($.co,100)
 r=this.b.gca().b
 p=C.a.b1(r,s)
 if(p!==-1){if(p<0||p>=r.length)H.aG(P.e0(p,null,null))
 r.splice(p,1)[0]}this.b.ai(c)
-this.b.gA().sip(!0)
+this.b.gA().siq(!0)
 return q}else return},
 cd:function(a){a.sa7(!0)},
 ad:function(a){return"TODO: LIfe stuff. for 1.0"}}
@@ -37437,7 +37445,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("8-Ball",H.a([$.cg,$.av,$.br],s),"It seems this is never right. Ask again later or some shit.",!1,"Worst Characters Only Quality")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().BR(a,b)},
+ci:function(a,b){return a.ga_().BR(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i
 t=[P.q]
 s=H.a(["Luck","Casinos","Gambling","Dice","Cards","Fortune","Chance","Betting"],t)
@@ -37584,8 +37592,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
@@ -37614,10 +37622,10 @@ cw:function(a,b){return a},
 dC:function(){return 3.1},
 dD:function(){return 0.1},
 dE:function(){return 3.1},
-eU:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" hoardes the benefits of  "+H.h(J.ag(a.ab))+" while having  "+b.w()+" shoulder the burdens. "},
-hj:function(a,b,c){var t=2*a.hw()/20
-if(a.c.ga6().r)t*=a.c.ga6().ry
+eV:function(){return!0},
+hf:function(a,b,c){return" The "+a.w()+" hoardes the benefits of  "+H.h(J.ag(a.ab))+" while having  "+b.w()+" shoulder the burdens. "},
+hk:function(a,b,c){var t=2*a.hx()/20
+if(a.c.ga_().r)t*=a.c.ga_().x1
 if(t>=0)a.d1(t,c)
 else b.d1(t,c)},
 aD:function(){var t,s,r,q,p,o,n,m
@@ -37662,7 +37670,7 @@ s=$.x
 t.i(0,new R.aX("Praise Dutton",!1,[new U.e(r+s+" and their fervant belief in Lord Dutton is up to the task.  "),new U.e("The "+s+" has spread the word of Lord Charles Dutton to about half of the "+q+" factions, at this point. The Cult of Dutton unites the chaotic shitposting landscape."),new U.e("The final "+q+" shitposter surrenders. The "+s+" controls everything now. They are the Lord of all they survey. ")],H.a([],m),R.V(),!1,!1,new Y.d4("Rewards/sweetTreasure.png",this.y2,"Rewards/no_reward.png",null),1,null,null),$.S)
 m=$.dy
 this.c.i(0,new X.a1(p,t,null),m)},
-geR:function(){return this.k1},
+geS:function(){return this.k1},
 gaK:function(){return this.k2},
 gb6:function(){return this.r1},
 gcE:function(){return this.r2},
@@ -37675,13 +37683,13 @@ gA:function(){return this.L},
 sA:function(a){return this.L=a}}
 N.w9.prototype={
 b2:function(a){var t,s,r,q,p,o,n,m
-if(this.b.ga6().db)return!1
+if(this.b.ga_().dx)return!1
 this.e=[]
 if(this.y>10)return!1
 for(t=this.b.bY(),s=t.length,r=this.f,q=this.r,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
-n=o.iB($.co)
-m=o.iB($.c0)
-if(o.i8()&&o.fw()){if(m>q)this.e.push(new N.pN(o,m))
+n=o.iC($.co)
+m=o.iC($.c0)
+if(o.i9()&&o.fz()){if(m>q)this.e.push(new N.pN(o,m))
 if(n<r)this.e.push(new N.pN(o,n))}}return this.e.length>0},
 aY:function(a){var t,s,r,q;++this.y
 C.f.N(a,"<br> <img src = 'images/sceneIcons/luck_icon.png'>",C.d)
@@ -37692,39 +37700,39 @@ Dz:function(a){var t,s
 if(a.a.gB()!=null)t=!J.c(a.a.gt(),$.aI)&&a.a.gc3()>=this.x
 else t=!0
 if(t)return this.lV(a)
-s="The "+a.a.w()+" was just wandering around on "+a.a.fm()+" when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest hoard of grist. It will be easier to complete their land quests now."
+s="The "+a.a.w()+" was just wandering around on "+a.a.fn()+" when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest hoard of grist. It will be easier to complete their land quests now."
 a.a.jf()
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return s},
 lV:function(a){var t,s,r
-t=a.a.gB()!=null?a.a.fm():"some random planet"
+t=a.a.gB()!=null?a.a.fn():"some random planet"
 s=a.a.dP(null)
 r=C.c.k("The "+a.a.w()+" was just wandering around on "+t+" when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest cache of boonbucks. They will finally be able to afford that fraymotif, ",J.ag(s))+", they have had their eye on! "
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return r},
 Dy:function(a){var t
 if(a.a.gB()==null)return""
-t="The "+a.a.w()+" was just wandering around on "+a.a.fm()+" when they suddenly tripped over a huge bee hive. The angry bees immediately ravage the country side, pestering local consorts."
-a.a.hc(-1)
-this.b.gA().si6(!0)
+t="The "+a.a.w()+" was just wandering around on "+a.a.fn()+" when they suddenly tripped over a huge bee hive. The angry bees immediately ravage the country side, pestering local consorts."
+a.a.hd(-1)
+this.b.gA().si7(!0)
 return t},
 DA:function(a){var t,s
-t=this.b.gn().v(a.a.iI(R.b9(this.b.gF())))
+t=this.b.gn().v(a.a.iJ(R.b9(this.b.gF())))
 if(t==null)return this.lV(a)
 s="The "+a.a.w()+" was fucking around on the internet and accidentally sent the "+t.w()+" a message meant for someone else. Luckily, they seem flattered instead of offended. "
 t.I(a.a).kd()
 t.I(a.a).kd()
 t.I(a.a).kd()
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return s},
 Dx:function(a){var t,s
-t=this.b.gn().v(a.a.iI(R.b9(this.b.gF())))
+t=this.b.gn().v(a.a.iJ(R.b9(this.b.gF())))
 if(t==null)return this.lV(a)
 s=C.c.k("The "+a.a.w()+" was fucking around on the internet and accidentally sent the "+t.w()+" a message meant for someone else. They will never live this down. The ",t.U())+" seems pretty offended, too."
-t.I(a.a).fv()
-t.I(a.a).fv()
-t.I(a.a).fv()
-this.b.gA().si6(!0)
+t.I(a.a).fw()
+t.I(a.a).fw()
+t.I(a.a).fw()
+this.b.gA().si7(!0)
 return s},
 DB:function(a){var t,s,r,q
 if(a.a.gB()!=null)t=!J.c(a.a.gt(),$.aI)&&a.a.gc3()>=this.x
@@ -37737,17 +37745,17 @@ a.a.gdV().h(0,r.bi())
 t=this.b.gap()
 t.toString
 F.ao(C.h).$1(t.aG(C.h,"AB: found event that gained item"))
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return q},
 tM:function(a){var t,s,r
-t=a.a.gB()!=null?a.a.fm():"some random planet"
+t=a.a.gB()!=null?a.a.fn():"some random planet"
 s="The "+a.a.w()+" was just wandering around on "+t+" when they see a GOLD IMP. Those things are worth a ton of experience points, if you can manage to even damage them. Holy shit, did the "+a.a.w()+" just ONE SHOT them!? "
 a.a.aH()
 a.a.aH()
-a.a.sei(!0)
+a.a.sej(!0)
 r=a.a
 r.scQ(r.gcQ()+2)
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return s},
 Dw:function(a){var t,s,r
 if(a.a.gB()==null)return""
@@ -37758,35 +37766,35 @@ s=a.a.gdV().a;(s&&C.a).aW(s,t)
 s=this.b.gap()
 s.toString
 F.ao(C.h).$1(s.aG(C.h,"AB: found event that killed item"))}else r="The "+s.w()+" tripped right through a glitched section of wall, only to find a single imp. 'Shh.' the imp says, handing over a frankly obscene bucket of something, 'It's a secret to everybody.' The "+a.a.w()+"  panics and chucks a PERFECTLY GENERIC OBJECT, at the imp as they run away. Huh. Where did that come from? "
-this.b.gA().si6(!0)
+this.b.gA().si7(!0)
 return r},
 oq:function(a){var t,s
 t="Holy shit, the "+a.a.w()+" just found a METAL PUMPKIN. Those things are worth a LOT of experience points! And they totally managed to explode it before it never existed in the first place! Score! Talk about luuuuuuuucky!"
 a.a.aH()
 a.a.aH()
 a.a.aH()
-a.a.sei(!0)
+a.a.sej(!0)
 s=a.a
 s.scQ(s.gcQ()+3)
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 return t},
 tN:function(a){var t,s
 if(a.a.gB()!=null)t=!J.c(a.a.gt(),$.aI)&&a.a.gc3()>=this.x
 else t=!0
 if(t)return this.oq(a)
-s="Through a frankly preposterous level of Scooby-Doo shenanigans, the  "+a.a.w()+" trips into a wall, which depresses a panel, which launches a catapult, which throws impudent fruit at a nearby Ogre, which wakes him up, which makes him wander away, which frees the local consorts from his tyranny, who then celebrate an end to their famine by eating the fruit.  All of which causes, like, a third of the main quest of "+a.a.fm()+" to be completed. "
+s="Through a frankly preposterous level of Scooby-Doo shenanigans, the  "+a.a.w()+" trips into a wall, which depresses a panel, which launches a catapult, which throws impudent fruit at a nearby Ogre, which wakes him up, which makes him wander away, which frees the local consorts from his tyranny, who then celebrate an end to their famine by eating the fruit.  All of which causes, like, a third of the main quest of "+a.a.fn()+" to be completed. "
 if(J.c(a.a.gt(),$.aI))s+="Wait. What the HELL!? Is that last Frog!? Just sitting there? Right in front of the "+a.a.w()+"!? No time shenanigans or prophecies or god damned Choices!? It's just...there. Well. Damn. That'll make the frog breeding WAY easier."
-a.a.hc(3)
-this.b.gA().shy(!0)
+a.a.hd(3)
+this.b.gA().shz(!0)
 return s},
 tL:function(a){var t
 if(a.a.gB()==null)return"The "+a.a.w()+" gets a bad feeling, like maybe their land back in their home session just got damaged. But...it's not like they can ever go back, right? Who cares."
-t="Through a frankly preposterous level of Scooby-Doo shenanigans, the  "+a.a.w()+" trips into a wall, which depresses a panel, which launches a flaming rock via catapult, which crashes into a local consort village. Which immediately catches on fire, which makes them be refugees, which makes them immigrate to a new area, which disrupts the stability of the entire goddamned planet.  All of which causes, like, a third of the main quest of "+a.a.fm()+" to be fucked up. "
-a.a.hc(-4)
-this.b.gA().si6(!0)
+t="Through a frankly preposterous level of Scooby-Doo shenanigans, the  "+a.a.w()+" trips into a wall, which depresses a panel, which launches a flaming rock via catapult, which crashes into a local consort village. Which immediately catches on fire, which makes them be refugees, which makes them immigrate to a new area, which disrupts the stability of the entire goddamned planet.  All of which causes, like, a third of the main quest of "+a.a.fn()+" to be fucked up. "
+a.a.hd(-4)
+this.b.gA().si7(!0)
 return t},
 Dv:function(a,b){var t,s,r,q,p
-this.b.gA().shy(!0)
+this.b.gA().shz(!0)
 if(a.a.gaS()===!0)if(a.a.gbf()!==!0)t=a.a.gcc()||a.a.gbL()
 else t=!1
 else t=!1
@@ -37794,7 +37802,7 @@ if(t){s=" What the HELL!? The "+a.a.w()+" managed to somehow lose to REGULAR FUC
 if(!a.a.gbL()){s+="QUEST BED!? Their body glows, and rises Skaiaward. "+("On "+H.h(a.a.gaq())+", their dream self takes over and gets a sweet new outfit to boot.  ")
 this.b.gA().soh(!0)
 s=C.c.k(s,a.a.cd("luckily on their Quest Bed"))}else{s+="SACRIFICIAL SLAB!? They glow and ascend to the God Tiers with a sweet new outfit."
-this.b.gA().smg(!0)}r=this.b.gex().hg(this.b.gn(),[a.a],3)
+this.b.gA().smg(!0)}r=this.b.gey().hh(this.b.gn(),[a.a],3)
 C.a.h(a.a.gaC(),r)
 s+=C.c.k(" They learn ",J.ag(r))+". "
 a.a.jj()
@@ -37823,7 +37831,7 @@ q=r.gH(t)
 p=W.N(r.gK(t),q)
 T.bl(p,a.a,null,!1)
 J.Z(C.j.T(s,"2d"),p,0,0)
-this.b.gA().si6(!0)
+this.b.gA().si7(!0)
 this.b.gA().syg(!0)
 return""},
 CR:function(a,b){var t,s,r,q,p
@@ -37846,11 +37854,11 @@ if(J.P(a.b,q)&&J.eA(a.b,r))return this.Dx(a)
 else{r=s-15
 if(J.P(a.b,r)&&J.eA(a.b,q)){p=C.c.k("The "+a.a.w()+" has lost their ",this.b.gn().v(["sopor slime","candy","apple juice","alcohol","cat nip","chocolate","orange soda","blanket","hat","lucky coin","magic 8 ball"]))+". Sure, it seems stupid to you or me but... it was one of the few things left holding their sanity together. They are enraged."
 a.a.af($.H,-1000)
-this.b.gA().si6(!0)
+this.b.gA().si7(!0)
 return p}else{q=s-20
 if(J.P(a.b,q)&&J.eA(a.b,r)){p=C.c.k(C.c.k("The "+a.a.w()+" has had a momentary lapse of judgement and alchemized a weapon with the ",this.b.gn().v(["magic cue ball","grimoire","original VHS tape of Mac and Me","fluthlu doll","dream catcher","squiddles plush","Dr Seuss Book","commemorative Plaque from a World Event That Never Happened","SCP-093"]))+" they just found. Any sane adventurer would cast these instruments of the occult into the FURTHEST RING and forget they ever existed. Instead, the ",a.a.U())+" equips them. This is a phenomenally bad idea. "
 a.a.gc_().gcT().h(0,$.cl)
-this.b.gA().si6(!0)
+this.b.gA().si7(!0)
 return p}else{r=s-25
 if(J.P(a.b,r)&&J.eA(a.b,q))return this.Dw(a)
 else if(J.P(a.b,s-30)&&J.eA(a.b,r))return this.tL(a)
@@ -37860,9 +37868,9 @@ else if(J.P(a.b,t))return this.tN(a)
 else throw H.j("NO this is NOT RIGHT, LUCK EVENT BROKEN")}}}}}}}}}
 N.pN.prototype={
 gbb:function(){return this.a},
-ga2:function(a){return this.b},
+ga3:function(a){return this.b},
 sbb:function(a){return this.a=a},
-sa2:function(a,b){return this.b=b}}
+sa3:function(a,b){return this.b=b}}
 S.wa.prototype={
 da:function(){return!0},
 bj:function(a){return!0},
@@ -37978,7 +37986,7 @@ gcl:function(){return this.ry},
 gck:function(){return this.x1},
 gcI:function(){return this.x2}}
 L.wr.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
@@ -37986,9 +37994,9 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gdl:function(){return this.a2},
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 V.ws.prototype={
 aF:function(){var t,s,r,q
 t=Q.Y(null,null,A.at)
@@ -38006,7 +38014,7 @@ s=A.r("Janus Bust",H.a([$.bN,$.lP,$.bv,$.bh,$.av,$.aD,$.b1],s),"So is the joke t
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
 ci:function(a,b){var t,s,r,q
-t=a.ga6()
+t=a.ga_()
 t.toString
 s=a.gap()
 r="AB: Huh. Looks like a "+H.h(J.d8(b))+" is going at it."
@@ -38014,7 +38022,7 @@ s.toString
 F.ao(C.h).$1(s.aG(C.h,r))
 q=b.gam()==="jadedResearcher"?"....GOD FUCKING DAMN IT. These punk fucking asshole Wastes that don't know what they are doing have gone too far.  STAY THE FUCK AWAY FROM MY YARD YOU ASSHOLES!!!  <br><Br>Fuck. Whatever. Something something glowing code.  I'm not gonna even dignifty this asshole with a name. You know who it is.  Have fun COMPLETELY over using my gimick, asshole. See how much you like nullifying the basic ability of intelligent beings in all real and hypothetical planes of existance to give a shit.  I'm just gonna be over here, laughing when shit gets real, which it always does. And no. You do NOT get to borrow my YellowYard to do this.  Should have thought of that before you hacked the code. Good luck controlling it without the YellowYard. Also. I shouldn't even HAVE to say this.... But you DO know that gnosis fucks with transtimeline shit, right? Good luck even gettin your shit to work.  And no, I do NOT care that this asshole Waste is probably just past me.  PastJR is like, the LEAST competant JR when it comes to pulling shit like this off.":"....GOD FUCKING DAMN IT. These punk fucking asshole Wastes that don't know what they are doing have gone too far.  STAY THE FUCK AWAY FROM MY YARD YOU ASSHOLES!!!  <br><Br>Fuck. Whatever. Something something glowing code.  I'm not gonna even dignifty this asshole with a name. You know who it is.  Have fun COMPLETELY over using my gimick, asshole. See how much you like nullifying the basic ability of intelligent beings in all real and hypothetical planes of existance to give a shit.  I'm just gonna be over here, laughing when shit gets real, which it always does. And no. You do NOT get to borrow my YellowYard to do this.  Should have thought of that before you hacked the code. Good luck controlling it without the YellowYard. Also. I shouldn't even HAVE to say this.... But you DO know that gnosis fucks with transtimeline shit, right? Good luck even gettin your shit to work. ";++t.a
 t.Q=!0
-t.Dg(a.hh("MindGnosis4"),a)
+t.Dg(a.hi("MindGnosis4"),a)
 return q},
 aD:function(){var t,s,r,q,p,o,n,m,l,k
 t=[P.q]
@@ -38078,23 +38086,24 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
 S.wu.prototype={
-ci:function(a,b){++a.ga6().a
-return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
+ci:function(a,b){var t=a.ga_()
+t.db=!0;++t.a
+return"Oh my. The "+b.w()+" is making things blurry. Too blurry. It's hard to tell what anything is anymore."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
 gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gdl:function(){return this.y2},
 gd9:function(){return this.L},
-gcV:function(){return this.a1},
-gA:function(){return this.a0},
-sA:function(a){return this.a0=a}}
+gcV:function(){return this.a2},
+gA:function(){return this.a1},
+sA:function(a){return this.a1=a}}
 R.pa.prototype={
 gjI:function(){return"Strange Dreams:"},
 m4:function(){return"<h3>Strange Dreams: "+H.h(J.ag(this.e))+"</h3>"},
@@ -38104,7 +38113,7 @@ if(this.e==null){t=this.jG(a,this.id)
 this.e=t
 if(!t.gd8()){t=this.id
 t.aW(t,this.e)}}},
-nv:function(a,b,c){var t=this.e.ij(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
+nv:function(a,b,c){var t=this.e.ik(b,c,this.fy,this.fx,this.cx,this.cy,a,this)
 if(J.jK(this.e)===!0)this.e=null
 return t},
 vV:function(a,b,c,d,e,f){var t
@@ -38150,14 +38159,14 @@ s+=" The "+q.w()+" is enraged that their Kismesis was killed. "}else{m=J.n(n)
 if(J.c(m.ar(n),n.gbB())){J.b5(o,-20)
 s+=" The "+q.w()+" is enraged that their crush was killed. "}else if(J.c(m.ar(n),n.gcb())&&!!p.$isO&&q.aX){J.b5(o,-20)
 s+=" The "+q.w()+" is enraged that their spades crush was killed. "}else if(J.c(m.ar(n),n.gcb())&&!!p.$isO&&!q.aX){o.kd()
-s+=" The "+q.w()+" is pretty happy that their enemy was killed. "}else if(J.P(m.ga2(n),0)){l=0
-while(!0){p=m.ga2(n)
+s+=" The "+q.w()+" is pretty happy that their enemy was killed. "}else if(J.P(m.ga3(n),0)){l=0
+while(!0){p=m.ga3(n)
 if(typeof p!=="number")return H.w(p)
 if(!(l<p))break
-o.fv();++l}s+=" The "+q.w()+" is pretty pissed that their friend was killed. "}}}}return s},
+o.fw();++l}s+=" The "+q.w()+" is pretty pissed that their friend was killed. "}}}}return s},
 v0:function(a,b){var t,s
 if(a==null||b==null)return!1
-if(this.b.ga6().z)return!0
+if(this.b.ga_().z)return!0
 t=a.I(b)
 if(t!=null)s=J.c(t.gO(),t.gd4())||J.c(t.gO(),t.gdW())
 else s=!1
@@ -38214,12 +38223,12 @@ J.Z(C.j.T(r,"2d"),n,150,0)},
 nl:function(a4){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3
 t=R.b9(this.b.bY())
 for(s="",r=0;q=this.e,r<q.length;++r){p=q[r]
-o=p.fi(t)
+o=p.fj(t)
 q=o!=null
 if(q)s=C.c.k(s,p.dL(o))
 if(this.v0(p,o)){q=this.b.gap()
 q.toString
-F.ao(C.h).$1("("+q.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: AB: A pvp strife is happening!")
+F.ao(C.h).$1("("+q.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: AB: A pvp strife is happening!")
 q=H.h(J.d8(p))
 n=[E.cr]
 m=new V.dP(this.b,!1,[p],H.a([],n),H.a([],n),q,!0)
@@ -38231,20 +38240,20 @@ l.dO()
 l.r=!1
 q=this.b
 C.f.N(a4,"<Br>The "+p.w()+" challenges the "+o.w()+" to an honorable duel. <Br>",C.d)
-new V.ia([m,l],0,q,!1,null,null,99999999).hB(a4)
-if(!this.b.ga6().z&&this.b.gn().a.E()>0.3){p.d0()
+new V.ia([m,l],0,q,!1,null,null,99999999).hC(a4)
+if(!this.b.ga_().z&&this.b.gn().a.E()>0.3){p.d0()
 o.d0()
 s="Luckily the combatants were only knocked out and recover shortly."}else{if(o.ga7()){k=o
 j=p}else{k=p
-j=o}i=this.b.ga6().x1.yJ(k)
-if(this.b.ga6().z&&i!=null){s=i+" You did it. You finally killed one of the Manipulative Bastards. Keep going."
+j=o}i=this.b.ga_().x2.yJ(k)
+if(this.b.ga_().z&&i!=null){s=i+" You did it. You finally killed one of the Manipulative Bastards. Keep going."
 q=this.b.gap()
 n="AB: JR, that weird clone of "+H.h(J.d8(k))+" was killed. "
 q.toString
-F.ao(C.h).$1("("+q.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+n)}else s=" Oh. Oh god no. Please be grub sauce. Please be grub sauce! You didn't mean to! It was just a game... Why did "+k.w()+" have to die? "
-j.seB(j.geB()+1)
+F.ao(C.h).$1("("+q.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+n)}else s=" Oh. Oh god no. Please be grub sauce. Please be grub sauce! You didn't mean to! It was just a game... Why did "+k.w()+" have to die? "
+j.seC(j.geC()+1)
 this.b.gA().skm(!0)
-j.sfI(k.gav())
+j.sfJ(k.gau())
 this.om(a4,j,k)}this.b.ai(p)
 this.b.ai(o)
 return s}h=R.b9(this.b.gF())
@@ -38300,32 +38309,32 @@ J.Z(C.j.T(d,"2d"),a2,475,50)
 J.Z(C.j.T(d,"2d"),a,0,0)
 J.Z(C.j.T(d,"2d"),a0,200,0)
 J.Z(C.j.T(d,"2d"),a1,500,0)
-N.xR(f,p,o)}else if(J.af(J.ct(o.R($.l),o.hv("Defender")),J.ct(p.R($.l),p.hv("Murderer")))){a3=this.dG(o)
-if(!(a3!=null&&a3.ea(a4))){p.aH()
+N.xR(f,p,o)}else if(J.af(J.ct(o.R($.l),o.hw("Defender")),J.ct(p.R($.l),p.hw("Murderer")))){a3=this.dG(o)
+if(!(a3!=null&&a3.eb(a4))){p.aH()
 p.af($.H,100)
 s+=" The "+p.w()+" brutally murders that asshole, the "+o.w()+". "+R.Dt(o,p,"Defender","Murderer")
 if(p.ga7())s+=" Every one is very impressed that they managed to do it while dying."
 s=C.c.k(s+this.AU(o,p),o.cd(C.c.k("fighting against the crazy ",J.d8(p))))
-p.seB(p.geB()+1)
+p.seC(p.geC()+1)
 this.b.gA().skm(!0)
 J.b5(o.I(p),-10)
-p.sfI(o.gav())
+p.sfJ(o.gau())
 this.om(a4,p,o)}}else{a3=this.dG(o)
-if(!(a3!=null&&a3.ea(a4))){o.aH()
+if(!(a3!=null&&a3.eb(a4))){o.aH()
 s=s+(" The "+p.w()+" attempts to brutally murder that asshole, the "+o.w())+(", but instead gets murdered first, in self-defense. "+R.Dt(p,o,"Murderer","Defender"))
 if(p.ga7())s+=" The task is made especially easy by the "+p.w()+" being already in the proccess of dying. "
 s=C.c.k(s,p.cd(C.c.k("being put down like a rabid dog by the ",J.d8(o))))
-o.seB(o.geB()+1)
+o.seC(o.geC()+1)
 this.b.gA().skm(!0)
 J.b5(o.I(p),-10)
-o.sfI(p.gav())
+o.sfJ(p.gau())
 this.om(a4,o,p)}}}else{p.af($.H,30)
 if(J.P(p.R($.H),0)){s+=" The "+p.w()+" has officially settled their shit. "
 p.dB()}else if(!p.ga7()&&q&&!this.qy(p,o)){if(J.c(o.gc0().d,"sprite"))s+=" The "+p.w()+" is too enraged to think things through.  The "+o.w()+" that they want to kill isn't even in the Medium, yet, dunkass!"
 else if(J.c(o.gt(),$.b2))s+=" The "+p.w()+" can't even find the "+o.w()+" in order to kill them! It's like they're fucking INVISIBLE or something. It's hard to stay enraged while wandering around, lost."
 else s=J.c(o.gt(),$.aI)?s+(" The "+p.w()+" can't even find the "+o.w()+" in order to kill them! They probably aren't even running away, but somehow the "+p.w()+" keeps getting turned around. It's hard to stay enraged while wandering around, lost."):s+(" The "+p.w()+" can't even find the "+o.w()+" in order to kill them! Do they just never stay in one spot for more than five seconds? Flighty bastard. It's hard to stay enraged while wandering around lost.")
 p.af($.H,30)}else if(!p.ga7())s+=" The "+p.w()+" can't find anybody they hate enough to murder. They calm down a little. "}}return s},
-qy:function(a,b){if(this.b.ga6().z)return!0
+qy:function(a,b){if(this.b.ga_().z)return!0
 if(J.c(b.gc0().d,"sprite"))return!1
 if(J.P(b.R($.l),a.R($.l)))return!1
 if(J.c(b.gt(),$.b2)&&b.nQ()&&J.P(b.R($.l),50))return!1
@@ -38351,10 +38360,10 @@ cw:function(a,b){return a},
 dC:function(){return 0.1},
 dD:function(){return 3},
 dE:function(){return 0.1},
-eU:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" takes on the burdens of "+H.h(J.ag(a.ab))+" while leaving the blessings for "+b.w()+". "},
-hj:function(a,b,c){var t=2*a.hw()/20
-if(a.c.ga6().r)t*=a.c.ga6().ry
+eV:function(){return!0},
+hf:function(a,b,c){return" The "+a.w()+" takes on the burdens of "+H.h(J.ag(a.ab))+" while leaving the blessings for "+b.w()+". "},
+hk:function(a,b,c){var t=2*a.hx()/20
+if(a.c.ga_().r)t*=a.c.ga_().x1
 if(t<0)a.d1(t,c)
 else b.d1(t,c)},
 aD:function(){var t,s,r,q,p,o,n,m
@@ -38481,7 +38490,7 @@ gdw:function(){return this.dy},
 sA:function(a){return this.cx=a}}
 Y.wA.prototype={
 vf:function(){var t,s,r,q,p
-if(this.a.ga6().p8(this.a))return
+if(this.a.ga_().p8(this.a))return
 this.e=E.kc("!!!RING!!! OMG YOU SHOULD NEVER SEE THIS!",this.a)
 t=Z.K("Red Miles",3,null,"")
 t.r.push(new Z.A($.l,2,!0,0,1,2,3,""))
@@ -38506,7 +38515,7 @@ s=$.a7
 s=p.a$.X(s)
 p.a$.aJ(r,C.i.l(s))},
 vd:function(){var t,s,r,q,p
-if(this.a.ga6().p7(this.a))return
+if(this.a.ga_().p7(this.a))return
 this.f=E.kc("!!!SCEPTER!!! OMG YOU SHOULD NEVER SEE THIS!",this.a)
 t=Z.K("Reckoning Meteors",3,null,"")
 t.r.push(new Z.A($.l,2,!0,0,1,2,3,""))
@@ -38533,7 +38542,7 @@ s=$.a7
 s=p.a$.X(s)
 p.a$.aJ(r,C.i.l(s))},
 vc:function(){var t,s,r,q,p
-if(this.a.ga6().p6(this.a))return
+if(this.a.ga_().p6(this.a))return
 t=this.a
 s=new F.fG(null,C.e,t,"Jack","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Jack",t)
@@ -38555,7 +38564,7 @@ t=q.a$.X(t)
 q.a$.aJ(s,C.i.l(t))
 C.a.h(this.d.fy,p)},
 vb:function(){var t,s,r
-if(this.a.ga6().p5(this.a))return
+if(this.a.ga_().p5(this.a))return
 t=this.a
 s=new F.fG(null,C.e,t,"Democratic Army","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("Democratic Army",t)
@@ -38564,14 +38573,14 @@ r=Z.K("Democracy Charge",2,null,"")
 r.r.push(new Z.A($.l,3,!0,0,1,2,3,""))
 r.e=" The people have chosen to Rise Up against their oppressors. "
 C.a.h(this.r.fy,r)},
-ii:function(){this.e=null
+ij:function(){this.e=null
 this.d.ry=null
 this.c.ry=null},
 ga9:function(a){return this.a},
 sa9:function(a,b){return this.a=b}}
 F.wz.prototype={}
 F.fG.prototype={
-h2:function(){return new E.rW(this,P.cF(D.bg,P.ad),H.a([],[A.dV]))},
+h3:function(){return new E.rW(this,P.cF(D.bg,P.ad),H.a([],[A.dV]))},
 $ish9:1}
 F.kG.prototype={
 cU:function(a){var t,s,r
@@ -38598,19 +38607,19 @@ r.D(t,s)
 this.j6(r)
 return r}}
 F.M.prototype={$ish9:1,
-ghQ:function(){return this.x2},
+ghR:function(){return this.x2},
 gjT:function(){return this.y1},
 gj7:function(){return this.y2},
-gbb:function(){return this.a1},
-ghb:function(){return this.a0},
+gbb:function(){return this.a2},
+ghc:function(){return this.a1},
 skb:function(a){return this.x1=a},
-shQ:function(a){return this.x2=a},
+shR:function(a){return this.x2=a},
 sj7:function(a){return this.y2=a},
 st8:function(a){return this.L=a},
-sbb:function(a){return this.a1=a},
-shb:function(a){return this.a0=a}}
+sbb:function(a){return this.a2=a},
+shc:function(a){return this.a1=a}}
 U.rZ.prototype={
-ff:function(a,b,c,d,e){W.F5(b,null,null).fH(new U.t_(this,a,!0,d,e))},
+fg:function(a,b,c,d,e){W.F5(b,null,null).fI(new U.t_(this,a,!0,d,e))},
 CO:function(a){var t,s,r,q,p,o,n,m,l,k,j
 t=$.p.ae
 s=[]
@@ -38675,7 +38684,7 @@ l=J.fD(P.mJ(C.aJ,O.c5("s",n),C.n,!1),",")
 k=O.c5("x",n)
 H.eO("processing fan oc, bs is "+n+" and b is "+H.h(m)+" and s is "+H.h(l)+" and x is: "+H.h(k))
 j=U.M9(m,l)
-if(k!=null){r=C.y.gr5().ed(k).buffer
+if(k!=null){r=C.y.gr5().ee(k).buffer
 i=new B.f2(null,0)
 i.a=(r&&C.p).n6(r,0)
 j.tv(i)}t.push(j)}return t},
@@ -38761,7 +38770,7 @@ l=$.G
 t.i(0,new R.aX("Explore the Tombs",!1,[new U.e(m),new U.e(k+l+" explains that they will have to find a "+l+" champion to face the Mummy, for anyone cursed by it will surely perish should they face it in a strife."),new U.e("The "+q+" finds a competent enough Warrior "+l+" to help them fight the Mummy. While they can't fight directly, the "+q+" can at least give them some "+$.bV+" buffs. With a deafening "+$.ac+", the Warrior "+l+" wins the day! The curse is lifted! ")],H.a([],n),R.V(),!1,!1,new Y.ai(null,null,"Rewards/sweetLoot.png","Rewards/fraymotifBG.png","Rewards/no_reward.png",null),1,null,null),$.S)
 n=$.dy
 this.c.i(0,new X.a1(s,t,null),n)},
-geR:function(){return this.k1},
+geS:function(){return this.k1},
 gaK:function(){return this.k2},
 gb6:function(){return this.r1},
 gcE:function(){return this.r2},
@@ -38787,18 +38796,18 @@ jY:function(a,b,c){var t,s,r,q,p,o,n
 t=$.aC
 s=W.N($.ay,t)
 a.appendChild(s)
-if(J.P(b.gaI(),1)&&J.P(c.gaI(),1)){r=b.a5()+": "
-q=c.cD(b.a5())+": "
+if(J.P(b.gaI(),1)&&J.P(c.gaI(),1)){r=b.a6()+": "
+q=c.cD(b.a6())+": "
 p=Y.k(r,b,"In order to beat the game quicker, we will now be exiling Jack.")
-p=this.dh(c)?p+Y.k(q,c,"Agreed.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Fine."):p+Y.k(q,c,"I don't see how this helps us beat the game.")+Y.k(r,b,"You are a fool. His betrayal is inevitable.")+Y.k(q,c,"It might not become relevant until we have left the Medium.")+Y.k(r,b,"I want nothing to risk our Ascension.")+Y.k(q,c,"Betraying Jack is a risk of its own.")+Y.k(r,b,"Ideally, he will never suspect our treachery.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"I will hold you accountable should this fail.")}else if(J.P(b.gaI(),1)){r=b.a5()+": "
-q=c.cD(b.a5())+": "
+p=this.dh(c)?p+Y.k(q,c,"Agreed.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Fine."):p+Y.k(q,c,"I don't see how this helps us beat the game.")+Y.k(r,b,"You are a fool. His betrayal is inevitable.")+Y.k(q,c,"It might not become relevant until we have left the Medium.")+Y.k(r,b,"I want nothing to risk our Ascension.")+Y.k(q,c,"Betraying Jack is a risk of its own.")+Y.k(r,b,"Ideally, he will never suspect our treachery.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"I will hold you accountable should this fail.")}else if(J.P(b.gaI(),1)){r=b.a6()+": "
+q=c.cD(b.a6())+": "
 p=Y.k(r,b,"In order to beat the game quicker, we will now be exiling Jack.")
-p=this.dh(c)?p+Y.k(q,c,"Makes sense. How will we pull it off without getting stabbed?")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Here's hoping it works."):p+Y.k(q,c,"What!? No way! He's our ALLY!")+Y.k(r,b,"You are a fool. His betrayal is inevitable.")+Y.k(q,c,"Okay. MAYBE he's a little stabby.  But that's part of his charm!")+Y.k(q,c,"Also, he is way too terrifying to backstab.")+Y.k(r,b,"Ideally, he will never suspect our treachery.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Fuck.")}else if(J.P(c.gaI(),1)){r=b.a5()+": "
-q=c.cD(b.a5())+": "
+p=this.dh(c)?p+Y.k(q,c,"Makes sense. How will we pull it off without getting stabbed?")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Here's hoping it works."):p+Y.k(q,c,"What!? No way! He's our ALLY!")+Y.k(r,b,"You are a fool. His betrayal is inevitable.")+Y.k(q,c,"Okay. MAYBE he's a little stabby.  But that's part of his charm!")+Y.k(q,c,"Also, he is way too terrifying to backstab.")+Y.k(r,b,"Ideally, he will never suspect our treachery.")+Y.k(r,b,"We will continue working with Jack to exile the Black Queen.")+Y.k(r,b,"While also exiling Jack's allies and weakening him in other ways. With deniability.")+Y.k(q,c,"Fuck.")}else if(J.P(c.gaI(),1)){r=b.a6()+": "
+q=c.cD(b.a6())+": "
 p=Y.k(r,b,N.cb(b.I(c),c.I(b),b,c))+Y.k(r,b,"So, new plan. Jack is WAY too stabby, we need to exile him.")
 p=this.dh(c)?p+Y.k(q,c,"Agreed."):p+Y.k(q,c,"I don't see how this helps us beat the game.")+Y.k(r,b,"Look, if we're constantly being stabbed, then we're not exactly climbing our echeladders, right?")+Y.k(r,b,"Just trust me, we can focus on the game once the stabs stop.")
-p=p+Y.k(r,b,"We'll keep up the ruse of exiling the Black Queen.")+Y.k(r,b,"But also 'accidentally' take out Jack's allies at the same time.")+Y.k(r,b,"Then, we exile Jack.")+Y.k(q,c,"Fine.")}else{r=b.a5()+": "
-q=c.cD(b.a5())+": "
+p=p+Y.k(r,b,"We'll keep up the ruse of exiling the Black Queen.")+Y.k(r,b,"But also 'accidentally' take out Jack's allies at the same time.")+Y.k(r,b,"Then, we exile Jack.")+Y.k(q,c,"Fine.")}else{r=b.a6()+": "
+q=c.cD(b.a6())+": "
 o=b.I(c)
 n=c.I(b)
 p=Y.k(r,b,N.cb(o,n,b,c))+Y.k(q,c,N.cb(n,o,c,b))+Y.k(r,b,"So, new plan. Jack is WAY too stabby, we need to exile him.")
@@ -38816,7 +38825,7 @@ C.a.d_(this.b.gdu(),0,new T.lC(!1,!1,this.b,H.a([],t)))
 C.a.d_(this.b.gdu(),0,new S.iY(!1,!1,this.b,H.a([],t)))
 s=this.d
 t=this.b
-r=t.hu(R.b9(t.gF()))
+r=t.hv(R.b9(t.gF()))
 if(r!=null&&!J.c(r,s))this.jY(a,s,r)
 else if(J.c(r,s)){r=s.oG(R.b9(this.b.gF()))
 if(r==null){C.f.N(a,this.ad(0),C.d)
@@ -39078,10 +39087,10 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Gunpowder",H.a([$.cW,$.ak],s),"Huh. I guess cause princes are destructive.",!1,"The Best Thing since The Shogun")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.db=t},
-eU:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" appears to be destroying "+H.h(c.v(a.ab.gdj()))+" in themselves. "},
-hj:function(a,b,c){var t=this.cw(a.hw()/20,c)
-a.d1(a.c.ga6().r?t*a.c.ga6().ry:t,c)},
+eV:function(){return!0},
+hf:function(a,b,c){return" The "+a.w()+" appears to be destroying "+H.h(c.v(a.ab.gdj()))+" in themselves. "},
+hk:function(a,b,c){var t=this.cw(a.hx()/20,c)
+a.d1(a.c.ga_().r?t*a.c.ga_().x1:t,c)},
 aD:function(){var t,s,r,q,p,o,n
 t=[P.q]
 s=H.a(["Endings","Finales","Epilogues","Codas","Curtains","Conclusions"],t)
@@ -39102,7 +39111,7 @@ n=$.G
 t.i(0,new R.aX("Fix All The Things",!1,[new U.e(r+n+"s to start rebuilding infrastructure."),new U.e("The "+n+" economy is a fucking mess, and probably was even before the "+q+" started to fuck things up. Why would you even use "+$.be+" as a currency? The "+o+" wastes way too much time explaining how economies work."),new U.e("The land finally appears to be in a good state. The "+o+" is wistful as they realize that they are no longer needed. ")],H.a([],p),R.V(),!1,!1,new Y.ai(null,null,"Rewards/sweetLoot.png","Rewards/fraymotifBG.png","Rewards/no_reward.png",null),1,null,null),$.S)
 p=$.dy
 this.c.i(0,new X.a1(s,t,null),p)},
-geR:function(){return this.k1},
+geS:function(){return this.k1},
 gaK:function(){return this.k2},
 gb6:function(){return this.r1},
 gcE:function(){return this.r2},
@@ -39121,16 +39130,16 @@ t=[]
 for(s=this.b.bY(),r=s.length,q=0;q<s.length;s.length===r||(0,H.Q)(s),++q){p=s[q]
 if(p.kj()&&J.af(p.gaI(),2))t.push(p)}if(t.length!==0)this.d=this.b.gn().v(t)
 if(this.d!=null)this.AM()
-if(this.d==null&&this.b.ga6().r){this.d=this.b.gn().v(this.b.bY())
-this.e=this.b.gn().v(this.d.iH())}},
+if(this.d==null&&this.b.ga_().r){this.d=this.b.gn().v(this.b.bY())
+this.e=this.b.gn().v(this.d.iI())}},
 AM:function(){var t,s
-t=this.d.eH()
+t=this.d.eI()
 if(t.length>0)this.e=J.bc(this.b.gn().v(t))
 s=this.e
 if(s!=null&&!s.ga7()&&this.b.gn().a.E()>0.5)return
-C.a.V(t,this.d.eI())
+C.a.V(t,this.d.eJ())
 C.a.V(t,this.d.m6())
-C.a.V(t,this.d.en())
+C.a.V(t,this.d.eo())
 if(t.length>0)this.e=J.bc(this.b.gn().v(t))
 if(this.e.ga7())this.e=null
 return},
@@ -39140,9 +39149,9 @@ if(J.c(a.gO(),a.gdW()))return"discuss_ashenmance.png"
 if(J.c(a.gO(),a.gd4()))return"discuss_hatemance.png "
 return},
 yF:function(a,b,c){var t,s,r,q,p
-b.fg()
-b.fg()
-b.fg()
+b.fh()
+b.fh()
+b.fh()
 t=this.d
 s=this.e
 r=this.f
@@ -39185,7 +39194,7 @@ t.push(new A.b3("How am I supposed to get any good ships with only "+C.b.G(this.
 t.push(new A.b3("Yeah, the end of the world sucked, but at least it brought us together!","Romance",["That is so sweet! You'll always be in my heart.","I feel the same way, we never would have met in person if it wasn't for all of this!","It's like you're reading my mind!","Morbid, but I appreciate the sentiment!"],["God, hearing you write off billions of deaths in the name of romance only makes me hate you more.","Is your brain made of worms? People DIED but it's OKAY because some people started dating? What is WRONG with you?","That may be the dumbest thing I've ever heard. Have a gold star.","Are you actually damaged? THE PLANET IS DEAD."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 return this.e5(t,"Romance",a,b,c,d,e,f)},
 qQ:function(a,b,c,d,e,f){var t=[]
-t.push(new A.b3("The furryocious cat stalks the chat window, pouncing out of nowhere when they see "+b.a5()+"!","Social",[b.a5()+" is very surprised to be suddenly pounced by "+a.a5()+" and almost attacks them because they are so suprised, but then instead they hug.","Hi "+a.a5()+"! I am a terrified mouse today! 'squeak!'",b.a5()+" is so happy to see "+a.a5()+" that they pet them and hug them forever!"],[b.a5()+" is unimpressed with the tiny cat and contemplates eating it in one mighty bite!","Is this really the time to roleplay, asshole?","As much as I enjoy roleplaying, there is not enough boonbucks in the medium to pay met to do it with you.",b.a5()+"kicks the cat where the sun don't shine. Seriously, I do not want to do this with you right now."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
+t.push(new A.b3("The furryocious cat stalks the chat window, pouncing out of nowhere when they see "+b.a6()+"!","Social",[b.a6()+" is very surprised to be suddenly pounced by "+a.a6()+" and almost attacks them because they are so suprised, but then instead they hug.","Hi "+a.a6()+"! I am a terrified mouse today! 'squeak!'",b.a6()+" is so happy to see "+a.a6()+" that they pet them and hug them forever!"],[b.a6()+" is unimpressed with the tiny cat and contemplates eating it in one mighty bite!","Is this really the time to roleplay, asshole?","As much as I enjoy roleplaying, there is not enough boonbucks in the medium to pay met to do it with you.",b.a6()+"kicks the cat where the sun don't shine. Seriously, I do not want to do this with you right now."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 t.push(new A.b3("Do we really have to kill the underlings? They seem so cute... :(","Social",["I know right! Makes you want to just give them a big hug!","So adorable!","I know, but how else are we supposed to get grist and level up?","Yeah, I always have to close my eyes when I attack!"],["Ugh, when people think animal lovers are unrealistic assholes, YOU are the kind of person they are thinking of.","You give animal lovers a bad name.","Go ahead, try not to fight them, see what happens, asshole.","Just remember that they're smarter then you, I'm sure the resulting indignant rage will be enough for you to overcome your frankly antique view of morals."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 t.push(new A.b3("I wonder what it's like to be a consort? What motivates them? Do they experience existential dread knowing for a fact that their memories are false and then only recently began existing?","Social",["I'd imagine the experience is normalized for them, and thus not a source of negative feelings.","Well, can you prove that YOU are not the same? Who is to say ANY memories are true?","I hope its not too bad being one, I would hate to have one of those adorable little dudes feel sad!"],["Have a gold star for coming up with the most depressing thing I've heard since the world ended.","Is this really a priority for you?","Oh ho ho, it sounds like you're projecting a little bit there. How do YOU feel about knowing you are merely a pawn in Skaia's machinations?","It couldn\u2019t be worse then being you."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 return this.e5(t,"Social",a,b,c,d,e,f)},
@@ -39227,7 +39236,7 @@ qI:function(a,b,c,d,e,f){var t,s,r
 t=[]
 t.push(new A.b3("I need to tidy your home some time","Domestic",["Ugh, yeah, its becoming such a mess.","That sounds like a great excuse for you to get the hell over here.","I'd say Spring Cleaning, but I'm not sure SBURB has seasons."],["I have a system and you will learn a new meaning of pain if you try to messs with it.","God no, you'd only make it look worse.","You had a pair of socks hanging over your computer last time I was over, no WAY am I trusting you near my house.","Hahahahah fuck no.","You can take your cleaning mania and stick up your ass."],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 t.push(new A.b3("Remind me to alchemize some new clothes for you later.","Domestic",["Oh man, I bet they'd look so cool!","Really!? You have such good taste in fashion!","I can't wait!","Would this be a private fitting? *waggles eyebrows*"],["Ugh, never in a million years. You have shit taste.","Remind me to take a holy vow against wearing clothes later.","Not if they were the last pair of pants in existance.","Ugh, just imagining wearing something with your shit taste makes me feel debased.","Jesus why are you wasting grist on clothes? Especially clothes designed by you?"],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
-if(a.gB()!=null)t.push(new A.b3("Do you think I could get any vegetables to grow on "+a.fm()+"?","Domestic",["Oh man, it would be so cool if you could!","Maybe with game powers?","Wow, you have seeds in your sylladex?"],["Do you see a sun anywhere, asshole?","What would even be the point?","With your brown thumb, you'd probably just kill them. "],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
+if(a.gB()!=null)t.push(new A.b3("Do you think I could get any vegetables to grow on "+a.fn()+"?","Domestic",["Oh man, it would be so cool if you could!","Maybe with game powers?","Wow, you have seeds in your sylladex?"],["Do you see a sun anywhere, asshole?","What would even be the point?","With your brown thumb, you'd probably just kill them. "],["Yeah.",":)","Nice","Double nice","Tell me more","You don't say.","Wow","Cool","Fascinating","Uh-huh.","Sure.","I've heard others say the same.","... ","lol","Whatever.","Yes.","Interesting...","Hrmmm...","Interesting!!!","Um.","Why not.","Whatever you say.","K."],null))
 if(b.gbZ()>=1){s=t.length
 r=s-1
 if(r<0)return H.b(t,r)
@@ -39261,9 +39270,9 @@ return this.e5(t,"Justice",a,b,c,d,e,f)},
 e5:function(a,b,c,d,e,f,g,h){var t,s,r,q,p
 t=this.b.gn().v(a)
 s=Y.k(e,c,t.glv())
-if(h!=null&&J.P(J.bt(h),0)){r=d.fC(B.Jl(b))
+if(h!=null&&J.P(J.bt(h),0)){r=d.fD(B.Jl(b))
 q=this.b
-p=r?Y.k(f,d,q.gn().v(t.gtK())):Y.k(f,d,q.gn().v(t.gm2()))}else{r=d.fC(B.Jl(b))
+p=r?Y.k(f,d,q.gn().v(t.gtK())):Y.k(f,d,q.gn().v(t.gm2()))}else{r=d.fD(B.Jl(b))
 q=this.b
 p=r?Y.k(f,d,q.gn().v(t.gDq())):Y.k(f,d,q.gn().v(t.gm2()))}return s+p},
 qL:function(a,b){var t,s,r,q,p,o
@@ -39386,7 +39395,7 @@ BM:function(a,b){var t,s
 for(t="",s=0;s<3;++s)t=this.b.gn().a.E()>0.5?C.c.k(t,this.qL(a,b)):t+this.qO(a,b)
 return t},
 m5:function(a,b){var t,s
-a.fg()
+a.fh()
 if(J.c(a.gO(),a.gcM()))t=this.d.gbd()!=null||this.e.gbd()!=null
 else t=!1
 if(t)return this.Ar(a,b)
@@ -39396,8 +39405,8 @@ else return this.BM(a,b)},
 aY:function(a){var t,s,r,q,p,o,n
 this.b.ai(this.d)
 this.b.ai(this.e)
-this.f=this.d.a5()+": "
-this.r=this.e.cD(this.d.a5())+": "
+this.f=this.d.a6()+": "
+this.r=this.e.cD(this.d.a6())+": "
 t=$.aC
 s=W.N($.ay,t)
 a.appendChild(s)
@@ -39465,8 +39474,8 @@ t=R.Mm(this.c)
 s="The Queen, with her RING OF ORBS "+this.b.dX()+"FOLD would take on the attributes of each prototyping. "
 r=this.c
 if(0>=r.length)return H.b(r,0)
-s+=" She would become part "+r[0].ga4().w()
-for(q=1;r=this.c,p=r.length,q<p-1;++q)s+=", part "+r[q].ga4().w()
+s+=" She would become part "+r[0].ga5().w()
+for(q=1;r=this.c,p=r.length,q<p-1;++q)s+=", part "+r[q].ga5().w()
 s+=". "
 if(p!==this.b.gF().length){r=this.b.gF()
 p=this.c.length
@@ -39477,11 +39486,11 @@ if(r){s+=" She would even stand eventually being prototyped with "
 r=this.b.gF()
 p=this.c.length
 if(p>=r.length)return H.b(r,p)
-s+=r[p].ga4().w()}for(q=this.c.length+1;q<this.b.gF().length;++q){r=this.b.gF()
+s+=r[p].ga5().w()}for(q=this.c.length+1;q<this.b.gF().length;++q){r=this.b.gF()
 if(q>=r.length)return H.b(r,q)
 if(r[q].gB()!=null){r=this.b.gF()
 if(q>=r.length)return H.b(r,q)
-s+=", and "+r[q].ga4().w()}}return(this.c.length!==this.b.gF().length?s+". ":s)+" Though a queen is a vain creature, she is also sworn to her duty.  She would be braced for the heavy load of augmentation ahead.  However, there was one corruption to her figure she could not abide. Her vanity would not allow it. "+(C.c.k(" She could not stand bearing the visage of the most loathsome creature known to exist, the ",t)+". ")+" She removed the ring and concealed it in the ROYAL VAULT.  She then retired to her private chamber from which she would dispatch orders,  no one the wiser of her disadvantage. Or so she thought."},
+s+=", and "+r[q].ga5().w()}}return(this.c.length!==this.b.gF().length?s+". ":s)+" Though a queen is a vain creature, she is also sworn to her duty.  She would be braced for the heavy load of augmentation ahead.  However, there was one corruption to her figure she could not abide. Her vanity would not allow it. "+(C.c.k(" She could not stand bearing the visage of the most loathsome creature known to exist, the ",t)+". ")+" She removed the ring and concealed it in the ROYAL VAULT.  She then retired to her private chamber from which she would dispatch orders,  no one the wiser of her disadvantage. Or so she thought."},
 gd8:function(){return this.d}}
 U.e.prototype={
 re:function(a,b,c,d,e,f,g){return this.oo(a,!0,this.a,b,c,d,e,f,g)},
@@ -39500,11 +39509,11 @@ U.aW.prototype={
 re:function(a,b,c,d,e,f,g){var t,s,r,q,p,o,n,m
 this.oo(a,!0,"<Br><br>"+this.b+"<br><br>",b,c,d,e,f,g)
 t=J.n(b)
-s="The "+H.h(t.ek(b))
+s="The "+H.h(t.el(b))
 r=[E.cr]
 q=new V.dP(t.ga9(b),!1,[b],H.a([],r),H.a([],r),s,!0)
 q.dO()
-if(c!=null){s="The "+H.h(t.ek(b))+" and "+H.h(J.d8(c))
+if(c!=null){s="The "+H.h(t.el(b))+" and "+H.h(J.d8(c))
 q=new V.dP(t.ga9(b),!1,[b,c],H.a([],r),H.a([],r),s,!0)
 q.dO()}q.r=!1
 s=t.ga9(b)
@@ -39513,7 +39522,7 @@ o=new V.dP(s,!1,p,H.a([],r),H.a([],r),"",!0)
 o.f="The "+E.lJ(p)
 o.dO()
 o.r=!1
-new V.ia([q,o],0,t.ga9(b),!1,null,null,99999999).hB(a)
+new V.ia([q,o],0,t.ga9(b),!1,null,null,99999999).hC(a)
 n=q.b
 m=this.c
 b.sbd("how terrifying "+H.h(d.c)+" was ")
@@ -39523,7 +39532,7 @@ R.i3.prototype={
 G:function(a){return H.h(new H.eu(H.fx(this),null))+": "+H.h(this.c)},
 cU:function(a){var t=U.e
 return new R.i3(this.c,this.d,P.an(this.e,!0,t),H.a([],[t]),this.r,!1,!1,this.z,1,null,null)},
-ij:function(a,b,c,d,e,f,g,h){var t;++this.Q
+ik:function(a,b,c,d,e,f,g,h){var t;++this.Q
 a.aH()
 if(b!=null)b.aH()
 if(this.e.length===0&&this.d){t=this.f
@@ -39533,7 +39542,7 @@ this.f.push(C.a.gah(this.e))
 t=this.e
 C.a.aW(t,C.a.gah(t))
 if(this.e.length===0){this.x=!0
-this.z.f2(g,a,b,h)}return!0}else return!1},
+this.z.f3(g,a,b,h)}return!0}else return!1},
 z0:function(a){return this.r.$1(a)},
 gW:function(a){return this.c},
 gd8:function(){return this.d},
@@ -39552,7 +39561,7 @@ return new R.aX(this.c,!1,P.an(this.e,!0,t),H.a([],[t]),this.r,!1,!1,this.z,1,nu
 R.d9.prototype={
 cU:function(a){var t=U.e
 return new R.d9(this.c,!1,P.an(this.e,!0,t),H.a([],[t]),this.r,!1,!1,this.z,1,null,null)},
-ij:function(a,b,c,d,e,f,g,h){a.sc3(a.gc3()+J.dk(a).geJ()/3)
+ik:function(a,b,c,d,e,f,g,h){a.sc3(a.gc3()+J.dk(a).geK()/3)
 return this.vt(a,b,c,d,e,f,g,h)}}
 R.hs.prototype={
 cU:function(a){var t=U.e
@@ -39610,13 +39619,13 @@ return new Z.jk(a,t,s)},
 ze:function(a){var t,s,r,q,p
 t=a.go9()
 s=a.gBl()
-if(!t.gB().a)r=s!=null&&s.ghK()
+if(!t.gB().a)r=s!=null&&s.ghL()
 else r=!0
 if(r){q=!0
 p=!0}else{q=!1
 p=!1}if(s!=null)if(s instanceof Q.O){if(J.P(s.bD,0))q=!0
 if(J.P(t.gaI(),0))p=!0
-if(p)s.h7+=5}if(q)t.sdY(t.gdY()+5)
+if(p)s.h8+=5}if(q)t.sdY(t.gdY()+5)
 if(q||p)return"The corruption is spreading."
 return""},
 aY:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h
@@ -39630,7 +39639,7 @@ q=o.a
 this.b.gl_().ke([q])
 C.f.N(a,"<h3>Skaia: "+H.h(J.ag(this.b.gl_().e))+"</h3> The "+q.je()+" wanders the battlefield.   "+H.h(this.b.gl_().oi(this.b.gn(),q))+" ",C.d)
 n=this.b.gl_()
-n.e.ij(q,null,n.fy,n.fx,n.cx,n.cy,a,n)
+n.e.ik(q,null,n.fy,n.fx,n.cx,n.cy,a,n)
 if(J.jK(n.e)===!0)n.e=null}for(t=this.e,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){o=t[r]
 q=o.a
 m=o.b
@@ -39641,14 +39650,14 @@ l=(!!n.$iskG?l+" "+m.w()+" "+m.e+"<br><br>":l+" The "+m.w()+" is helping where t
 if(n.P(m,q)&&!J.c(q.gt(),$.ap)){k=this.b.gap()
 j="AB: non time player is their own helper: "+l+" "
 k.toString
-F.ao(C.h).$1("("+k.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+j)}if(!!n.$isO)l=l+" "+m.dL(q)+" <br><Br>"}n=q.gB()
+F.ao(C.h).$1("("+k.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+j)}if(!!n.$isO)l=l+" "+m.dL(q)+" <br><Br>"}n=q.gB()
 n.toString
 i=q.je()
 k=q.gB()
 C.f.N(a,"<h3>"+k.gjI()+" "+H.h(J.ag(k.e))+", Part "+k.e.gqC()+": </h3>The "+i+" is in the "+H.h(q.gB().dy)+". "+H.h(q.gB().oi(n.c$.gn(),q))+" "+l,C.d)
 h=q.gB().z
 n=q.gB()
-n.e.ij(q,m,n.fy,n.fx,n.cx,n.cy,a,n)
+n.e.ik(q,m,n.fy,n.fx,n.cx,n.cy,a,n)
 if(J.jK(n.e)===!0)n.r3()
 if(q.gB().fr)q.snd(!0)
 if(h!==q.gB().z)C.f.N(a,"<br><br>The "+H.h(q.b0())+"'s house has been built up enough to let them start visiting other lands. ",C.d)}},
@@ -39676,7 +39685,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Nightmare Fuel",H.a([$.aq,$.av,$.ch,$.bn,$.cW,$.c2],s),"It's clowns isn't it. It's always fucking clowns.",!1,"Image of Adam Sandler in a Troll Face Shirt")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().D_(a,b)},
+ci:function(a,b){return a.ga_().D_(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i,h,g
 t=[P.q]
 s=H.a(["Murder","Strife","Shrieks","Combat","Hate","Death","Violence","War","Screams","Noise","Chaos","Bloodrage","Rage","Wrath"],t)
@@ -39777,13 +39786,13 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
 L.xE.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
@@ -39791,8 +39800,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
@@ -39817,8 +39826,8 @@ C.f.N(a,"The "+this.f.w()+" Just made a clone of themselves?",C.d)
 Q.G3(null,null,null,null,null,null)
 q=J.ig(this.f)
 J.hM(q,J.dk(this.f))
-q.ses(-1)
-q.sf4(!1)
+q.seu(-1)
+q.sf5(!1)
 q.scc(!1)
 q.sb9(this.f.gb9())
 N.KC(this.f,[q])
@@ -39859,20 +39868,20 @@ q=t.a$.X(q)
 t.a$.aJ(s,C.i.l(q))
 r="<br><br> The reckoning has begun.  The Black King has defeated his Prospitian counterpart, initiating a meteor storm to destroy Skaia. "}p=this.b.oJ()
 if(this.b.gA().gcj()===!0){r+=C.c.k(" Remember those random baby versions of the players the ",p.U())+" made? "
-if(this.b.gA().gfM()){t=this.b
-r+=C.c.k("Wait... DID they make the babies? Or, was it their guardian, the ",t.hu(R.eM(t.gF())).U())+"? Scratched sessions are so confusing..."}r+=" Yeah, that didn't stop being a thing that was true.  It turns out that those babies ended up on the meteors heading straight to Skaia.  And to defend itself, Skaia totally teleported those babies back in time, and to Earth. We are all blown away by this stunning revelation.  Wow, those babies were the players? Really?  Like, a paradox?  Huh. "}else if(this.b.gA().gcj()!==!0&&J.c(p.gt(),$.ap)&&!p.ga7()){p.jq(this.b)
-r=r+(" Okay. Don't panic. But it turns out that the "+p.w()+" completly forgot to close one of their time loops. ")+" They were totally supposed to take care of the ectobiology. It's cool though, they'll just go back in time and take care of it now.  They warp back to the present in a cloud of clocks and gears before you even realize they were gone. See, nothing to worry about. "}else if(!this.b.ga6().cx){r=r+C.c.k(" So. I don't know if YOU know that this was supposed to be a thing, but the ",p.U())+" was totally supposed to have taken care of the ectobiology.  They didn't. They totally didn't.  And now, it turns out that none of the players could have possibly been born in the first place.  Textbook case of a doomed timeline.  Apparently the Time Player "
-if(R.bE(this.b.gF(),$.ap).geS().length>0)r+=", despite all the doomed time clone shenanigans, "
-this.b.gA().sik(!0)
+if(this.b.gA().gfN()){t=this.b
+r+=C.c.k("Wait... DID they make the babies? Or, was it their guardian, the ",t.hv(R.eM(t.gF())).U())+"? Scratched sessions are so confusing..."}r+=" Yeah, that didn't stop being a thing that was true.  It turns out that those babies ended up on the meteors heading straight to Skaia.  And to defend itself, Skaia totally teleported those babies back in time, and to Earth. We are all blown away by this stunning revelation.  Wow, those babies were the players? Really?  Like, a paradox?  Huh. "}else if(this.b.gA().gcj()!==!0&&J.c(p.gt(),$.ap)&&!p.ga7()){p.jq(this.b)
+r=r+(" Okay. Don't panic. But it turns out that the "+p.w()+" completly forgot to close one of their time loops. ")+" They were totally supposed to take care of the ectobiology. It's cool though, they'll just go back in time and take care of it now.  They warp back to the present in a cloud of clocks and gears before you even realize they were gone. See, nothing to worry about. "}else if(!this.b.ga_().cx){r=r+C.c.k(" So. I don't know if YOU know that this was supposed to be a thing, but the ",p.U())+" was totally supposed to have taken care of the ectobiology.  They didn't. They totally didn't.  And now, it turns out that none of the players could have possibly been born in the first place.  Textbook case of a doomed timeline.  Apparently the Time Player "
+if(R.bE(this.b.gF(),$.ap).geT().length>0)r+=", despite all the doomed time clone shenanigans, "
+this.b.gA().sil(!0)
 r+="was not on the ball with timeline management. Nothing you can do about it. <Br><Br>GAME OVER.<br><br>"
 J.eZ($.bR.a,"beforeend",r,C.d,null)
-this.b.gA().shA(!0)
+this.b.gA().shB(!0)
 $.bR.on(this.b)
-this.b.gA().shA(!0)
+this.b.gA().shB(!0)
 return r}else{t=this.b.gap()
 t.toString
 F.ao(C.h).$1(t.aG(C.h,"AB: Space4 Gnosis is making ectobiology able to happen in child sessions. "))
-r=r+("You find out that the "+this.b.ga6().r2.w()+" took care of things. ")+" Apparently now you're destined to have always have had been born in some other session? You get a little dizzy trying to think about it. "+(" At least you're able to follow that you SHOULD be doomed right now because ectobiology totally didn't happen. But you aren't. And you should thank the "+this.b.ga6().r2.w()+" ")}o=R.b9(this.b.gF())
+r=r+("You find out that the "+this.b.ga_().rx.w()+" took care of things. ")+" Apparently now you're destined to have always have had been born in some other session? You get a little dizzy trying to think about it. "+(" At least you're able to follow that you SHOULD be doomed right now because ectobiology totally didn't happen. But you aren't. And you should thank the "+this.b.ga_().rx.w()+" ")}o=R.b9(this.b.gF())
 if(o.length>0){t=this.b.gJ().b
 s=$.X
 t=t.a$.X(s)
@@ -39899,11 +39908,11 @@ return}if(b.gjm()>3){t=b.I(c)
 s=$.aC
 r=W.N($.ay,s)
 a.appendChild(r)
-q=b.a5()+": "
-p=c.cD(b.a5())+": "
+q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=Y.k(q,b,"So... hey.")+Y.k(p,c,"Hey?")+Y.k(q,b,"I feel like an asshole.")+Y.k(q,b,"I have had so many fucking crushes. ")+Y.k(q,b,"I'd understand if you didn't take me seriously. But I like you. A lot.")
 b.sjm(b.gjm()+1)
-c.siv(c.giv()+1)
+c.siw(c.giw()+1)
 n=c.I(b)
 if(J.c(n.gO(),n.gbB())){o=o+Y.k(p,c,"!")+Y.k(p,c,"Wow... I ... I feel the same way!")+Y.k(q,b,"Holy shit! Even though I've been hitting on everybody?")+Y.k(p,c,"Honestly, I was kind of insulted you hit on everybody BUT ME.")+Y.k(q,b,"Holy shit.")
 this.b.gA().snI(!0)
@@ -39941,18 +39950,18 @@ s=J.c(c.gaj().ga8(),s)||J.c(c.gan().ga8(),s)}else s=!0
 else s=!0
 if(s){o=o+Y.k(p,c,"Fuck. But you've been 'brave' enough to hit on EVERYBODY! ")+Y.k(q,b,"What else am I supposed to do? Ignoring how I feel is cowardice, right?")+Y.k(p,c,"Man, it's like your emotions are calibrated wrong. I can't just tell you 'fall in love less easily'. Fuck.")
 b.af($.H,-10)}else o=o+Y.k(p,c,"I don't know what to tell you. ")+Y.k(q,b,"Fuck")}else{o+=Y.k(q,b,"Oh. Yes. That's what I expected.")
-b.af($.H,-10)}m=!1}}}if(c.giv()>3)o+=Y.k(p,c,"What is it with everybody having a crush on me? ")}t.sh4(!1)
+b.af($.H,-10)}m=!1}}}if(c.giw()>3)o+=Y.k(p,c,"What is it with everybody having a crush on me? ")}t.sh5(!1)
 t.sdA(t.gO())
 T.Ev(r,b,c,o)
 if(m){b.af($.H,-10)
 J.b5(t,-20)}return}s=$.aC
 r=W.N($.ay,s)
 a.appendChild(r)
-q=b.a5()+": "
-p=c.cD(b.a5())+": "
+q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=Y.k(q,b,"So... hey.")+Y.k(p,c,"Hey?")+Y.k(q,b,"I have no idea how to say this so I'm just going to do it.")+Y.k(p,c,"?")+Y.k(q,b,"I like you.  Romantically.")
 b.sjm(b.gjm()+1)
-c.siv(c.giv()+1)
+c.siw(c.giw()+1)
 n=c.I(b)
 if(J.c(n.gO(),n.gbB())){o=o+Y.k(p,c,"!")+Y.k(p,c,"Wow... I ... I feel the same way!")+Y.k(q,b,"Holy shit!")
 N.hv(b,c)
@@ -39989,10 +39998,10 @@ s.toString
 s=J.c(c.gaj().ga8(),s)||J.c(c.gan().ga8(),s)}else s=!0
 else s=!0
 o=s?o+Y.k(p,c,"And I get that! And I wish I liked you back. But I don't.")+Y.k(q,b,"Fuck."):o+Y.k(p,c,"I don't know what to tell you. ")+Y.k(q,b,"Fuck")}}else{o+=Y.k(q,b,"Oh.")
-b.af($.H,-0.5)}}}}if(c.giv()>3)o+=Y.k(p,c,"What is it with everybody having a crush on me? ")
+b.af($.H,-0.5)}}}}if(c.giw()>3)o+=Y.k(p,c,"What is it with everybody having a crush on me? ")
 b.aH()
 c.aH()
-m=!1}t.sh4(!1)
+m=!1}t.sh5(!1)
 t.sdA(t.gO())
 T.Ev(r,b,c,o)
 if(m){b.af($.H,-10)
@@ -40008,7 +40017,7 @@ q=$.aC
 p=W.N($.ay,q)
 a.appendChild(p)
 b.af($.H,1)
-o=b.a5()+": "
+o=b.a6()+": "
 n=s.I(b)
 m=B.vg(b,c,!0)
 T.f4(p,b,s,Y.k(o,b,N.cb(t,n,b,s))+Y.k(o,b,C.c.k(C.c.k("So... ",c.gam())+", they are ",this.cR(t.gO(),t))+", you know?")+Y.k(o,b,"Like, maybe I didn't see that at first, but now all I can do is think about how "+m+" they are.")+Y.k(o,b,"Shit... maybe I should just tell them? God, why is it so hard being in love. It's hard and nobody understands.")+Y.k(o,b,"You're right. I'm going to tell them. Soon. When the time is right. ")+Y.k(o,b,"You're always so good at advice.  Thanks!"),"discuss_romance.png")
@@ -40017,8 +40026,8 @@ q=$.aC
 p=W.N($.ay,q)
 a.appendChild(p)
 b.af($.H,3)
-o=b.a5()+": "
-l=s.cD(b.a5())+": "
+o=b.a6()+": "
+l=s.cD(b.a6())+": "
 n=s.I(b)
 k=s.I(c)
 j=Y.k(o,b,N.cb(t,n,b,s))+Y.k(l,s,N.cb(n,t,s,b))+Y.k(o,b,C.c.k(C.c.k("So... ",c.gam())+", they are ",this.cR(t.gO(),t))+", you know?")
@@ -40027,9 +40036,9 @@ j=j+Y.k(l,s,"Oh my god, you know they are dead, right?")+Y.k(o,b,"Yeah. Fuck. Wh
 if(q&&J.c(k.gO(),k.gbB()))if(J.c(s.gC(),$.c4)||J.c(s.gC(),$.eI)||J.c(s.gC(),$.hw)||J.c(s.gt(),$.bY))j=j+Y.k(l,s,"Wow! You should definitely, definitely tell them that! Right away!")+Y.k(o,b,"You think so?")+Y.k(l,s,"Absolutely.")
 else if(J.c(s.gC(),$.eV)||J.c(s.gC(),$.cM)||J.c(s.gC(),$.fa)||J.c(s.gt(),$.bW))j=j+Y.k(l,s,"Fuck! I like them, too.")+Y.k(o,b,"Well, fuck.")+Y.k(o,b,"At least we have good taste?")
 else{j=j+Y.k(l,s,"Oh?")+Y.k(l,s,"I, hadn't noticed?")+Y.k(l,s,"I guess I can see that. If that's your thing.")+Y.k(o,b,"They are amazing...")
-n.fv()}else if(q&&J.c(k.gO(),k.gcb()))if(J.c(s.gC(),$.c4)||J.c(s.gC(),$.eI)||J.c(s.gC(),$.hw)||J.c(s.gt(),$.bY))j=j+Y.k(l,s,"Wow! Huh. You should follow your heart.")+Y.k(o,b,"You think so?")+Y.k(l,s,"Absolutely.")
+n.fw()}else if(q&&J.c(k.gO(),k.gcb()))if(J.c(s.gC(),$.c4)||J.c(s.gC(),$.eI)||J.c(s.gC(),$.hw)||J.c(s.gt(),$.bY))j=j+Y.k(l,s,"Wow! Huh. You should follow your heart.")+Y.k(o,b,"You think so?")+Y.k(l,s,"Absolutely.")
 else if(J.c(s.gC(),$.eV)||J.c(s.gC(),$.cM)||J.c(s.gC(),$.fa)||J.c(s.gt(),$.bW)){j=j+Y.k(l,s,C.c.k("Gonna be honest, I think they are ",this.cR(k.gO(),k))+".")+Y.k(l,s,"Sure you can't do better?")+Y.k(o,b,"Screw you, you're just jealous.")
-t.fv()}else j=j+Y.k(l,s,"Oh?")+Y.k(l,s,"Congratulations?")+Y.k(l,s,"I wish you the best of luck.")+Y.k(o,b,"Thank you!")
+t.fw()}else j=j+Y.k(l,s,"Oh?")+Y.k(l,s,"Congratulations?")+Y.k(l,s,"I wish you the best of luck.")+Y.k(o,b,"Thank you!")
 else if(q&&J.c(n.gO(),k.gbB()))if(J.c(s.gC(),$.c4)||J.c(s.gC(),$.eI)||J.c(s.gC(),$.hw)||J.c(s.gt(),$.bY))j=j+Y.k(l,s,"Wow! You should definitely, definitely tell them that! Right away!")+Y.k(o,b,"You think so?")+Y.k(l,s,"Absolutely.")
 else if(J.c(s.gC(),$.eV)||J.c(s.gC(),$.cM)||J.c(s.gC(),$.fa)||J.c(s.gt(),$.bW)){j=j+Y.k(l,s,C.c.k("Fuck! Um... Okay, I hate to do this to you...but...I think you're ",this.cR(n.gO(),n))+".")+Y.k(o,b,"Oh!")+Y.k(o,b,"Um...")
 if(J.c(t.gO(),t.gbB())){j=j+Y.k(o,b,"I... kind of like you, too?")+Y.k(o,b,"I assumed you wouldn't like me back, God, this is so awkward.")+Y.k(l,s,"Holy shit.")
@@ -40042,7 +40051,7 @@ b.aH()
 s.aH()},
 DY:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j
 t=b.I(c)
-t.sh4(!1)
+t.sh5(!1)
 t.sdA(t.gO())
 s=this.oF(b,c)
 if(s==null){r=C.c.k("<br>The "+b.w()+" used to think that the "+J.bc(t).w()+" was ",J.aa(J.aa(J.aa(this.cR(t.gdA(),t),", but now they can't help but think they are "),this.cR(t.gO(),t)),"."))
@@ -40053,7 +40062,7 @@ q=$.aC
 p=W.N($.ay,q)
 a.appendChild(p)
 b.af($.H,1)
-o=b.a5()+": "
+o=b.a6()+": "
 n=s.I(b)
 m=B.oR(b,c,!1)
 T.f4(p,b,s,Y.k(o,b,N.cb(t,n,b,s))+Y.k(o,b,C.c.k(C.c.k("So... ",c.gam())+", they are ",this.cR(t.gO(),t))+", you know?")+Y.k(o,b,"Shit...I just want to punch them in their "+m+" face.")+Y.k(o,b,"Fuck. I need to just avoid them. This stupid game is dangerous enough without me flying off the handle. ")+Y.k(o,b,"You're always so good at advice.  Thanks!"),"discuss_hatemance.png")
@@ -40062,8 +40071,8 @@ q=$.aC
 p=W.N($.ay,q)
 a.appendChild(p)
 b.af($.H,3)
-o=b.a5()+": "
-l=s.cD(b.a5())+": "
+o=b.a6()+": "
+l=s.cD(b.a6())+": "
 n=s.I(b)
 k=s.I(c)
 m=B.oR(b,c,!1)
@@ -40081,18 +40090,18 @@ b.aH()
 s.aH()},
 xN:function(a,b,c){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
 t=b.I(c)
-t.sh4(!1)
+t.sh5(!1)
 t.sdA(t.gO())
 if(c.ga7()){C.f.N(a,C.c.k("<br>The "+b.w()+" used to think that the "+J.bc(t).w()+" was ",J.aa(J.aa(J.aa(this.cR(t.gdA(),t),", but now they can't help but think they are "),this.cR(t.gO(),t)),"."))+("It's hard for the "+b.w()+" to care that they died."),C.d)
 return}this.b.ai(c)
 s=$.aC
 r=W.N($.ay,s)
 a.appendChild(r)
-q=b.a5()+": "
-p=c.cD(b.a5())+": "
+q=b.a6()+": "
+p=c.cD(b.a6())+": "
 o=c.I(b)
 n=Y.k(q,b,N.cb(t,o,b,c))+Y.k(p,c,N.cb(o,t,c,b))+Y.k(q,b,C.c.k("You are ",this.cR(t.gO(),t))+", you know that?")
-o.fv()
+o.fw()
 if(J.c(o.gO(),o.gcb())){n=n+Y.k(p,c,"The feeling is mutual, asshole. ")+Y.k(p,c,C.c.k("You are ",this.cR(o.gO(),o))+", times a million.")
 m=B.oR(b,c,!1)
 l=B.oR(c,b,!1)
@@ -40104,8 +40113,8 @@ s=a.id
 k=J.bS(J.bs(b))
 if(s==null)return s.k()
 s+k
-q=b.a5()+": "
-p=c.cD(b.a5())+": "
+q=b.a6()+": "
+p=c.cD(b.a6())+": "
 k=$.aC
 j=W.N($.ay,k)
 a.appendChild(j)
@@ -40122,8 +40131,8 @@ if(c.gbM())c.dB()
 b.aH()
 c.aH()
 this.b.gA().sp0(!0)}}}else if(J.c(J.NG(o),o.gbB())){n=n+Y.k(p,c,"Wow. Yes. Way to be an asshole. ")+Y.k(q,b,"God, why are you so "+B.oR(b,c,!1)+"?")+Y.k(p,c,"And that's my cue to leave this chat. ")
-o.fv()
-o.fv()}else{n=n+Y.k(p,c,"Holy shit. ")+Y.k(p,c,C.c.k("And here I thought you were ",this.cR(o.gO(),o))+".")
+o.fw()
+o.fw()}else{n=n+Y.k(p,c,"Holy shit. ")+Y.k(p,c,C.c.k("And here I thought you were ",this.cR(o.gO(),o))+".")
 if(c.gbm()){n+=Y.k(p,c,"I just don't hate you enough. ")
 n=b.gbm()?n+Y.k(q,b,"Fuck."):n+Y.k(q,b,"Wait. What!? Oh GOD, no! I am a HUMAN you dumb fuck! I DO NOT HAVE A CRUSH ON YOU!")}else if(b.gbm())n+=Y.k(q,b,"Fuck.")}T.Ev(r,b,c,n)
 b.aH()
@@ -40160,7 +40169,7 @@ for(o=0;o<p.length;++o){r=p[o]
 n=J.n(r)
 m=C.c.k("<img src = 'images/sceneIcons/heart_icon.png'> The "+q.w()+" used to think that the "+n.gak(r).w()+" was ",J.aa(J.aa(J.aa(this.cR(r.gdA(),r),", but now they can't help but think they are "),this.cR(r.gO(),r)),"."))
 if(J.c(r.gO(),r.gbB())&&n.gak(r).ga7()){q.af($.H,-10)
-m+=" They are especially devestated to realize this only after the "+n.gak(r).w()+" died. "}r.sh4(!1)
+m+=" They are especially devestated to realize this only after the "+n.gak(r).w()+" died. "}r.sh5(!1)
 r.sdA(r.gO())
 t+=m}}return t}}
 Y.i6.prototype={
@@ -40178,46 +40187,46 @@ a.appendChild(r)
 s=r.width
 q=W.N(r.height,s)
 T.k_(q,b)
-if(this.gez(this)!=null)T.dK(q,this.gez(this))
-if(this.gf3()!=null)T.dK(r,this.gf3())
+if(this.geA(this)!=null)T.dK(q,this.geA(this))
+if(this.gf4()!=null)T.dK(r,this.gf4())
 J.Z(C.j.T(r,"2d"),q,0,0)
 if(t&&c instanceof Q.O){t=r.width
 p=W.N(r.height,t)
 T.k_(p,c)
 J.Z(C.j.T(r,"2d"),p,150,0)}},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,"You get jack shit, asshole!")},
-gez:function(a){return this.a},
-gf3:function(){return this.b}}
+f3:function(a,b,c,d){return this.cC(a,b,c,d,"You get jack shit, asshole!")},
+geA:function(a){return this.a},
+gf4:function(){return this.b}}
 Y.fF.prototype={
-gf3:function(){return this.r}}
+gf4:function(){return this.r}}
 Y.ai.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q,p
 t=e!=null?e:""
-if(c!=null){s=$.F4
-r=$.dx
-if(c instanceof Q.O){t+="The "+r+" gains the fraymotif "+s+", while the "+$.i7+" gets the fraymotif "+$.Jh+"! "
+if(c!=null){s=$.dx
+r=$.F4
+if(c instanceof Q.O){t+="The "+s+" gains the fraymotif "+r+", while the "+$.i7+" gets the fraymotif "+$.Jh+"! "
 q=b.dP(c)
 p=c.dP(b)
 s=this.c
 if(s!=null)J.ih(p,s)
-t=H.a8(H.a8(t,$.i7,c.b0()),$.Jh,H.h(J.ag(p)))}else{t+=" The "+r+" gains the fraymotif "+s+"! "
+t=H.a8(H.a8(t,$.i7,c.b0()),$.Jh,H.h(J.ag(p)))}else{t+=" The "+s+" gains the fraymotif "+r+"! "
 q=null}}else{t+=" The "+$.dx+" gains the fraymotif "+$.F4+"! "
 q=null}if(q==null)q=b.dP(null)
 s=this.c
 if(s!=null)J.ih(q,s)
 s=this.d
 if(s!=null)q.slc(s)
-this.eN(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.F4,H.h(J.ag(q))))},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+this.eO(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.F4,H.h(J.ag(q))))},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
 gW:function(a){return this.c},
-gez:function(a){return this.e},
-gf3:function(){return this.f},
+geA:function(a){return this.e},
+gf4:function(){return this.f},
 sW:function(a,b){return this.c=b},
 slc:function(a){return this.d=a}}
 Y.aH.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q
 t=J.dk(b).gn().v(J.hf(b.gt()))
-s=" The "+$.dx+" gains the fraymotif "+$.ID+", as well as all that sweet sweet grist hoard. Oh, and a "+t.ge1()+", too. "+H.h(t.hl(b.gn()))+" "
+s=" The "+$.dx+" gains the fraymotif "+$.ID+", as well as all that sweet sweet grist hoard. Oh, and a "+t.ge1()+", too. "+H.h(t.hm(b.gn()))+" "
 b.rZ(100)
 b.gdV().h(0,t.bi())
 r=d.fy
@@ -40226,27 +40235,27 @@ q=C.a.gah(r.d.fy)
 C.a.h(b.gaC(),q)
 s=H.a8(H.a8(s,$.dx,H.h(b.b0())),$.ID,H.h(J.ag(q)))
 b.uY()
-this.eN(a,b,c,d,s)},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.c},
-gf3:function(){return this.d}}
+this.eO(a,b,c,d,s)},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.c},
+gf4:function(){return this.d}}
 Y.rF.prototype={
 cC:function(a,b,c,d,e){var t=$.dx
-this.eN(a,b,c,d,H.a8(" The "+t+" is getting pretty familiar with the battlefield. ",t,H.h(b.b0())))},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.c},
-gf3:function(){return this.d}}
+this.eO(a,b,c,d,H.a8(" The "+t+" is getting pretty familiar with the battlefield. ",t,H.h(b.b0())))},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.c},
+gf4:function(){return this.d}}
 Y.d4.prototype={
 cC:function(a,b,c,d,e){var t,s
 t=J.dk(b).gn().v(this.d)
-s=" The "+$.dx+" finds a "+t.ge1()+". "+H.h(t.hl(b.gn()))
-if(c!=null)if(c instanceof Q.O){s="The "+$.dx+" and the "+$.i7+" each get a "+t.ge1()+". "+H.h(t.hl(b.gn()))
+s=" The "+$.dx+" finds a "+t.ge1()+". "+H.h(t.hm(b.gn()))
+if(c!=null)if(c instanceof Q.O){s="The "+$.dx+" and the "+$.i7+" each get a "+t.ge1()+". "+H.h(t.hm(b.gn()))
 c.y2.h(0,t.bi())
 s=H.a8(s,$.i7,c.b0())}s=H.a8(s,$.dx,H.h(b.b0()))
 b.gdV().h(0,t.bi())
-this.eN(a,b,c,d,s)},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.c},
+this.eO(a,b,c,d,s)},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.c},
 gjg:function(a){return this.d}}
 Y.t0.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q,p,o,n
@@ -40264,18 +40273,18 @@ J.ih(s,"The Ballad of the ZillyCodPiece (Verse "+H.h(q)+")")
 $.H4=!0
 for(r=r.ga9(b).gF(),p=r.length,o=0;o<r.length;r.length===p||(0,H.Q)(r),++o){n=r[o]
 if(J.c(n.gC(),$.fu))n.co()}b.co()
-this.eN(a,b,c,d,t)},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.c}}
+this.eO(a,b,c,d,t)},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.c}}
 Y.df.prototype={
 cC:function(a,b,c,d,e){var t,s
 t=J.n(b)
-if(J.af(b.gaI(),3)){b.sc3(t.ga9(b).geJ())
-s="The "+$.dx+" breeds the final tadpole. While it is a tadpole for now, once it is placed in the fertlized SKAIA it will grow to become an entire Universe Frog."}else{b.sc3(-1*t.ga9(b).geJ())
+if(J.af(b.gaI(),3)){b.sc3(t.ga9(b).geK())
+s="The "+$.dx+" breeds the final tadpole. While it is a tadpole for now, once it is placed in the fertlized SKAIA it will grow to become an entire Universe Frog."}else{b.sc3(-1*t.ga9(b).geK())
 s="The "+$.dx+". Um. You don't think they were supposed to be doing that. Why does the frog look like that? "}this.vo(a,b,c,d,s)},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.r},
-gf3:function(){return this.x}}
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.r},
+gf4:function(){return this.x}}
 Y.ps.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q,p,o
 t=" The "+$.dx+" and the "+$.i7+" find themselves sharing a tender moment of calmness. It is obvious to everyone that they are now moirails. They even get the fraymotifs "+$.FV+" and "+$.K8+" to celebrate! "
@@ -40298,10 +40307,10 @@ q.sW(o,J.aa(q.gW(o),p))
 t=H.a8(H.a8(t,$.i7,c.b0()),$.K8,H.h(q.gW(o)))
 if(s.P(b,c))t+=" We are all a little uncomfortable about the whole self-cest thing. This is probably why you're supposed to be playing with other Players, dunkass, not making this an awkward one man ballet."
 else N.eU(b,c)}else r=null
-this.eN(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.FV,H.h(J.ag(r))))},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.d},
-gf3:function(){return this.e}}
+this.eO(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.FV,H.h(J.ag(r))))},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.d},
+gf4:function(){return this.e}}
 Y.nX.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q,p,o
 t=" The "+$.dx+" and the "+$.i7+" find themselves sharing a passionate moment. It is obvious to everyone that they are now matesprits. They even get the fraymotifs "+$.F1+" and "+$.Jc+" to celebrate! "
@@ -40324,10 +40333,10 @@ q.sW(o,J.aa(q.gW(o),p))
 t=H.a8(H.a8(t,$.i7,c.b0()),$.Jc,H.h(q.gW(o)))
 if(s.P(b,c))t+=" We are all a little uncomfortable about the whole self-cest thing. This is probably why you're supposed to be playing with other Players, dunkass, not making this an awkward one man ballet."
 else N.hv(b,c)}else r=null
-this.eN(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.F1,H.h(J.ag(r))))},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.d},
-gf3:function(){return this.e}}
+this.eO(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.F1,H.h(J.ag(r))))},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.d},
+gf4:function(){return this.e}}
 Y.pu.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q,p,o
 t=" The "+$.dx+" and the "+$.i7+" find themselves sharing a combatative moment. It is obvious to everyone that they are now Kismesises. They even get the fraymotifs "+$.G0+" and "+$.Ka+" to celebrate! "
@@ -40350,19 +40359,19 @@ q.sW(o,J.aa(q.gW(o),p))
 t=H.a8(H.a8(t,$.i7,c.b0()),$.Ka,H.h(q.gW(o)))
 if(s.P(b,c))t+=" We are all a little uncomfortable about the whole self-cest thing. This is probably why you're supposed to be playing with other Players, dunkass, not making this an awkward one man ballet."
 else N.me(b,c)}else r=null
-this.eN(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.G0,H.h(J.ag(r))))},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.d},
-gf3:function(){return this.e}}
+this.eO(a,b,c,d,H.a8(H.a8(t,$.dx,H.h(b.b0())),$.G0,H.h(J.ag(r))))},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.d},
+gf4:function(){return this.e}}
 Y.iX.prototype={
 cC:function(a,b,c,d,e){var t,s,r,q
-if(b.gcc())if(J.c(b.gaq(),J.dk(b).gfF())){this.d="Prospit.png"
+if(b.gcc())if(J.c(b.gaq(),J.dk(b).gfG())){this.d="Prospit.png"
 t="The "+H.h(b.b0())+" is getting pretty popular among Prospitians."
 b.af($.H,-1)
 s=b.gbL()
 b.sbL(!0)
 b.co()
-this.eN(a,b,c,d,t)
+this.eO(a,b,c,d,t)
 b.sbL(s)
 b.co()}else{this.d="Derse.png"
 t=" The "+H.h(b.b0())+" is getting pretty popular among Dersites."
@@ -40370,9 +40379,9 @@ b.sdY(b.gdY()+1)
 s=b.gbL()
 b.sbL(!0)
 b.co()
-this.eN(a,b,c,d,t)
+this.eO(a,b,c,d,t)
 b.sbL(s)
-b.co()}else{r=!b.gcc()&&J.dk(b).gA().gf8()
+b.co()}else{r=!b.gcc()&&J.dk(b).gA().gf9()
 q=J.n(b)
 if(r){r=q.ga9(b).gap()
 r.toString
@@ -40380,19 +40389,19 @@ F.ao(C.h).$1(r.aG(C.h,"bubble reward"))
 this.d="dreambubbles.png"
 t=" The "+H.h(b.b0())+" is getting used to these Dream Bubbles."
 b.af($.H,2)
-this.eN(a,b,c,d,t)}else{r=q.ga9(b).gap()
+this.eO(a,b,c,d,t)}else{r=q.ga9(b).gap()
 r.toString
 F.ao(C.h).$1(r.aG(C.h,"terror reward"))
 this.d="horrorterror.png"
 t=" The "+H.h(b.b0())+" writhes in agony."
 b.sdY(b.gdY()+2)
 b.af($.H,-2)
-this.eN(a,b,c,d,t)}}},
-f2:function(a,b,c,d){return this.cC(a,b,c,d,null)},
-gez:function(a){return this.c},
-gf3:function(){return this.d}}
+this.eO(a,b,c,d,t)}}},
+f3:function(a,b,c,d){return this.cC(a,b,c,d,null)},
+geA:function(a){return this.c},
+gf4:function(){return this.d}}
 Z.xU.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
@@ -40402,7 +40411,7 @@ gd9:function(){return this.y2},
 gcV:function(){return this.L}}
 N.xV.prototype={
 da:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" appears to be taking "+H.h(c.v(a.ab.gdj()))+" from the "+b.w()+" and distributing it to everyone. "},
+hf:function(a,b,c){return" The "+a.w()+" appears to be taking "+H.h(c.v(a.ab.gdj()))+" from the "+b.w()+" and distributing it to everyone. "},
 bj:function(a){return!1},
 c2:function(){return this.bj(0)},
 aF:function(){var t,s,r,q
@@ -40420,10 +40429,10 @@ cw:function(a,b){return a*0.5},
 dC:function(){return 1.25},
 dD:function(){return 1.25},
 dE:function(){return 1},
-eU:function(){return!0},
-hj:function(a,b,c){var t,s,r
-t=3*(a.hw()/20)*0.5
-if(a.c.ga6().r)t*=a.c.ga6().ry
+eV:function(){return!0},
+hk:function(a,b,c){var t,s,r
+t=3*(a.hx()/20)*0.5
+if(a.c.ga_().r)t*=a.c.ga_().x1
 b.d1(-1*t,c)
 for(s=0;s<a.c.gF().length;++s){r=a.c.gF()
 if(s>=r.length)return H.b(r,s)
@@ -40549,10 +40558,10 @@ gaK:function(){return this.dx},
 gdw:function(){return this.dy},
 sA:function(a){return this.cx=a}}
 T.y4.prototype={
-$1:function(a){return a.giq()},
+$1:function(a){return a.gir()},
 $S:function(){return{func:1,args:[T.f9]}}}
 T.y5.prototype={
-$1:function(a){return!a.giq()},
+$1:function(a){return!a.gir()},
 $S:function(){return{func:1,args:[T.f9]}}}
 T.y3.prototype={
 $1:function(a){return!a.gkh()},
@@ -40570,15 +40579,15 @@ C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),[H.L(t,0)]))
 this.db=t},
 bj:function(a){return!1},
 c2:function(){return this.bj(0)},
-eU:function(){return!1},
-he:function(a,b,c){var t,s
+eV:function(){return!1},
+hf:function(a,b,c){var t,s
 t=a.I(b)
 s=t==null
 if(s&&b instanceof Q.O)return"The "+a.w()+" is kind of weirded out being around their clone."
 if(s)return""
 if(J.d3(J.bt(t),0))return"The "+a.w()+" appears to be getting even closer to the  "+b.w()+"."
 else return"The "+a.w()+" appears to be finding new and exciting things to hate about the  "+b.w()+"."},
-hj:function(a,b,c){},
+hk:function(a,b,c){},
 cw:function(a,b){return a},
 dC:function(){return 1},
 dE:function(){return 1},
@@ -40649,13 +40658,13 @@ this.aF()
 this.aD()
 if($.$get$fT().bh(0,this.f))H.aG("Duplicate class id for "+H.h(this)+": "+H.h(this.f)+" is already registered for "+H.h($.$get$fT().p(0,this.f))+".")
 $.$get$fT().i(0,this.f,this)},
-geR:function(){return this.a},
+geS:function(){return this.a},
 gW:function(a){return this.b},
-geY:function(){return this.c},
+geZ:function(){return this.c},
 gmi:function(){return this.d},
 gny:function(){return this.e},
 gbe:function(a){return this.f},
-giq:function(){return this.r},
+gir:function(){return this.r},
 gkh:function(){return this.x},
 gcE:function(){return this.y},
 gcJ:function(){return this.z},
@@ -40673,7 +40682,7 @@ sW:function(a,b){return this.b=b},
 sbe:function(a,b){return this.f=b},
 sA:function(a){return this.fy=a}}
 A.DP.prototype={
-$1:function(a){return a.hz(0)},
+$1:function(a){return a.hA(0)},
 $S:function(){return{func:1,args:[P.hr]}}}
 A.DO.prototype={
 $2:function(a,b){return H.h(a)+this.a+H.h(b)},
@@ -40731,7 +40740,7 @@ gcI:function(){return this.x2},
 gA:function(){return this.y1},
 sA:function(a){return this.y1=a}}
 Y.y8.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx},
 gaK:function(){return this.x1},
@@ -40747,13 +40756,13 @@ this.y=null
 t=R.iK(this.b.gF(),$.ap)
 this.y=this.b.gn().v(t)
 s=this.b
-this.f=s.hu(s.gF())
+this.f=s.hv(s.gF())
 this.d=a
 s=this.y
 if(s!=null)if(s.c2()===!0||this.b.gn().a.E()>0.5)this.e=this.y
 else this.e=this.b.gn().v(this.b.gF())
 s=this.y
-if(s!=null&&!s.fw())return!1
+if(s!=null&&!s.fz())return!1
 if(this.e!=null)s=this.Ad()||this.CG()||this.D2(t.length)
 else s=!1
 return s},
@@ -40977,7 +40986,7 @@ gA:function(){return this.y1},
 sA:function(a){return this.y1=a}}
 K.pX.prototype={
 rS:function(a){var t,s
-t=this.r1
+t=this.r2
 if(t==null)return!1
 s=a.k4
 t=J.bs(t)
@@ -41053,22 +41062,22 @@ o.st($.n5)
 o.sam(Y.cY(o.gam()))
 o.saS(!1)
 o.saI(1)
-o.ses(-612)
+o.seu(-612)
 o.co()
 o.sB(null)
 o.saT(null)}t=a.gF();(t&&C.a).V(t,q)
 n=H.a(["True Friends","Power of Friendship","I fight for my friends!","Care Bear Stare"],[P.q])
-m=1000*b.iH().length
+m=1000*b.iI().length
 for(t=a.gF(),s=t.length,l=[N.aF],p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
 k=J.c(o.gt(),$.n5)
 j=$.H
 if(!k)o.bO(j,J.ct(J.mY(o.R(j)),612))
 else o.bO(j,J.ct(J.ct(J.mY(o.R(j)),612),-1))
 Z.K(a.gn().v(n),99,null,"").x=m
-o.sav("#ff0000")
+o.sau("#ff0000")
 o.sb9(H.a([],l))
 o.ce(a.gF())
-for(k=D.ml(),j=J.bj(k.a),k=new H.ev(j,k.b,[H.L(k,0)]);k.M();){i=j.ga_()
+for(k=D.ml(),j=J.bj(k.a),k=new H.ev(j,k.b,[H.L(k,0)]);k.M();){i=j.ga0()
 h=J.a6(i)
 if(!h.P(i,$.H)&&!h.P(i,$.bw))o.bO(i,i.yc(a.gF()))}}return r},
 D_:function(a,b){var t,s,r,q,p
@@ -41077,14 +41086,14 @@ s="AB: Huh. Looks like a "+H.h(J.d8(b))+" is going at it."
 t.toString
 F.ao(C.h).$1(t.aG(C.h,s));++this.a
 this.z=!0
-s=this.x1
+s=this.x2
 s.t_(a)
-a.siD(a.giD()+20)
+a.siE(a.giE()+20)
 r="The "+b.w()+" can't stop laughing. They have peeled back the curtain and seen the layer of code underneath.  It all makes SO MUCH FUCKING SENSE now. Everything that has happened to them is just shittily planned, shittly programmed code, riddled with tpyos.  They change what they want, and set the stage for their revenge.  All they have to do is wait for the new Players to join. You suspect that things might get a little hard to share depending on how long they have to wait. They know the Reckoning won't happen in the mean time. "
 $.r1=this.gD0()
 V.DQ(s.gnY(),[],"thisReallyShouldn'tExistAnymoreButIAmLazy")
 for(t=a.gF(),s=t.length,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q){p=t[q]
-p.it()
+p.iu()
 p.bO($.H,-1313)
 p.sbf(!0)}return r},
 E6:function(a,b){var t,s,r,q,p,o,n,m,l,k;++this.a
@@ -41097,14 +41106,14 @@ r="The "+b.w()+" is doing something. It's kind of hard to see.  Look at those li
 a.sdF(a.gdF()+a.gdF()/-2)
 for(t=a.gF(),s=t.length,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q){p=t[q]
 p.scq(p.gcq()+a.gn().ac(a.gk6()))
-p.sc3(p.gc3()+a.gn().ac(a.geJ()))
+p.sc3(p.gc3()+a.gn().ac(a.geK()))
 p.sdY(p.gdY()+(a.gn().ac(201)+-100))
-for(o=D.ml(),n=J.bj(o.a),o=new H.ev(n,o.b,[H.L(o,0)]);o.M();){m=n.ga_()
+for(o=D.ml(),n=J.bj(o.a),o=new H.ev(n,o.b,[H.L(o,0)]);o.M();){m=n.ga0()
 if(!J.c(m,$.bw)){l=a.gn()
-k=a.ghO()
+k=a.ghP()
 if(typeof k!=="number")return H.w(k)
 k=C.m.bF(-1*k/10)
-p.af(m,l.ac(1+J.n_(a.ghO())-k)+k)}}}return r},
+p.af(m,l.ac(1+J.n_(a.ghP())-k)+k)}}}return r},
 tU:function(a,b,c){var t,s,r
 t=b.gap()
 s="AB: Huh. Looks like a "+H.h(J.d8(c))+" is going at it."
@@ -41113,7 +41122,7 @@ F.ao(C.h).$1(t.aG(C.h,s));++this.a
 this.ch=!0
 r=Q.dZ(c)
 r.id=c.gb9()
-this.rx.push(r)
+this.ry.push(r)
 return"The "+c.w()+" begins flickering in and out of time amid a field of code. What is even happening here? You feel like maybe the answer is 'nothing', at least at this moment. Maybe later something will happen?  Time players man, why can't they just do things linearly? "},
 rV:function(a,b){var t,s,r,q,p,o,n,m,l,k
 t=a.gap()
@@ -41131,7 +41140,7 @@ o.saj(b.gaj())
 r+=" Instead, they now prefer the clearly superior "+H.h(J.ag(o.gaj()))+", just like the "+b.w()+"."
 if(!J.c(o.gt(),$.aI)&&!J.c(o.gt(),$.ap))o.st(a.gn().v(L.rn()))
 o.sC(a.gn().v(T.pT()))
-o.shJ([])
+o.shK([])
 o.gt().lo(o)
 r+="SBURB loses their identity file briefly, and restores it from a corrupt back up.  Now they are the "+o.w()+". Uh...I wonder how long it will take SBURB to load their new model?"
 if(o.gcc()&&!o.gbL()){l=J.ig(o)
@@ -41149,14 +41158,14 @@ q.push(l)
 r+="<br>The "+l.w()+"'s dream self awakens on "+H.h(l.gaq())+".  It is now registered as a full Player, and is unaffected by the alterations to the Real Self's identity.  Does this make them the 'real' verson of the "+l.w()+"? "}}t=a.gF();(t&&C.a).V(t,q)
 for(t=a.gF(),s=t.length,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
 o.ce(a.gF())
-o.co()}this.k4=a
+o.co()}this.r1=a
 $.r1=this.gBj()
 V.DQ(a.gF(),[],"thisReallyShouldn'tExistAnymoreButIAmLazy")
 return r},
 Bk:function(){var t,s,r
-for(t=this.k4.gF(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].co()},
+for(t=this.r1.gF(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].co()},
 D1:function(){var t,s,r,q,p,o,n
-t=this.x1.gnY()
+t=this.x2.gnY()
 if(0>=t.length)return H.b(t,0)
 s=J.dk(t[0])
 r=s.gap()
@@ -41167,7 +41176,7 @@ for(r=s.gF(),p=r.length,o=0;o<r.length;r.length===p||(0,H.Q)(r),++o)r[o].ce(q)
 for(r=q.length,o=0;p=q.length,o<p;q.length===r||(0,H.Q)(q),++o){n=q[o]
 n.nM(130,130)
 n.co()
-p=s.gF();(p&&C.a).h(p,n)}for(o=0;o<q.length;q.length===p||(0,H.Q)(q),++o)q[o].ht(s.gF())},
+p=s.gF();(p&&C.a).h(p,n)}for(o=0;o<q.length;q.length===p||(0,H.Q)(q),++o)q[o].hu(s.gF())},
 ys:function(a,b){var t,s,r,q
 t=a.gap()
 s="AB: Huh. Looks like a "+H.h(J.d8(b))+" is going at it."
@@ -41183,10 +41192,10 @@ for(t=a.gF(),s=t.length,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q)t[q].af($.aB
 return r},
 BR:function(a,b){var t,s,r,q,p,o;++this.a
 this.f=!0
-t=this.r1
-this.r1=null
+t=this.r2
+this.r2=null
 if(t!=null)J.b5(t.I(b),-88888888)
-this.r1=b
+this.r2=b
 this.e=!1
 b.sdz(!0)
 b.saS(!0)
@@ -41216,15 +41225,15 @@ t.r=9001
 b.bO(t,9001)
 t=$.l
 t.Q=9000
-this.dy=9000
+this.fr=9000
 a.sdF(9001*t.r)
 a.gA().scj(!0)
 a.std(1)
 a.sk6(10)
 a.skl(1)
-a.seJ(2)
+a.seK(2)
 a.stw(-100)
-a.shO(0)
+a.shP(0)
 this.p8(a)
 this.p7(a)
 this.p6(a)
@@ -41235,7 +41244,7 @@ p=H.a(["Boy","Jerk","Ass","Dick","Douche","Piss","Fuck","Butt","Poop","Chump","C
 for(t=a.gF(),s=t.length,o=!1,n=!1,m=0;m<t.length;t.length===s||(0,H.Q)(t),++m){l=t[m]
 l.sa7(!1)
 l.sbM(!1)
-l.sir(!1)
+l.sis(!1)
 l.bO($.X,9001)
 l.bO($.H,9001)
 l.slY(!0)
@@ -41248,25 +41257,25 @@ if(i){j=a.gap()
 i=J.n(k)
 h="AB: They are renaming "+H.h(J.ag(i.gak(k).gt()))+" and "+H.h(J.ag(i.gak(k).gC()))
 j.toString
-F.ao(C.h).$1("("+j.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+h)
+F.ao(C.h).$1("("+j.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+h)
 J.ih(i.gak(k).gt(),a.gn().v(p))
 J.ih(i.gak(k).gC(),a.gn().v(p))
 h=a.gap()
 j="AB: Now they are "+H.h(J.ag(i.gak(k).gt()))+" and "+H.h(J.ag(i.gak(k).gC()))
 h.toString
-F.ao(C.h).$1("("+h.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+j)
-i.gak(k).sf4(!1)
+F.ao(C.h).$1("("+h.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+j)
+i.gak(k).sf5(!1)
 i.gak(k).slY(!1)
 o=!0}else{if(j)j=J.c(k.gO(),k.gbB())||J.c(k.gO(),k.gcH())||J.c(k.gO(),k.gcM())
 else j=!1
 if(j){g=l.I(b)
 j=J.n(g)
-j.sa2(g,9001)
+j.sa3(g,9001)
 j.ar(g)
 j=a.gap()
 i="AB: They are making their crush love them "+H.h(J.bc(k))
 j.toString
-F.ao(C.h).$1("("+j.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: "+i)
+F.ao(C.h).$1("("+j.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: "+i)
 n=!0}}}if(n)q+="The players they like like them back. The Observer doesn't find this creepy at all."
 return o?q+"The players they hate are made ridiculous objects of mockery. The Observer doesn't find this hilarious at all.":q},
 BQ:function(a,b){var t,s,r,q,p,o
@@ -41277,10 +41286,10 @@ F.ao(C.h).$1(t.aG(C.h,s));++this.a
 this.x=!0
 r="Huh. The "+b.w()+" is lauging wildly in front of a shimmering sea of code.  They seem to be SO FULL OF LIFE.  Did they even KNOW what asking for ultimate power would do to everyone? Shit, and it looks like they decided that death shouldn't be allowed at all.  Hopefully there aren't any unintended consequences of THAT. I don't think they thought this through..."
 for(t=a.gF(),s=t.length,q=0;q<t.length;t.length===s||(0,H.Q)(t),++q){p=t[q]
-p.shr(!0)
-p.scO(a.gn().v($.$get$a_()).hp())
-p.sav(a.gn().v($.$get$a_()).hp())
-p.eA()
+p.shs(!0)
+p.scO(a.gn().v($.$get$a_()).hq())
+p.sau(a.gn().v($.$get$a_()).hq())
+p.eB()
 p.sa7(!1)
 p.scc(!0)
 if(p.gB()!=null&&p.gB().fy.d!=null)p.gB().fy.d
@@ -41297,29 +41306,29 @@ this.y=!0
 r="The "+b.w()+" is floating in a field of glowing code, rewriting the very rules of SBURB, just as prophecy foretold. "
 q=H.a([],[Q.O])
 for(t=a.gF(),s=t.length,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
-if(q.length<12){for(n=o.geS(),m=n.length,l=0;l<n.length;n.length===m||(0,H.Q)(n),++l){k=n[l]
-if(q.length<12)q.push(k)}C.a.su(o.geS(),0)}}t=a.gF();(t&&C.a).V(t,q)
+if(q.length<12){for(n=o.geT(),m=n.length,l=0;l<n.length;n.length===m||(0,H.Q)(n),++l){k=n[l]
+if(q.length<12)q.push(k)}C.a.su(o.geT(),0)}}t=a.gF();(t&&C.a).V(t,q)
 if(q.length>0)r+="Some of the survivors of doomed timelines are added to the session as full players. This will not end well."
 for(t=a.gF(),s=t.length,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p){o=t[p]
-o.ht(a.gF())
+o.hu(a.gF())
 o.scc(!o.gcc())
 o.sbL(!o.gbL())
 o.saS(o.gaS()!==!0)
 o.sbf(o.gbf()!==!0)
 o.sa7(!o.ga7())
 o.sbM(!o.gbM())
-o.sir(!o.gbM())
+o.sis(!o.gbM())
 o.sdk("...I...don't even know anymore. Are you following any of this shit? Fucking Doom Players.")
 o.sbd("They very fabric of the rules of reality have come undone.")
-if(a.gn().a.E()>0.7)o.shn(!o.ghn())
-if(a.gn().a.E()>0.7)o.seK(!o.geK())
-if(a.gn().a.E()>0.7)o.shx(o.ghx()!==!0)
+if(a.gn().a.E()>0.7)o.sho(!o.gho())
+if(a.gn().a.E()>0.7)o.seL(!o.geL())
+if(a.gn().a.E()>0.7)o.shy(o.ghy()!==!0)
 if(a.gn().a.E()>0.7)o.sc7("What is even happening?")
 for(n=o.gb9(),m=n.length,l=0;l<n.length;n.length===m||(0,H.Q)(n),++l){j=n[l]
 i=J.n(j)
-h=i.ga2(j)
+h=i.ga3(j)
 if(typeof h!=="number")return H.w(h)
-i.sa2(j,-1*h)}}t=a.gJ()
+i.sa3(j,-1*h)}}t=a.gJ()
 g=H.a([t.d,t.b,t.c,t.r],[E.cr])
 for(p=0;p<4;++p){f=g[p]
 f.db=!f.db}return r+"A feeling of doom washes over the session. It seems that the rules have been subverted. All player attributes are inverted, including their living attribute. You... Kind of get the feeling that the doom player just found every rule the could and inverted it without restraint.  It's actually really hard to follow the plot now that the rules are all twisted around. Huh. "},
@@ -41338,7 +41347,7 @@ C.a.V(n,J.hf(o.gaj().ga8()))
 C.a.V(n,J.hf(o.gan().ga8()))
 m="<br><Br>The "+H.h(o.U())+" gets "
 l=C.a.bP(C.a.c5(n,0,n.length-1),", ")
-k=C.a.gax(n)
+k=C.a.gaw(n)
 j=n.length<2?"":" and "
 t+=m+C.a.bP([l,k],j)+". "}return t},
 Dg:function(a,b){var t,s,r,q,p,o
@@ -41355,7 +41364,7 @@ p=$.X
 o=$.a7
 o=q.a$.X(o)
 q.a$.aJ(p,C.i.l(o))
-q.ev="mind_forehead.png"
+q.ew="mind_forehead.png"
 if($.ey)return
 J.cu(r,"<div id = 'fthwall' style='background:url(images/hacked4thwall.png); width:1000px; height:521px;'>",C.d)
 s=J.l6(s.querySelector("#fthwall"))
@@ -41363,19 +41372,19 @@ W.dH(s.a,s.b,new K.yj(t,b,q),!1,H.L(s,0))},
 tG:function(a){if(this.ch&&!$.ey)this.Dj(a)
 if(this.cx&&!$.ey)this.Di(a)},
 Dj:function(a){var t,s
-t="<img src='images/reset.png' id='resetButton'><br>Shit man, we can do better. The "+R.Du(this.rx)+" knows we can. It's not the 'current' version of them though, but the one from when they got into the code. Time travel, man. "
+t="<img src='images/reset.png' id='resetButton'><br>Shit man, we can do better. The "+R.Du(this.ry)+" knows we can. It's not the 'current' version of them though, but the one from when they got into the code. Time travel, man. "
 J.cu($.bR.a,t,C.d)
 s=J.l6(document.querySelector("#resetButton"))
 W.dH(s.a,s.b,new K.yl(),!1,H.L(s,0))},
 Di:function(a){var t,s
-t="<img src='images/hussie.png' id='husieButton'><br>Huh. The "+this.r2.w()+" wonders what would happen if we entered the frog through this convinient fourth wall instead of the normal way. There's no way this could go wrong if a Gnosis4 Space Player is telling you to do it! "
+t="<img src='images/hussie.png' id='husieButton'><br>Huh. The "+this.rx.w()+" wonders what would happen if we entered the frog through this convinient fourth wall instead of the normal way. There's no way this could go wrong if a Gnosis4 Space Player is telling you to do it! "
 J.cu($.bR.a,t,C.d)
 s=J.l6(document.querySelector("#husieButton"))
 W.dH(s.a,s.b,new K.yk(),!1,H.L(s,0))},
 Dm:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
 b.w()
 P.an(b.gb9(),!0,N.aF)
-for(t=this.rx,s=t.length,r=J.n(b),q=!1,p=null,o=0;o<t.length;t.length===s||(0,H.Q)(t),++o){n=t[o]
+for(t=this.ry,s=t.length,r=J.n(b),q=!1,p=null,o=0;o<t.length;t.length===s||(0,H.Q)(t),++o){n=t[o]
 m=n.k4
 l=r.gbe(b)
 if(m==null?l==null:m===l){p=r.cU(b)
@@ -41387,34 +41396,34 @@ p.cd("Being assasinated by their own future self. ")
 n.d0()
 n.j6(b)
 b.sbf(b.gbf())
-b.seB(n.a0)
+b.seC(n.a1)
 b.skt(n.ag)
-b.sbW(n.eT)
-b.scQ(n.f9)
+b.sbW(n.eU)
+b.scQ(n.fa)
 b.sbd(" Killing their own past self. ")
-b.shr(n.c6)
-b.seK(n.bS)
-b.shn(n.bH)
-b.shd(n.ev)
-b.sfB(n.hM)
-b.seM(n.hN)
-b.sei(n.h5)
-b.sbW(n.eT)
-b.scQ(n.f9)
+b.shs(n.c6)
+b.seL(n.bS)
+b.sho(n.bH)
+b.she(n.ew)
+b.sfC(n.hN)
+b.seN(n.hO)
+b.sej(n.h6)
+b.sbW(n.eU)
+b.scQ(n.fa)
 b.sbf(n.bp)
-b.sfI(n.e_)
-b.scc(n.eg)
+b.sfJ(n.e_)
+b.scc(n.eh)
 b.sbL(n.cY)
 b.sbM(n.cN)
-b.sir(n.eh)
-b.sdY(n.h7)
-b.sbZ(n.fb)
+b.sis(n.ei)
+b.sdY(n.h8)
+b.sbZ(n.fc)
 b.saI(n.bD)
 b.af($.H,-10)
 for(m=b.gb9(),l=m.length,k=0;k<m.length;m.length===l||(0,H.Q)(m),++k){j=m[k]
 i=J.n(j)
-i.sa2(j,J.bt(n.I(i.gak(j))))}q=!0}}if(q){b.w()
-b.sfI(p.gav())
+i.sa3(j,J.bt(n.I(i.gak(j))))}q=!0}}if(q){b.w()
+b.sfJ(p.gau())
 t=a.id
 r="_alt_"+H.h(r.gbe(b))
 if(t==null)return t.k()
@@ -41438,26 +41447,26 @@ J.Z(C.j.T(h,"2d"),g,-100,0)
 J.Z(C.j.T(h,"2d"),f,100,0)}},
 w_:function(){var t,s,r,q
 $.Gq=this
-$.l.Q=this.dy
-for(t=L.rn(),s=J.bj(t.a),t=new H.ev(s,t.b,[H.L(t,0)]);t.M();){r=s.ga_()
-J.ih(r,r.gmi())}for(t=T.pT(),s=J.bj(t.a),t=new H.ev(s,t.b,[H.L(t,0)]);t.M();){q=s.ga_()
+$.l.Q=this.fr
+for(t=L.rn(),s=J.bj(t.a),t=new H.ev(s,t.b,[H.L(t,0)]);t.M();){r=s.ga0()
+J.ih(r,r.gmi())}for(t=T.pT(),s=J.bj(t.a),t=new H.ev(s,t.b,[H.L(t,0)]);t.M();){q=s.ga0()
 J.ih(q,q.gmi())}},
-giD:function(){return this.dx},
-gcj:function(){return this.fx},
-ghO:function(){return this.fy},
-gkl:function(){return this.go},
-geJ:function(){return this.id},
-gk6:function(){return this.k1},
-gdF:function(){return this.k3},
-siD:function(a){return this.dx=a},
-stw:function(a){return this.fr=a},
-scj:function(a){return this.fx=a},
-shO:function(a){return this.fy=a},
-skl:function(a){return this.go=a},
-seJ:function(a){return this.id=a},
-sk6:function(a){return this.k1=a},
-std:function(a){return this.k2=a},
-sdF:function(a){return this.k3=a}}
+giE:function(){return this.dy},
+gcj:function(){return this.fy},
+ghP:function(){return this.go},
+gkl:function(){return this.id},
+geK:function(){return this.k1},
+gk6:function(){return this.k2},
+gdF:function(){return this.k4},
+siE:function(a){return this.dy=a},
+stw:function(a){return this.fx=a},
+scj:function(a){return this.fy=a},
+shP:function(a){return this.go=a},
+skl:function(a){return this.id=a},
+seK:function(a){return this.k1=a},
+sk6:function(a){return this.k2=a},
+std:function(a){return this.k3=a},
+sdF:function(a){return this.k4=a}}
 K.yj.prototype={
 $1:function(a){var t,s,r,q,p,o,n
 t=this.b.grY()
@@ -41467,7 +41476,7 @@ for(t=this.c,s="<div id = 'yellow_yard.png' style='background:url(images/hacked_
 q=" <span class='custom-radio'><input type='radio' name='decision' value='"+r+"'></span>"
 p=$.$get$fC()
 if(r>=p.length)return H.b(p,r)
-s+=q+p[r].fA()+"<br>"}s+="</div><button id = 'yellowButton' style = 'position: relative; top: 133px; left: 280px;'>Decide</button></div></div><br>"
+s+=q+p[r].fB()+"<br>"}s+="</div><button id = 'yellowButton' style = 'position: relative; top: 133px; left: 280px;'>Decide</button></div></div><br>"
 J.rd(this.a.a,s,C.d)
 t=document
 q=H.dj(t.querySelector("#yellowButton"),"$isiQ")
@@ -41525,10 +41534,10 @@ t.bt=new B.a2(o,"The AuthorBot")
 o=$.dA
 o.Z("GiggleSnort")
 t.bu=new B.a2(o,"GiggleSnort")
-o=a.geQ()
+o=a.geR()
 t.bA=o
 if(o!=null)t.cs()
-s=t.at()
+s=t.as()
 t.bl=s
 s.dy="Land of Rods and Screens"
 t.bp=!0
@@ -41536,8 +41545,8 @@ t.ae=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Jadeacher the,</span>Researcher',null,null,null)
 s=[X.by]
 r=[Z.bu]
@@ -41547,7 +41556,7 @@ n=[Q.O]
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"JR","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("JR",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 m=t.aB
 m.f=1
 m.c=3
@@ -41583,10 +41592,10 @@ t.bt=new B.a2(j,"Mathematics")
 j=$.dl
 j.Z("Tabletop Roleplaying")
 t.bu=new B.a2(j,"Tabletop Roleplaying")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Spires and Nature"
 m.fy=new Q.e7('<span class = "void">Aspiratcher, The</span> Librarian',null,null,null)
@@ -41595,12 +41604,12 @@ t.bp=!0
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Eye","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Eye",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 i=Z.K("Staff of Life",13,null,"")
 i.x=1300
 m=i.r
@@ -41623,7 +41632,7 @@ h=new U.am(m,null,null,"Table",!1,P.a5(null,null,null,p),0,3)
 h.ao("Table",[l,k,j],null,!1,null)
 h.e.h(0,m)
 t.a=h
-h=t.at()
+h=t.as()
 t.bl=h
 h.dy="Land of Suburbs and Emotion"
 t.bp=!0
@@ -41636,13 +41645,13 @@ h.b=[["asshole","dumbguy"],["fuck","deng"]]
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7("Dendron",null,null,null)
 h=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Vinyl","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 h.D("Vinyl",a)
 t.bT=h
-t.au.bC(h)
+t.at.bC(h)
 i=Z.K(" Be the Arms",13,null,"")
 i.x=1300
 h=i.r
@@ -41654,7 +41663,7 @@ this.x=t
 t=R.da(a,$.c4,$.b2)
 t.aB=D.fz(a.gn())
 t.dI("b=%C2%80%40%009%C3%BEU%04%17%0F%258&s=,,Classism,Genocide,feudalUltimatum&x=nkgA")
-h=t.at()
+h=t.as()
 t.bl=h
 h.dy="Land of Dynasties and Taint"
 t.bp=!0
@@ -41667,13 +41676,13 @@ h.b=[]
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Shogun the, Glitch</span>',null,null,null)
 h=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Aku","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 h.D("Aku",a)
 t.bT=h
-t.au.bC(h)
+t.at.bC(h)
 t.aU=!1
 h=$.oV
 m=$.cl
@@ -41713,10 +41722,10 @@ t.bt=new B.a2(m,"Math")
 m=$.dA
 m.Z("Cartoons")
 t.bu=new B.a2(m,"Cartoons")
-m=a.gfF()
+m=a.gfG()
 t.bA=m
 if(m!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Cardboard and Grass"
 t.bp=!0
@@ -41729,13 +41738,13 @@ m.b=[]
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7("<span class = 'void'>Algebron, The </span>Dilletant",null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"DVR","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("DVR",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 i=Z.K(" Brute Force Reimann Apotheosis",13,null,"")
 i.x=1300
 m=i.r
@@ -41775,18 +41784,18 @@ t.bt=new B.a2(j,"Drawing")
 j=$.fL
 j.Z("Character Creation")
 t.bu=new B.a2(j,"Character Creation")
-j=a.gfF()
+j=a.gfG()
 t.bA=j
 if(j!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Doors and Frogs"
 t.ae=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7("Insurorracle",null,null,null)
 this.c=t
 t=R.da(a,$.fu,$.bo)
@@ -41812,10 +41821,10 @@ t.bt=new B.a2(h,"Data Entry")
 h=$.h7
 h.Z("Song Writing")
 t.bu=new B.a2(h,"Song Writing")
-h=a.gfF()
+h=a.gfG()
 t.bA=h
 if(h!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Sound and Fury"
 t.ae=!1
@@ -41824,13 +41833,13 @@ t.b5=!1
 t.e2(0)
 t.b4=!1
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Maniomnia, the </span>Dreamwaker',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Caliban","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Caliban",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 m=t.aB
 m.f=1
 m.c=1
@@ -41868,10 +41877,10 @@ t.bt=new B.a2(j,"Charles Dutton")
 j=$.dl
 j.Z("Online Roleplaying")
 t.bu=new B.a2(j,"Online Roleplaying")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Storms and Idols"
 t.ae=!1
@@ -41880,13 +41889,13 @@ t.b4=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Nobrop, the </span>Null',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Mom","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Mom",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 i=Z.K("A concentric circle",13,null,"")
 i.x=1300
 m=i.r
@@ -41922,27 +41931,27 @@ t.bt=new B.a2(j,"Cooking")
 j=$.dl
 j.Z("Tabletop Roleplaying")
 t.bu=new B.a2(j,"Tabletop Roleplaying")
-j=a.gfF()
+j=a.gfG()
 t.bA=j
 if(j!=null)t.cs()
 t.b4=!1
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Lakes and Lotuses"
 t.bp=!0
 t.ae=!1
 t.b5=!1
-t.fb=4
+t.fc=4
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Doomod, The </span>Wanderer',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Magical Princess Pony","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Magical Princess Pony",a)
 t.bT=m
 m.x1=" is helpful, but keeps pushing you to make friends"
-t.au.bC(t.bT)
+t.at.bC(t.bT)
 i=Z.K("Song of Skaia",13,null,"")
 i.x=1300
 m=i.r
@@ -41980,10 +41989,10 @@ t.bt=new B.a2(j,"Theorycrafting")
 j=$.fL
 j.Z("Storytelling")
 t.bu=new B.a2(j,"Storytelling")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Obsidian and Shadows"
 t.bp=!0
@@ -41992,14 +42001,14 @@ t.ae=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Recurscker, The</span>Hollow One',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Coin","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Coin",a)
 t.bT=m
 m.x1="was a clever choice for a sprite. He showers enemies in currency. Damn balance-breaking void players."
-t.au.bC(t.bT)
+t.at.bC(t.bT)
 m=t.aB
 m.f=1
 m.c=2
@@ -42037,11 +42046,11 @@ t.bt=new B.a2(j,"Drawing distant Lands")
 j=$.f6
 j.Z("Procedural Generation")
 t.bu=new B.a2(j,"Procedural Generation")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
 t.b4=!1
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Cults and Chandeliers"
 t.bp=!0
@@ -42049,13 +42058,13 @@ t.ae=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Paraxalan, The </span>Ever-Searching',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Cultist","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Cultist",a)
 t.bT=m
-m.a0=!0
+m.a1=!0
 t.bT.skb("potters around being adorable, yet shockingly deadly")
 t.bT.sj7(!0)
 t.bT.gA().S(P.U([$.a7,500,$.X,500,$.H,-250,$.l,100],D.bg,P.bJ))
@@ -42095,11 +42104,11 @@ t.bt=new B.a2(j,"100 Art Projects At Once")
 j=$.dA
 j.Z("Memes")
 t.bu=new B.a2(j,"Memes")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
 t.b4=!1
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Memories and Misdirection"
 t.bp=!0
@@ -42107,8 +42116,8 @@ t.ae=!1
 t.b5=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7("Karmiution",null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Paint.net","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Paint.net",a)
@@ -42151,10 +42160,10 @@ t.bt=new B.a2(j,"Authoring")
 j=$.f6
 j.Z("Robots")
 t.bu=new B.a2(j,"Robots")
-j=a.geQ()
+j=a.geR()
 t.bA=j
 if(j!=null)t.cs()
-m=t.at()
+m=t.as()
 t.bl=m
 m.dy="Land of Bugs and Javascript"
 t.bp=!0
@@ -42163,13 +42172,13 @@ t.b5=!1
 t.b4=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Authorot, the</span> Robot',null,null,null)
 m=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Compass","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 m.D("Compass",a)
 t.bT=m
-t.au.bC(m)
+t.at.bC(m)
 m=t.aB
 m.f=1
 m.c=3
@@ -42200,10 +42209,10 @@ t.bt=new B.a2(p,"Arson")
 p=$.eT
 p.Z("Shipping")
 t.bu=new B.a2(p,"Shipping")
-p=a.geQ()
+p=a.geR()
 t.bA=p
 if(p!=null)t.cs()
-p=t.at()
+p=t.as()
 t.bl=p
 p.dy="Land of Hrmmm... and Interesting!!!"
 t.ae=!1
@@ -42211,13 +42220,13 @@ t.b5=!1
 t.b4=!1
 t.e2(0)
 t.dM()
-J.ei(t.aA)
-t.aA.saT(t)
+J.ei(t.az)
+t.az.saT(t)
 t.bl.fy=new Q.e7('<span class = "void">Abbiejean, the </span>Scout',null,null,null)
 n=new F.M("provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,null,C.e,a,"Fire","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],s),!1,H.a([],r),!1,H.a([],q),0,H.a([],o),null,null,!1,H.a([],n),"",null,null)
 n.D("Fire",a)
 t.bT=n
-t.au.bC(n)
+t.at.bC(n)
 n=t.aB
 n.f=1
 n.c=3
@@ -42237,7 +42246,7 @@ throw H.j(new Y.pw("PlayersCrashedSession","...I... What? What did you THINK wou
 return"Now that WooMod has been defeated, the curse of knowledge is removed from the party. That's probably worth not being able to hack the code anymore, right? "}if(t.P(a,this.z)){for(t=t.ga9(a).gF(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].sB(null)
 return"Huh. Guess you don't appreciate all that hard work the Architect has done/will do on lands. All planets in the medium are destroyed. "}if(t.P(a,this.c)){for(s=t.ga9(a).gF(),p=s.length,r=0;r<s.length;s.length===p||(0,H.Q)(s),++r){q=s[r]
 q.sbm(!0)
-q.sav(t.ga9(a).gn().v($.$get$l1()))
+q.sau(t.ga9(a).gn().v($.$get$l1()))
 q.co()
 o=q.gaO()
 if(typeof o!=="number")return o.bk()
@@ -42248,17 +42257,17 @@ if(o>44)q.sb7(t.ga9(a).gn().ac(45)+0)
 o=q.gba()
 if(typeof o!=="number")return o.bk()
 if(o>44)q.sba(t.ga9(a).gn().ac(45)+0)}return" You killed InsufferableOracle. You're now all trolls, but don't have any access to the newer hair styles or horns. "}if(t.P(a,this.d)){for(t=t.ga9(a).gF(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)C.a.su(t[r].gaC(),0)
-return" Welp, look who's being ungrateful for all that fraymotif shit.  Guess you don't need THOSE. "}if(t.P(a,this.a)){t.ga9(a).siD(0)
+return" Welp, look who's being ungrateful for all that fraymotif shit.  Guess you don't need THOSE. "}if(t.P(a,this.a)){t.ga9(a).siE(0)
 return" Huh. You know, aspiringWatcher was always the one telling me that the reckoning should take longer so more Players are prepared.  Guess you don't care about that then. "}if(t.P(a,this.cx)){s=t.ga9(a)
 p=new A.ca(null,null)
 p.cr(null)
 s.sn(p)
 t.ga9(a).sdF(1)
 return" You know, you're right.  What did dear, sweet, precious, sweet sweet AuthorBot ever do for you. Besides make things nice and stable and testable. You ungrateful asshole. Good luck sharing this session now. "}if(t.P(a,this.x)){t.ga9(a).sdF(130)
-return" Guess you think having solid testing isn't all that important? You're probably right. Who CARES if the session is bugged?  "}if(t.P(a,this.r)){t.ga9(a).ga6().db=!0
+return" Guess you think having solid testing isn't all that important? You're probably right. Who CARES if the session is bugged?  "}if(t.P(a,this.r)){t.ga9(a).ga_().dx=!0
 t.ga9(a).sdF(t.ga9(a).gdF()/2)
 return" You know, recursiveSlacker championed luck being a thing.  I guess you agree with Terezi that LUCK DO3SN'T R3411Y MATT3R.  But to lose rap battles at the same time. For shame.  "}if(t.P(a,this.b)){for(t=t.ga9(a).gF(),s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r]
-q.eA()
+q.eB()
 q.scQ(0)}return" Hope you enjoy starting your echeladder over from scratch. Asshole.  "}return}}
 G.ym.prototype={
 rW:function(){return this.id.$0()},
@@ -42266,12 +42275,12 @@ t4:function(){return this.k2.$0()},
 glp:function(){return this.a},
 gjx:function(){return this.db},
 gnn:function(){return this.fx},
-gf8:function(){return this.go},
+gf9:function(){return this.go},
 gcj:function(){return this.ae},
-gik:function(){return this.b4},
+gil:function(){return this.b4},
 gji:function(){return this.aU},
-gfM:function(){return this.b5},
-ghA:function(){return this.ct},
+gfN:function(){return this.b5},
+ghB:function(){return this.ct},
 gbf:function(){return this.aL},
 gnG:function(){return this.bS},
 gjV:function(){return this.bI},
@@ -42295,7 +42304,7 @@ stu:function(a){return this.dy=a},
 sno:function(a){return this.fr=a},
 snn:function(a){return this.fx=a},
 sp0:function(a){return this.fy=a},
-sf8:function(a){return this.go=a},
+sf9:function(a){return this.go=a},
 sBm:function(a){return this.id=a},
 sm0:function(a){return this.k1=a},
 sBJ:function(a){return this.k2=a},
@@ -42307,21 +42316,21 @@ sCf:function(a){return this.rx=a},
 su5:function(a){return this.ry=a},
 skm:function(a){return this.x1=a},
 sCZ:function(a){return this.x2=a},
-shy:function(a){return this.y1=a},
-si6:function(a){return this.y2=a},
+shz:function(a){return this.y1=a},
+si7:function(a){return this.y2=a},
 sBc:function(a){return this.L=a},
-sip:function(a){return this.a1=a},
-sBe:function(a){return this.a0=a},
+siq:function(a){return this.a2=a},
+sBe:function(a){return this.a1=a},
 sBf:function(a){return this.ag=a},
 sBg:function(a){return this.Y=a},
-sBh:function(a){return this.au=a},
+sBh:function(a){return this.at=a},
 scj:function(a){return this.ae=a},
-sik:function(a){return this.b4=a},
+sil:function(a){return this.b4=a},
 sji:function(a){return this.aU=a},
-sfM:function(a){return this.b5=a},
-shA:function(a){return this.ct=a},
+sfN:function(a){return this.b5=a},
+shB:function(a){return this.ct=a},
 sbf:function(a){return this.aL=a},
-suG:function(a){return this.ef=a},
+suG:function(a){return this.eg=a},
 soh:function(a){return this.cW=a},
 smg:function(a){return this.c6=a},
 snG:function(a){return this.bS=a},
@@ -42340,12 +42349,12 @@ s.c=p
 s.d=q
 r=q.kx(R.b9(t.r),"intro chat")
 s.e=r
-if(r==null)s.e=q.fi(R.b9(t.r))
-t=$.p.hh(new H.eu(H.fx(s),null).G(0))
+if(r==null)s.e=q.fj(R.b9(t.r))
+t=$.p.hi(new H.eu(H.fx(s),null).G(0))
 s.zI(t,a)
 if(!s.d.ga7())if(s.e!=null&&J.af(s.d.gaI(),2)){o=s.ug()
-n=s.d.a5()+": "
-m=s.e.cD(s.d.a5())+": "
+n=s.d.a6()+": "
+m=s.e.cD(s.d.a6())+": "
 if(0>=o.length)return H.b(o,0)
 r=o[0]
 l=s.d
@@ -42353,7 +42362,7 @@ k=s.e
 j=r.lS(l,k,n,m,J.P(J.bt(k.I(l)),0))
 if(o.length>1){r=o[1]
 l=s.d
-j+=r.lS(l,s.e,n,m,J.P(l.ga4().R($.l),100*$.l.r))}if(o.length>2)j+=o[2].lS(s.d,s.e,n,m,s.f)
+j+=r.lS(l,s.e,n,m,J.P(l.ga5().R($.l),100*$.l.r))}if(o.length>2)j+=o[2].lS(s.d,s.e,n,m,s.f)
 r=$.aC
 i=W.N($.ay,r)
 t.appendChild(i)
@@ -42451,10 +42460,10 @@ tx:function(){return this.ty(null)},
 tz:function(){var t=$.p
 if(t!=null)t.aL.tG($.bR.a)
 t=$.p
-if(t!=null)t.Y.sik(!0)},
+if(t!=null)t.Y.sil(!0)},
 on:function(a){var t
 if(R.bE($.p.r,$.ap)==null)throw H.j("CAN'T SCRATCH WITHOUT A TIME PLAYER, JACKASS")
-if(R.b9(a.gF()).length!==0&&!a.gA().gji()&&!a.gA().gnG())if(!a.gA().gfM()){if(a.gA().ghA()){J.cu($.bR.a,'<img src="images/Scratch.png" id="scratchButton"><br>Click To Scratch Session?',C.d)
+if(R.b9(a.gF()).length!==0&&!a.gA().gji()&&!a.gA().gnG())if(!a.gA().gfN()){if(a.gA().ghB()){J.cu($.bR.a,'<img src="images/Scratch.png" id="scratchButton"><br>Click To Scratch Session?',C.d)
 t=J.l6(document.querySelector("#scratchButton"))
 W.dH(t.a,t.b,new B.yw(this),!1,H.L(t,0))
 A.mT()}}else{J.cu($.bR.a,"<br>This session is already scratched. No further scratches available.",C.d)
@@ -42471,9 +42480,9 @@ t.k4=0
 r=new A.pH(!1,!1,t,H.a([],[Q.O]))
 t=$.p
 r.c=t.r
-r.aY(t.hh(new H.eu(H.fx(r),null).G(0)))
-if(!$.p.Y.gik())this.tx()
-else A.mT()}else if(!$.p.Y.gik()){t=$.p
+r.aY(t.hi(new H.eu(H.fx(r),null).G(0)))
+if(!$.p.Y.gil())this.tx()
+else A.mT()}else if(!$.p.Y.gil()){t=$.p
 t.k4+=-1
 t.tq(t.r)
 if(this.d)this.e.kB($.p)
@@ -42499,9 +42508,9 @@ s=t.Y.gcj()
 $.bR.toString
 $.p.lO()
 Y.pV($.p)
-$.p.Y.sfM(!0)
-$.p.Y.shA(!1)
-$.p.Y.sik(!1)
+$.p.Y.sfN(!0)
+$.p.Y.shB(!1)
+$.p.Y.sil(!1)
 t=$.p
 $.mS=R.mP(t.r,t.f)
 $.p.lz()
@@ -42511,12 +42520,12 @@ $.p.Y.scj(s)
 L.H6(A.Vi(),null)}return},
 $S:function(){return{func:1,args:[W.au]}}}
 L.yz.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx}}
 T.dG.prototype={}
 O.yB.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gjs:function(){return this.rx},
 gb8:function(){return this.ry}}
@@ -42624,13 +42633,13 @@ s=A.r("Green Sun Poster",H.a([$.ab,$.av,$.Fg,$.aD],s),"Huh.",!1,"Sauce Sun Poste
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
 ci:function(a,b){var t,s,r
-t=a.ga6();++t.a
+t=a.ga_();++t.a
 s=a.gap()
 r="AB: Huh. Looks like a "+H.h(J.d8(b))+" is going at it."
 s.toString
 F.ao(C.h).$1(s.aG(C.h,r))
 t.cx=!0
-t.r2=b
+t.rx=b
 return"The "+b.w()+" hangs motionless in a field of code.  The very fabric of space seems to be twisting, unraveling itself and reforming into new shapes that please them.  You suddenly have the feeling that it is going to be a LONG day. "},
 aD:function(){var t,s,r,q,p,o,n,m
 t=$.x
@@ -42669,8 +42678,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
@@ -42692,15 +42701,15 @@ s=P.an(t,!0,H.L(t,0))
 for(t=H.L(s,0),r=new H.iE(s,[t]),t=new H.fq(r,r.gu(r),0,null,[t]),r=J.a6(a);t.M();){q=t.d
 if(!r.P(a,q))return q}return a},
 gW:function(a){return this.c+"kind"},
-hl:function(a){var t,s,r,q,p,o,n
+hm:function(a){var t,s,r,q,p,o,n
 t=a.v(this.gkn())
 s=a.v(this.gkn())
 if(J.c(t,s)){r=this.gkn()
 r=r.gu(r)>1}else r=!1
 if(r)s=this.kA(t)
 q=this.x
-p=t!=null?a.v(t.gih()):null
-o=s!=null?a.v(s.gih()):null
+p=t!=null?a.v(t.gii()):null
+o=s!=null?a.v(s.gii()):null
 n=q!=null?a.v(q.b):null
 if(p!=null&&o!=null&&n!=null)return"It's "+H.h(p)+" and it's "+H.h(o)+" and it's "+H.h(n)+"."
 else if(o!=null&&n!=null)return"It's "+H.h(o)+" and it's "+H.h(n)+" and that is all there is to say on the matter."
@@ -42801,7 +42810,7 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$dg,s)},
-ey:function(){return"SPRITE"},
+ez:function(){return"SPRITE"},
 $asii:function(){return[O.f8]},
 $asfo:function(){return[O.f8,P.cZ]}}
 M.yM.prototype={
@@ -42810,7 +42819,7 @@ t=this.a
 t.al(a,8)
 s=b.gj4(b)
 t.al(s.gu(s),8)
-for(r=0;s=b.gj4(b),C.b.aQ(r,s.gu(s));++r)t.al(b.az(0,r),8)},
+for(r=0;s=b.gj4(b),C.b.aQ(r,s.gu(s));++r)t.al(b.ay(0,r),8)},
 $S:function(){return{func:1,args:[P.J,P.q]}}}
 M.yN.prototype={
 $3:function(a,b,c){var t,s
@@ -42832,7 +42841,7 @@ r.b=b
 r.a=t}},
 $S:function(){return{func:1,args:[P.J,K.eJ]}}}
 U.yP.prototype={
-ci:function(a,b){++a.ga6().a
+ci:function(a,b){++a.ga_().a
 return"The "+b.w()+" appears to be doing something fantastic. The very fabric of SBURB is being undone according to their whims. They are screaming. Dramatic lightning and wind is whipping around everywhere. Oh.  Uh.  Huh.  Was something supposed to happen?  ... Maybe they just suck at this?  Or maybe Cactus is a lazy piece of shit who didn't code anything for this. I know MY headcanon."},
 gb8:function(){return this.rx}}
 K.q7.prototype={
@@ -42858,7 +42867,7 @@ t=t.a
 if((t.bh(0,s)?t.p(0,s):0)===0){t=this.b.gJ().b
 s=$.l
 t=t.a$.X(s)
-s=this.b.ghO()
+s=this.b.ghP()
 if(typeof s!=="number")return H.w(s)
 t=t>s&&this.e!=null}else t=!1
 return t},
@@ -42877,7 +42886,7 @@ return s},
 gd8:function(){return this.d}}
 G.q8.prototype={
 jk:function(a){return"application/octet-stream"},
-ey:function(){return"SimStat"+this.b},
+ez:function(){return"SimStat"+this.b},
 dg:function(a,b){var t=0,s=P.cI(),r,q=this,p,o,n
 var $async$dg=P.cR(function(c,d){if(c===1)return P.cO(d,s)
 while(true)switch(t){case 0:p=new B.eB(new P.cN(""),0,0)
@@ -42912,42 +42921,42 @@ a.al(J.bs(b.gaj()),4)
 a.al(J.bs(b.gan()),4)
 a.al(J.NE(b),32)
 t=b.gmq()
-a.h0(t.gu(t))
-for(t=b.gmq(),t=t.gcL(t),t=t.gaw(t);t.M();){s=t.ga_()
+a.h1(t.gu(t))
+for(t=b.gmq(),t=t.gcL(t),t=t.gav(t);t.M();){s=t.ga0()
 r=J.di(s)
-a.h0(r.gj4(s).a.length)
+a.h1(r.gj4(s).a.length)
 a.j0(r.gj4(s),8)
 r=b.gmq().p(0,s)
 if(typeof r!=="number")return r.bs()
 q=C.i.tV(r*100)
 a.kW(q<0)
-a.h0(Math.abs(q))}},
+a.h1(Math.abs(q))}},
 D4:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
 t=T.Gm(a.bN(8))
 s=L.Eh(a.bN(8))
 r=B.vf(a.bN(4))
 q=B.vf(a.bN(4))
 p=a.bN(32)
-o=a.hV()
+o=a.hW()
 n=P.q
 m=P.ad
 l=P.cF(n,m)
-for(k=0;k<o;++k){j=a.hV()
+for(k=0;k<o;++k){j=a.hW()
 for(i=0,h="";i<j;++i)h+=H.fR(a.bN(8))
 g=a.kR(a.b);++a.b
-f=a.hV()/100
+f=a.hW()/100
 if(g)f*=-1
 l.i(0,h.charCodeAt(0)==0?h:h,f)}n=new E.ik(p,t,s,r,q,P.cF(D.bg,m),P.cF(n,m))
 n.r=l
 return n}}
 V.ia.prototype={
-hB:function(a){var t,s,r,q,p,o,n,m,l
+hC:function(a){var t,s,r,q,p,o,n,m,l
 if(this.b===0){this.e=a
 H.h(a.id)
 H.h(a.id)
 t=document
 s=t.createElement("button")
-C.z.fl(s,"View Strife!")
+C.z.fm(s,"View Strife!")
 a.appendChild(s)
 t=t.createElement("div")
 this.f=t
@@ -42993,7 +43002,7 @@ l="<Br><br> "+m+" The fight is over. "+H.h(r.gW(n))+" have won! <br>"
 if(n.glB().length===1)l="<Br><br> "+m+" The fight is over. "+H.h(r.gW(n))+" has won! <br>"
 t=this.e;(t&&C.f).N(t,l,C.d)
 if(n.nC()!=null)n.Dh(this.e)}}else{++this.b
-this.hB(null)}},
+this.hC(null)}},
 zx:function(a){var t,s,r
 t=this.nB()
 s=t.length
@@ -43066,8 +43075,8 @@ s=t.style.display
 r=s==="none"||s.length===0
 q=this.b
 if(r){O.N5(t)
-C.z.fl(q,"Unview Strife!")}else{O.Dz(t)
-C.z.fl(q,"View Strife!")}},
+C.z.fm(q,"Unview Strife!")}else{O.Dz(t)
+C.z.fm(q,"View Strife!")}},
 $S:function(){return{func:1,args:[,]}}}
 V.dP.prototype={
 dO:function(){var t,s,r
@@ -43083,7 +43092,7 @@ tC:function(a,b){var t,s,r,q,p
 t=this.hZ()
 for(s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r){q=t[r].I(b)
 if(q!=null){p=J.n(q)
-p.sa2(q,J.aa(p.ga2(q),-5))}}},
+p.sa3(q,J.aa(p.ga3(q),-5))}}},
 un:function(){var t,s,r,q,p
 t=H.a([],[E.cr])
 for(s=this.c,r=s.length,q=0;q<s.length;s.length===r||(0,H.Q)(s),++q){p=s[q]
@@ -43095,11 +43104,11 @@ t=this.un()
 for(s=this.e,r=0;r<s.length;++r){q=C.a.b1(t,s[r])
 if(q!==-1){if(q<0||q>=t.length)H.aG(P.e0(q,null,null))
 t.splice(q,1)[0]}}return t},
-ec:function(a,b){var t,s,r
+ed:function(a,b){var t,s,r
 t=$.aB
 s=b.glB()
 r=this.c
-return J.n_(J.cc(J.dT(t.hq(0,s,!1),s.length),J.dT($.aB.hq(0,r,!1),r.length)))},
+return J.n_(J.cc(J.dT(t.hr(0,s,!1),s.length),J.dT($.aB.hr(0,r,!1),r.length)))},
 rP:function(){return this.hZ().length!==0},
 lu:function(a){var t,s,r
 for(t=this.c,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].aH()},
@@ -43177,10 +43186,10 @@ cw:function(a,b){return b.gde()>0?a*0.5:a*-0.5},
 dC:function(){return 1},
 dD:function(){return 1},
 dE:function(){return 1.5},
-eU:function(){return!0},
-he:function(a,b,c){return" The "+a.w()+" appears to be feeling more helpful after being around the "+b.w()+". "},
-hj:function(a,b,c){var t=this.cw(2*a.hw()/20,c)
-b.d1(a.c.ga6().r?t*a.c.ga6().ry:t,c)},
+eV:function(){return!0},
+hf:function(a,b,c){return" The "+a.w()+" appears to be feeling more helpful after being around the "+b.w()+". "},
+hk:function(a,b,c){var t=this.cw(2*a.hx()/20,c)
+b.d1(a.c.ga_().r?t*a.c.ga_().x1:t,c)},
 aD:function(){var t,s,r,q,p,o
 t=[P.q]
 s=H.a(["Springs","Water","Pools","Reflection","Contemplation","Fountains","Wellsprings","Geysers"],t)
@@ -43444,7 +43453,7 @@ gdU:function(a){return this.c},
 sdU:function(a,b){return this.c=b}}
 U.zN.prototype={
 da:function(){return!1},
-he:function(a,b,c){return" The "+a.w()+" appears to be taking "+H.h(c.v(a.ab.gdj()))+"  from the "+b.w()+" and keeping it for themself. "},
+hf:function(a,b,c){return" The "+a.w()+" appears to be taking "+H.h(c.v(a.ab.gdj()))+"  from the "+b.w()+" and keeping it for themself. "},
 bj:function(a){return!0},
 c2:function(){return this.bj(0)},
 cw:function(a,b){return a*0.5},
@@ -43462,9 +43471,9 @@ this.db=t},
 dC:function(){return 1.5},
 dD:function(){return 0.8},
 dE:function(){return 1},
-eU:function(){return!0},
-hj:function(a,b,c){var t=3*(a.hw()/20)*0.5
-if(a.c.ga6().r)t*=a.c.ga6().ry
+eV:function(){return!0},
+hk:function(a,b,c){var t=3*(a.hx()/20)*0.5
+if(a.c.ga_().r)t*=a.c.ga_().x1
 b.d1(-1*t,c)
 a.d1(t,c)},
 aD:function(){var t,s,r,q,p,o,n,m,l
@@ -43543,7 +43552,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Metronome",H.a([$.T,$.av,$.b7],s),null,!1,"Never Ending Ticking Device")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().tU(0,a,b)},
+ci:function(a,b){return a.ga_().tU(0,a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j
 t=[P.q]
 s=H.a(["Ticking","Watches","Cesium","Pendulums","Timepieces","Clocks","Clockwork","Gears","Quartz"],t)
@@ -43624,24 +43633,24 @@ p=$.x
 t.i(0,new R.ar("Move Forwards, Never Stop",!1,[new U.e(k+p+" contemplates this for a while. Is it really a true thing when this game has time travel in it?"),new U.e("Days in the past, but not many, the "+p+" is exploring. They find the babbling brook and the wizened "+q+" yet again. He again says that the water flows in only one direction. Irrationally angry, the "+p+" yells that it's not true, that this is the second time he's met the wizened "+q+". The wizened "+q+" simply "+$.ac+"s mysteriously.  "),new U.e("Days in the future, but not enough to catch up to the present, the "+p+" is exploring. When they find the babbling brook, the wizened "+q+" brightens. 'Soon.' he says, 'you will understand that we move in only one direction.'  He gestures downstream 'So too, will you soon have our last conversation. Or, looking another way. Our first.'.  Huh. The "+p+" thinks they get it. Time travel or not, they do things in a linear order.  So does the wizened "+q+"...even if it isn't the same order. "),new U.aW("Inexorably, the "+p+" is back in the present but also far in the future. The wizened "+q+" has just been slain by the "+$.W+", mere minutes after their first/last conversation. The "+p+" took the consort's advice to heart.  They have been preparing for this fight for a long time, now, going ever forward, but not on the same path in time as everyone else. It is time. ","It's a Time Paradox. Or is it? Did the "+p+" know they would be defeated? Did they fight anyways? ","This was always going to happen.")],H.a([],l),R.V(),!1,!1,new Y.aH("Rewards/sweetLoot.png","Rewards/sweetGrist.png","Rewards/no_reward.png",null),1,null,null),$.S)
 l=$.bC
 this.c.i(0,new X.a1(n,t,null),l)},
-geR:function(){return this.rx},
+geS:function(){return this.rx},
 gb8:function(){return this.ry},
 gaK:function(){return this.x2},
 gb6:function(){return this.y1},
 gcZ:function(){return this.y2},
 gd9:function(){return this.L},
-gcV:function(){return this.a1},
-gdl:function(){return this.a0},
+gcV:function(){return this.a2},
+gdl:function(){return this.a1},
 gdj:function(){return this.ag},
 ge4:function(){return this.Y},
-gA:function(){return this.au},
-sA:function(a){return this.au=a}}
+gA:function(){return this.at},
+sA:function(a){return this.at=a}}
 G.aj.prototype={
 G:function(a){var t=this.b
 if(t.length!==0)return C.a.gah(t)
 return"NULL TRAIT"},
 gtl:function(){return this.a},
-gih:function(){return this.b},
+gii:function(){return this.b},
 ge6:function(){return this.c}}
 G.bP.prototype={}
 G.bd.prototype={}
@@ -43651,7 +43660,7 @@ gCJ:function(){return this.e.length},
 ge6:function(){var t,s,r,q,p
 for(t=this.e,s=t.length,r=0,q=0;p=t.length,q<p;p===s||(0,H.Q)(t),++q)r+=t[q].c
 return r},
-ec:function(a,b){return C.b.bF(b.gCJ()-this.e.length)},
+ed:function(a,b){return C.b.bF(b.gCJ()-this.e.length)},
 tY:function(a){return C.a.Aj(this.e,a.gnj(a))},
 $iscS:1,
 $ascS:function(){return[G.i]},
@@ -43749,43 +43758,43 @@ t=[]
 for(s=0;r=a.c,s<r.length;++s){q=r[s]
 if(q.BD())t.push(q)}return t},
 rr:function(a,b){var t,s,r
-t=this.b.ga6().d?333:1
-s=a.eI().length+b.eI().length
-if(a.eI().length===0)++t
+t=this.b.ga_().d?333:1
+s=a.eJ().length+b.eJ().length
+if(a.eJ().length===0)++t
 if(!a.kj())t+=4
 if(J.c(a.kw(),b))t+=5
 r=a.I(this.r.a)
 if(r!=null&&J.af(J.bt(r),0))++s
-return t>(J.c(a.fi(this.b.gF()),this.r.a)?s+5:s)},
+return t>(J.c(a.fj(this.b.gF()),this.r.a)?s+5:s)},
 rs:function(a,b){var t,s,r
-t=a.eH().length+b.eH().length
-s=a.eH().length===0?2:1
+t=a.eI().length+b.eI().length
+s=a.eI().length===0?2:1
 if(J.af(a.R($.H),0))++s
 if(!a.kj())s+=4
 if(J.c(a.kw(),b))s+=5
 r=a.I(this.r.a)
 if(r!=null&&J.af(J.bt(r),0))++t
-return s>(J.c(a.fi(this.b.gF()),this.r.a)?t+5:t)},
+return s>(J.c(a.fj(this.b.gF()),this.r.a)?t+5:t)},
 rp:function(a,b){var t,s,r,q
 if(J.c(this.r.a,a)||J.c(this.r.a,b))return!1
-t=1+a.en().length+b.en().length
-s=a.en().length===0?1:0
+t=1+a.eo().length+b.eo().length
+s=a.eo().length===0?1:0
 if(!a.kj())t+=4
-if(J.c(a.fi(this.b.gF()),b))t+=5
+if(J.c(a.fj(this.b.gF()),b))t+=5
 r=a.I(this.r.a)
 q=r!=null
 if(q&&J.af(J.bt(r),0))++t
-if(J.c(a.fi(this.b.gF()),this.r.a))t+=5
+if(J.c(a.fj(this.b.gF()),this.r.a))t+=5
 if(q&&J.P(J.bt(r),0))++s
 return t>(J.c(a.kw(),this.r.a)?s+50:s)},
 rq:function(a,b){var t,s,r
-t=a.en().length+b.en().length
-s=a.en().length===0?2:1
+t=a.eo().length+b.eo().length
+s=a.eo().length===0?2:1
 if(!a.kj())s+=4
-if(J.c(a.fi(this.b.gF()),b))s+=5
+if(J.c(a.fj(this.b.gF()),b))s+=5
 r=a.I(this.r.a)
 if(r!=null&&J.af(J.bt(r),0))++t
-return s>(J.c(a.fi(this.b.gF()),this.r.a)?t+5:t)},
+return s>(J.c(a.fj(this.b.gF()),this.r.a)?t+5:t)},
 ad:function(a){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b
 this.b.ai(this.r.a)
 this.r.a.aH()
@@ -43793,19 +43802,19 @@ t=J.c(this.r.a.gt(),$.cy)?"They like the concupiscient ships best, and default t
 s=J.P(J.c6(this.r.e),4000)?" How did this session turn into such a scandalous fuckpile? ":""
 r=C.c.k(C.c.k("The ",this.r.a.U())+" updates their shipping grid. "+t+s+" <Br>",this.r.e)
 q=this.r
-if(q.b!=null&&q.a.fw()){q=this.b.gap()
+if(q.b!=null&&q.a.fz()){q=this.b.gap()
 q.toString
 F.ao(C.h).$1(q.aG(C.h,"shipping powers activate!"))
 q=this.r
 p=q.b
 o=C.c.k(" <Br> <br> The ",q.a.U())+" notices that one of their favorite ships seems to be on the verge of getting together! All it will take is the slightest of nudges..."
 n=this.r.a
-m=n.a5()+": "
+m=n.a6()+": "
 l=J.bc(p.b)
-k=l.a5()+": "
+k=l.a6()+": "
 p=p.a
 j=J.bc(p)
-i=j.a5()+": "
+i=j.a6()+": "
 if(J.c(this.r.a.gt(),$.bY))if(J.c(p.gO(),p.gbB())){h=this.rs(l,j)
 g=j.I(n)
 f=new A.I(["Sooo... hey! ","We never talk!","Hey!","Hello!","Um... hey!","I kind of need to talk to you."],["Hey.","Hiya","Whats up?","Good to see you.","Hows it going?"],["Hey, asshole.","Fuck off.","Eat shit and die.","Oh god.","Sup, dipshit.","Blugh.","FML.","Nope. Nope. Nope.","Yes?","And you are?","Ugh.","Not this again."],null)
@@ -43817,20 +43826,20 @@ q=g!=null
 d=new A.I(["You know how I try to make sure everyones doing okay?","So I was going over my shipping grid, and I wanted to run something by you.","So that shipping thing I do\u2026","I have it figured out! I know who can help keep you calm!.","Its time to talk romance.","We need to find you someone to chill you down.","You have been single for too long!"],["Okay?","I'm listening\u2026","Whats going on?","Alright?","Your point?","Uhm.","Yeah?","Okay I guess?"],["Oh god, not that again.","Is this REALLY a priority right now?","I fucking knew you were here about that.","Why do these things happen to me?","Nope. Nope. Nope.","Blugh.","Lets not and say we did."],null)
 e=C.c.k(e,f.br(l,k,q&&J.P(J.bt(g),0)))+d.bv(n,m)
 e=C.c.k(e,d.br(l,k,q&&J.P(J.bt(g),0)))
-f=new A.I(["I think you and "+j.a5()+" might work out really well pale. ","I think "+j.a5()+" likes you, pale style.","I think you should hang out with "+j.a5()+" more, they could work great with you!","You and "+j.a5()+" would be amazing, pale-wise.","I've got it figured out: "+j.a5()+" wants to shoosh the shit out of you."],["Wait.... really?","Holy shit.","Your joking.","Me?","Really? "+j.a5()+"?","Are you sure?","Oh my gog really?","Oh my god you are joking."],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","I don't need anyone to calm me down!","I'm doing just fine on my own, thanks.","I don't want to talk about this with you.","Please stop pestering me about this.","So much no."],null)
+f=new A.I(["I think you and "+j.a6()+" might work out really well pale. ","I think "+j.a6()+" likes you, pale style.","I think you should hang out with "+j.a6()+" more, they could work great with you!","You and "+j.a6()+" would be amazing, pale-wise.","I've got it figured out: "+j.a6()+" wants to shoosh the shit out of you."],["Wait.... really?","Holy shit.","Your joking.","Me?","Really? "+j.a6()+"?","Are you sure?","Oh my gog really?","Oh my god you are joking."],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","I don't need anyone to calm me down!","I'm doing just fine on my own, thanks.","I don't want to talk about this with you.","Please stop pestering me about this.","So much no."],null)
 d=new A.I(["Just trust me, you should absolutely try messaging them. ","I believe in you!","Ask them out! It'll totally work!","Believe in the shipping guru.","Trust me!","When have I ever let you down?","Listen, this is the best idea since sliced bread!","You two are the OTP, trust me.","You can do it!"],["Wow... maybe you are right! ","Yeah, okay, I'll message them right away."],["Yeah, that is not going to happen.","Sorry, but no."],null)
 this.d=C.c.k(C.c.k(e+f.bv(n,m),f.br(l,k,h))+d.bv(n,m),d.br(l,k,h))
 if(h){c=this.rs(j,l)
 f=new A.I(["Hey!","Hey","Hello!","Hiya!","Hey hey!","Hows it going?"],["Hey!","Oh cool, I was just thinking of you!","Hey! Good to see you!","Hey!"],["What's up?","Hey.","Oh. Hey.","Hey.","What do you want?"],null)
 e=C.c.k(f.bv(l,k),f.br(j,i,c))
-f=new A.I(["So... you know how "+n.a5()+" is always bugging and fussing and meddling? ",n.a5()+" was just pestering me about that shipping grid thing they do.","You know "+n.a5()+"'s 'thing' about romance?","Hey, you know how "+n.a5()+" is always going on and on about relationships?",n.a5()+"has been bugging me soooo much recently."],["Oh! Yeah, that sure is a thing they do!","Oh yeah?","Oh yeah. You know, its kind of flattering how much effort they put into that.","Yeah?","They do give unacannaly good advice sometimes."],["Hah, they are always so off base with their ships.","Uh huh?","Hm.","Oh yeah, they are such idiots about it too!","Yeah, they're always trying to find my 'pap-mate' or whatever!?"],null)
+f=new A.I(["So... you know how "+n.a6()+" is always bugging and fussing and meddling? ",n.a6()+" was just pestering me about that shipping grid thing they do.","You know "+n.a6()+"'s 'thing' about romance?","Hey, you know how "+n.a6()+" is always going on and on about relationships?",n.a6()+"has been bugging me soooo much recently."],["Oh! Yeah, that sure is a thing they do!","Oh yeah?","Oh yeah. You know, its kind of flattering how much effort they put into that.","Yeah?","They do give unacannaly good advice sometimes."],["Hah, they are always so off base with their ships.","Uh huh?","Hm.","Oh yeah, they are such idiots about it too!","Yeah, they're always trying to find my 'pap-mate' or whatever!?"],null)
 d=new A.I(["Look, I'll come right out and say it. I think I'm pale for you. ","I like you. Romantically. In the pale quadrant.","Look I... I want to pap the shit out of you.","Look I was thinking, and I realized: I want us to moirails."],["Holy shit! Really!?  I... fuck, I like you too!","Oh. Oh fuck. Wow. I like you, too!","I... nothing would make me happier!","I've wanted to pap you to unconsiousness for forever!"],["I can't. Don't make me choose. I can't say yes.","I'm so sorry... I just can't reciprocate right now.","I... I'm sorry I don't like you that way.","I... I can't... I don't...","I'm sorry, I'm just not ready for that kind of relationship right now.","We are in a murder game. As flattering as this is, I can't return those feelings. Not now.","I don't need a moirail!"],null)
 e=C.c.k(C.c.k(e+f.bv(l,k),f.br(j,i,c))+d.bv(l,k),d.br(j,i,c))
-if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a5()+"! ","YES!!!!","I am so, so, so happy right now.","Really? YES YES YES YES YES YES!","Oh thank god. Now I don't have to worry about hurting people!"],["<>","I'll always be glad to be here for you!","Shoosh."],["JR: This will never hit cause i know they said yes."],null)
+if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a6()+"! ","YES!!!!","I am so, so, so happy right now.","Really? YES YES YES YES YES YES!","Oh thank god. Now I don't have to worry about hurting people!"],["<>","I'll always be glad to be here for you!","Shoosh."],["JR: This will never hit cause i know they said yes."],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!0))
 N.eU(l,j)
 this.r.a.aH()
-this.r.a.sei(!0)
+this.r.a.sej(!0)
 b=C.c.k(C.c.k("The ",this.r.a.U())+" is estatic that their ship worked out so well. They grow as a ",J.ag(this.r.a.gt()))+" player. "}else{f=new A.I(["Fuck","But... fuck. "],["JR: this won't happen because i know they got rejected."],["I'm sorry. I really am."],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!1))
 b=C.c.k("The ",this.r.a.U())+" is disappointed that it didn't work out. Oh well, if at first you don't succeed..."}this.e=e}else b=C.c.k(C.c.k("The ",this.r.a.U())+" is frustrated that the ",l.U())+" won't listen to reason. "
@@ -43846,22 +43855,22 @@ n.aM=C.c.k("future",n.aM)
 m="F"+m
 f=new A.I(["Look, don't panic, but I'm you from the future and you HAVE to listen to me. ","Yo, its future you. Again.","Time for future you/me to give you future wisdom."],["What the fuck?","Holy shit, give me your future wisdom.","Ok.","Again?"],["Holy shit, why are you dooming a timeline?","Not this shit again, we agreed no cross time chats!","Nope. Nope. Nope.","Fuck my life.","Oh god.","Sup, dipshit.","Blugh.","FML.","Eat shit and die."],null)}e+=f.bv(n,m)
 e=C.c.k(e,f.br(l,k,q&&J.P(J.bt(g),0)))
-f=new A.I(["I think you and "+j.a5()+" are a TERRIBLE match, for spades. I... kind of want to keep you guys from getting together. ","I think "+j.a5()+" likes you, spades style. Aaannnd... that is a TERRIBLE idea. I want to sort of maybe kind of auspisticize you guys.","You know that hate thing "+j.a5()+" has for you? I want to step in.","You and "+j.a5()+" need to get that hate thing together or I'm going to have to mediate."],["Wait.... really!? ","Holy shit.","Oh thank god!","Uh?","Are you joking me?"],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","We don't need your help.","HAHAHAHAHAHAHAHAHA!","Uh.","Nope. Nope. Nope."],null)
+f=new A.I(["I think you and "+j.a6()+" are a TERRIBLE match, for spades. I... kind of want to keep you guys from getting together. ","I think "+j.a6()+" likes you, spades style. Aaannnd... that is a TERRIBLE idea. I want to sort of maybe kind of auspisticize you guys.","You know that hate thing "+j.a6()+" has for you? I want to step in.","You and "+j.a6()+" need to get that hate thing together or I'm going to have to mediate."],["Wait.... really!? ","Holy shit.","Oh thank god!","Uh?","Are you joking me?"],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","We don't need your help.","HAHAHAHAHAHAHAHAHA!","Uh.","Nope. Nope. Nope."],null)
 e=C.c.k(e+f.bv(n,m),f.br(l,k,h))
-f=new A.I(["Just trust me, if you agree, I'll message them next. ","I am gonna contact them next if you agree. ","Believe in the shipping guru.","Trust me!","When have I ever let you down?","Listen, this is the best idea since sliced bread!","We three are the OTP, trust me.","Please? I'll contact them next if you say yes."],["Wow...maybe you are right! ","Yeah, okay, go ahead.","I was at my wits end! Thank you so much!","Uh...uh yeah! That works!","I... wow\u2026yes!"],["Yeah, that is not going to happen.","Sorry, but no.","Oh my god no. So much no.","Like hell am I letting you get between me and "+j.a5()+".","I respectfully decline your help.","I think we can manage ourselves without the village two wheel device stepping in, thank you very much.","Fuck off.","Nope. Nope. Nope."],null)
+f=new A.I(["Just trust me, if you agree, I'll message them next. ","I am gonna contact them next if you agree. ","Believe in the shipping guru.","Trust me!","When have I ever let you down?","Listen, this is the best idea since sliced bread!","We three are the OTP, trust me.","Please? I'll contact them next if you say yes."],["Wow...maybe you are right! ","Yeah, okay, go ahead.","I was at my wits end! Thank you so much!","Uh...uh yeah! That works!","I... wow\u2026yes!"],["Yeah, that is not going to happen.","Sorry, but no.","Oh my god no. So much no.","Like hell am I letting you get between me and "+j.a6()+".","I respectfully decline your help.","I think we can manage ourselves without the village two wheel device stepping in, thank you very much.","Fuck off.","Nope. Nope. Nope."],null)
 this.d=C.c.k(e+f.bv(n,m),f.br(l,k,h))
 if(h){c=this.rp(j,l)
 f=new A.I(["Hey!","Hey!","Hello!","Hiya!","Hey hey!","Hows it going?"],["Hey!","Oh cool, I was just thinking of you!"],["What's up?","Hey"],null)
 e=C.c.k(f.bv(n,m),f.br(j,i,c))
-f=new A.I(["So...you know how I try to stay on top of romance shit? ","I just got done talking to "+l.a5()+". "],["Yeah?","Oh yeah?"],["Hah, you always so off base with their ships.","Uh huh?"],null)
+f=new A.I(["So...you know how I try to stay on top of romance shit? ","I just got done talking to "+l.a6()+". "],["Yeah?","Oh yeah?"],["Hah, you always so off base with their ships.","Uh huh?"],null)
 e=C.c.k(e+f.bv(n,m),f.br(j,i,c))
-f=new A.I(["Look, I'll come right out and say it. I think you guys would be terrible together black, and I'm willing to mediate. ","I like you. Romantically. In the ashen quadrant, with "+l.a5()+". "],["Holy shit! Really!?  I...fuck, I would really like that!","Oh. Oh fuck. Wow. I was wondering how I was gonna turn down that asshole. This works out perfect!"],["I can't. Don't make me choose. I can't say yes.","I'm so sorry... I just can't reciprocate right now."],null)
+f=new A.I(["Look, I'll come right out and say it. I think you guys would be terrible together black, and I'm willing to mediate. ","I like you. Romantically. In the ashen quadrant, with "+l.a6()+". "],["Holy shit! Really!?  I...fuck, I would really like that!","Oh. Oh fuck. Wow. I was wondering how I was gonna turn down that asshole. This works out perfect!"],["I can't. Don't make me choose. I can't say yes.","I'm so sorry... I just can't reciprocate right now."],null)
 e=C.c.k(e+f.bv(n,m),f.br(j,i,c))
 if(c){f=new A.I(["Oh fuck yes!","You guys had better behave! "],["c3<"],["JR: This will never hit cause i know they said yes."],null)
 e=C.c.k(e+f.bv(n,m),f.br(j,i,!0))
 N.xR(n,l,j)
 this.r.a.aH()
-this.r.a.sei(!0)
+this.r.a.sej(!0)
 b=C.c.k(C.c.k("The ",this.r.a.U())+" is estatic that their ship worked out so well. They grow as a ",J.ag(this.r.a.gt()))+" player. "}else{f=new A.I(["Fuck","But... fuck. "],["JR: this won't happen because i know they got rejected."],["I'm sorry. I really am."],null)
 e=C.c.k(e+f.bv(n,m),f.br(j,i,!1))
 b=C.c.k("The ",this.r.a.U())+" is disappointed that it didn't work out. Oh well, if at first you don't succeed..."}this.e=e}else b=C.c.k(C.c.k("The ",this.r.a.U())+" is frustrated that the ",l.U())+" won't listen to reason. "
@@ -43876,20 +43885,20 @@ q=g!=null
 d=new A.I(["You know how I keep track of romance shit? ","So I was going over my shipping grid, and I wanted to run something by you.","So that shipping thing I do\u2026","I have found your soulmate.","Its time to talk romance.","We need to find you a mate.","You have been single for too long!"],["Okay?","I'm listening\u2026","Whats going on?","Alright?","Your point?","Uhm.","Yeah?"],["Oh god, not that again.","Is this REALLY a priority right now?","I fucking knew you were here about that.","Why do these things happen to me?","Nope. Nope. Nope."],null)
 e=C.c.k(e,f.br(l,k,q&&J.P(J.bt(g),0)))+d.bv(n,m)
 e=C.c.k(e,d.br(l,k,q&&J.P(J.bt(g),0)))
-f=new A.I(["I think you and "+j.a5()+" might work out really well flushed. ","I think "+j.a5()+" likes you, flush style.","You and "+j.a5()+" should totally get together!","I have it figured out: You and "+j.a5()+" were meant for each other!","You need to get funky with "+j.a5()+", okay?","You and  "+j.a5()+" would be the cutest couple!","I am one hundred percent sure that  "+j.a5()+" <3 the shit out of you!"],["Wait.... really!?","Holy shit.","Your joking.","Me?","Really? "+j.a5()+"?","Are you sure?","Oh my gog really!?","arglbualabagadsfWHAT?","Oh my god you are joking."],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","Stay the fuck out of my personal life.","Nope. Nope. Nope.","When I want your advice- wait no I never want your advice. Fuck off!","When I want your romantic advice I'll ask for it!","Leave me alone.","Do you really have nothing better to do? No monster to slay or quest to do?","Can we not.","No.","You are fucking with me, aren't you.","This is why we don't talk.","I'd rather not talk about this, okay?","I just don't want to talk about this shit.","Please stop."],null)
+f=new A.I(["I think you and "+j.a6()+" might work out really well flushed. ","I think "+j.a6()+" likes you, flush style.","You and "+j.a6()+" should totally get together!","I have it figured out: You and "+j.a6()+" were meant for each other!","You need to get funky with "+j.a6()+", okay?","You and  "+j.a6()+" would be the cutest couple!","I am one hundred percent sure that  "+j.a6()+" <3 the shit out of you!"],["Wait.... really!?","Holy shit.","Your joking.","Me?","Really? "+j.a6()+"?","Are you sure?","Oh my gog really!?","arglbualabagadsfWHAT?","Oh my god you are joking."],["I am not going to dignify that with a response. ","I don't see how that's any of your business.","Stay the fuck out of my personal life.","Nope. Nope. Nope.","When I want your advice- wait no I never want your advice. Fuck off!","When I want your romantic advice I'll ask for it!","Leave me alone.","Do you really have nothing better to do? No monster to slay or quest to do?","Can we not.","No.","You are fucking with me, aren't you.","This is why we don't talk.","I'd rather not talk about this, okay?","I just don't want to talk about this shit.","Please stop."],null)
 d=new A.I(["Just trust me, you should absolutely try messaging them. ","I believe in you!","Ask them out! It'll totally work!","Believe in the shipping guru.","Trust me!","When have I ever let you down?","Listen, this is the best idea since sliced bread!","You two are the OTP, trust me.","You can do it!"],["Wow...maybe you are right! ","Yeah, okay, I'll message them right away.","Ok, I'm trusting you.","I'll give it a shot!","Whats the worst that can happen, I'll try!","Uh... OK!","I... I... Alright. I'll message them.","Ok, lets hope you are right!"],["Yeah, that is not going to happen.","Sorry, but no.","No way.","Nope. Nope. Nope.","Please leave me alone.","I'd rather not.","Its a bad idea.","I don't like them that much.","You don't tell me what to do!","This is a terrible idea.","Fuck off.","No way in hell.","Stay out of my personal business!","I'll do what I want, not what you tell me!"],null)
 this.d=C.c.k(C.c.k(e+f.bv(n,m),f.br(l,k,h))+d.bv(n,m),d.br(l,k,h))
 if(h){c=this.rr(j,l)
 f=new A.I(["Hey!"],["Hey!","Oh cool, I was just thinking of you!"],["What's up?","Hey"],null)
 e=C.c.k(f.bv(l,k),f.br(j,i,c))
-f=new A.I(["So... you know how "+n.a5()+" is always bugging and fussing and meddling? ",n.a5()+" was just pestering me about that shipping grid thing they do.","You know "+n.a5()+"'s 'thing' about romance?","Hey, you know how "+n.a5()+" is always going on and on about relationships?",n.a5()+"has been bugging me soooo much recently."],["Oh! Yeah, that sure is a thing they do!","Oh yeah?","Oh yeah. You know, its kind of flattering how much effort they put into that.","Yeah?","They do give unacannaly good advice sometimes."],["Hah, they are always so off base with their ships.","Uh huh?","Hm.","Oh yeah, they are such idiots about it too!","Yeah, they're always trying to find my 'soulmate' or whatever! Like I of all people need one?"],null)
+f=new A.I(["So... you know how "+n.a6()+" is always bugging and fussing and meddling? ",n.a6()+" was just pestering me about that shipping grid thing they do.","You know "+n.a6()+"'s 'thing' about romance?","Hey, you know how "+n.a6()+" is always going on and on about relationships?",n.a6()+"has been bugging me soooo much recently."],["Oh! Yeah, that sure is a thing they do!","Oh yeah?","Oh yeah. You know, its kind of flattering how much effort they put into that.","Yeah?","They do give unacannaly good advice sometimes."],["Hah, they are always so off base with their ships.","Uh huh?","Hm.","Oh yeah, they are such idiots about it too!","Yeah, they're always trying to find my 'soulmate' or whatever! Like I of all people need one?"],null)
 d=new A.I(["Look, I'll come right out and say it. I think I'm flushed for you. ","I like you. Romantically. In the flushed quadrant.","Uhm. Well. I like you. Like, like like you.","Uh-er... I think I'm in love with you.","Well they were talking, and I realized: I really really really really really like you.","Look, forget about that. Its just... I think you are the most beautiful person I have ever met.","Its just-I like you. I like you soooo much."],["Holy shit! Really!?  I... fuck, I like you too!","Oh. Oh fuck. Wow. I like you, too!","I... You are the most beautiful person I have met.","Oh my god. I was just about to say the same to you!","Holy fuck. Are you serious? I... I like you too!"],["I can't. Don't make me choose. I can't say yes.","I'm so sorry... I just can't reciprocate right now.","I... I'm sorry I don't like you that way.","I... I can't... I don't\u2026","I'm sorry, I'm just not ready for that kind of relationship right now.","We are in a murder game. As flattering as this is, I can't return those feelings. Not now."],null)
 e=C.c.k(C.c.k(e+f.bv(l,k),f.br(j,i,c))+d.bv(l,k),d.br(j,i,c))
-if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a5()+"! ","YES!!!!","I am so, so, so happy right now.","Really? YES YES YES YES YES YES!"],["<3","Now I can finally discuss how fucking cute you are!","Hahahahaha"],["JR: This will never hit cause i know they said yes.","MI: the temptation is there to but some really snarky bullshit here anyway"],null)
+if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a6()+"! ","YES!!!!","I am so, so, so happy right now.","Really? YES YES YES YES YES YES!"],["<3","Now I can finally discuss how fucking cute you are!","Hahahahaha"],["JR: This will never hit cause i know they said yes.","MI: the temptation is there to but some really snarky bullshit here anyway"],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!0))
 N.hv(l,j)
 this.r.a.aH()
-this.r.a.sei(!0)
+this.r.a.sej(!0)
 b=C.c.k(C.c.k("The ",this.r.a.U())+" is estatic that their ship worked out so well. They grow as a ",J.ag(this.r.a.gt()))+" player. "}else{f=new A.I(["Fuck","But... fuck. ","I\u2026 really?","But I thought-","Fuck my life.","Ugh, I'm such an idiot! I shouldn't have- I'm sorry for bothering you.","Please?","Are you sure?"],["JR: this won't happen because i know they got rejected.","MI: How sad."],["I'm sorry. I really am.","Its not your fault, okay?","I'm sorry. I can't change how I feel.","Its not you its me.","I just can't commit like that, not now.","You can find someone else, It'll be all right.","I have to go."],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!1))
 b=C.c.k("The ",this.r.a.U())+" is disappointed that it didn't work out. Oh well, if at first you don't succeed..."}this.e=e}else b=C.c.k(C.c.k("The ",this.r.a.U())+" is frustrated that the ",l.U())+" won't listen to reason. "
@@ -43904,20 +43913,20 @@ q=g!=null
 d=new A.I(["You know how I keep track of romance shit? ","So I was going over my shipping grid, and I wanted to run something by you."],["Okay?","I'm listening..."],["Oh god, not that again.","Is this REALLY a priority right now?"],null)
 e=C.c.k(e,f.br(l,k,q&&J.P(J.bt(g),0)))+d.bv(n,m)
 e=C.c.k(e,d.br(l,k,q&&J.P(J.bt(g),0)))
-f=new A.I(["I think you and "+j.a5()+" might work out really well spades. ","I think "+j.a5()+" likes you, spades style."],["Wait.... really!? ","Holy shit."],["I am not going to dignify that with a response. ","I don't see how that's any of your business."],null)
+f=new A.I(["I think you and "+j.a6()+" might work out really well spades. ","I think "+j.a6()+" likes you, spades style."],["Wait.... really!? ","Holy shit."],["I am not going to dignify that with a response. ","I don't see how that's any of your business."],null)
 d=new A.I(["Just trust me, you should absolutely try messaging them. ","I believe in you!","Ask them out! It'll totally work!","Believe in the shipping guru.","Trust me!","When have I ever let you down?","Listen, this is the best idea since sliced bread!","You two are the OTP, trust me.","You can do it!"],["Wow...maybe you are right! ","Yeah, okay, I'll message them right away."],["Yeah, that is not going to happen.","Sorry, but no.","Ehhh. I don't think I hate them that much."],null)
 this.d=C.c.k(C.c.k(e+f.bv(n,m),f.br(l,k,h))+d.bv(n,m),d.br(l,k,h))
 if(h){c=this.rq(j,l)
 f=new A.I(["Hey!","Hey dunkass!","Hows it going shit for brains?","Its time you and me talk.","Ugh, I really wish I didn't have to talk to you.","Sup shitface.","Hey asshat.","I need to talk.","Yo, fuckface."],["Hey!","Oh cool, I was just thinking of you!","Go fuck yourself, dipshit.","Eat me.","Oh gog. Not this fucker.","Fuck this.","Fuck off and die.","Hey dunkass.","Hey poopbreath.","Whats up, farmstink?"],["What's up?","Hey","Uh, hey?","Hey?","Hey?","Uh, hows it going?","Whats up?"],null)
 e=C.c.k(f.bv(l,k),f.br(j,i,c))
-f=new A.I(["So...you know how "+n.a5()+" is always bugging and fussing and meddling? ",n.a5()+" was just pestering me about that shipping grid thing they do. "],["Oh! Yeah, that sure is a thing they do!","Oh yeah?"],["Hah, they are always so off base with their ships.","Uh huh?"],null)
+f=new A.I(["So...you know how "+n.a6()+" is always bugging and fussing and meddling? ",n.a6()+" was just pestering me about that shipping grid thing they do. "],["Oh! Yeah, that sure is a thing they do!","Oh yeah?"],["Hah, they are always so off base with their ships.","Uh huh?"],null)
 d=new A.I(["Look, I'll come right out and say it. I think I hate you, you fucking asshole. Spades-wise.","I hate you. Romantically. In the spades quadrant."],["Holy shit! Really!?  I...fuck, I hate you too!","Oh. Oh fuck. Wow. I hate you, too!"],["I can't. Don't make me choose. I can't say yes.","I'm so sorry... I just can't reciprocate right now."],null)
 e=C.c.k(C.c.k(e+f.bv(l,k),f.br(j,i,c))+d.bv(l,k),d.br(j,i,c))
-if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a5()+"! "],["<3<"],["JR: This will never hit cause i know they said yes."],null)
+if(c){f=new A.I(["Oh fuck yes!","Oh wow, I sure am glad I listened to "+n.a6()+"! "],["<3<"],["JR: This will never hit cause i know they said yes."],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!0))
 N.me(l,j)
 this.r.a.aH()
-this.r.a.sei(!0)
+this.r.a.sej(!0)
 b=C.c.k(C.c.k("The ",this.r.a.U())+" is estatic that their ship worked out so well. They grow as a ",J.ag(this.r.a.gt()))+" player. "}else{f=new A.I(["Fuck","But... fuck. "],["JR: this won't happen because i know they got rejected."],["I'm sorry. I really am."],null)
 e=C.c.k(e+f.bv(l,k),f.br(j,i,!1))
 b=C.c.k("The ",this.r.a.U())+" is disappointed that it didn't work out. Oh well, if at first you don't succeed..."}this.e=e}else b=C.c.k(C.c.k("The ",this.r.a.U())+" is frustrated that the ",l.U())+" won't listen to reason. "
@@ -43966,7 +43975,7 @@ C.a.h(t.b,new Q.m(r,t.q(r,C.b.l(1)),q))
 s=A.r("Black Hole in a Bottle.",H.a([$.av,$.aD,$.Fg,$.bi,$.cg],s),"Jegus fuck, don't break this.",!1,"Eternal Suffering in a Jar")
 C.a.h(t.b,new Q.m(s,t.q(s,C.b.l(1)),q))
 this.r2=t},
-ci:function(a,b){return a.ga6().E6(a,b)},
+ci:function(a,b){return a.ga_().E6(a,b)},
 aD:function(){var t,s,r,q,p,o,n,m,l,k,j,i
 t=[P.q]
 s=H.a(["Nothing","Void","Emptiness","Dust","Shadows","Nowhere","Absence"],t)
@@ -44038,8 +44047,8 @@ gb6:function(){return this.x2},
 gcZ:function(){return this.y1},
 gd9:function(){return this.y2},
 gcV:function(){return this.L},
-gdl:function(){return this.a1},
-gdj:function(){return this.a0},
+gdl:function(){return this.a2},
+gdj:function(){return this.a1},
 ge4:function(){return this.ag},
 gA:function(){return this.Y},
 sA:function(a){return this.Y=a}}
@@ -44064,14 +44073,14 @@ this.e=r
 if(r==null){r=R.bE(t,$.b2)
 this.e=r
 if(r==null){r=R.bE(t,$.cz)
-this.e=r}}}if(r!=null&&r.fw()){r=this.b.gap()
+this.e=r}}}if(r!=null&&r.fz()){r=this.b.gap()
 r.toString
 F.ao(C.h).$1(r.aG(C.h,"shenanigans are happening"))
-if(!this.b.ga6().z)r=this.e.c2()===!0||this.b.gn().a.E()>0.5
+if(!this.b.ga_().z)r=this.e.c2()===!0||this.b.gn().a.E()>0.5
 else r=!1
 if(r)this.d=this.e
 else this.d=this.b.gn().v(t)}r=this.d
-if(r!=null&&!r.i8())this.d=null
+if(r!=null&&!r.i9())this.d=null
 return this.d!=null},
 aY:function(a){var t
 this.d.aH()
@@ -44100,7 +44109,7 @@ this.lg(t,p)
 return}else if(this.d.gdz()===!0&&this.b.gA().gcj()!==!0&&this.b.gn().a.E()>0.8){this.rm(q,p)
 this.lg(t,p)
 return}else if(J.af(this.d.R($.H),5)&&!this.d.gbM()&&this.b.gn().a.E()>0.9){this.d.af($.H,-30)
-this.d.it()
+this.d.iu()
 C.f.N(q," You get a bad feeling about this. ",C.d)
 C.f.N(p,"The "+this.d.w()+" has taken an acrobatic fucking pirouette off the handle and into a giant pile of crazy.  You almost wish you hadn't seen this. This is completely terrifying.",C.d)
 this.lg(t,p)
@@ -44124,7 +44133,7 @@ J.cu(a," Everybody seems to be pretty pissed at them, though. ",C.d)},
 C0:function(a,b){this.d.qu()
 J.cu(a," Everybody seems to be pretty happy with them, though. ",C.d)},
 zP:function(a,b){var t
-this.d.hc(2)
+this.d.hd(2)
 J.cu(a," Their consorts seem pretty happy, though. ",C.d)
 t=["teaching the local consorts all the illest of beats","explaining the finer points of the human game 'hopscotch' to local consorts","passing out banned orange fruits that may or may not exist to hungry local consorts","throwing a birthday party for the local consorts"]
 C.a.V(t,["reenacting tear jerking scenes from classic cinema with local consorts","adopting a local consort as their beloved daughter","explaining that all conflict will be resolved through the medium of rap, going forwards","passing out rumpled headgear like cheap cigars"])
@@ -44156,8 +44165,8 @@ s=this.d
 r=t?C.c.k("",s.cd("hidden in void on their way to godhood")):C.c.k("",s.cd("with ridiculous bullshit clown shenanigans"))
 this.d.jj()
 this.b.gA().sbf(!0)
-J.cu(a,r+" What was that light on "+this.d.fm()+"? ",C.d)
-q=this.b.gex().hg(this.b.gn(),[this.d],3)
+J.cu(a,r+" What was that light on "+this.d.fn()+"? ",C.d)
+q=this.b.gey().hh(this.b.gn(),[this.d],3)
 C.a.h(this.d.gaC(),q)
 t=J.n(b)
 t.N(b,C.c.k(C.c.k("Holy shit. Did the ",this.d.U())+" just randomly go GodTier? What the fuck is going on? Did they even die? This is some flagrant bullshit. Somehow they learned ",J.ag(q))+" too.",C.d)
@@ -44263,10 +44272,10 @@ this.db=t},
 bj:function(a){return!0},
 c2:function(){return this.bj(0)},
 cw:function(a,b){return b.gde()>0?a*0.5:a*-0.5},
-eU:function(){return!0},
-hj:function(a,b,c){var t=this.cw(2*a.hw()/20,c)
-a.d1(a.c.ga6().r?t*a.c.ga6().ry:t,c)},
-he:function(a,b,c){return" The "+a.w()+" appears to be feeling more powerful after being around the "+b.w()+" "},
+eV:function(){return!0},
+hk:function(a,b,c){var t=this.cw(2*a.hx()/20,c)
+a.d1(a.c.ga_().r?t*a.c.ga_().x1:t,c)},
+hf:function(a,b,c){return" The "+a.w()+" appears to be feeling more powerful after being around the "+b.w()+" "},
 dC:function(){return 2},
 dE:function(){return 1.5},
 dD:function(){return 1},
@@ -44407,13 +44416,13 @@ b2:function(a){this.c=a
 return!0},
 Ef:function(a){var t,s,r,q
 if($.ey)return
-if(this.b.ga6().Q){C.f.eW(a,"beforeend","... What. Where the fuck is my Yard? God DAMN those n00b Wastes of Mind. What the fuck is WRONG WITH THEM? Don't they know they need to stay the fuck away from my Yard? Go use their fucking Cataclysm. See if I care.  Today is the day you fuck shit up forever.",null,null)
+if(this.b.ga_().Q){C.f.eX(a,"beforeend","... What. Where the fuck is my Yard? God DAMN those n00b Wastes of Mind. What the fuck is WRONG WITH THEM? Don't they know they need to stay the fuck away from my Yard? Go use their fucking Cataclysm. See if I care.  Today is the day you fuck shit up forever.",null,null)
 return}this.b.gA().su8(!0)
 t=document
 s=t.createElement("div")
 a.appendChild(s)
 r=this.ky()
-r.ev="mind_forehead.png"
+r.ew="mind_forehead.png"
 q=t.createElement("div")
 t=q.style
 t.background="url(images/4thwall.png)"
@@ -44434,7 +44443,7 @@ r.sle(!0)
 if(this.b.gnR())q="AB: "+("Fuck, JR, there is a "+H.h(90+$.$get$ez().a.E()*10)+" chance that an Observer got a hold of your Yellow Yard.")+"\nJR: Do they even know how to USE that thing correctly? Fuck. I mean, yeah, it'll suck if they meddle with sessions that are better left alone. \nJR: But do they even realize how much they cheapen MY power by over using that gimmicky stick? \nAB: It seems you meant 'schtick'. \nJR: I know what I said! Fuck. I bet half the Yards won't even WORK. Well I am NOT fucking debugging that shit. \nAB: Not to mention the near certainty that even future JR will be too lazy to write custom dialogue for it past this pesterlog. \nJR: Yeah, I guess it'll be kind of funny when a player from a succesful timeline has to pretend everybody died.  Like, laugh so you don't cry funny... :( :( :(  \nJR: Well.  No use putting it off.  Let's go find out what the Observer wants.  \n"
 else{q="AB: "+Y.Hi(["Out of all the sessions I've seen (and as a flawless robot I have seen FAR more than any human) this one is EASILY in the top percentage of tragedy. Top fucking percent. ","And here we have one of the worst 2% of sessions. ","So, I found you one of the sessions you were looking for..."])+"\nJR: Shit...you really aren't kidding. \n"
 if(this.b.gjC().a.length>0){q=q+"JR: This. This isn't the first time we've done this here, is it?\n"+("AB: No. Counting this timeline, we have done this "+(this.b.gjC().a.length+1)+" times now.\n")
-q=(this.b.gjC().a.length>5?q+"JR: Well. At least this means the Observer is dedicated to fixing this. \nAB: One wonders at what point it's more prudent to simply give up. Well, unless you're a flawless automaton. We NEVER give up. \n":q+"JR: I guess not every session has a clear and easy fix... \nAB: If you weren't so distracted fixing these session, you could probably program me to find out exactly what percentage of sessions take more than one doomed time loop to fix. \nJR: Bluh, then I'd have to make you not be lazy and give up as soon as there is user input. And if you're anything like me, you LOVE being lazy. \nAB: ... Thanks? \n")+"JR: Okay. Enough chitchat. I better start this cycle up again. To the Observer: be warned that just because you have been given a second chance here doesn't mean you always will.  If you manage to keep this from being quite so tragic, I won't show up, even if they ultimately fail.  Thems the breaks."}else q=this.d.ga7()?q+"JR: Though...I admit that without a time player my plan becomes a lot more impossible. \n "+("AB: Nah, I took care of that. See? There's the "+this.d.hY()+" over there, now. Time shenanigans.  I wouldn't have brought you to a completely hopeless session. Roughly 50% of all sessions this bad with a dead time player have that player travel to this point in time before they die. \n ")+"JR: Oh! Cool. I guess I should pester them. \n AB: Word. \n ":q+"JR: I guess I should get on with it, then. \n AB: Word. \n "}if($.Gz)q="AB: "+Y.Hi(["... I like your superior robot versions much better. ","Well. Hope you know how to use that thing. You'll need it.","... Yellow yard time, asshole."])+"\nShogun: Well, too bad. \nAB: ... I'm going to go get JR. You literally aren't capable of this. You aren't a Mind Player. \n"
+q=(this.b.gjC().a.length>5?q+"JR: Well. At least this means the Observer is dedicated to fixing this. \nAB: One wonders at what point it's more prudent to simply give up. Well, unless you're a flawless automaton. We NEVER give up. \n":q+"JR: I guess not every session has a clear and easy fix... \nAB: If you weren't so distracted fixing these session, you could probably program me to find out exactly what percentage of sessions take more than one doomed time loop to fix. \nJR: Bluh, then I'd have to make you not be lazy and give up as soon as there is user input. And if you're anything like me, you LOVE being lazy. \nAB: ... Thanks? \n")+"JR: Okay. Enough chitchat. I better start this cycle up again. To the Observer: be warned that just because you have been given a second chance here doesn't mean you always will.  If you manage to keep this from being quite so tragic, I won't show up, even if they ultimately fail.  Thems the breaks."}else q=this.d.ga7()?q+"JR: Though...I admit that without a time player my plan becomes a lot more impossible. \n "+("AB: Nah, I took care of that. See? There's the "+this.d.e8()+" over there, now. Time shenanigans.  I wouldn't have brought you to a completely hopeless session. Roughly 50% of all sessions this bad with a dead time player have that player travel to this point in time before they die. \n ")+"JR: Oh! Cool. I guess I should pester them. \n AB: Word. \n ":q+"JR: I guess I should get on with it, then. \n AB: Word. \n "}if($.Gz)q="AB: "+Y.Hi(["... I like your superior robot versions much better. ","Well. Hope you know how to use that thing. You'll need it.","... Yellow yard time, asshole."])+"\nShogun: Well, too bad. \nAB: ... I'm going to go get JR. You literally aren't capable of this. You aren't a Mind Player. \n"
 if(!$.Gz)T.Et(s,q)
 else T.Oq(s,q)
 t=$.aC
@@ -44445,14 +44454,14 @@ t=$.aC
 s=W.N($.ay,t)
 a.appendChild(s)
 if(this.d.ga7()){p=this.ky()
-o=p.a5()+": "
-q=J.c(this.d.gC(),$.cM)?"JR: Hey. Uh. Don't panic. I think I can help you. \n"+Y.k(o,p,"Hey. I was hoping to find you here. ")+"JR: What? Oh. You're a Seer. Right, that makes things WAY easier. \n"+Y.k(o,p,"Yes. You're gonna help me make the right decisions in order to prevent this from ever happening.  Somehow. I'm actually not all that clear on the details.")+"JR: Eh, hand wavey Waste of Mind shenanigans. Don't worry about it. \n"+Y.k(o,p,"Given that this plan will cost my life, I think it is perfectly reasonable to worry about it. ")+"JR: Bluh. All you need to know is that I'll give you a list of things you can go back in time and change. Decide on one however you want, and I'll make sure your decision isn't locked in by fate. That will let us figure out which decisions are the right ones. Retroactively. But also simultaneously. Time shenanigans. \n"+Y.k(o,p,"Yes. I'm starting to get tired of time shenanigans. "):"JR: Hey. Uh. Don't panic. I think I can help you. \n"+Y.k(o,p,"...  What the actual fuck is going on here? Who are you? Why is everybody dead?  Why am *I* dead!? ")+"JR: Shit. Having to explain makes things complicated. \nJR: You know you're the Time Player, right? And that you are in the 'future', compared to what you think of as the 'present'? \n"+Y.k(o,p,"Okay. Now I do. Jesus. Time is the shittiest aspect. So this is, what, inevitable?")+"JR: Sort of. As the Time Player, you can change it, at the cost of your own life. But you're just as locked in by fate as anybody. You'll always try fo fix it the same way. Always make the same decisions. \nJR: But I can supply different decisions. Branch your fate out from inevitablity to decision trees.  Mind Players work well with Time Players. Just look at Terezi and Dave.  \n"}else{o=this.d.a5()+": "
+o=p.a6()+": "
+q=J.c(this.d.gC(),$.cM)?"JR: Hey. Uh. Don't panic. I think I can help you. \n"+Y.k(o,p,"Hey. I was hoping to find you here. ")+"JR: What? Oh. You're a Seer. Right, that makes things WAY easier. \n"+Y.k(o,p,"Yes. You're gonna help me make the right decisions in order to prevent this from ever happening.  Somehow. I'm actually not all that clear on the details.")+"JR: Eh, hand wavey Waste of Mind shenanigans. Don't worry about it. \n"+Y.k(o,p,"Given that this plan will cost my life, I think it is perfectly reasonable to worry about it. ")+"JR: Bluh. All you need to know is that I'll give you a list of things you can go back in time and change. Decide on one however you want, and I'll make sure your decision isn't locked in by fate. That will let us figure out which decisions are the right ones. Retroactively. But also simultaneously. Time shenanigans. \n"+Y.k(o,p,"Yes. I'm starting to get tired of time shenanigans. "):"JR: Hey. Uh. Don't panic. I think I can help you. \n"+Y.k(o,p,"...  What the actual fuck is going on here? Who are you? Why is everybody dead?  Why am *I* dead!? ")+"JR: Shit. Having to explain makes things complicated. \nJR: You know you're the Time Player, right? And that you are in the 'future', compared to what you think of as the 'present'? \n"+Y.k(o,p,"Okay. Now I do. Jesus. Time is the shittiest aspect. So this is, what, inevitable?")+"JR: Sort of. As the Time Player, you can change it, at the cost of your own life. But you're just as locked in by fate as anybody. You'll always try fo fix it the same way. Always make the same decisions. \nJR: But I can supply different decisions. Branch your fate out from inevitablity to decision trees.  Mind Players work well with Time Players. Just look at Terezi and Dave.  \n"}else{o=this.d.a6()+": "
 t=J.c(this.d.gC(),$.cM)
 n=this.d
 q=t?"JR: Hey. I think I can help you. \n"+Y.k(o,n,"Hey. Look who finally showed up. ")+"JR: What? Oh. You're a Seer. Right, that makes things way easier. \n"+Y.k(o,this.d,"Yes. You're gonna help me fix this.")+"JR: Yep. I'll make sure your decisions aren't bound by fate, and you provide the time shenanigans. \n"+Y.k(o,this.d,"Do it.")+"JR:  I'm gonna give you a list of things you can go back in time and change, and you pick whichever you want. Flip a coin for all I care. I'll take care of making sure the decisions are outside of fate. \nJR: That way if you have to do this again, you won't necessarily just repeat the same decision.\n":"JR: Hey. I think I can help you. \n"+Y.k(o,n,"Who the fuck are you!? ")+"JR: I'm the Waste of Mind, and I can help you prevent this doomed timeline. \n"+Y.k(o,this.d,"Fuck. Where were you before, when we were all dying!? ")+"JR: I can prevent this from happening retroactively. Not in the first place. Not without nullifying the basic ability of intelligent beings in all real and hypothetical planes of existance to give a shit. \nJR: And as sad as your session went, it's not as sad as me endangering ALL sessions by doing that. \n"}T.IO(s,q,r)
 if(this.d.ga7()){p=this.ky()
-o=this.d.a5()+": "
-q=J.c(this.d.gC(),$.cM)?"":Y.k(o,p,"Who?")+"JR: Shit. Ignore that. You're not my only audience here. Hell, all this practically doesn't even concern you at this point. \n"+Y.k(o,p,"What the fuck?")+"JR: Look. I'm the Waste of Mind. My whole thing is breaking the fourth wall. But I gotta be careful. My actual direct influence can't span more than a single yard, or I could nullify the basic ability of intelligent beings in all real and hypothetical planes of existance to give a shit.  \n"+Y.k(o,p,"Jegus, why did I think you could help me? You're batshit crazy.")+"JR: Promise I'm not too crazy, and also it's not like you have other options here. I'll give you a list of things you can go back in time and change, and you pick whichever you want. Flip a coin for all I care. I'll take care of making sure the decisions are outside of fate. \n"}else{o=this.d.a5()+": "
+o=this.d.a6()+": "
+q=J.c(this.d.gC(),$.cM)?"":Y.k(o,p,"Who?")+"JR: Shit. Ignore that. You're not my only audience here. Hell, all this practically doesn't even concern you at this point. \n"+Y.k(o,p,"What the fuck?")+"JR: Look. I'm the Waste of Mind. My whole thing is breaking the fourth wall. But I gotta be careful. My actual direct influence can't span more than a single yard, or I could nullify the basic ability of intelligent beings in all real and hypothetical planes of existance to give a shit.  \n"+Y.k(o,p,"Jegus, why did I think you could help me? You're batshit crazy.")+"JR: Promise I'm not too crazy, and also it's not like you have other options here. I'll give you a list of things you can go back in time and change, and you pick whichever you want. Flip a coin for all I care. I'll take care of making sure the decisions are outside of fate. \n"}else{o=this.d.a6()+": "
 q=J.c(this.d.gC(),$.cM)?"":"JR: Look. Just. Try to pull it together. I know this sucked. But that's why we're gonna fix it. If you do this on your own, your decisions get locked in by fate. Alone, you only get one shot. But I can give you a bunch of shots. \n"+Y.k(o,this.d,"Fuck. Okay. ")+"JR:  I'll give you a list of things you can go back in time and change, and you pick whichever you want. Flip a coin for all I care. I'll take care of making sure the decisions are outside of fate. \n"}if(q!==""){t=$.aC
 s=W.N($.ay,t)
 a.appendChild(s)
@@ -44482,11 +44491,11 @@ p[q].e=s
 p=" <span class='custom-radio'><input type='radio' name='decision' value='"+q+"'></span>"
 o=$.$get$fC()
 if(q>=o.length)return H.b(o,q)
-r+=p+o[q].fA()+"<br>"}}r+="</div><button id = 'yellowButton' style = 'position: relative; top: 133px; left: 280px;'>Decide</button><div id = 'undo_decisions' style='overflow: hidden; position: relative; top: -150px; left: 0px; font-size: 12px; width:190px; height:300px; float:right;'> "
+r+=p+o[q].fB()+"<br>"}}r+="</div><button id = 'yellowButton' style = 'position: relative; top: 133px; left: 280px;'>Decide</button><div id = 'undo_decisions' style='overflow: hidden; position: relative; top: -150px; left: 0px; font-size: 12px; width:190px; height:300px; float:right;'> "
 for(q=0;q<t.b.gjC().a.length;++q){s=t.b.gjC().a
 if(q>=s.length)return H.b(s,q)
 n=s[q]
-r+=" <span class='custom-radio'><input type='radio' name='decision' value='"+(q+$.$get$fC().length)+"'></span>Undo ''"+n.fA()+"''<br>"}C.f.mk(this.b,r+"</div></div><br>",C.d)
+r+=" <span class='custom-radio'><input type='radio' name='decision' value='"+(q+$.$get$fC().length)+"'></span>Undo ''"+n.fB()+"''<br>"}C.f.mk(this.b,r+"</div></div><br>",C.d)
 t=document
 s=H.dj(t.querySelector("#yellowButton"),"$isiQ")
 s.toString
@@ -44538,12 +44547,12 @@ t=1
 break
 case 1:return P.cP(r,s)}})
 return P.cQ($async$dg,s)},
-ey:function(){return""},
+ez:function(){return""},
 $asii:function(){return[T.la]},
 $asfo:function(){return[T.la,P.cZ]}}
 L.nc.prototype={
-iE:function(a,b){this.e.i(0,C.c.bx(a,0),b)},
-iw:function(a,b,c){this.f.i(0,J.HZ(b,0),c)},
+iF:function(a,b){this.e.i(0,C.c.bx(a,0),b)},
+ix:function(a,b,c){this.f.i(0,J.HZ(b,0),c)},
 qD:function(a,b){var t
 if(b){t=this.e
 if(t.bh(0,a))return t.p(0,a)
@@ -44597,7 +44606,7 @@ if(typeof n!=="number")return H.w(n)
 this.zV(o,a,s,(q+n)*b,0,b,f)
 n=t.yC(o)
 if(typeof n!=="number")return H.w(n)
-q+=n}C.w.hk(a,s,d,e)},
+q+=n}C.w.hl(a,s,d,e)},
 A7:function(a,b,c,d,e,f,g,h,i,j){var t
 for(t=j;t>0;--t)this.rk(a,b,c,d+C.i.bF(h*t),e+C.i.bF(i*t),g)
 this.rk(a,b,c,d,e,f)},
@@ -44629,7 +44638,7 @@ $1:function(a){var t,s,r,q,p
 t=L.O9(a,this.b,this.c)
 s=this.a
 $.$get$rI().i(0,s,t)
-$.$get$Ej().ic("Callbacks for "+s)
+$.$get$Ej().ie("Callbacks for "+s)
 for(r=$.$get$le().p(0,s),q=r.length,p=0;p<r.length;r.length===q||(0,H.Q)(r),++p)J.I_(r[p],t)
 $.$get$le().i(0,s,null)},
 "call*":"$1",
@@ -44671,8 +44680,8 @@ s.r=this.x
 s.e=this.e
 return s},
 G:function(a){return this.pc(0)+", val: "+H.h(this.Q)},
-ga2:function(a){return this.Q},
-sa2:function(a,b){return this.Q=b}}
+ga3:function(a){return this.Q},
+sa3:function(a,b){return this.Q=b}}
 A.hN.prototype={
 bi:function(){var t,s,r
 t=$.$get$cX()
@@ -44704,12 +44713,12 @@ A.rR.prototype={
 bi:function(){return A.Ir()},
 nD:function(a,b,c){var t
 if(!!a.$ism9){t=a.c
-if(t.ghr()&&!t.gt().goA())return 11111111111}return c},
+if(t.ghs()&&!t.gt().goA())return 11111111111}return c},
 vG:function(){this.e=!0}}
 B.eB.prototype={
 kW:function(a){if(a)this.b=(this.b|C.b.cB(1,this.c))>>>0
 if(++this.c>=8){this.c=0
-this.a.a3+=H.fR(this.b)
+this.a.a4+=H.fR(this.b)
 this.b=0}},
 al:function(a,b){var t,s
 for(t=J.aN(a),s=0;s<b;++s)this.kW(J.P(t.bw(a,C.b.cB(1,s)),0))},
@@ -44717,17 +44726,17 @@ xP:function(a,b){var t,s,r
 for(t=b-1,s=J.aN(a),r=0;r<b;++r)this.kW(J.P(s.bw(a,C.b.cz(1,t-r)),0))},
 j1:function(a){this.al(a,8)},
 qk:function(a){this.al(a,16)},
-h0:function(a){var t,s
+h1:function(a){var t,s
 a=J.aa(a,1)
 t=C.i.iS(Math.log(H.H8(a)),0.6931471805599453)
 for(s=0;s<t;++s)this.kW(!1)
 this.xP(a,t+1)},
 j0:function(a,b){var t
-for(t=J.bj(a);t.M();)this.al(t.ga_(),b)},
-ho:function(a){var t,s,r,q,p,o,n,m,l,k
+for(t=J.bj(a);t.M();)this.al(t.ga0(),b)},
+hp:function(a){var t,s,r,q,p,o,n,m,l,k
 t=this.c
 s=this.a
-r=s.a3
+r=s.a4
 q=t>0?r.length+1:r.length
 t=a!=null
 if(t){r=J.n(a)
@@ -44740,7 +44749,7 @@ n=new Uint8Array(r)
 if(t){m=J.No(a,0,null)
 for(t=m.length,l=0;l<t;++l){p=m[l]
 if(l>=r)return H.b(n,l)
-n[l]=p}}t=s.a3
+n[l]=p}}t=s.a4
 k=t.charCodeAt(0)==0?t:t
 for(t=k.length,l=0;l<t;++l){if(typeof o!=="number")return H.w(o)
 s=l+o
@@ -44751,11 +44760,11 @@ t+=o
 s=this.b
 if(t<0||t>=r)return H.b(n,t)
 n[t]=s}return n.buffer},
-jy:function(){return this.ho(null)}}
+jy:function(){return this.hp(null)}}
 B.f2.prototype={
 kR:function(a){var t,s,r,q
 t=C.m.bU(a/8)
-s=C.b.fL(a,8)
+s=C.b.fM(a,8)
 r=this.a.getUint8(t)
 q=C.b.cz(1,s)
 if(typeof r!=="number")return r.bw()
@@ -44768,7 +44777,7 @@ D3:function(a){var t,s,r,q
 if(a>32)throw H.j(P.f0(a,"bitcount may not exceed 32",null))
 for(t=a-1,s=0,r=0;r<a;++r){q=this.kR(this.b);++this.b
 if(q)s=(s|C.b.cz(1,t-r))>>>0}return s},
-hV:function(){var t,s,r
+hW:function(){var t,s,r
 for(t=0;!0;){s=this.kR(this.b)
 r=++this.b
 if(s){this.b=r-1
@@ -44777,9 +44786,9 @@ A.dd.prototype={
 gtA:function(){return this.b},
 goT:function(){return this.c},
 gqt:function(){return this.d},
-ga2:function(a){if(this.e)this.q8()
+ga3:function(a){if(this.e)this.q8()
 return this.x},
-sa2:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i
+sa3:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i
 if(this.e)this.q8()
 this.x=b
 this.e=!1
@@ -44792,7 +44801,7 @@ t=J.eN(b)
 p=t.bs(b,1-s)
 o=t.bs(b,1-q*s)
 n=t.bs(b,1-(1-q)*s)
-m=C.b.fL(r,6)
+m=C.b.fM(r,6)
 if(m===0){l=p
 k=n
 j=b}else if(m===1){l=p
@@ -44830,9 +44839,9 @@ if(typeof s!=="number")return s.cz()
 r=this.d
 if(typeof r!=="number")return H.w(r)
 return(t<<16|s<<8|r)>>>0},
-DP:function(a){var t=C.b.el(this.jz(!1),16)
-return"#"+C.c.ej(t,6,"0").toUpperCase()},
-hp:function(){return this.DP(!1)},
+DP:function(a){var t=C.b.em(this.jz(!1),16)
+return"#"+C.c.ek(t,6,"0").toUpperCase()},
+hq:function(){return this.DP(!1)},
 q8:function(){var t,s,r,q,p,o,n,m,l
 this.e=!1
 t=this.b
@@ -45032,7 +45041,7 @@ if(J.c(p.gC(),$.kB))n=o.v(H.a([new Z.A(null,1,!0,0,1,2,3,""),new Z.A(null,0,!0,0
 q.b=J.bc(n)
 q.c=n.gr0()
 l=p.gj3()
-if(l.gaw(l).M())q.a=J.jM(o.v(p.gj3()))
+if(l.gav(l).M())q.a=J.jM(o.v(p.gj3()))
 else q.a=$.l
 t.push(q)}},
 uc:function(a,b){var t,s,r,q
@@ -45064,7 +45073,7 @@ while(!0){p=r.gu(n)
 if(typeof p!=="number")return H.w(p)
 if(!(l<p))break
 r.i(n,l,this.oP(a,r.p(n,l),s));++l}p=J.I9(r.c5(n,0,r.gu(n)-1),", ")
-k=r.gax(n)
+k=r.gaw(n)
 r=r.gu(n)<2?"":" and "
 o.push(J.fY(m,"STAT",C.a.bP([p,k],r)))}if(t.p(0,"buff"+s).length>0){n=t.p(0,"buff"+s)
 if(0>=n.length)return H.b(n,0)
@@ -45076,7 +45085,7 @@ while(!0){p=r.gu(n)
 if(typeof p!=="number")return H.w(p)
 if(!(l<p))break
 r.i(n,l,this.oP(a,r.p(n,l),s));++l}p=J.I9(r.c5(n,0,r.gu(n)-1),", ")
-k=r.gax(n)
+k=r.gaw(n)
 r=r.gu(n)<2?"":" and "
 o.push(J.fY(m,"STAT",C.a.bP([p,k],r)))}}j=Y.hd(o)
 if(0>=j.length)return H.b(j,0)
@@ -45181,9 +45190,9 @@ this.x=50*t
 if(t>=3)this.x=1000*t-2},
 gn8:function(){return this.a},
 gW:function(a){return this.b},
-giC:function(){return this.c},
+giD:function(){return this.c},
 sW:function(a,b){return this.b=b},
-siC:function(a){return this.c=a},
+siD:function(a){return this.c=a},
 su1:function(a){return this.d=a},
 slc:function(a){return this.e=a},
 syj:function(a){return this.x=a}}
@@ -45192,11 +45201,11 @@ nV:function(a,b){var t,s,r,q,p,o,n,m,l
 t=Z.K(H.h(b)+"'s "+a.gt().gd9(),2,null,"")
 t.e=a.gt().gcV()
 s=a.gj3()
-for(r=J.bj(s.a),q=new H.ev(r,s.b,[H.L(s,0)]),p=t.r;q.M();){o=r.ga_()
+for(r=J.bj(s.a),q=new H.ev(r,s.b,[H.L(s,0)]),p=t.r;q.M();){o=r.ga0()
 n=J.n(o)
 p.push(new Z.A(n.gdi(o),0,!0,0,1,2,3,""))
 p.push(new Z.A(n.gdi(o),0,!1,0,1,2,3,""))}m=a.gj3()
-for(r=J.bj(m.a),q=new H.ev(r,m.b,[H.L(m,0)]);q.M();){l=r.ga_()
+for(r=J.bj(m.a),q=new H.ev(r,m.b,[H.L(m,0)]);q.M();){l=r.ga0()
 n=J.n(l)
 p.push(new Z.A(n.gdi(l),2,!0,0,1,2,3,""))
 p.push(new Z.A(n.gdi(l),2,!1,0,1,2,3,""))}return t},
@@ -45213,7 +45222,7 @@ t=["Fortississimo","Leitmotif","Liberetto","Sarabande","Serenade","Anthem","Cres
 C.a.V(t,["Cadenza","Cadence","Waltz","Concerto","Finale","Requiem","Coda","Dirge","Battaglia","Leggiadro","Capriccio","Presto","Largo","Accelerando","Polytempo","Overture","Reprise","Orchestra"])
 s=a.v(t)
 if(a.a.E()>0.5){r=b.gb8()
-return"<span style='color:"+r.ge7(r).hp()+"'>"+J.jN(s)+"</span>"}else return" "+H.h(s)},
+return"<span style='color:"+r.ge7(r).hq()+"'>"+J.jN(s)+"</span>"}else return" "+H.h(s)},
 DV:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i
 t=b.length
 if(t===0)return
@@ -45312,20 +45321,20 @@ for(s=0;s<a.c.gF().length;++s){r=a.c.gn().a.E()
 q=a.c.gF()
 if(s>=q.length)return H.b(q,s)
 p=q[s]
-if(r>(J.c(p.gt(),$.cd)||J.c(p.gt(),$.bY)?0.6:0.8)&&!C.a.aE(t,p))t.push(p)}return this.hg(a.c.gn(),t,c)},
+if(r>(J.c(p.gt(),$.cd)||J.c(p.gt(),$.bY)?0.6:0.8)&&!C.a.aE(t,p))t.push(p)}return this.hh(a.c.gn(),t,c)},
 AF:function(a,b){var t
 for(t=0;t<a.length;++t)if(J.c(J.ag(a[t]),b)){if(t>=a.length)return H.b(a,t)
 return a[t]}return},
-hg:function(a,b,c){var t,s,r,q,p
+hh:function(a,b,c){var t,s,r,q,p
 t=b.length
 if(t===1){if(0>=t)return H.b(b,0)
 t=J.c(b[0].gC(),$.kC)&&c===3}else t=!1
 if(t){if(0>=b.length)return H.b(b,0)
 s=this.AF(b[0].gaC(),"Rocks Fall, Everyone Dies")
-if(s!=null){t=s.giC()
+if(s!=null){t=s.giD()
 if(typeof t!=="number")return t.aQ()
 t=t<10}else t=!1
-if(t){s.siC(99)
+if(t){s.siD(99)
 s.syj(9999)
 t=J.n(s)
 t.sW(s,J.aa(t.gW(s)," (True Form)"))
@@ -45526,7 +45535,7 @@ E.vW.prototype={
 b2:function(a){var t,s
 this.c=a
 for(t=0;t<a.length;++t){s=a[t]
-if(s.gei()&&s.gcQ()<s.gbW().length-1)return!0}return!1},
+if(s.gej()&&s.gcQ()<s.gbW().length-1)return!0}return!1},
 ol:function(a,b){var t,s,r,q,p,o,n,m
 t=b.ur()
 if(t==null)return
@@ -45555,15 +45564,15 @@ a.appendChild(m)
 T.IU(m,b)}}},
 aY:function(a){var t,s,r
 for(t=0;s=this.c,t<s.length;++t){r=s[t]
-if(r.gei()&&r.gcQ()+1<r.gbW().length){this.ol(a,r)
-r.sei(!1)}}}}
+if(r.gej()&&r.gcQ()+1<r.gbW().length){this.ol(a,r)
+r.sej(!1)}}}}
 A.w5.prototype={
 $1:function(a){return this.a.to(a)},
 "call*":"$1",
 $R:1,
 $S:function(){return{func:1,args:[,]}}}
 A.w6.prototype={
-$1:function(a){return this.a.ft(0,this.b)},
+$1:function(a){return this.a.fu(0,this.b)},
 $S:function(){return{func:1,args:[W.au]}}}
 V.DR.prototype={
 $1:function(a){var t,s,r,q
@@ -45581,13 +45590,13 @@ $S:function(){return{func:1,args:[W.au]}}}
 F.kq.prototype={
 G:function(a){return this.b}}
 F.kr.prototype={
-aG:function(a,b){return"("+this.b+")["+H.h(C.a.gax(a.b.split(".")))+"]: "+H.h(b)},
+aG:function(a,b){return"("+this.b+")["+H.h(C.a.gaw(a.b.split(".")))+"]: "+H.h(b)},
 nx:function(a,b){F.ao(C.S).$1(this.aG(C.S,b))},
-ic:function(a){},
+ie:function(a){},
 gW:function(a){return this.b}}
 F.FF.prototype={}
 L.t1.prototype={
-fq:function(a){var t=P.J
+fs:function(a){var t=P.J
 this.d=new H.E(0,null,null,null,null,null,0,[t,t])
 this.e=this.c+1
 t=this.a+1
@@ -45645,7 +45654,7 @@ p:function(a,b){var t
 if(typeof b==="string"){t=this.a
 return t.bh(0,b)?t.p(0,b):$.$get$FW()}else if(typeof b==="number"&&Math.floor(b)===b){t=this.b
 return t.bh(0,b)?t.p(0,b):$.$get$FW()}throw H.j(P.f0(b,"'name' should be a String name or int id only",null))},
-gaw:function(a){var t=this.a
+gav:function(a){var t=this.a
 t=t.gd3(t)
 return new H.p5(null,J.bj(t.a),t.b,[H.L(t,0),H.L(t,1)])},
 gCm:function(a){var t=this.a
@@ -45661,8 +45670,8 @@ t.i(0,b,c)
 this.b.i(0,s,c)
 this.c.i(0,b,s)
 this.d.i(0,s,b)},
-f1:function(a,b,c){return this.j(a,b,c,!1)},
-xA:function(a,b,c){this.f1(0,a,A.eC(b,C.c.ej(C.b.el(b,16),6,"0").length>6))},
+f2:function(a,b,c){return this.j(a,b,c,!1)},
+xA:function(a,b,c){this.f2(0,a,A.eC(b,C.c.ek(C.b.em(b,16),6,"0").length>6))},
 xz:function(a,b){return this.xA(a,b,!1)},
 aW:function(a,b){var t,s,r
 t=this.a
@@ -45682,27 +45691,27 @@ Q.O.prototype={
 gaq:function(){return this.bA},
 saq:function(a){this.bA=a
 if(a!=null)this.cs()},
-h2:function(){return new E.m9(this,P.cF(D.bg,P.ad),H.a([],[A.dV]))},
+h3:function(){return new E.m9(this,P.cF(D.bg,P.ad),H.a([],[A.dV]))},
 AV:function(a){var t=this.bI
 return t==null||t===a.gdR()},
-fC:function(a){return J.c(this.bt.ga8(),a)||J.c(this.bu.ga8(),a)},
+fD:function(a){return J.c(this.bt.ga8(),a)||J.c(this.bu.ga8(),a)},
 cs:function(){if(this.bA!=null){var t=this.c
-t=t==null||t.gfF()==null||this.c.geQ()==null}else t=!0
+t=t==null||t.gfG()==null||this.c.geR()==null}else t=!0
 if(t)return
-if(J.c(J.ag(this.bA),this.c.gfF().dy))this.bA=this.c.gfF()
-else if(J.c(J.ag(this.bA),this.c.geQ().dy))this.bA=this.c.geQ()},
-kj:function(){if(this.eI().length!==0)return!0
+if(J.c(J.ag(this.bA),this.c.gfG().dy))this.bA=this.c.gfG()
+else if(J.c(J.ag(this.bA),this.c.geR().dy))this.bA=this.c.geR()},
+kj:function(){if(this.eJ().length!==0)return!0
 if(this.m6().length!==0)return!0
-if(this.eH().length!==0)return!0
-if(this.en().length!==0)return!0
+if(this.eI().length!==0)return!0
+if(this.eo().length!==0)return!0
 return!1},
 m6:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gdW()))t.push(q)}return t},
-hc:function(a){this.h8+=0.1
+hd:function(a){this.h9+=0.1
 this.Bp()},
-jf:function(){return this.hc(1)},
+jf:function(){return this.hd(1)},
 rZ:function(a){this.L+=a<0?10:a},
 Bp:function(){return this.rZ(-1)},
 dI:function(a){var t,s
@@ -45711,11 +45720,11 @@ if(C.c.aE(J.bS(window.location),"?"))t=J.bS(window.location)+"&"+a
 s=U.Ma(O.c5("b",t),O.c5("s",t),O.c5("x",t))
 if(0>=s.length)return H.b(s,0)
 this.nm(s[0])},
-eI:function(){var t,s,r,q
+eJ:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gcH()))t.push(q)}return t},
-ew:function(a){this.aL=null
+ex:function(a){this.aL=null
 this.ct=a},
 ne:function(a){var t,s
 t=J.aa(this.bD,a)
@@ -45723,12 +45732,12 @@ if(J.eA(this.bD,3)&&t>3)s=!0
 else s=J.P(this.bD,3)&&t<=3&&!0
 this.bD=J.aa(this.bD,a)
 if(s)this.co()},
-it:function(){this.cN=!0
+iu:function(){this.cN=!0
 this.aH()
 this.co()},
-dB:function(){if(this.c.ga6().z)return
+dB:function(){if(this.c.ga_().z)return
 this.cN=!1
-this.eh=!0
+this.ei=!0
 this.co()},
 qe:function(a){var t
 this.r2.push(a)
@@ -45737,7 +45746,7 @@ this.a$.bg(t,C.b.l(-10))
 this.aL=null
 this.ct="their own doomed time clones"},
 cd:function(a){var t,s,r
-if(this.c.ga6().x)return" Death has no meaning. "
+if(this.c.ga_().x)return" Death has no meaning. "
 this.db=!0;++this.ag
 this.a$.Ct()
 this.rx=Y.l4(a)
@@ -45756,27 +45765,27 @@ t=R.hG(this.c.gF())
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gbB())){r=J.n(q)
 r.gak(q).af($.H,-10)
-if(r.gak(q).gbd()==null){r.gak(q).sbd(" their dead crush, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"))
+if(r.gak(q).gbd()==null){r.gak(q).sbd(" their dead crush, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"))
 r.gak(q).scu(this)}}else{r=J.n(q)
-if(J.P(r.ga2(q),0)){r.gak(q).af($.H,-10)
+if(J.P(r.ga3(q),0)){r.gak(q).af($.H,-10)
 if(r.gak(q).gbd()==null){r.gak(q).scu(this)
-r.gak(q).sbd(" their dead friend, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"))}}else if(J.c(q.gO(),q.gd4())){r.gak(q).af($.H,-100)
-r.gak(q).sbd(" their dead Kismesis, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"))
+r.gak(q).sbd(" their dead friend, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"))}}else if(J.c(q.gO(),q.gd4())){r.gak(q).af($.H,-100)
+r.gak(q).sbd(" their dead Kismesis, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"))
 r.gak(q).scu(this)}else if(J.c(q.gO(),q.gcH())){r.gak(q).af($.H,-100)
-r.gak(q).sbd(" their dead Matesprit, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"))
+r.gak(q).sbd(" their dead Matesprit, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"))
 r.gak(q).scu(this)}else if(J.c(q.gO(),q.gcM())){r.gak(q).af($.H,-1000)
 r.gak(q).l9()
 r.gak(q).l9()
 r.gak(q).l9()
-r.gak(q).sbd(" their dead Moirail, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)")+", fuck, that can't be good...")
+r.gak(q).sbd(" their dead Moirail, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)")+", fuck, that can't be good...")
 r.gak(q).scu(this)}}if(t.length===1){r=J.n(q)
 r.gak(q).af($.H,-10)
-if(r.gak(q).gbd()==null){r.gak(q).sbd(" the dead player, the "+(this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"))
+if(r.gak(q).gbd()==null){r.gak(q).sbd(" the dead player, the "+(this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"))
 r.gak(q).scu(this)}}}},
-iK:function(a){var t,s,r
+iL:function(a){var t,s,r
 for(t=0;s=this.fr,t<s.length;++t){r=s[t].a
 if(J.c(r,a))return r}return},
-en:function(){var t,s,r,q
+eo:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gd4()))t.push(q)}return t},
@@ -45788,11 +45797,11 @@ ua:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gcb()))t.push(q)}return t},
-eH:function(){var t,s,r,q
+eI:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
 if(J.c(q.gO(),q.gcM()))t.push(q)}return t},
-a5:function(){return J.fZ(A.Hr(P.al("\\b(\\w)|[A-Z]",!0,!0).iZ(0,this.aM),""))},
+a6:function(){return J.fZ(A.Hr(P.al("\\b(\\w)|[A-Z]",!0,!0).iZ(0,this.aM),""))},
 cD:function(a){var t=J.fZ(A.Hr(P.al("\\b(\\w)|[A-Z]",!0,!0).iZ(0,this.aM),""))
 return t===a?t+"2":t},
 uY:function(){var t,s,r
@@ -45802,27 +45811,27 @@ s=P.a5(null,null,null,D.bg)
 r=new A.rP(2,null,null,!1,!1,!1,s,0,0,!0,!1)
 s.V(0,t)
 r.e=!0
-this.a$.eq(r,null,null)
-this.h5=!0
+this.a$.er(r,null,null)
+this.h6=!0
 this.c.gA().szv(!0)},
 jj:function(){var t=A.Iq()
-this.a$.eq(t,null,null)
+this.a$.er(t,null,null)
 this.aH()
-if(!this.cY&&this.eg)this.y1=!0
+if(!this.cY&&this.eh)this.y1=!0
 this.bp=!0
 this.c.gA().sbf(!0)
-this.eg=!1
-this.il=!0
 this.eh=!1
+this.im=!0
+this.ei=!1
 this.cY=!1
 this.d0()
 this.co()},
 d0:function(){var t,s
 if(!this.db)return
-t=this.hN
+t=this.hO
 if(t!=null)t.lR(this)
-this.hM=null
-this.ev=null
+this.hN=null
+this.ew=null
 this.db=!1
 this.cN=!1
 t=$.X
@@ -45837,7 +45846,9 @@ this.ct="they just freaking died"
 this.e_=null
 this.co()},
 tH:function(){return!0},
-ek:function(a){var t=this.r1?"Doomed ":""
+el:function(a){var t
+if(this.c.ga_().db)return"The Mist"
+t=this.r1?"Doomed ":""
 if(this.c6)t+="Trickster "
 if(this.cN)t+="Murder Mode "
 if(J.P(this.bD,3))t+="Severely Grim Dark "
@@ -45846,30 +45857,31 @@ else if(J.P(this.bD,2))t+="Grim Dark "
 if(this.bp===!0)t+="God Tier "
 else if(this.cY)t+="Dream "
 if(this.bH)t+="Robo"
-if(this.fb===4)t+="Wasted "
-t=t+H.h(this.as)+" of "+H.h(this.ab)
+if(this.fc===4)t+="Wasted "
+t=t+H.h(this.aA)+" of "+H.h(this.ab)
 if(this.db)t+="'s Corpse"
 else if(this.cx===!0)t+="'s Ghost"
 return t},
-lm:function(){return this.iM()+this.ab.e0()+this.hY()+"</font></span>"},
-U:function(){return this.ab.e0()+(H.h(this.as)+" of "+H.h(this.ab))+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"},
-b0:function(){return this.ab.e0()+this.hY()+"</font> (<font color = '"+H.h(this.eG())+"'>"+H.h(this.aM)+"</font>)"},
-hY:function(){return H.h(this.as)+" of "+H.h(this.ab)},
-iM:function(){var t,s,r,q,p,o,n,m
+lm:function(){return this.i_()+this.ab.e0()+this.e8()+"</font></span>"},
+U:function(){return this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"},
+b0:function(){return this.ab.e0()+this.e8()+"</font> (<font color = '"+H.h(this.eH())+"'>"+H.h(this.aM)+"</font>)"},
+e8:function(){if(this.c.ga_().db)return"The Mist"
+return H.h(this.aA)+" of "+H.h(this.ab)},
+i_:function(){var t,s,r,q,p,o,n,m
 if(T.bT())return"<span>"
-t="<span class = 'tooltip'><span class='tooltiptext'><table>"+("<tr><td class = 'toolTipSection'>"+H.h(this.aM)+"<hr>")+("Class: "+H.h(J.ag(this.as))+"<Br>")+("Aspect: "+H.h(J.ag(this.ab))+"<Br>")
+t="<span class = 'tooltip'><span class='tooltiptext'><table>"+("<tr><td class = 'toolTipSection'>"+H.h(this.aM)+"<hr>")+("Class: "+H.h(J.ag(this.aA))+"<Br>")+("Aspect: "+H.h(J.ag(this.ab))+"<Br>")
 s=this.bl
 t+="Land: "+H.h(s!=null?s.dy:"DESTROYED.")+"<Br>"
 s=this.bl
-t=t+("Denizen: "+H.h(s!=null?s.fy.c:"NONE")+"<Br>")+("LandLevel: "+H.h(this.h8)+"<Br>")+("Gnosis: "+this.fb+"<Br>")
-s=this.au
+t=t+("Denizen: "+H.h(s!=null?s.fy.c:"NONE")+"<Br>")+("LandLevel: "+H.h(this.h9)+"<Br>")+("Gnosis: "+this.fc+"<Br>")
+s=this.at
 if(s!=null)t+="Sprite: "+H.h(s.d)
-s=this.au
+s=this.at
 if(s!=null&&s.db)t+=" (dead)"
 t=t+("<br><Br>Prophecy Status: "+this.b.b)+("<br><br>Flipping out over: "+H.h(this.ct))
 r=D.KL()
 t+="</td><td class = 'toolTipSection'>Stats<hr>"
-for(s=J.bj(r.a),q=new H.ev(s,r.b,[H.L(r,0)]);q.M();){p=s.ga_()
+for(s=J.bj(r.a),q=new H.ev(s,r.b,[H.L(r,0)]);q.M();){p=s.ga0()
 o=H.h(p)+": "
 n=this.a$.X(p)
 t+=o+C.i.bF(n)+"<br>"}t=t+"</td><td class = 'toolTipSection' rowspan='2'>Sylladex<hr>"+(this.a.grI()+", Rank: "+H.h(this.a.ge6())+"<br>")
@@ -45882,8 +45894,8 @@ t+="</td><td class = 'toolTipSection'>Relationships<hr>"
 for(s=this.id,q=s.length,m=0;m<s.length;s.length===q||(0,H.Q)(s),++m)t+=H.h(s[m])+"<br>"
 return t+"</td></tr></table></span>"},
 ur:function(){var t,s,r,q
-t=++this.f9
-s=this.eT
+t=++this.fa
+s=this.eU
 r=s.length
 if(t>=r)q="[Off the top of the Echeladder]"
 else{if(t<0)return H.b(s,t)
@@ -45971,34 +45983,34 @@ C.a.h(this.fy,r)}},
 nQ:function(){var t=R.bE(R.b9(this.c.gF()),$.cd)
 if(t!=null&&t.gbf()===!0)return!1
 return!0},
-hv:function(a){if(a==="Attacker")return this.as.dC()
-if(a==="Defender")return this.as.dD()
-if(a==="Murderer")return this.as.dE()
+hw:function(a){if(a==="Attacker")return this.aA.dC()
+if(a==="Defender")return this.aA.dD()
+if(a==="Murderer")return this.aA.dE()
 return},
-fw:function(){if(J.c(this.as,$.kC)||J.c(this.as,$.y_))return!1
+fz:function(){if(J.c(this.aA,$.kC)||J.c(this.aA,$.y_))return!1
 if(J.c(this.ab,$.ap))return!0
 if(this.bp===!0)return!0
 var t=this.bl
 if(t==null)return!0
 if(t.z)return!0
 return!1},
-dC:function(){return this.as.dC()},
-dD:function(){return this.as.dD()},
-dE:function(){return this.as.dE()},
+dC:function(){return this.aA.dC()},
+dD:function(){return this.aA.dD()},
+dE:function(){return this.aA.dE()},
 nu:function(){var t=this.bl
 if(t!=null&&C.c.aE(this.rx,t.fy.c))return!0
 return!1},
-t4:function(){if(this.c.ga6().z)return!0
+t4:function(){if(this.c.ga_().z)return!0
 if(this.Y)return!1
 if(this.nu()&&J.eA(this.bD,2))return!1
 else if(J.P(this.bD,2))return!0
-if(this.iH().length<this.iF().length){var t=this.c.gn().a.E()>0.9&&!0
+if(this.iI().length<this.iG().length){var t=this.c.gn().a.E()>0.9&&!0
 if(this.cN||J.P(this.bD,2))if(this.c.gn().a.E()>0.2)t=!0}else t=(this.cN||J.P(this.bD,2))&&this.c.gn().a.E()>0.5&&!0
 return t},
 rW:function(){var t,s,r
 if(this.Y)return!1
 if(this.nu()||this.rx==="from a Bad Break.")return!1
-if(this.iH().length>this.iF().length){t=this.c.gn().a.E()>0.6&&!0
+if(this.iI().length>this.iG().length){t=this.c.gn().a.E()>0.6&&!0
 s=this.c.gJ().b
 r=$.X
 s=s.a$.X(r)
@@ -46009,32 +46021,32 @@ s=s.a$.X(r)
 if(!(s<=0))s=this.c.gJ().b.db&&this.c.gn().a.E()>0.4
 else s=!0
 if(s)t=!0}return t},
-eU:function(){return this.as.eU()},
+eV:function(){return this.aA.eV()},
 y3:function(a){var t,s
-if(this.as.eU())for(t=0;s=this.k2,t<s.length;++t){s=s[t]
-this.as.hj(this,a,s)}},
+if(this.aA.eV())for(t=0;s=this.k2,t<s.length;++t){s=s[t]
+this.aA.hk(this,a,s)}},
 dL:function(a){var t,s
 this.y3(a)
 t=this.I(a)
-if(t!=null)t.fg()
-if(this.as.eU()&&J.c(this.ab,$.bo)&&a.gfE()===C.e){s="There is a prophecy of the "+a.w()+"'s death."
-a.sfE(C.v)}else s=""
-return s+this.as.he(this,a,this.c.gn())},
+if(t!=null)t.fh()
+if(this.aA.eV()&&J.c(this.ab,$.bo)&&a.gfF()===C.e){s="There is a prophecy of the "+a.w()+"'s death."
+a.sfF(C.v)}else s=""
+return s+this.aA.hf(this,a,this.c.gn())},
 jq:function(a){var t
 a.gA().scj(!0)
 t=R.Mo(a.gF())
 R.E0(t,a.gdR())
 return t},
-bj:function(a){return this.as.bj(a)},
+bj:function(a){return this.aA.bj(a)},
 c2:function(){return this.bj(0)},
 cU:function(a){var t,s
 t=Q.G3(null,null,null,null,null,null)
 this.vp(t)
 t.x1=this.x1
-t.a0=this.a0
+t.a1=this.a1
 t.ag=this.ag
-s=this.au
-if(s!=null)t.au=s.cU(0)
+s=this.at
+if(s!=null)t.at=s.cU(0)
 t.ae=this.ae
 t.b5=this.b5
 s=this.bA
@@ -46042,7 +46054,7 @@ t.bA=s
 if(s!=null)t.cs()
 t.ct=this.ct
 t.aL=this.aL
-t.ef=this.ef
+t.eg=this.eg
 t.dx=this.dx
 t.cW=this.cW
 t.c6=this.c6
@@ -46050,13 +46062,13 @@ t.bS=this.bS
 t.dm=this.dm
 t.bH=this.bH
 t.bI=this.bI
-t.as=this.as
+t.aA=this.aA
 t.j9=this.j9
 t.ja=this.ja
 t.k9=!1
-t.ev=this.ev
-t.hM=this.hM
+t.ew=this.ew
 t.hN=this.hN
+t.hO=this.hO
 t.ab=this.ab
 t.bl=this.bl
 t.bt=this.bt
@@ -46066,30 +46078,30 @@ t.bT=this.bT
 s=this.bA
 t.bA=s
 if(s!=null)t.cs()
-t.h5=this.h5
-t.eT=this.eT
-t.f9=this.f9
+t.h6=this.h6
+t.eU=this.eU
+t.fa=this.fa
 t.bp=this.bp
 t.e_=this.e_
 t.c1=this.c1
 t.bJ=this.bJ
-t.eg=this.eg
+t.eh=this.eh
 t.aX=this.aX
 t.aN=this.aN
 t.dn=this.dn
 t.cX=this.cX
-t.h6=this.h6
+t.h7=this.h7
 t.aB=this.aB
-t.fa=this.fa
-t.il=this.il
+t.fb=this.fb
+t.im=this.im
 t.cY=this.cY
 t.cN=this.cN
-t.eh=this.eh
-t.h7=this.h7
-t.fb=this.fb
-t.bD=this.bD
-t.fc=this.fc
+t.ei=this.ei
 t.h8=this.h8
+t.fc=this.fc
+t.bD=this.bD
+t.fd=this.fd
+t.h9=this.h9
 t.nz=!1
 t.jb=this.jb
 t.li=!1
@@ -46100,7 +46112,7 @@ t=this.c.gqq()
 if(t.length===0)t=P.an(T.Gl(),!0,T.f9)
 s=this.c
 r=R.r2(s,s.gn().v(t),this.ab,null)
-Y.fA(r.as,this.c.gqq())
+Y.fA(r.aA,this.c.gqq())
 s=this.aX
 r.aX=s
 r.aB.r=this.aB.r
@@ -46108,40 +46120,40 @@ q=this.c
 if(s)r.aB=D.HA(q.gn(),r)
 else r.aB=D.Hz(q.gn(),r)
 r.aN=this.aN
-r.h6=this.h6
+r.h7=this.h7
 if(r.aX)r.bT=this.bT
 r.bJ=this.bJ
 r.dn=this.dn
 r.cX=this.cX
-r.f9=5
+r.fa=5
 s=$.l
 r.a$.aJ(s,C.b.l(50))
-r.fc=this.fc
+r.fd=this.fd
 if(this.c.gn().a.E()>0.5)r.bt=this.bt
 else r.bu=this.bu
-r.fd()
-this.aA=r
-r.aA=this},
+r.fe()
+this.az=r
+r.az=this},
 y0:function(a){var t,s
 for(t=0;s=this.k2,t<s.length;++t)this.CS(a,s[t])},
-cw:function(a,b){return this.as.cw(a,b)},
-hw:function(){var t,s,r
+cw:function(a,b){return this.aA.cw(a,b)},
+hx:function(){var t,s,r
 t=(this.a$.X($.l)/$.l.r-75)/125
 s=C.m.aZ(t,0,1)
 r=s*s*(3-2*s)
 return 75+((1-r)*t+r*(t/(0.5+t)))*125},
 CS:function(a,b){var t,s
-a=this.as.cw(a,b)
+a=this.aA.cw(a,b)
 t=b.gde()
-if(this.as.bj(t)===!0)this.d1(a,b)
+if(this.aA.bj(t)===!0)this.d1(a,b)
 else{this.d1(a*0.5,b)
 for(s=0;s<this.c.gF().length;++s){t=this.c.gF()
 if(s>=t.length)return H.b(t,s)
 t[s].d1(a/this.c.gF().length,b)}}},
 nM:function(a,b){var t,s,r
 a=Math.min(a,b)
-if(this.c.gn().a.E()>0.9)this.h5=!0
-t=a*this.as.gjs()*this.ab.gjs()
+if(this.c.gn().a.E()>0.9)this.h6=!0
+t=a*this.aA.gjs()*this.ab.gjs()
 s=$.hx
 r=Math.max(1,t)
 this.a$.bg(s,C.i.l(r))
@@ -46155,26 +46167,26 @@ r=this.a$.X(r)
 this.a$.aJ(s,C.i.l(r))},
 aH:function(){return this.nM(1,5.1)},
 nL:function(a){return this.nM(a,5.1)},
-fm:function(){var t=this.bl
+fn:function(){var t=this.bl
 if(t==null)throw H.j("Should Never Ask for the Abbreviation for a Null Land")
 return t.gjI()},
-w:function(){return this.ab.e0()+this.ek(0)+"</font>"},
-je:function(){return this.iM()+this.ab.e0()+this.ek(0)+"</font></span>"},
+w:function(){return this.ab.e0()+this.el(0)+"</font>"},
+je:function(){return this.i_()+this.ab.e0()+this.el(0)+"</font></span>"},
 cP:function(){var t,s
-t=this.iM()+this.ab.e0()+this.ek(0)+" ("
+t=this.i_()+this.ab.e0()+this.el(0)+" ("
 s=$.X
 s=this.a$.X(s)
 t=t+C.i.bF(s)+"hp, "
 s=$.l
 s=this.a$.X(s)
 return t+C.i.bF(s)+" power)</font></span>"},
-ht:function(a){var t,s,r
+hu:function(a){var t,s,r
 for(t=0;t<a.length;++t)if(!J.c(a[t],this)){if(t>=a.length)return H.b(a,t)
 s=new N.aF(this,1,a[t],"",!1,"","Ambivalent","Friends","Totally In Love","Rivals","Enemies","Matesprits","Moirallegiance","Auspisticism","Kismesissitude")
 s.ar(0)
 if(this.aX)if(J.c(this.aN,"#99004d")){if(t>=a.length)return H.b(a,t)
 if(a[t].gbm()){if(t>=a.length)return H.b(a,t)
-r=J.c(a[t].gav(),"#99004d")}else r=!1}else r=!1
+r=J.c(a[t].gau(),"#99004d")}else r=!1}else r=!1
 else r=!1
 if(r){s.b=-20
 r=$.H
@@ -46186,7 +46198,7 @@ for(t=0;t<a.length;++t)if(!J.c(a[t],this)){if(t>=a.length)return H.b(a,t)
 s=N.Va(this,a[t])
 if(this.aX)if(J.c(this.aN,"#99004d")){if(t>=a.length)return H.b(a,t)
 if(a[t].gbm()){if(t>=a.length)return H.b(a,t)
-r=J.c(a[t].gav(),"#99004d")}else r=!1}else r=!1
+r=J.c(a[t].gau(),"#99004d")}else r=!1}else r=!1
 else r=!1
 if(r){s.b=-20
 r=$.H
@@ -46204,7 +46216,7 @@ s.sO(s.go3())}},
 qu:function(){var t,s
 for(t=0;s=this.id,t<s.length;++t)s[t].kd()},
 l9:function(){var t,s
-for(t=0;s=this.id,t<s.length;++t)s[t].fv()},
+for(t=0;s=this.id,t<s.length;++t)s[t].fw()},
 rN:function(){var t,s,r
 for(t=0;s=this.id,t<s.length;++t){s=s[t].gO()
 r=this.id
@@ -46216,7 +46228,7 @@ if(s){s=this.id
 if(t>=s.length)return H.b(s,t)
 return J.bc(s[t])}}return},
 I:function(a){var t,s,r,q,p,o,n
-if(this.c.ga6().f&&this.c.ga6().r1!=null)a=this.c.ga6().r1
+if(this.c.ga_().f&&this.c.ga_().r2!=null)a=this.c.ga_().r2
 for(t=this.id,s=t.length,r=J.n(a),q=0;q<t.length;t.length===s||(0,H.Q)(t),++q){p=t[q]
 o=J.bs(J.bc(p))
 n=r.gbe(a)
@@ -46245,23 +46257,23 @@ Bd:function(){var t,s
 for(t=0;s=this.id,t<s.length;++t){J.If(s[t])
 s=this.id
 if(t>=s.length)return H.b(s,t)
-if(s[t].gh4())return!0}return!1},
+if(s[t].gh5())return!0}return!1},
 oO:function(){var t,s,r,q
 t=H.a([],[N.aF])
 for(s=0;r=this.id,s<r.length;++s){q=r[s]
-if(q.gh4())t.push(q)}return t},
-eG:function(){if(this.aX)return this.aN
+if(q.gh5())t.push(q)}return t},
+eH:function(){if(this.aX)return this.aN
 else{var t=this.ab.gb8()
-return t.ge7(t).hp()}},
-iI:function(a){var t,s,r,q,p
+return t.ge7(t).hq()}},
+iJ:function(a){var t,s,r,q,p
 t=H.a([],[Q.O])
 for(s=0;s<a.length;++s){r=a[s]
 q=J.a6(r)
 if(!q.P(r,this)&&!!q.$isO){if(s>=a.length)return H.b(a,s)
 p=this.I(a[s])
 if(p!=null&&J.P(J.bt(p),0))t.push(r)}}return t},
-iG:function(a){var t,s,r,q
-if(this.c.ga6().f)return[this.c.ga6().r1]
+iH:function(a){var t,s,r,q
+if(this.c.ga_().f)return[this.c.ga_().r2]
 t=H.a([],[Q.O])
 for(s=0;s<a.length;++s){r=a[s]
 q=J.a6(r)
@@ -46288,17 +46300,17 @@ s=t[0]
 for(r=0;r<a.length;++r){q=a[r]
 if(!J.c(q,this)){p=this.I(q)
 if(p!=null&&J.P(J.bt(p),J.bt(s)))s=p}}t=J.n(s)
-if(J.P(t.ga2(s),0)&&!J.c(t.gak(s),this))return t.gak(s)
+if(J.P(t.ga3(s),0)&&!J.c(t.gak(s),this))return t.gak(s)
 return},
 oG:function(a){return this.kx(a,null)},
-fi:function(a){var t,s,r,q
+fj:function(a){var t,s,r,q
 t=this.id
 if(0>=t.length)return H.b(t,0)
 s=t[0]
 for(r=0;r<a.length;++r)if(!J.c(a[r],this)){if(r>=a.length)return H.b(a,r)
 q=this.I(a[r])
 if(q!=null&&J.af(J.bt(q),J.bt(s)))s=q}t=J.n(s)
-if(J.af(t.ga2(s),0)&&!J.c(t.gak(s),this))return t.gak(s)
+if(J.af(t.ga3(s),0)&&!J.c(t.gak(s),this))return t.gak(s)
 return},
 r4:function(){var t,s
 if(this.c.md()==="Human"){this.bJ=this.c.gn().v($.$get$Hn())
@@ -46311,18 +46323,18 @@ this.n5()
 t=J.c(this.aN,"#610061")||J.c(this.aN,"#99004d")||J.c(this.aN,"#631db4")
 s=this.c
 if(t){t=s.gn().v($.G7)
-this.h6=t
+this.h7=t
 J.hM(t,this.c)}else{t=s.gn().v($.G6)
-this.h6=t
-J.hM(t,this.c)}t=this.h6
+this.h7=t
+J.hM(t,this.c)}t=this.h7
 this.bT=t
 J.hM(t,this.c)}else this.bJ=this.c.gn().v($.$get$Hn())},
-iH:function(){var t,s,r
+iI:function(){var t,s,r
 t=H.a([],[Q.O])
 for(s=0;r=this.id,s<r.length;++s)if(J.P(J.bt(r[s]),0)){r=this.id
 if(s>=r.length)return H.b(r,s)
 t.push(J.bc(r[s]))}return t},
-iF:function(){var t,s,r
+iG:function(){var t,s,r
 t=H.a([],[E.cr])
 for(s=0;r=this.id,s<r.length;++s)if(J.af(J.bt(r[s]),0)){r=this.id
 if(s>=r.length)return H.b(r,s)
@@ -46349,10 +46361,10 @@ if(this.c6&&!this.ab.gla())for(t=0;s=this.id,t<s.length;++t){r=s[t]
 J.b5(r,11111111111)
 r.sO(r.gbB())}if(this.aX&&J.c(this.aN,"#99004d"))for(q=0;s=this.id,q<s.length;++q){r=s[q]
 if(this.aX)if(J.c(this.aN,"#99004d")){s=J.n(r)
-s=s.gak(r).gbm()&&J.c(s.gak(r).gav(),"#99004d")}else s=!1
+s=s.gak(r).gbm()&&J.c(s.gak(r).gau(),"#99004d")}else s=!1
 else s=!1
 if(s){s=J.n(r)
-s.sa2(r,-20)
+s.sa3(r,-20)
 p=$.H
 this.a$.bg(p,C.b.l(-10))
 s.gak(r).af($.H,-10)}}if(this.bH||J.P(this.bD,1))for(t=0;s=this.id,t<s.length;++t){r=s[t]
@@ -46360,10 +46372,10 @@ J.b5(r,0)
 r.sO(r.go3())
 r.sdA(r.go3())}},
 dP:function(a){var t,s,r
-if(this.bp===!0)t=this.c.gex().nW(this,a,3)
+if(this.bp===!0)t=this.c.gey().nW(this,a,3)
 else{s=this.jb
 r=this.c
-t=s?r.gex().nW(this,a,2):r.gex().nW(this,a,1)}C.a.h(this.fy,t)
+t=s?r.gey().nW(this,a,2):r.gey().nW(this,a,1)}C.a.h(this.fy,t)
 return t},
 DN:function(a){var t,s
 t=Y.l4(this.aM)
@@ -46372,21 +46384,21 @@ return Y.l4(s==null?"":s)+","+Y.l4(this.rx)+","+Y.l4(J.ag(this.bt))+","+Y.l4(J.a
 DM:function(a){var t,s
 t=this.tW()
 s=J.aO(t)
-if(J.eA(s.p(t,"class_name"),15)&&J.eA(s.p(t,"aspect"),15)){a.h0(0)
+if(J.eA(s.p(t,"class_name"),15)&&J.eA(s.p(t,"aspect"),15)){a.h1(0)
 s=a.jy()
 s.toString
 H.kY(s,0,null)
 s=new Uint8Array(s,0)
-return C.y.geu().ed(s)}a.h0(2)
+return C.y.gev().ee(s)}a.h1(2)
 a.al(s.p(t,"class_name"),8)
 a.al(s.p(t,"aspect"),8)
 s=a.jy()
 s.toString
 H.kY(s,0,null)
 s=new Uint8Array(s,0)
-return C.y.geu().ed(s)},
-tv:function(a){var t=a.hV()
-if(t>0)this.as=T.Gm(a.bN(8))
+return C.y.gev().ee(s)},
+tv:function(a){var t=a.hW()
+if(t>0)this.aA=T.Gm(a.bN(8))
 if(t>1)this.ab=L.Eh(a.bN(8))},
 DL:function(){var t,s,r,q,p,o,n,m,l,k,j
 t=this.tW()
@@ -46448,9 +46460,9 @@ return H.a8(J.fY(P.mJ(C.aB,q.charCodeAt(0)==0?q:q,C.n,!1),"#","%23"),"&","%26")}
 tW:function(){var t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3
 t=this.dx
 if(t==null)t=""
-s=J.c(this.bA,this.c.gfF())?1:0
+s=J.c(this.bA,this.c.gfG())?1:0
 r=J.bs(this.ab)
-q=J.bs(this.as)
+q=J.bs(this.aA)
 p=this.aB.r
 o=this.c1
 n=Y.X2(this.bJ)
@@ -46467,19 +46479,19 @@ d=Y.qZ(this.e_)
 c=this.bp===!0?1:0
 b=this.cY?1:0
 a=this.cN?1:0
-a0=this.eh?1:0
+a0=this.ei?1:0
 a1=this.bD
 a2=this.rx
 a3=this.db?1:0
-return P.U(["aspect",r,"class_name",q,"favoriteNumber",p,"hair",o,"hairColor",n,"isTroll",m,"bloodColor",l,"leftHorn",k,"rightHorn",j,"interest1Category",i,"interest2Category",h,"interest1",g,"interest2",f,"robot",e,"moon",s,"causeOfDrain",t,"victimBlood",d,"godTier",c,"isDreamSelf",b,"murderMode",a,"leftMurderMode",a0,"grimDark",a1,"causeOfDeath",a2,"dead",a3,"godDestiny",this.fa===!0?1:0],P.q,null)},
-G:function(a){return H.a8(H.h(this.as)+H.h(this.ab),P.al("'",!0,!0),"")},
+return P.U(["aspect",r,"class_name",q,"favoriteNumber",p,"hair",o,"hairColor",n,"isTroll",m,"bloodColor",l,"leftHorn",k,"rightHorn",j,"interest1Category",i,"interest2Category",h,"interest1",g,"interest2",f,"robot",e,"moon",s,"causeOfDrain",t,"victimBlood",d,"godTier",c,"isDreamSelf",b,"murderMode",a,"leftMurderMode",a0,"grimDark",a1,"causeOfDeath",a2,"dead",a3,"godDestiny",this.fb===!0?1:0],P.q,null)},
+G:function(a){return H.a8(H.h(this.aA)+H.h(this.ab),P.al("'",!0,!0),"")},
 nm:function(a){var t
 this.ab=a.gt()
-this.as=a.gC()
+this.aA=a.gC()
 this.c1=a.gaO()
 this.bJ=a.gcO()
 this.aX=a.gbm()
-this.aN=a.gav()
+this.aN=a.gau()
 this.dn=a.gb7()
 this.a=a.gc_().bi()
 this.cX=a.gba()
@@ -46490,81 +46502,81 @@ this.rx=a.gdk()
 if(a.gam()!==""){this.aM=a.gam()
 this.ae=!1}this.cY=a.gbL()
 this.bp=a.gbf()
-this.fa=a.gaS()
+this.fb=a.gaS()
 this.cN=a.gbM()
-this.eh=a.gir()
+this.ei=a.gis()
 this.bD=a.gaI()
 t=a.gaq()
 this.bA=t
 if(t!=null)this.cs()
 this.db=a.ga7()
-this.e_=a.gfI()
-this.bH=a.ghn()
+this.e_=a.gfJ()
+this.bH=a.gho()
 C.a.su(this.fy,0)
 this.n5()
 this.aB.r=a.gm().r
 this.dM()
-this.aA.n5()},
-e2:function(a){this.eA()
-this.eV()
+this.az.n5()},
+e2:function(a){this.eB()
+this.eW()
 if(this.aU)this.a=this.c.gn().v($.$get$b4()).bi()
-this.fd()},
-fd:function(){var t=this.y2.a;(t&&C.a).su(t,0)
+this.fe()},
+fe:function(){var t=this.y2.a;(t&&C.a).su(t,0)
 this.y2.h(0,this.c.gn().v(J.hf(this.bt.ga8())))
 this.y2.h(0,this.c.gn().v(J.hf(this.bu.ga8())))
-if(this.b5)this.bl=this.at()
-if(this.ae)this.aM=Y.Hh(this.c.gn(),this.as,this.ab,this.bt,this.bu)
-this.eT=Y.dS(this)
+if(this.b5)this.bl=this.as()
+if(this.ae)this.aM=Y.Hh(this.c.gn(),this.aA,this.ab,this.bt,this.bu)
+this.eU=Y.dS(this)
 if(this.aX){if(this.aB==null)this.aB=D.HA(this.c.gn(),this)
 t=$.H
 this.a$.bg(t,C.b.l(-10))}else if(this.aB==null)this.aB=D.Hz(this.c.gn(),this)
-this.a1=this.a1+this.c.gn().a.E()*-33
-if(J.c(this.ab,$.aI))this.a1+=33
+this.a2=this.a2+this.c.gn().a.E()*-33
+if(J.c(this.ab,$.aI))this.a2+=33
 if(J.c(this.ab,$.bo))this.b=C.v
 this.a.te(this)},
 ve:function(a){var t,s,r,q,p,o,n
 t=new H.E(0,null,null,null,null,null,0,[X.a1,P.ad])
 s=this.c.gn()
-r=this.as.geY()
+r=this.aA.geZ()
 q=s.v(r.gcL(r))
 J.rc(q,$.Vu)
 r=this.c.gn()
-s=this.ab.geY()
+s=this.ab.geZ()
 p=r.v(s.gcL(s))
 J.rc(p,$.Vt)
 s=this.c.gn()
-r=this.bt.ga8().geY()
+r=this.bt.ga8().geZ()
 o=s.v(r.gcL(r))
 J.rc(o,$.KO)
 r=this.c.gn()
-s=this.bu.ga8().geY()
+s=this.bu.ga8().geZ()
 n=r.v(s.gcL(s))
 J.rc(n,$.KO)
-t.i(0,q,this.as.geY().p(0,q))
-t.i(0,p,this.ab.geY().p(0,p))
-t.i(0,o,this.bt.ga8().geY().p(0,o))
-t.i(0,n,this.bu.ga8().geY().p(0,n))
-return M.Um(t,this.c,this.ab,this.as)},
-at:function(){return this.ve(null)},
-eV:function(){var t,s
+t.i(0,q,this.aA.geZ().p(0,q))
+t.i(0,p,this.ab.geZ().p(0,p))
+t.i(0,o,this.bt.ga8().geZ().p(0,o))
+t.i(0,n,this.bu.ga8().geZ().p(0,n))
+return M.Um(t,this.c,this.ab,this.aA)},
+as:function(){return this.ve(null)},
+eW:function(){var t,s
 t=this.c
 s=new F.kG(null,C.e,t,"sprite","provides the requisite amount of gigglesnort hideytalk to be juuuust barely helpful. ",0,!1,!1,!1,!1,!1,"#000000",!1,100,!1,null,!1,H.a([],[X.by]),!1,H.a([],[Z.bu]),!1,H.a([],[N.aF]),0,H.a([],[E.R]),null,null,!1,H.a([],[Q.O]),"",null,null)
 s.D("sprite",t)
-this.au=s
+this.at=s
 s.a$.S(P.U([$.a7,10,$.X,10],D.bg,P.bJ))
-this.au.r1=!0},
-i8:function(){if(this.bp!==!0)if(!this.cY){var t=this.bl
-if(t!=null)if(!t.z)t=J.c(this.ab,$.cp)&&this.fw()
+this.at.r1=!0},
+i9:function(){if(this.bp!==!0)if(!this.cY){var t=this.bl
+if(t!=null)if(!t.z)t=J.c(this.ab,$.cp)&&this.fz()
 else t=!0
 else t=!0}else t=!0
 else t=!0
 return t},
 AH:function(a){var t,s,r,q,p,o,n
-if(this.c.ga6().f)return this.c.ga6().r1
+if(this.c.ga_().f)return this.c.ga_().r2
 if(J.c(this.ab,$.aI)){t=R.hF(a,$.eV)
 if(t!=null){s=J.bs(t)
 r=this.k4
-s=(s==null?r!=null:s!==r)&&t.i8()}else s=!1
+s=(s==null?r!=null:s!==r)&&t.i9()}else s=!1
 if(s)return t
 else return}if(J.c(this.ab,$.ap)&&this.c.gn().a.E()>0.2)return this
 q=P.an(a,!0,Q.O)
@@ -46574,16 +46586,16 @@ if(this.c.gn().a.E()>0.75){r=J.bs(o)
 n=this.k4
 n=r==null?n!=null:r!==n
 r=n}else r=!1
-if(r){if((!J.c(o.gt(),$.aI)||o.gc3()>this.c.geJ())&&o.i8())t=o}else{if(J.c(o.gC(),$.c4)||J.c(o.gt(),$.bY)){r=J.bs(o)
+if(r){if((!J.c(o.gt(),$.aI)||o.gc3()>this.c.geK())&&o.i9())t=o}else{if(J.c(o.gC(),$.c4)||J.c(o.gt(),$.bY)){r=J.bs(o)
 n=this.k4
 n=r==null?n!=null:r!==n
 r=n}else r=!1
-if(r&&o.i8())t=o}}return t},
+if(r&&o.i9())t=o}}return t},
 E5:function(){var t,s,r
 for(t=0;s=this.k2,t<s.length;++t){r=s[t]
 if(r.gde()>=3)return"SO "+J.jM(r).Af(this).toUpperCase()}return"SO BLAND"},
 Bs:function(){var t,s,r,q
-for(t=0;t<this.k2.length;++t){s=this.as.da()
+for(t=0;t<this.k2.length;++t){s=this.aA.da()
 r=this.k2
 q=r.length
 if(s){if(t>=q)return H.b(r,t)
@@ -46594,7 +46606,7 @@ if(b==null)return
 t=J.n(b)
 if(J.c(t.gdi(b),$.bw))for(s=0;r=this.id,s<r.length;++s){r=r[s]
 q=J.n(r)
-q.sa2(r,J.aa(q.ga2(r),a/this.id.length*b.gde()*t.gdi(b).gqo()))}else{if(J.c(t.gdi(b),$.a7))if(J.c(t.gdi(b),$.a7)){r=$.a7
+q.sa3(r,J.aa(q.ga3(r),a/this.id.length*b.gde()*t.gdi(b).gqo()))}else{if(J.c(t.gdi(b),$.a7))if(J.c(t.gdi(b),$.a7)){r=$.a7
 r=this.a$.X(r)
 r=r>1}else r=!1
 else r=!0
@@ -46605,16 +46617,16 @@ this.a$.bg(r,C.i.l(a*q*t))}}},
 Bt:function(){var t,s,r
 t=this.bt.ga8().gA()
 s=this.bu.ga8().gA()
-for(r=J.bj(t);r.M();)this.d1(10,r.ga_())
-for(r=J.bj(s);r.M();)this.d1(10,r.ga_())},
-eA:function(){var t,s,r,q
+for(r=J.bj(t);r.M();)this.d1(10,r.ga0())
+for(r=J.bj(s);r.M();)this.d1(10,r.ga0())},
+eB:function(){var t,s,r,q
 if(this.c6)this.ab.goA()
 if(this.c6){t=A.Ir()
-this.a$.eq(t,"trickster",this)
-this.h8=11111111111
+this.a$.er(t,"trickster",this)
+this.h9=11111111111
 this.L=11111111111}this.k2=H.a([],[E.R])
 this.ab.lo(this)
-this.as.lo(this)
+this.aA.lo(this)
 t=$.d6
 this.a$.aJ(t,C.b.l(0))
 t=$.co
@@ -46652,18 +46664,18 @@ s=this.c.gn().ac(21)
 this.a$.aJ(t,C.i.l(s+-10))
 this.Bs()
 this.Bt()
-r=this.fG()
-if(J.c(this.as,$.fb)||r<-9){if(this.b4)this.bT=this.c.gn().v($.G4)
+r=this.fH()
+if(J.c(this.aA,$.fb)||r<-9){if(this.b4)this.bT=this.c.gn().v($.G4)
 J.hM(this.bT,this.c)}else if(r>25){if(this.b4)this.bT=this.c.gn().v($.G5)
-J.hM(this.bT,this.c)}if(r>5)this.fa=!0
+J.hM(this.bT,this.c)}if(r>5)this.fb=!0
 t=$.X
 s=$.a7
 s=this.a$.X(s)
 this.a$.aJ(t,C.i.l(s))
-if(J.c(this.as,$.kC)){q=Z.K("Rocks Fall, Everyone Dies",1,null,"")
+if(J.c(this.aA,$.kC)){q=Z.K("Rocks Fall, Everyone Dies",1,null,"")
 q.r.push(new Z.A($.l,3,!0,0,1,2,3,""))
 q.e="Disappointingly sized meteors rain down from above.  Man, for such a cool name, this fraymotif kind of sucks. "
-C.a.h(this.fy,q)}else if(J.c(this.as,$.y1)){q=Z.K("What class???",1,null,"")
+C.a.h(this.fy,q)}else if(J.c(this.aA,$.y1)){q=Z.K("What class???",1,null,"")
 q.r.push(new Z.A($.l,1,!0,0,1,2,3,""))
 q.e=" I am certain there is not a class here and it is laughable to imply otherwise. "
 C.a.h(this.fy,q)
@@ -46684,110 +46696,110 @@ gll:function(){return this.x2},
 gnd:function(){return this.y1},
 gdV:function(){return this.y2},
 gcq:function(){return this.L},
-gjl:function(){return this.a1},
-geB:function(){return this.a0},
+gjl:function(){return this.a2},
+geC:function(){return this.a1},
 gkt:function(){return this.ag},
 glY:function(){return this.Y},
-gc0:function(){return this.au},
+gc0:function(){return this.at},
 gbd:function(){return this.ct},
 gcu:function(){return this.aL},
-gfk:function(){return this.cW},
-ghr:function(){return this.c6},
-geK:function(){return this.bS},
+gfl:function(){return this.cW},
+ghs:function(){return this.c6},
+geL:function(){return this.bS},
 gv1:function(){return this.dm},
-ghn:function(){return this.bH},
-ges:function(){return this.bI},
-gC:function(){return this.as},
-gaT:function(){return this.aA},
+gho:function(){return this.bH},
+geu:function(){return this.bI},
+gC:function(){return this.aA},
+gaT:function(){return this.az},
 gjm:function(){return this.j9},
-giv:function(){return this.ja},
+giw:function(){return this.ja},
 gyf:function(){return this.k9},
-ghd:function(){return this.ev},
-gfB:function(){return this.hM},
-geM:function(){return this.hN},
+ghe:function(){return this.ew},
+gfC:function(){return this.hN},
+geN:function(){return this.hO},
 gt:function(){return this.ab},
 gB:function(){return this.bl},
 gaj:function(){return this.bt},
 gan:function(){return this.bu},
 gam:function(){return this.aM},
-ga4:function(){return this.bT},
-gei:function(){return this.h5},
-gbW:function(){return this.eT},
-gcQ:function(){return this.f9},
+ga5:function(){return this.bT},
+gej:function(){return this.h6},
+gbW:function(){return this.eU},
+gcQ:function(){return this.fa},
 gbf:function(){return this.bp},
-gfI:function(){return this.e_},
+gfJ:function(){return this.e_},
 gaO:function(){return this.c1},
 gcO:function(){return this.bJ},
-gcc:function(){return this.eg},
+gcc:function(){return this.eh},
 gbm:function(){return this.aX},
-gav:function(){return this.aN},
+gau:function(){return this.aN},
 gb7:function(){return this.dn},
 gba:function(){return this.cX},
 gm:function(){return this.aB},
-gaS:function(){return this.fa},
-gf4:function(){return this.il},
+gaS:function(){return this.fb},
+gf5:function(){return this.im},
 gbL:function(){return this.cY},
 gbM:function(){return this.cN},
-gir:function(){return this.eh},
-gdY:function(){return this.h7},
-gbZ:function(){return this.fb},
+gis:function(){return this.ei},
+gdY:function(){return this.h8},
+gbZ:function(){return this.fc},
 gaI:function(){return this.bD},
-gdz:function(){return this.fc},
-gc3:function(){return this.h8},
+gdz:function(){return this.fd},
+gc3:function(){return this.h9},
 gzy:function(){return this.li},
 sll:function(a){return this.x2=a},
 snd:function(a){return this.y1=a},
 scq:function(a){return this.L=a},
-sjl:function(a){return this.a1=a},
-seB:function(a){return this.a0=a},
+sjl:function(a){return this.a2=a},
+seC:function(a){return this.a1=a},
 skt:function(a){return this.ag=a},
 slY:function(a){return this.Y=a},
-sie:function(a){return this.ae=a},
+sig:function(a){return this.ae=a},
 sdv:function(a){return this.b4=a},
-sh3:function(a){return this.aU=a},
-sig:function(a){return this.b5=a},
+sh4:function(a){return this.aU=a},
+sih:function(a){return this.b5=a},
 sbd:function(a){return this.ct=a},
 scu:function(a){return this.aL=a},
-shr:function(a){return this.c6=a},
-seK:function(a){return this.bS=a},
-shn:function(a){return this.bH=a},
-ses:function(a){return this.bI=a},
-sC:function(a){return this.as=a},
-saT:function(a){return this.aA=a},
+shs:function(a){return this.c6=a},
+seL:function(a){return this.bS=a},
+sho:function(a){return this.bH=a},
+seu:function(a){return this.bI=a},
+sC:function(a){return this.aA=a},
+saT:function(a){return this.az=a},
 sjm:function(a){return this.j9=a},
-siv:function(a){return this.ja=a},
-shd:function(a){return this.ev=a},
-sfB:function(a){return this.hM=a},
-seM:function(a){return this.hN=a},
+siw:function(a){return this.ja=a},
+she:function(a){return this.ew=a},
+sfC:function(a){return this.hN=a},
+seN:function(a){return this.hO=a},
 st:function(a){return this.ab=a},
 sB:function(a){return this.bl=a},
 saj:function(a){return this.bt=a},
 san:function(a){return this.bu=a},
 sam:function(a){return this.aM=a},
-sa4:function(a){return this.bT=a},
-sei:function(a){return this.h5=a},
-sbW:function(a){return this.eT=a},
-scQ:function(a){return this.f9=a},
+sa5:function(a){return this.bT=a},
+sej:function(a){return this.h6=a},
+sbW:function(a){return this.eU=a},
+scQ:function(a){return this.fa=a},
 sbf:function(a){return this.bp=a},
-sfI:function(a){return this.e_=a},
+sfJ:function(a){return this.e_=a},
 saO:function(a){return this.c1=a},
 scO:function(a){return this.bJ=a},
-scc:function(a){return this.eg=a},
+scc:function(a){return this.eh=a},
 sbm:function(a){return this.aX=a},
-sav:function(a){return this.aN=a},
+sau:function(a){return this.aN=a},
 sb7:function(a){return this.dn=a},
 sba:function(a){return this.cX=a},
 sm:function(a){return this.aB=a},
-saS:function(a){return this.fa=a},
-sf4:function(a){return this.il=a},
+saS:function(a){return this.fb=a},
+sf5:function(a){return this.im=a},
 sbL:function(a){return this.cY=a},
 sbM:function(a){return this.cN=a},
-sir:function(a){return this.eh=a},
-sdY:function(a){return this.h7=a},
-sbZ:function(a){return this.fb=a},
+sis:function(a){return this.ei=a},
+sdY:function(a){return this.h8=a},
+sbZ:function(a){return this.fc=a},
 saI:function(a){return this.bD=a},
-sdz:function(a){return this.fc=a},
-sc3:function(a){return this.h8=a}}
+sdz:function(a){return this.fd=a},
+sc3:function(a){return this.h9=a}}
 Q.xl.prototype={
 $1:function(a){return!a.gng()},
 $S:function(){return{func:1,args:[A.dV]}}}
@@ -46798,7 +46810,7 @@ a.saI(this.d)
 a.sbm(this.e)
 a.sC(this.f)
 a.st(this.r)
-a.seM(null)},
+a.seN(null)},
 vU:function(a){this.b=this.a.gb9()
 this.c=this.a.gbM()
 this.d=this.a.gaI()
@@ -46850,9 +46862,9 @@ if(s>=r.length)return H.b(r,s)
 t=J.fY(t,P.al(J.cx(r[s],0),!1,!1),q)}return t},
 BV:function(a){var t,s,r
 t=[["\\byear\\b","sweep"],["SBURB","SGRUB"],["\\bmonth\\b","perigee"],["\\brefrigerator\\b","\\bthermal hull\\b"],["\\bbathtub\\b","ablution trap"],["\\bears\\b","hear ducts "],["\\bheart\\b","pump biscuit"],["\\bbrain\\b","sponge"],["\\brap\\b","slam poetry"],["\\bnose\\b","sniffnode"],["\\bmouth\\b","squawk gaper"],["\\bbed\\b","cocoon"],["\\btea\\b","scalding leaf fluid"],["\\bworm","dirt noodle"],["\\bbean","fart nibblet"],["\\btree\\b","frond nub"],["\\bleg\\b","frond"],["\\bgold star\\b","glitter biscuit"],["\\bborn\\b","hatched"],["\\btoilet\\b","load gaper"],["\\bfoot\\b","prong"],["\\bspine\\b","posture pole"],["vampire","rainbow drinker"],["\\btits\\b","rumble spheres"],["\\bbaby\\b","wiggler"],["eye","gander bulb"]]
-s=15-C.a.b1($.$get$l1(),a.gav())
+s=15-C.a.b1($.$get$l1(),a.gau())
 for(r=0;r<26;++r)if(this.x.a.E()*15<s)this.b.push(t[r])},
-hT:function(a){var t,s,r
+hU:function(a){var t,s,r
 this.f=this.x.ac(6)+0
 this.c=this.x.ac(6)+0
 this.a=[]
@@ -46864,11 +46876,11 @@ if(J.c(J.c6(t),1)&&this.r<8){t=this.d
 this.d=D.DV(t,J.cx(t,0),this.r)}}if(this.x.a.E()>0.95){if(!J.c(this.d,"")&&this.x.a.E()>0.7){t=this.d
 this.e=t}else{t=this.x.v($.$get$Hy())
 this.e=t}if(J.c(J.c6(t),1)&&this.r<8){t=this.e
-this.e=D.DV(t,J.cx(t,0),this.r)}}if(J.c(a.gav(),"#99004d")||J.c(a.gav(),"#610061"))for(s=0;s<3;++s)this.b.push(this.x.v($.$get$Hf()))
+this.e=D.DV(t,J.cx(t,0),this.r)}}if(J.c(a.gau(),"#99004d")||J.c(a.gau(),"#610061"))for(s=0;s<3;++s)this.b.push(this.x.v($.$get$Hf()))
 r=this.x.a.E()>0.5?this.x.ac(11)+0:0
 if(r<0)r=0
 for(s=0;s<r;++s){this.b.push(D.WV(this.x))
-if(J.c(a.gav(),"#99004d")||J.c(a.gav(),"#610061"))this.b.push(this.x.v($.$get$Hf()))}this.b.push(this.x.v($.$get$HF()))
+if(J.c(a.gau(),"#99004d")||J.c(a.gau(),"#610061"))this.b.push(this.x.v($.$get$Hf()))}this.b.push(this.x.v($.$get$HF()))
 this.b.push(this.x.v($.$get$Hg()))
 this.b.push(this.x.v($.$get$Hl()))
 this.b.push(this.x.v($.$get$Hu()))
@@ -46914,7 +46926,7 @@ if(this.x.a.E()>0.5)this.a.push(["IZ","12"])}else if(t===0){if(this.x.a.E()>0.5)
 if(this.x.a.E()>0.5)this.a.push(["O","0"])
 if(this.x.a.E()>0.5)this.a.push(["oh","0"])
 if(this.x.a.E()>0.5)this.a.push(["OH","0"])}this.BV(a)},
-hS:function(a){var t,s
+hT:function(a){var t,s
 this.f=this.x.ac(3)+0
 this.c=this.x.ac(4)+0
 this.a=[]
@@ -46945,8 +46957,8 @@ if(typeof q!=="number")return H.w(q)
 if(!(r<q))break
 q=J.aO(s)
 if(r%2===0){p=J.jN(q.p(s,r))
-s=q.ay(s,0,r)+p+q.d6(s,r+p.length)}else{p=J.fZ(q.p(s,r))
-s=q.ay(s,0,r)+p+q.d6(s,r+p.length)}++r}}else if(t===5){t=J.aO(a)
+s=q.ax(s,0,r)+p+q.d6(s,r+p.length)}else{p=J.fZ(q.p(s,r))
+s=q.ax(s,0,r)+p+q.d6(s,r+p.length)}++r}}else if(t===5){t=J.aO(a)
 s=a
 r=0
 while(!0){q=t.gu(a)
@@ -46954,8 +46966,8 @@ if(typeof q!=="number")return H.w(q)
 if(!(r<q))break
 q=J.aO(s)
 if(J.c(q.p(s,r),J.fZ(q.p(s,r)))){p=J.jN(q.p(s,r))
-s=q.ay(s,0,r)+p+q.d6(s,r+p.length)}else{p=J.fZ(q.p(s,r))
-s=q.ay(s,0,r)+p+q.d6(s,r+p.length)}++r}}else if(t===3)s=J.Ec(a,P.al("\\b\\w",!0,!0),new D.xC())
+s=q.ax(s,0,r)+p+q.d6(s,r+p.length)}else{p=J.fZ(q.p(s,r))
+s=q.ax(s,0,r)+p+q.d6(s,r+p.length)}++r}}else if(t===3)s=J.Ec(a,P.al("\\b\\w",!0,!0),new D.xC())
 else if(t===1)s=a
 else s=t===2?J.fZ(a):a
 return s},
@@ -46967,7 +46979,7 @@ glI:function(a){return this.d},
 gn:function(){return this.x},
 sn:function(a){return this.x=a}}
 D.xC.prototype={
-$1:function(a){return J.fZ(a.hz(0))},
+$1:function(a){return J.fZ(a.hA(0))},
 $S:function(){return{func:1,args:[,]}}}
 A.ca.prototype={
 ac:function(a){var t=J.a6(a)
@@ -47013,7 +47025,7 @@ $S:function(){return{func:1,args:[P.q]}}}
 N.aF.prototype={
 gak:function(a){var t,s
 t=$.p.aL
-if(t.f&&t.r1!=null){s=t.r1
+if(t.f&&t.r2!=null){s=t.r2
 if(!J.c(this.a,s))return s}return this.c},
 v_:function(a){this.c=a},
 Cq:function(){if(J.c(this.d,this.cx))return"moirail"
@@ -47044,14 +47056,14 @@ else if(J.af(this.b,-20))return this.Q
 else if(J.P(this.b,0))return this.x
 else if(J.c(this.b,0))return this.r
 else return this.z},
-fg:function(){var t,s
+fh:function(){var t,s
 t=J.d3(this.b,0)
 s=this.b
 if(t)this.b=J.aa(s,1)
 else this.b=J.aa(s,-1)},
 kd:function(){this.b=J.aa(this.b,1)},
-fv:function(){this.b=J.aa(this.b,-1)},
-eL:function(a){this.d=a
+fw:function(){this.b=J.aa(this.b,-1)},
+eM:function(a){this.d=a
 this.f=a},
 ar:function(a){var t
 if(J.c(this.d,this.ch)||J.c(this.d,this.db)||J.c(this.d,this.cx)||J.c(this.d,this.cy))return this.d
@@ -47066,9 +47078,9 @@ else this.e=!1
 return this.d},
 nt:function(a){return H.h(this.d)+" with the "+this.c.w()},
 gdU:function(a){return this.a},
-ga2:function(a){return this.b},
+ga3:function(a){return this.b},
 gO:function(){return this.d},
-gh4:function(){return this.e},
+gh5:function(){return this.e},
 gdA:function(){return this.f},
 go3:function(){return this.r},
 guE:function(){return this.x},
@@ -47080,9 +47092,9 @@ gcM:function(){return this.cx},
 gdW:function(){return this.cy},
 gd4:function(){return this.db},
 sdU:function(a,b){return this.a=b},
-sa2:function(a,b){return this.b=b},
+sa3:function(a,b){return this.b=b},
 sO:function(a){return this.d=a},
-sh4:function(a){return this.e=a},
+sh5:function(a){return this.e=a},
 sdA:function(a){return this.f=a}}
 Y.iD.prototype={
 n1:function(a){var t,s
@@ -47094,7 +47106,7 @@ return s},
 to:function(a){var t,s,r
 if(this.b!=null)throw H.j("Resource ("+this.a+") already loaded")
 this.b=a
-for(t=this.c,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].ft(0,this.b)
+for(t=this.c,s=t.length,r=0;r<t.length;t.length===s||(0,H.Q)(t),++r)t[r].fu(0,this.b)
 C.a.su(t,0)}}
 V.tL.prototype={
 $4:function(a,b,c,d){return V.P0(a,b,c,d,this.a)},
@@ -47121,7 +47133,7 @@ L.ng.prototype={
 G:function(a){return this.b}}
 L.fU.prototype={
 gtf:function(){return H.a([this.d,this.e],[R.pa])},
-eC:function(){var t,s,r,q,p,o
+eD:function(){var t,s,r,q,p,o
 t=[U.e]
 s=H.a([],t)
 s.push(new U.e("The "+$.x+" fights the Dersite army, desparately trying to stave off the Reckoning.   "))
@@ -47137,7 +47149,7 @@ q=H.a([],t)
 p=this.ae.ac(2)+3
 for(o=0;o<p;++o)q.push(this.ae.v(s))
 return new R.kE("Wander The Battlefield",!0,q,H.a([],t),R.V(),!1,!1,new Y.rF(null,"Rewards/battlefield.png","Rewards/no_reward.png",null),1,null,null)},
-eX:function(){var t,s,r,q,p,o
+eY:function(){var t,s,r,q,p,o
 t=[U.e]
 s=H.a([],t)
 s.push(new U.e("The "+$.x+" bets 50 boonies on the red frog.   After a nerve wracking set of hops, it comes in first!  "))
@@ -47152,7 +47164,7 @@ q=H.a([],t)
 p=this.ae.ac(2)+3
 for(o=0;o<p;++o)q.push(this.ae.v(s))
 return new R.hs("Do Prospit Bullshit",!0,q,H.a([],t),R.Gd(),!1,!1,new Y.iX(null,"Prospit.png","Rewards/no_reward.png",null),1,null,null)},
-eD:function(){var t,s,r,q,p,o
+eE:function(){var t,s,r,q,p,o
 t=[U.e]
 s=H.a([],t)
 r=$.x
@@ -47212,19 +47224,19 @@ k.i(0,$.h2,$.B)
 k.i(0,$.j_,$.B)
 k.i(0,$.EV,$.u)
 k.i(0,$.EU,$.u)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
-k.i(0,this.eC(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
+k.i(0,this.eD(),$.a0)
 p.i(0,new X.a1(m,k,null),$.bC)
 o=new L.rE($.$get$Jb(),Q.Y(null,null,R.kE),!1,null,null,null,null,null,null,null,null,!1,!1,!1,null,null,null,null,null,!1,null,null,$.$get$nR(),null,null,null,Q.Y(null,null,s),Q.Y(null,null,l),P.cF(o,[Q.d7,N.az]))
 o.dy="BattleField"
@@ -47248,18 +47260,18 @@ o.i(0,$.eE,$.B)
 o.i(0,$.cf,$.B)
 o.i(0,$.em,$.a0)
 o.i(0,$.EV,$.u)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
-o.i(0,this.eX(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
+o.i(0,this.eY(),$.S)
 o.i(0,this.ju(),$.b6)
 o.i(0,this.ju(),$.b6)
 o.i(0,this.ju(),$.b6)
@@ -47277,19 +47289,19 @@ r.i(0,$.h2,$.B)
 r.i(0,$.dW,$.a0)
 r.i(0,$.ek,$.B)
 r.i(0,$.EU,$.u)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
-r.i(0,this.eD(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
+r.i(0,this.eE(),$.a0)
 r.i(0,this.ju(),$.b6)
 r.i(0,this.ju(),$.b6)
 r.i(0,this.ju(),$.b6)
@@ -47303,15 +47315,15 @@ i.i(0,new X.a1(q,r,null),$.bC)
 this.d=R.K6("Prospit",j,this,$.cd,t,$.$get$Ky())
 this.e=R.K6("Derse",i,this,$.b2,t+1,$.$get$Kr())
 for(t=this.r,s=t.length,h=0;h<t.length;t.length===s||(0,H.Q)(t),++h)t[h].cs()},
-bY:function(){return P.an(this.a1,!0,Q.O)},
-t3:function(a){return C.a.aE(this.a1,a)},
-qd:function(a){this.a1.push(a)},
+bY:function(){return P.an(this.a2,!0,Q.O)},
+t3:function(a){return C.a.aE(this.a2,a)},
+qd:function(a){this.a2.push(a)},
 ai:function(a){var t
 if(a==null||!(a instanceof Q.O))return
 if(!a.ga7())t=!(J.c(a.gt(),$.ap)||J.c(a.gt(),$.cp)||this.aL.c)
 else t=!0
-if(t)Y.fA(a,this.a1)
-else if(!this.aL.c)if(this.ae.a.E()>0.4)Y.fA(a,this.a1)},
+if(t)Y.fA(a,this.a2)
+else if(!this.aL.c)if(this.ae.a.E()>0.4)Y.fA(a,this.a2)},
 lQ:function(){var t,s,r
 t=this.db
 if(t===C.Z){t=T.f9
@@ -47325,25 +47337,25 @@ this.b5=P.an(L.O6(),!0,r)}else{this.b4=P.an(T.pT(),!0,s)
 this.aU=P.an(T.pT(),!0,s)
 this.b5=P.an(L.rn(),!0,r)}}this.ct=H.a([$.ap,$.aI],[L.ej])},
 uV:function(a){var t,s
-this.a1=H.a([],[Q.O])
-for(t=0;t<a.length;++t)if(!a[t].ga7()){s=this.a1
+this.a2=H.a([],[Q.O])
+for(t=0;t<a.length;++t)if(!a[t].ga7()){s=this.a2
 if(t>=a.length)return H.b(a,t)
-s.push(a[t])}return this.a1},
+s.push(a[t])}return this.a2},
 tq:function(a){var t,s,r
 this.uV(a)
 for(t=0;s=this.y2,t<s.length;++t){r=s[t]
 if(r.b2(a)){++this.dx
-r.aY(this.hh(J.r9(r).G(0)))
+r.aY(this.hi(J.r9(r).G(0)))
 if(!r.gd8())C.a.aW(this.y2,r)}}for(t=0;s=this.y1,t<s.length;++t){r=s[t]
 if(r.b2(a)){++this.dx
-r.aY(this.hh(new H.eu(H.fx(r),null).G(0)))}}},
+r.aY(this.hi(new H.eu(H.fx(r),null).G(0)))}}},
 CQ:function(a){var t,s,r
 for(t=0;s=this.x2,t<s.length;++t){r=s[t]
 if(r.b2(a)){++this.dx
-r.aY(this.hh(new H.eu(H.fx(r),null).G(0)))}}for(t=0;s=this.y1,t<s.length;++t){r=s[t]
+r.aY(this.hi(new H.eu(H.fx(r),null).G(0)))}}for(t=0;s=this.y1,t<s.length;++t){r=s[t]
 if(r.b2(a)){++this.dx
-r.aY(this.hh(new H.eu(H.fx(r),null).G(0)))}}},
-ii:function(){this.au.ii()},
+r.aY(this.hi(new H.eu(H.fx(r),null).G(0)))}}},
+ij:function(){this.at.ij()},
 AA:function(){var t,s,r,q
 t=R.iK(this.r,$.aI)
 s=t.length
@@ -47367,7 +47379,7 @@ r=s.a
 F.ao(C.h).$1(r.aG(C.h,"timelines divurged, allowing transTimeline interaction"))
 C.a.V(s.b,s.c)
 s.c=[]
-s.d=null}return t}else{this.a0.push(a)
+s.d=null}return t}else{this.a1.push(a)
 return}},
 p1:function(a){var t,s,r,q
 t=a.gc3()
@@ -47409,11 +47421,11 @@ r=!this.lh()
 return t<=s||r},
 n_:function(a){var t,s
 t=this.Q
-t.a.ic("ghosts cant interact with a yellow yyard until timelines divurge")
+t.a.ie("ghosts cant interact with a yellow yyard until timelines divurge")
 C.a.V(t.c,t.b)
 t.b=[]
 t.d=a
-if(this.Y.gfM()){if(a!=null)this.ag.a.push(a)
+if(this.Y.gfN()){if(a!=null)this.ag.a.push(a)
 s=this.Y.gcj()
 this.lO()
 Y.pV($.p)
@@ -47421,7 +47433,7 @@ $.p.lz()
 $.p.lL()
 $.p.ly()
 this.Y.scj(s)
-this.Y.sfM(!0)
+this.Y.sfN(!0)
 if($.p.Y.gcj()){t=$.p
 R.E0(t.r,t.f)}t=$.bR
 J.rd(t.a,'<canvas id="loading" width="1000" height="354"> ',C.d)
@@ -47453,7 +47465,7 @@ t=R.b9(this.r)
 s=L.Gp(this.ae.e3())
 s.ry=this.ry
 s.Q=this.Q
-s.Y.sf8(this.Y.gf8())
+s.Y.sf9(this.Y.gf9())
 s.lO()
 s.lz()
 s.lL()
@@ -47475,11 +47487,11 @@ this.k4=this.ae.ac(1+this.fy-t)+t
 this.r2=this.ae.a.E()
 this.y2=H.a([],[Y.mg])
 Y.pV(this)
-this.Y.sik(!1)
+this.Y.sil(!1)
 this.oX()
 this.oY()
 this.k2=!1
-this.a0=H.a([],[Z.lL])
+this.a1=H.a([],[Z.lL])
 this.Y.sjx(!1)
 this.rx=H.a([],[P.q])
 this.Y.scj(!1)},
@@ -47552,24 +47564,24 @@ md:function(){var t=this.r2
 if(t>0.6)return"Human"
 else if(t>0.3)return"Troll"
 return"Mixed"},
-hu:function(a){var t,s,r,q
+hv:function(a){var t,s,r,q
 if(a==null){a=this.r
 t=!0}else t=!1
 s=this.aL
-if(s.f)return s.r1
+if(s.f)return s.r2
 for(r=0;s=a.length,r<s;++r){q=a[r]
-if(q instanceof Q.O)if(q.fc)return q}if(s!==0&&t){s=this.b
+if(q instanceof Q.O)if(q.fd)return q}if(s!==0&&t){s=this.b
 s.toString
 F.ao(C.h).$1(s.aG(C.h,"found a leaderless session"))
 if(0>=a.length)return H.b(a,0)
 a[0].sdz(!0)
 if(0>=a.length)return H.b(a,0)
 return a[0]}return},
-oJ:function(){return this.hu(null)},
-oX:function(){this.au.vf()
-this.au.vd()
-this.au.vc()
-this.au.vb()},
+oJ:function(){return this.hv(null)},
+oX:function(){this.at.vf()
+this.at.vd()
+this.at.vc()
+this.at.vb()},
 G:function(a){return C.i.G(this.f)},
 tj:function(a,b){var t,s,r,q,p,o,n,m,l,k,j,i;++this.ry
 t=document
@@ -47611,11 +47623,11 @@ t.textContent=null
 t.appendChild((t&&C.f).dZ(t,r,null,null))
 return s}else if(b){t=this.b
 t.toString
-F.ao(C.h).$1("("+t.b+")["+H.h(C.a.gax("LogLevel.INFO".split(".")))+"]: am i setting do not render to false?")}s.textContent=null
+F.ao(C.h).$1("("+t.b+")["+H.h(C.a.gaw("LogLevel.INFO".split(".")))+"]: am i setting do not render to false?")}s.textContent=null
 s.appendChild(C.f.dZ(s,i,null,null))
 $.bR.a.appendChild(s)
 return s},
-hh:function(a){return this.tj(a,!1)},
+hi:function(a){return this.tj(a,!1)},
 oK:function(){var t,s
 t=this.L
 if(t!=null){s=t.oK()
@@ -47627,7 +47639,7 @@ s=new A.ca(null,null)
 s.cr(t)
 this.ae=s
 F.UD(this)
-this.au=new Y.wA(this,null,null,null,null,null,null)
+this.at=new Y.wA(this,null,null,null,null,null,null)
 s=$.Gq
 if(s==null){s=K.Vj()
 $.Gq=s}this.aL=s
@@ -47637,57 +47649,57 @@ this.Y.slp($.eS)
 P.dp("Making sesssion "+C.i.G(t)+" with initialGameEntity id of "+this.Y.glp())
 this.b=new F.kr(!1,"Session: "+H.h(t))
 t=this.aL
-this.y=t.k3
-this.cy=t.k2
-this.cx=t.k1
-this.k1=t.id
-this.id=t.go
-this.go=t.fy
-this.Y.scj(t.fx)
-this.r1=t.fr
-this.k4=t.dx
+this.y=t.k4
+this.cy=t.k3
+this.cx=t.k2
+this.k1=t.k1
+this.id=t.id
+this.go=t.go
+this.Y.scj(t.fy)
+this.r1=t.fx
+this.k4=t.dy
 this.lQ()},
 gap:function(){return this.b},
 gl_:function(){return this.c},
-gfF:function(){return this.d},
-geQ:function(){return this.e},
+gfG:function(){return this.d},
+geR:function(){return this.e},
 gdR:function(){return this.f},
 gF:function(){return this.r},
-gex:function(){return this.x},
+gey:function(){return this.x},
 gdF:function(){return this.y},
 gca:function(){return this.Q},
 gnR:function(){return this.ch},
 gk6:function(){return this.cx},
-geK:function(){return this.dy},
+geL:function(){return this.dy},
 glt:function(){return this.fr},
-ghO:function(){return this.go},
+ghP:function(){return this.go},
 gkl:function(){return this.id},
-geJ:function(){return this.k1},
+geK:function(){return this.k1},
 glN:function(){return this.k2},
 gxH:function(){return this.k3},
-giD:function(){return this.k4},
+giE:function(){return this.k4},
 glf:function(){return this.rx},
 gD6:function(){return this.x2},
 gzq:function(){return this.y1},
 gdu:function(){return this.y2},
-grY:function(){return this.a0},
+grY:function(){return this.a1},
 gjC:function(){return this.ag},
 gA:function(){return this.Y},
-gJ:function(){return this.au},
+gJ:function(){return this.at},
 gn:function(){return this.ae},
 gqq:function(){return this.aU},
-ga6:function(){return this.aL},
+ga_:function(){return this.aL},
 syx:function(a){return this.a=a},
 sdF:function(a){return this.y=a},
 sk6:function(a){return this.cx=a},
 std:function(a){return this.cy=a},
-seK:function(a){return this.dy=a},
+seL:function(a){return this.dy=a},
 slt:function(a){return this.fr=a},
-shO:function(a){return this.go=a},
+shP:function(a){return this.go=a},
 skl:function(a){return this.id=a},
-seJ:function(a){return this.k1=a},
+seK:function(a){return this.k1=a},
 slN:function(a){return this.k2=a},
-siD:function(a){return this.k4=a},
+siE:function(a){return this.k4=a},
 stw:function(a){return this.r1=a},
 sA:function(a){return this.Y=a},
 sn:function(a){return this.ae=a}}
@@ -47710,7 +47722,7 @@ if(p==null)p=V.E6(this.rA(t.ga9(a).gn(),s,r),a)}else p=null
 o=C.c.k("",J.aa(J.aa(t.ga9(a).gn().v(["Yo","Friend","Trust","Represent","Respect","Word","Dawg","Dog","Bro","Sup","Okay","What","Yeah","Aight","Yeah Dog","Fo, Shizzle","Hey","Boo yeah","Break it down","Fuck","Shit","Peace","True that","Double True","Word up","My homey","Homey","You knows it","Listen up","Back the fuck up","3,2,1"]),", "),this.a))
 if(q){o=C.c.k(o,r)+this.c
 o=p!=null?C.c.k(o,J.aa(p,".")):C.c.k(o,V.MY(t.ga9(a).gn()))}else o=C.c.k(o,V.MY(t.ga9(a).gn()))
-return[C.c.k(a.a5()+": ",a.gm().ku(0,o)),r,p]},
+return[C.c.k(a.a6()+": ",a.gm().ku(0,o)),r,p]},
 rz:function(a,b){var t=this.t9(b,this.b)
 if(t!=null)return a.v(t)
 return},
@@ -47814,20 +47826,20 @@ lb:function(a,b){return b*this.r},
 G:function(a){return this.a},
 ta:function(a,b){var t,s,r,q,p,o
 for(t=b.length,s=-1/0,r=null,q=0;q<b.length;b.length===t||(0,H.Q)(b),++q){p=b[q]
-o=p.iL().X(this)
+o=p.iM().X(this)
 if(o>s){r=p
 s=o}}return r},
 nZ:function(a,b){var t,s,r,q,p
-for(t=J.bj(b),s=1/0,r=null;t.M();){q=t.ga_()
-p=q.iL().X(this)
+for(t=J.bj(b),s=1/0,r=null;t.M();){q=t.ga0()
+p=q.iM().X(this)
 if(p<s){r=q
 s=p}}return r},
-yd:function(a,b){return J.dT(this.hq(0,a,!1),a.length)},
+yd:function(a,b){return J.dT(this.hr(0,a,!1),a.length)},
 yc:function(a){return this.yd(a,!1)},
-hq:function(a,b,c){b.toString
+hr:function(a,b,c){b.toString
 return new H.eF(b,new D.yW(this),[H.L(b,0),null]).tB(0,new D.yX())},
-DR:function(a,b){return this.hq(a,b,!1)},
-v5:function(a,b){return C.i.ec(a.iL().X(this),b.iL().X(this))},
+DR:function(a,b){return this.hr(a,b,!1)},
+v5:function(a,b){return C.i.ed(a.iM().X(this),b.iM().X(this))},
 v4:function(a,b){var t
 a.toString
 t=H.a(a.slice(0),[H.L(a,0)])
@@ -47846,7 +47858,7 @@ gC5:function(){return this.z},
 gCb:function(){return this.Q},
 gC6:function(){return this.ch}}
 D.yW.prototype={
-$1:function(a){return a.iL().X(this.a)},
+$1:function(a){return a.iM().X(this.a)},
 "call*":"$1",
 $R:1,
 $S:function(){return{func:1,args:[E.h9]}}}
@@ -47872,9 +47884,9 @@ $S:function(){return{func:1,args:[P.bJ,P.bJ]}}}
 E.h9.prototype={}
 E.fc.prototype={
 gqv:function(){return this.b},
-iL:function(){return this},
-i9:function(a){var t,s,r,q,p
-for(t=a.gpo(),t=t.gcL(t),t=t.gaw(t),s=this.a;t.M();){r=t.ga_()
+iM:function(){return this},
+ia:function(a){var t,s,r,q,p
+for(t=a.gpo(),t=t.gcL(t),t=t.gav(t),s=this.a;t.M();){r=t.ga0()
 s.i(0,r,a.gpo().p(0,r))}for(t=a.gwf(),s=t.length,q=this.b,p=0;p<t.length;t.length===s||(0,H.Q)(t),++p)q.push(t[p].bi())},
 p:function(a,b){return this.X(b)},
 u9:function(a){var t=this.a
@@ -47890,22 +47902,22 @@ s+=b
 t.i(0,a,s)
 return s},
 S:function(a){var t,s
-for(t=a.gcL(a),t=t.gaw(t);t.M();){s=t.ga_()
+for(t=a.gcL(a),t=t.gav(t);t.M();){s=t.ga0()
 this.aJ(s,a.p(0,s))}},
 m3:function(a){var t=this.b
 return new H.cG(t,new E.yR(a),[H.L(t,0)])},
 xU:function(a,b,c){var t
-for(t=J.bj(c);t.M();)b=t.ga_().qr(this,a,b)
+for(t=J.bj(c);t.M();)b=t.ga0().qr(this,a,b)
 return b},
 xT:function(a,b,c){var t,s,r
-for(t=J.bj(c),s=0;t.M();){r=J.cc(t.ga_().kU(this,a,b),b)
+for(t=J.bj(c),s=0;t.M();){r=J.cc(t.ga0().kU(this,a,b),b)
 if(typeof r!=="number")return H.w(r)
 s+=r}return J.aa(b,s)},
 n4:function(a,b,c){var t
-for(t=J.bj(c);t.M();)b=t.ga_().Cg(this,a,b)
+for(t=J.bj(c);t.M();)b=t.ga0().Cg(this,a,b)
 return b},
 n3:function(a,b,c){var t
-for(t=J.bj(c);t.M();)b=t.ga_().nD(this,a,b)
+for(t=J.bj(c);t.M();)b=t.ga0().nD(this,a,b)
 return b},
 ns:function(a,b){var t,s,r
 t=this.a
@@ -47916,20 +47928,20 @@ if(b!=null)r=J.l8(r,b)
 return J.r5(this.n3(a,this.n4(a,this.xT(a,a.lb(this,this.xU(a,s,r)),r),r),r),a.gCb(),a.gC6())},
 X:function(a){return this.ns(a,null)},
 Ct:function(){var t=this.b
-C.a.f5(t,"retainWhere")
+C.a.f6(t,"retainWhere")
 C.a.kS(t,new E.yT(),!1)},
 Cs:function(){var t=this.b
-C.a.f5(t,"retainWhere")
+C.a.f6(t,"retainWhere")
 C.a.kS(t,new E.yS(),!1)},
-gaw:function(a){var t=this.a
+gav:function(a){var t=this.a
 t=t.gcL(t)
-return t.gaw(t)},
+return t.gav(t)},
 gu:function(a){var t=this.a
 return t.gu(t)},
-eq:function(a,b,c){a.b=b
+er:function(a,b,c){a.b=b
 a.a=c
 this.b.push(a)},
-jS:function(a){return this.eq(a,null,null)},
+jS:function(a){return this.er(a,null,null)},
 gpo:function(){return this.a},
 gwf:function(){return this.b}}
 E.pj.prototype={
@@ -47945,17 +47957,17 @@ E.yS.prototype={
 $1:function(a){return!a.gng()},
 $S:function(){return{func:1,args:[A.dV]}}}
 E.mk.prototype={
-iL:function(){return this.a$},
+iM:function(){return this.a$},
 gA:function(){return this.a$},
 sA:function(a){var t=J.a6(a)
 if(!!t.$ismk){this.sA(a.a$)
-return}else if(!!t.$isfc){t=this.h2()
-t.i9(a)
+return}else if(!!t.$isfc){t=this.h3()
+t.ia(a)
 this.a$=t
 return}throw H.j("Invalid type for StatOwner.stats in "+this.G(0)+": "+H.h(a)+" ("+H.h(t.gcp(a))+")")},
 gqv:function(){return this.a$.b},
-eq:function(a,b,c){return this.a$.eq(a,b,c)},
-jS:function(a){return this.eq(a,null,null)},
+er:function(a,b,c){return this.a$.er(a,b,c)},
+jS:function(a){return this.er(a,null,null)},
 uy:function(a,b){var t=this.a$.X(a)
 return t},
 R:function(a){return this.uy(a,!1)},
@@ -48014,8 +48026,8 @@ E.yV.prototype={
 $1:function(a){var t=0,s=P.cI(),r=this,q,p,o,n,m,l
 var $async$$1=P.cR(function(b,c){if(b===1)return P.cO(c,s)
 while(true)switch(t){case 0:q=new P.fJ(Date.now(),!1)
-p=C.c.ej(C.b.G(H.Gc(q)),4,"0")+C.c.ej(C.b.G(H.xv(q)),2,"0")+C.c.ej(C.b.G(H.G9(q)),2,"0")
-o=C.c.ej(C.b.G(H.Ga(q)),2,"0")+C.c.ej(C.b.G(H.xu(q)),2,"0")+C.c.ej(C.b.G(H.xw(q)),2,"0")
+p=C.c.ek(C.b.G(H.Gc(q)),4,"0")+C.c.ek(C.b.G(H.xv(q)),2,"0")+C.c.ek(C.b.G(H.G9(q)),2,"0")
+o=C.c.ek(C.b.G(H.Ga(q)),2,"0")+C.c.ek(C.b.G(H.xu(q)),2,"0")+C.c.ek(C.b.G(H.xw(q)),2,"0")
 n=r.a
 l=W
 t=2
@@ -48032,7 +48044,7 @@ $S:function(){return{func:1,ret:P.dX,args:[W.au]}}}
 E.ik.prototype={
 R:function(a){var t,s,r
 if(a!=null)return this.f.p(0,a)
-for(t=this.f,t=t.gd3(t),t=t.gaw(t),s=0;t.M();){r=t.ga_()
+for(t=this.f,t=t.gd3(t),t=t.gav(t),s=0;t.M();){r=t.ga0()
 if(typeof r!=="number")return H.w(r)
 s+=r}t=this.f
 if(t.gb_(t))t=0
@@ -48043,8 +48055,8 @@ this.b=a.gC()
 this.c=a.gt()
 this.d=a.gaj().ga8()
 this.e=a.gan().ga8()
-for(t=J.bj(a.gA());t.M();){s=t.ga_()
-this.f.i(0,s,J.iM(a.R(s)))}$.$get$KI().ic("Data point for "+H.h(a)+" at time "+this.a)},
+for(t=J.bj(a.gA());t.M();){s=t.ga0()
+this.f.i(0,s,J.iM(a.R(s)))}$.$get$KI().ie("Data point for "+H.h(a)+" at time "+this.a)},
 glW:function(a){return this.a},
 guJ:function(){return this.b},
 gt:function(){return this.c},
@@ -48118,14 +48130,14 @@ Q.d7.prototype={
 oD:function(a,b){var t,s,r,q,p,o,n
 t=this.oQ()
 s=C.i.aZ(b,0,1)*t
-for(r=J.bj(this.gix()),q=0;r.M();){p=r.ga_()
+for(r=J.bj(this.giy()),q=0;r.M();){p=r.ga0()
 o=J.n(p)
-n=o.gfK(p)
+n=o.gfL(p)
 if(typeof n!=="number")return H.w(n)
 q+=n
 if(s<=q)return o.gby(p)}return},
 oQ:function(){var t,s,r
-for(t=J.bj(this.gix()),s=0;t.M();){r=J.NH(t.ga_())
+for(t=J.bj(this.giy()),s=0;t.M();){r=J.NH(t.ga0())
 if(typeof r!=="number")return H.w(r)
 s+=r}return s},
 py:function(a,b){return new Q.m(a,this.q(a,b),[H.as(this,"d7",0)])},
@@ -48133,8 +48145,8 @@ wo:function(a){return this.py(a,1)},
 q:function(a,b){var t=this.a
 if(t!=null)return t.$2(a,b)
 return b},
-G:function(a){return J.bS(this.gix())},
-em:function(a,b){return Q.Al(this,b,H.as(this,"d7",0))},
+G:function(a){return J.bS(this.giy())},
+en:function(a,b){return Q.Al(this,b,H.as(this,"d7",0))},
 dd:function(a,b){return Q.ju(this,b,H.as(this,"d7",0),null)},
 bX:function(a,b){return Q.ha(this,!1,b,null,H.as(this,"d7",0))},
 d2:function(a){return this.bX(a,!0)},
@@ -48146,7 +48158,7 @@ t=this.oQ()
 s=C.i.aZ(b,0,1)*t
 for(r=this.b,q=r.length,p=0,o=0;o<r.length;r.length===q||(0,H.Q)(r),++o){n=r[o]
 m=J.n(n)
-l=m.gfK(n)
+l=m.gfL(n)
 if(typeof l!=="number")return H.w(l)
 p+=l
 if(s<=p)return m.gby(n)}return},
@@ -48156,11 +48168,11 @@ for(s=this.b,r=s.length,q=0;q<s.length;s.length===r||(0,H.Q)(s),++q){p=s[q]
 o=J.n(p)
 if(!t.bh(0,o.gby(p)))t.i(0,o.gby(p),0)
 n=o.gby(p)
-t.i(0,n,J.aa(t.p(0,n),o.gfK(p)))}C.a.su(this.b,0)
+t.i(0,n,J.aa(t.p(0,n),o.gfL(p)))}C.a.su(this.b,0)
 this.xu(t.gcL(t),t.gd3(t))},
-gix:function(){return this.b},
-f1:function(a,b,c){C.a.h(this.b,new Q.m(b,this.q(b,J.iM(c)),this.$ti))},
-h:function(a,b){return this.f1(a,b,1)},
+giy:function(){return this.b},
+f2:function(a,b,c){C.a.h(this.b,new Q.m(b,this.q(b,J.iM(c)),this.$ti))},
+h:function(a,b){return this.f2(a,b,1)},
 V:function(a,b){var t,s
 t=H.hD(b,"$iskN",this.$ti,null)
 s=this.b
@@ -48170,20 +48182,20 @@ xu:function(a,b){var t,s,r,q,p,o,n,m
 t=this.b
 s=t.length
 C.a.su(t,s+a.gu(a))
-r=a.gaw(a)
-q=b.gaw(b)
-for(t=this.$ti;r.M();){p=q.M()?q.ga_():1
+r=a.gav(a)
+q=b.gav(b)
+for(t=this.$ti;r.M();){p=q.M()?q.ga0():1
 o=this.b
-n=r.ga_()
+n=r.ga0()
 m=this.q(n,p)
 if(s>=o.length)return H.b(o,s)
 o[s]=new Q.m(n,m,t);++s}},
 Dt:function(a,b){var t=this.b
-C.a.f5(t,"retainWhere")
+C.a.f6(t,"retainWhere")
 C.a.kS(t,new Q.Aj(this,b),!1)
 return},
 Dd:function(a,b){var t=this.b
-C.a.f5(t,"removeWhere")
+C.a.f6(t,"removeWhere")
 C.a.kS(t,new Q.Ai(this,b),!0)
 return},
 p:function(a,b){var t=this.b
@@ -48198,7 +48210,7 @@ gu:function(a){return this.b.length},
 su:function(a,b){C.a.su(this.b,b)
 return b},
 G:function(a){return P.h8(this.b,"[","]")},
-em:function(a,b){return Q.Al(this,b,H.L(this,0))},
+en:function(a,b){return Q.Al(this,b,H.L(this,0))},
 dd:function(a,b){return Q.ju(this,b,H.L(this,0),null)},
 bX:function(a,b){return Q.ha(this,!1,b,null,H.L(this,0))},
 d2:function(a){return this.bX(a,!0)},
@@ -48218,24 +48230,24 @@ Q.Ai.prototype={
 $1:function(a){return this.b.$1(J.jL(a))},
 $S:function(){return H.e3(function(a){return{func:1,args:[[Q.m,a]]}},this.a,"kN")}}
 Q.m.prototype={
-G:function(a){return"("+H.h(this.a)+" @ "+H.h(this.gfK(this))+")"},
+G:function(a){return"("+H.h(this.a)+" @ "+H.h(this.gfL(this))+")"},
 gby:function(a){return this.a},
-gfK:function(a){return this.b}}
+gfL:function(a){return this.b}}
 Q.e2.prototype={
-gix:function(){return this.b},
-gaw:function(a){var t=new Q.Ah(null,[H.as(this,"e2",0)])
+giy:function(){return this.b},
+gav:function(a){var t=new Q.Ah(null,[H.as(this,"e2",0)])
 t.a=J.bj(this.b)
 return t},
 gu:function(a){return J.c6(this.b)},
 G:function(a){return J.bS(this.b)},
-em:function(a,b){return Q.Al(this,b,H.as(this,"e2",0))},
+en:function(a,b){return Q.Al(this,b,H.as(this,"e2",0))},
 dd:function(a,b){return Q.ju(this,b,H.as(this,"e2",0),null)},
 bX:function(a,b){return Q.ha(this,!1,b,null,H.as(this,"e2",0))},
 d2:function(a){return this.bX(a,!0)},
 gdU:function(a){return this.b}}
 Q.kM.prototype={$asd7:null,$asv:null,$isv:1}
 Q.Ah.prototype={
-ga_:function(){return J.jL(this.a.ga_())},
+ga0:function(){return J.jL(this.a.ga0())},
 M:function(){return this.a.M()}}
 Q.qr.prototype={}
 Q.Am.prototype={
@@ -48248,7 +48260,7 @@ $asd7:function(a,b){return[b]},
 $asv:function(a,b){return[b]}}
 Q.Ak.prototype={
 $1:function(a){var t=J.n(a)
-return new Q.m(this.c.$1(t.gby(a)),t.gfK(a),[this.b])},
+return new Q.m(this.c.$1(t.gby(a)),t.gfL(a),[this.b])},
 "call*":"$1",
 $R:1,
 $S:function(){return H.e3(function(a,b){return{func:1,args:[[Q.m,a]]}},this,"qq")}}
@@ -48263,7 +48275,7 @@ return H.D6(t,this.a)},
 $S:function(){return H.e3(function(a,b){return{func:1,args:[[Q.m,b]]}},this,"mo")}}
 Q.zv.prototype={
 $1:function(a){var t=J.n(a)
-return new Q.m(t.gby(a),t.gfK(a),[this.a])},
+return new Q.m(t.gby(a),t.gfL(a),[this.a])},
 "call*":"$1",
 $R:1,
 $S:function(){return H.e3(function(a,b){return{func:1,args:[[Q.m,b]]}},this,"mo")}}
@@ -48289,9 +48301,9 @@ m=W.N(l,m)
 j.f=m
 j.r=m.getContext("2d")
 m=this.c
-i.f1(0,"1",m[0])
+i.f2(0,"1",m[0])
 l=this.d
-i.f1(0,"2",l[0])
+i.f2(0,"2",l[0])
 j.qg(n)
 if(t>1)for(g=1;g<t;++g){k=2*g
 i=k+1
@@ -48309,8 +48321,8 @@ e.a=C.i.aZ(C.b.aZ(255,0,255),0,255)
 h=j.c
 i=C.b.G(i)
 if(g>=2)return H.b(m,g)
-h.f1(0,i,m[g])
-j.c.f1(0,C.b.G(k),l[g])
+h.f2(0,i,m[g])
+j.c.f2(0,C.b.G(k),l[g])
 j.qg(U.L5(a,s,r,f,e,q,p,o))}s=j.yt()
 s.toString
 H.kY(s,0,null)
@@ -48318,11 +48330,11 @@ s=new Uint8Array(s,0)
 d=new P.cN("")
 c=[-1]
 P.L2("image/gif",null,null,d,c)
-c.push(d.a3.length)
-r=d.a3+=";base64,"
+c.push(d.a4.length)
+r=d.a4+=";base64,"
 c.push(r.length-1)
-C.Y.vi(new P.Cr(d)).h_(s,0,s.length,!0)
-s=d.a3
+C.Y.vi(new P.Cr(d)).h0(s,0,s.length,!0)
+s=d.a4
 b=W.oa(null,J.bS(new P.mt(s.charCodeAt(0)==0?s:s,c,null).glZ()),null)
 W.dH(b,"load",new U.Ap(this.x,b),!1,W.au)},
 "call*":"$1",
@@ -48334,21 +48346,21 @@ $S:function(){return{func:1,args:[W.au]}}}
 J.t.prototype.vq=J.t.prototype.G
 J.lS.prototype.vs=J.lS.prototype.G
 P.iH.prototype.vx=P.iH.prototype.kI
-P.fe.prototype.vy=P.fe.prototype.i2
+P.fe.prototype.vy=P.fe.prototype.i3
 P.fe.prototype.vz=P.fe.prototype.iT
 P.bU.prototype.pe=P.bU.prototype.bR
 P.fI.prototype.vn=P.fI.prototype.nF
-P.v.prototype.vr=P.v.prototype.em
+P.v.prototype.vr=P.v.prototype.en
 P.aJ.prototype.kH=P.aJ.prototype.G
 W.bK.prototype.mt=W.bK.prototype.dZ
-W.mE.prototype.vA=W.mE.prototype.hI
-R.jZ.prototype.pd=R.jZ.prototype.iA
-Q.ht.prototype.i1=Q.ht.prototype.ha
-Q.ht.prototype.pf=Q.ht.prototype.iA
+W.mE.prototype.vA=W.mE.prototype.hJ
+R.jZ.prototype.pd=R.jZ.prototype.iB
+Q.ht.prototype.i2=Q.ht.prototype.hb
+Q.ht.prototype.pf=Q.ht.prototype.iB
 D.f_.prototype.ms=D.f_.prototype.k_
 E.cr.prototype.vp=E.cr.prototype.j6
-R.i3.prototype.vt=R.i3.prototype.ij
-Y.i6.prototype.eN=Y.i6.prototype.cC
+R.i3.prototype.vt=R.i3.prototype.ik
+Y.i6.prototype.eO=Y.i6.prototype.cC
 Y.ai.prototype.vo=Y.ai.prototype.cC
 A.dV.prototype.pc=A.dV.prototype.G
 D.bg.prototype.pg=D.bg.prototype.lb
@@ -48357,8 +48369,8 @@ E.fc.prototype.bg=E.fc.prototype.xv
 E.fc.prototype.vw=E.fc.prototype.m3
 E.fc.prototype.vv=E.fc.prototype.n4
 E.fc.prototype.vu=E.fc.prototype.n3;(function installTearOffs(){installTearOff(H.kV.prototype,"gBK",0,0,0,null,["$0"],["lr"],1)
-installTearOff(H.hC.prototype,"guO",0,0,1,null,["$1"],["f_"],17)
-installTearOff(H.jy.prototype,"gzB",0,0,1,null,["$1"],["hL"],17)
+installTearOff(H.hC.prototype,"guO",0,0,1,null,["$1"],["f0"],17)
+installTearOff(H.jy.prototype,"gzB",0,0,1,null,["$1"],["hM"],17)
 installTearOff(H,"Wj",1,0,0,null,["$1"],["Wk"],20)
 installTearOff(H,"Lz",1,0,0,null,["$1"],["Wq"],13)
 installTearOff(P,"Wv",1,0,0,null,["$1"],["VG"],15)
@@ -48369,18 +48381,18 @@ installTearOff(P,"Wy",1,0,1,null,["$1"],["Wm"],6)
 installTearOff(P,"Wz",1,0,1,function(){return[null]},["$2","$1"],["LA",function(a){return P.LA(a,null)}],12)
 installTearOff(P,"LU",1,0,0,null,["$0"],["Wn"],1)
 var t
-installTearOff(t=P.qC.prototype,"gkP",0,0,0,null,["$0"],["hE"],1)
-installTearOff(t,"gkQ",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t=P.qC.prototype,"gkP",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t,"gkQ",0,0,0,null,["$0"],["hG"],1)
 installTearOff(P.iH.prototype,"gqc",0,1,1,null,["$1"],["h"],function(){return H.e3(function(a){return{func:1,v:true,args:[a]}},this.$receiver,"iH")})
 installTearOff(P.qD.prototype,"gqX",0,0,0,null,["$2","$1"],["nh","l8"],12)
-installTearOff(P.cH.prototype,"ghC",0,0,1,function(){return[null]},["$2","$1"],["eO","pv"],12)
-installTearOff(t=P.qF.prototype,"gkP",0,0,0,null,["$0"],["hE"],1)
-installTearOff(t,"gkQ",0,0,0,null,["$0"],["hF"],1)
-installTearOff(t=P.fe.prototype,"gkP",0,0,0,null,["$0"],["hE"],1)
-installTearOff(t,"gkQ",0,0,0,null,["$0"],["hF"],1)
+installTearOff(P.cH.prototype,"ghD",0,0,1,function(){return[null]},["$2","$1"],["eP","pv"],12)
+installTearOff(t=P.qF.prototype,"gkP",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t,"gkQ",0,0,0,null,["$0"],["hG"],1)
+installTearOff(t=P.fe.prototype,"gkP",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t,"gkQ",0,0,0,null,["$0"],["hG"],1)
 installTearOff(P.qI.prototype,"gxg",0,0,0,null,["$0"],["iX"],1)
-installTearOff(t=P.jC.prototype,"gkP",0,0,0,null,["$0"],["hE"],1)
-installTearOff(t,"gkQ",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t=P.jC.prototype,"gkP",0,0,0,null,["$0"],["hF"],1)
+installTearOff(t,"gkQ",0,0,0,null,["$0"],["hG"],1)
 installTearOff(t,"gwE",0,0,1,null,["$1"],["wF"],function(){return H.e3(function(a,b){return{func:1,v:true,args:[a]}},this.$receiver,"jC")})
 installTearOff(t,"gwI",0,0,2,null,["$2"],["wJ"],53)
 installTearOff(t,"gwG",0,0,0,null,["$0"],["wH"],1)
@@ -48390,13 +48402,13 @@ installTearOff(P,"WG",1,0,1,null,["$1"],["dp"],6)
 installTearOff(W,"X5",1,0,4,null,["$4"],["VP"],25)
 installTearOff(W,"X6",1,0,4,null,["$4"],["VQ"],25)
 installTearOff(W.jS.prototype,"ge7",0,1,0,null,["$0"],["ow"],18)
-installTearOff(t=W.nm.prototype,"gee",0,1,1,null,["$1"],["nx"],6)
+installTearOff(t=W.nm.prototype,"gef",0,1,1,null,["$1"],["nx"],6)
 installTearOff(t,"gBq",0,0,0,null,["$1"],["Br"],6)
 installTearOff(t,"glW",0,1,0,null,["$1"],["DI"],19)
 installTearOff(t,"gE7",0,0,0,null,["$1"],["E8"],6)
 installTearOff(W.iV.prototype,"gby",0,1,1,null,["$1"],["aR"],9)
 installTearOff(W.nn.prototype,"gby",0,1,1,null,["$1"],["aR"],47)
-installTearOff(W.nv.prototype,"ghU",0,1,0,null,["$1","$0"],["lC","o4"],62)
+installTearOff(W.nv.prototype,"ghV",0,1,0,null,["$1","$0"],["lC","o4"],62)
 installTearOff(W.ny.prototype,"gby",0,1,1,null,["$1"],["aR"],9)
 installTearOff(W.nz.prototype,"gby",0,1,1,null,["$1"],["aR"],13)
 installTearOff(W.nA.prototype,"gby",0,1,1,null,["$1"],["aR"],9)
@@ -48405,59 +48417,59 @@ installTearOff(W.nZ.prototype,"gby",0,1,1,null,["$1"],["aR"],21)
 installTearOff(W.ke.prototype,"gby",0,1,1,null,["$1"],["aR"],22)
 installTearOff(W.o9.prototype,"gby",0,1,1,null,["$1"],["aR"],22)
 installTearOff(W.p6.prototype,"gby",0,1,1,null,["$1"],["aR"],9)
-installTearOff(t=W.p7.prototype,"gcf",0,1,0,function(){return[null]},["$1","$0"],["fP","f0"],38)
-installTearOff(t,"ge8",0,1,0,null,["$0"],["fQ"],1)
-installTearOff(W.lY.prototype,"ge8",0,1,0,null,["$0"],["fQ"],1)
-installTearOff(W.p8.prototype,"gcf",0,1,0,null,["$0"],["f0"],1)
+installTearOff(t=W.p7.prototype,"gcf",0,1,0,function(){return[null]},["$1","$0"],["fQ","f1"],38)
+installTearOff(t,"ge9",0,1,0,null,["$0"],["fR"],1)
+installTearOff(W.lY.prototype,"ge9",0,1,0,null,["$0"],["fR"],1)
+installTearOff(W.p8.prototype,"gcf",0,1,0,null,["$0"],["f1"],1)
 installTearOff(W.p9.prototype,"gby",0,1,1,null,["$1"],["aR"],23)
 installTearOff(W.pd.prototype,"goc",0,1,0,null,["$0"],["od"],14)
 installTearOff(W.e9.prototype,"gby",0,1,1,null,["$1"],["aR"],23)
 installTearOff(W.px.prototype,"gby",0,1,1,null,["$1"],["aR"],45)
-installTearOff(W.pA.prototype,"gcf",0,1,0,null,["$0"],["f0"],18)
+installTearOff(W.pA.prototype,"gcf",0,1,0,null,["$0"],["f1"],18)
 installTearOff(W.pB.prototype,"ge7",0,1,0,null,["$0"],["ow"],2)
 installTearOff(W.jn.prototype,"gdi",0,1,1,null,["$1"],["vk"],13)
 installTearOff(W.pQ.prototype,"gcS",0,1,0,null,["$0"],["Ds"],48)
 installTearOff(W.pW.prototype,"gby",0,1,1,null,["$1"],["aR"],21)
 installTearOff(W.q1.prototype,"gby",0,1,1,null,["$1"],["aR"],26)
 installTearOff(W.q2.prototype,"gby",0,1,1,null,["$1"],["aR"],55)
-installTearOff(t=W.q3.prototype,"gcf",0,1,0,null,["$0"],["f0"],1)
-installTearOff(t,"ge8",0,1,0,null,["$0"],["fQ"],1)
+installTearOff(t=W.q3.prototype,"gcf",0,1,0,null,["$0"],["f1"],1)
+installTearOff(t,"ge9",0,1,0,null,["$0"],["fR"],1)
 installTearOff(W.eb.prototype,"gby",0,1,1,null,["$1"],["aR"],57)
-installTearOff(W.qd.prototype,"gcf",0,1,1,null,["$1"],["fP"],58)
+installTearOff(W.qd.prototype,"gcf",0,1,1,null,["$1"],["fQ"],58)
 installTearOff(W.qh.prototype,"gby",0,1,1,null,["$1"],["aR"],59)
 installTearOff(W.qi.prototype,"gby",0,1,1,null,["$1"],["aR"],60)
 installTearOff(t=W.qj.prototype,"glG",0,1,0,null,["$0"],["Cy"],14)
 installTearOff(t,"goc",0,1,0,null,["$0"],["od"],14)
-installTearOff(W.ql.prototype,"gcf",0,1,1,null,["$1"],["fP"],27)
+installTearOff(W.ql.prototype,"gcf",0,1,1,null,["$1"],["fQ"],27)
 installTearOff(W.qo.prototype,"gby",0,1,1,null,["$1"],["aR"],28)
-installTearOff(W.kO.prototype,"ge8",0,1,0,null,["$0"],["fQ"],1)
+installTearOff(W.kO.prototype,"ge9",0,1,0,null,["$0"],["fR"],1)
 installTearOff(W.mv.prototype,"gby",0,1,1,null,["$1"],["aR"],29)
 installTearOff(W.qG.prototype,"gby",0,1,1,null,["$1"],["aR"],30)
 installTearOff(W.qK.prototype,"gby",0,1,1,null,["$1"],["aR"],31)
 installTearOff(W.mD.prototype,"gby",0,1,1,null,["$1"],["aR"],32)
 installTearOff(W.qP.prototype,"gby",0,1,1,null,["$1"],["aR"],33)
 installTearOff(W.qS.prototype,"gby",0,1,1,null,["$1"],["aR"],34)
-installTearOff(W.qR.prototype,"gyU",0,1,0,null,["$0"],["f6"],1)
-installTearOff(P.lm.prototype,"ghU",0,1,0,null,["$1","$0"],["lC","o4"],35)
-installTearOff(t=P.n7.prototype,"gcf",0,1,1,function(){return[null,null]},["$3","$1","$2"],["mo","fP","vh"],36)
-installTearOff(t,"ge8",0,1,1,null,["$1"],["mr"],37)
-installTearOff(t=P.m6.prototype,"gcf",0,1,0,function(){return[null]},["$1","$0"],["fP","f0"],10)
-installTearOff(t,"ge8",0,1,0,function(){return[null]},["$1","$0"],["mr","fQ"],10)
+installTearOff(W.qR.prototype,"gyU",0,1,0,null,["$0"],["f7"],1)
+installTearOff(P.lm.prototype,"ghV",0,1,0,null,["$1","$0"],["lC","o4"],35)
+installTearOff(t=P.n7.prototype,"gcf",0,1,1,function(){return[null,null]},["$3","$1","$2"],["mo","fQ","vh"],36)
+installTearOff(t,"ge9",0,1,1,null,["$1"],["mr"],37)
+installTearOff(t=P.m6.prototype,"gcf",0,1,0,function(){return[null]},["$1","$0"],["fQ","f1"],10)
+installTearOff(t,"ge9",0,1,0,function(){return[null]},["$1","$0"],["mr","fR"],10)
 installTearOff(P.q5.prototype,"gby",0,1,1,null,["$1"],["aR"],39)
-installTearOff(t=B.hA.prototype,"gcf",0,1,0,null,["$0"],["f0"],0)
+installTearOff(t=B.hA.prototype,"gcf",0,1,0,null,["$0"],["f1"],0)
 installTearOff(t,"gy4",0,0,0,null,["$0"],["y5"],0)
 installTearOff(t,"gqp",0,0,0,null,["$0"],["y6"],0)
 installTearOff(t,"gy7",0,0,0,null,["$0"],["y8"],0)
 installTearOff(t,"gy9",0,0,0,null,["$0"],["ya"],0)
-installTearOff(t,"gh1",0,1,0,null,["$0"],["yb"],0)
-installTearOff(t,"gfs",0,0,0,null,["$0"],["yY"],0)
+installTearOff(t,"gh2",0,1,0,null,["$0"],["yb"],0)
+installTearOff(t,"gft",0,0,0,null,["$0"],["yY"],0)
 installTearOff(t,"gyy",0,0,0,null,["$0"],["yz"],0)
 installTearOff(t,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(t,"gzJ",0,0,0,null,["$0"],["zK"],0)
 installTearOff(t,"gzL",0,1,0,null,["$0"],["zM"],0)
 installTearOff(t,"grn",0,0,0,null,["$0"],["Ae"],0)
 installTearOff(t,"gtr",0,0,0,null,["$0"],["CU"],0)
-installTearOff(t,"giy",0,0,0,null,["$0"],["CY"],0)
+installTearOff(t,"giz",0,0,0,null,["$0"],["CY"],0)
 installTearOff(t,"gl3",0,0,0,null,["$0"],["yD"],0)
 installTearOff(t,"gCd",0,0,0,null,["$0"],["Ce"],0)
 installTearOff(t,"gkF",0,0,0,null,["$0"],["v7"],0)
@@ -48473,10 +48485,10 @@ installTearOff(K.kR.prototype,"gu3",0,0,0,null,["$1"],["DZ"],function(){return H
 installTearOff(F,"Ig",1,0,0,null,["$0"],["Xk"],1)
 installTearOff(F.n1.prototype,"gDe",0,0,0,null,["$0"],["Df"],1)
 installTearOff(X.n2.prototype,"gbc",0,1,2,null,["$2"],["nk"],43)
-installTearOff(Y.qc.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(Y.qc.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(O.na.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(Q.nd.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
-installTearOff(Y.nf.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(Y.nf.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(Y.nq.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(Z.ns.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(E.nE.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
@@ -48486,7 +48498,7 @@ installTearOff(X.eQ.prototype,"gxE",0,0,0,null,["$1"],["xF"],19)
 installTearOff(A,"P7",1,0,5,null,["$5"],["P5"],56)
 installTearOff(E.nS.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(K.nT.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
-installTearOff(V.nY.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(V.nY.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(K.o_.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(B.o1.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(t=Z.o2.prototype,"gus",0,0,0,null,["$3"],["ut"],44)
@@ -48500,7 +48512,7 @@ installTearOff(F.o4.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(O.o5.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(M.o6.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
 installTearOff(Y.o7.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
-installTearOff(Q.py.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(Q.py.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(R.p_.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(U.p0.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(T.p1.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
@@ -48539,9 +48551,9 @@ installTearOff(t=B.pY.prototype,"gA9",0,0,0,null,["$0"],["Aa"],1)
 installTearOff(t,"gAb",0,0,0,null,["$0"],["Ac"],1)
 installTearOff(t,"gD7",0,0,0,function(){return[null]},["$1","$0"],["ty","tx"],10)
 installTearOff(t,"gDF",0,0,0,function(){return[null]},["$1","$0"],["tT","tS"],10)
-installTearOff(M.q4.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(M.q4.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(K.q7.prototype,"gbc",0,1,0,null,["$0"],["ad"],0)
-installTearOff(G.q8.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
+installTearOff(G.q8.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
 installTearOff(L.qm.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
 installTearOff(t=D.qn.prototype,"gAD",0,0,2,null,["$2"],["AE"],4)
 installTearOff(t,"gBY",0,0,2,null,["$2"],["BZ"],4)
@@ -48551,13 +48563,13 @@ installTearOff(t,"gE9",0,0,2,null,["$2"],["Ea"],4)
 installTearOff(t,"gcj",0,0,0,null,["$2"],["rm"],4)
 installTearOff(t,"gbf",0,0,2,null,["$2"],["oS"],4)
 installTearOff(L.qy.prototype,"gbc",0,1,0,null,["$0"],["ad"],2)
-installTearOff(B.qz.prototype,"gfz",0,0,0,null,["$0"],["ey"],2)
-installTearOff(L.nc.prototype,"gko",0,1,2,null,["$2"],["iw"],49)
-installTearOff(R.o3.prototype,"gfz",0,0,2,null,["$2"],["rU"],50)
+installTearOff(B.qz.prototype,"gfA",0,0,0,null,["$0"],["ez"],2)
+installTearOff(L.nc.prototype,"gko",0,1,2,null,["$2"],["ix"],49)
+installTearOff(R.o3.prototype,"gfA",0,0,2,null,["$2"],["rU"],50)
 installTearOff(T,"X1",1,0,0,null,["$2"],["OH"],16)
 installTearOff(T,"X0",1,0,0,null,["$2"],["IL"],16)
 installTearOff(T,"X_",1,0,0,null,["$2"],["On"],16)
-installTearOff(F.kr.prototype,"gee",0,1,1,null,["$1"],["nx"],6)
+installTearOff(F.kr.prototype,"gef",0,1,1,null,["$1"],["nx"],6)
 installTearOff(N.aF.prototype,"gb3",0,1,0,null,["$0"],["ar"],2)
 installTearOff(Y.iD.prototype,"gCH",0,0,1,null,["$1"],["to"],function(){return H.e3(function(a){return{func:1,v:true,args:[a]}},this.$receiver,"iD")})
 installTearOff(V,"Xz",1,0,4,null,["$4"],["OZ"],8)
@@ -50903,12 +50915,12 @@ lazy($,"Lh","$get$Lh",function(){return new T.mF(C.H,C.P,257,286,15)})
 lazy($,"Lg","$get$Lg",function(){return new T.mF(C.a6,C.B,0,30,15)})
 lazy($,"Lf","$get$Lf",function(){return new T.mF(null,C.aM,0,19,7)})
 lazy($,"LC","$get$LC",function(){return D.We()})
-lazy($,"KQ","$get$KQ",function(){return D.dQ("\n",null).hi(D.dQ("\r",null).bw(0,D.dQ("\n",null).Cw()))})
+lazy($,"KQ","$get$KQ",function(){return D.dQ("\n",null).hj(D.dQ("\r",null).bw(0,D.dQ("\n",null).Cw()))})
 lazy($,"LB","$get$LB",function(){var t=new V.qw()
 return t.xc(new L.hu(t.gcf(t),C.x))})
 lazy($,"Ly","$get$Ly",function(){return D.DZ("xX",null).bQ(D.DZ("A-Fa-f0-9",null).oa().nE().dd(0,new T.Df())).kq(1)})
-lazy($,"Lx","$get$Lx",function(){return D.dQ("#",null).bQ($.$get$Ly().hi(new D.h0(C.ai,"digit expected").oa().nE().dd(0,new T.De()))).kq(1)})
-lazy($,"H0","$get$H0",function(){return D.dQ("&",null).bQ($.$get$Lx().hi(new D.h0(C.ao,"letter or digit expected").oa().nE().dd(0,new T.Dd()))).bQ(D.dQ(";",null)).kq(1)})
+lazy($,"Lx","$get$Lx",function(){return D.dQ("#",null).bQ($.$get$Ly().hj(new D.h0(C.ai,"digit expected").oa().nE().dd(0,new T.De()))).kq(1)})
+lazy($,"H0","$get$H0",function(){return D.dQ("&",null).bQ($.$get$Lx().hj(new D.h0(C.ao,"letter or digit expected").oa().nE().dd(0,new T.Dd()))).bQ(D.dQ(";",null)).kq(1)})
 lazy($,"LM","$get$LM",function(){return P.al("[&<]|]]>",!0,!1)})
 lazy($,"LY","$get$LY",function(){return P.iu([C.J,"'",C.K,'"'])})
 lazy($,"Lr","$get$Lr",function(){return P.iu([C.J,P.al("['&<\\n\\r\\t]",!0,!1),C.K,P.al('["&<\\n\\r\\t]',!0,!1)])})
@@ -50930,25 +50942,25 @@ lazy($,"EL","$get$EL",function(){return D.hl("post denizen quest chain",null,R.a
 lazy($,"EK","$get$EK",function(){return D.hl("moon quest chain",null,R.hs)})
 lazy($,"EO","$get$EO",function(){return D.hl("battlefield quest chain",null,R.kE)})
 lazy($,"ut","$get$ut",function(){var t=new D.nQ(P.cF(P.q,D.lH))
-t.er($.$get$nI())
-t.er($.$get$nJ())
-t.er($.$get$nH())
+t.es($.$get$nI())
+t.es($.$get$nJ())
+t.es($.$get$nH())
 return t})
 lazy($,"nR","$get$nR",function(){var t=D.F0($.$get$ut())
-t.er($.$get$uc())
-t.er($.$get$EI())
-t.er($.$get$EN())
-t.er($.$get$EM())
-t.er($.$get$EJ())
-t.er($.$get$EL())
+t.es($.$get$uc())
+t.es($.$get$EI())
+t.es($.$get$EN())
+t.es($.$get$EM())
+t.es($.$get$EJ())
+t.es($.$get$EL())
 return t})
 lazy($,"Ja","$get$Ja",function(){var t=D.F0($.$get$ut())
-t.er($.$get$EK())
-t.er($.$get$uc())
+t.es($.$get$EK())
+t.es($.$get$uc())
 return t})
 lazy($,"Jb","$get$Jb",function(){var t=D.F0($.$get$ut())
-t.er($.$get$EO())
-t.er($.$get$uc())
+t.es($.$get$EO())
+t.es($.$get$uc())
 return t})
 lazy($,"uJ","$get$uJ",function(){return P.cF(P.q,Z.nG)})
 lazy($,"i0","$get$i0",function(){return P.cF(P.J,B.kh)})
@@ -50967,19 +50979,19 @@ lazy($,"rI","$get$rI",function(){return P.cF(P.q,L.iO)})
 lazy($,"le","$get$le",function(){return P.cF(P.q,[P.y,[P.iT,L.iO]])})
 lazy($,"In","$get$In",function(){var t=P.J
 t=new L.nc("images/fonts/courier_new_14px.png",10,16,8,P.cF(t,t),P.cF(t,t))
-t.iE("!",4)
-t.iE("S",7)
-t.iE("O",7)
-t.iE("C",7)
-t.iE("X",7)
-t.iE("Y",7)
-t.iE("m",9)
-t.iw(0,"!",-1)
-t.iw(0,"S",-1)
-t.iw(0,"O",-1)
-t.iw(0,"C",-1)
-t.iw(0,"X",-1)
-t.iw(0,"Y",-1)
+t.iF("!",4)
+t.iF("S",7)
+t.iF("O",7)
+t.iF("C",7)
+t.iF("X",7)
+t.iF("Y",7)
+t.iF("m",9)
+t.ix(0,"!",-1)
+t.ix(0,"S",-1)
+t.ix(0,"O",-1)
+t.ix(0,"C",-1)
+t.ix(0,"X",-1)
+t.ix(0,"Y",-1)
 return t})
 lazy($,"jm","$get$jm",function(){return A.eC(16777215,!1)})
 lazy($,"Gh","$get$Gh",function(){return A.eC(0,!1)})
@@ -51007,8 +51019,8 @@ t.soZ("#00A4BB")
 t.sl6("#FA4900")
 t.sl7("#E94200")
 t.sl5("#C33700")
-t.sfN("#FF8800")
-t.si0("#D66E04")
+t.sfO("#FF8800")
+t.si1("#D66E04")
 t.slF("#E76700")
 t.slE("#CA5B00")
 return t})
@@ -51022,8 +51034,8 @@ t.skY("#FFC935")
 t.sl6("#FFCC00")
 t.sl7("#FF9B00")
 t.sl5("#C66900")
-t.sfN("#FFD91C")
-t.si0("#FFE993")
+t.sfO("#FFD91C")
+t.si1("#FFE993")
 t.slF("#FFB71C")
 t.slE("#C67D00")
 return t})
@@ -51037,8 +51049,8 @@ t.skY("#D456EA")
 t.sl6("#C87CFF")
 t.sl7("#AA00FF")
 t.sl5("#6900AF")
-t.sfN("#DE00FF")
-t.si0("#E760FF")
+t.sfO("#DE00FF")
+t.si1("#E760FF")
 t.slF("#B400CC")
 t.slE("#770E87")
 return t})
@@ -51054,8 +51066,8 @@ t.soZ("#A6A6A6")
 t.sl6("#484848")
 t.sl7("#595959")
 t.sl5("#313131")
-t.sfN("#B6B6B6")
-t.si0("#797979")
+t.sfO("#B6B6B6")
+t.si1("#797979")
 t.slF("#494949")
 t.slE("#393939")
 return t})
